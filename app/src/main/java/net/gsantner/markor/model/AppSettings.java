@@ -157,6 +157,15 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
         return orDefault(getString(R.string.pref_key__git_author_email, ""), rstr(R.string.git_author_email_default));
     }
 
+    /**
+     * 作者是不是用户自己填的。没填时提交会用内置默认身份（Markor for Android <markor@localhost>），
+     * git 不会报错，但推到远端后归属不明，所以同步前要把这件事告诉用户。
+     */
+    public boolean isGitAuthorConfigured() {
+        return !getString(R.string.pref_key__git_author_name, "").trim().isEmpty()
+                && !getString(R.string.pref_key__git_author_email, "").trim().isEmpty();
+    }
+
     /** EditTextPreference 存了空串时 getString 不会回落到默认值，提交作者不能为空 */
     private String orDefault(final String value, final String fallback) {
         return value == null || value.trim().isEmpty() ? fallback : value.trim();
@@ -199,6 +208,33 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public boolean isGitAccessTokenSet() {
         return getGitAccessToken().length() > 0;
+    }
+
+    /** SSH 私钥文件路径（公钥认证用），如 /storage/emulated/0/Documents/id_ed25519 */
+    public String getGitSshKeyPath() {
+        return getString(R.string.pref_key__git_ssh_key_path, "");
+    }
+
+    public void setGitSshKeyPath(final String path) {
+        setString(R.string.pref_key__git_ssh_key_path, path == null ? "" : path.trim());
+    }
+
+    /** 私钥口令跟访问令牌同一套 KeyStore 加密存放，API 23 以下无法保存；没设口令的密钥留空 */
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public String getGitSshPassphrase() {
+        final char[] stored = new PasswordStore(getContext()).loadKey(R.string.pref_key__git_ssh_passphrase);
+        return stored == null ? "" : new String(stored);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void setGitSshPassphrase(final String passphrase) {
+        new PasswordStore(getContext()).storeKey(passphrase == null ? "" : passphrase.trim(),
+                R.string.pref_key__git_ssh_passphrase);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean isGitSshPassphraseSet() {
+        return getGitSshPassphrase().length() > 0;
     }
 
     /** 设置项摘要用：远端地址取自仓库配置，不另存一份，免得两边不一致 */
@@ -486,8 +522,14 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
         return getString(R.string.pref_key__todotxt__last_used_archive_filename, "todo.archive.txt");
     }
 
+    /**
+     * 载入文档时是否把光标放到文末。默认值必须和 preferences_master.xml 里 CheckBoxPreference 的
+     * android:defaultValue 一致：项目没有调用 PreferenceManager.setDefaultValues，XML 的默认值
+     * 只负责勾选框的显示、不会被写进 SharedPreferences，用户没拨过开关时读到的就是这里的兜底值。
+     * 两边不一致就会出现「勾选项显示未勾选、实际行为却是文末」。
+     */
     public boolean isEditorStartOnBotttom() {
-        return getBool(R.string.pref_key__editor_start_editing_on_bottom, true);
+        return getBool(R.string.pref_key__editor_start_editing_on_bottom, false);
     }
 
     public boolean isEditorStartEditingInCenter() {

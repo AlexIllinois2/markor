@@ -124,6 +124,7 @@ public class GitRepo {
             throw new IOException(e.getMessage() == null ? e.toString() : e.getMessage(), e);
         }
         _settings = settings;
+        GitSsh.configure(settings);
         applyAndroidRepositoryDefaults(_git.getRepository());
     }
 
@@ -345,6 +346,7 @@ public class GitRepo {
     /** 克隆到 targetDir 并把结果仓库交给调用方；targetDir 必须不存在或为空目录 */
     public static GitRepo cloneInto(final AppSettings settings, final String url, final File targetDir,
                                     @Nullable final String branch) throws IOException {
+        GitSsh.configure(settings);
         final CloneCommand command = Git.cloneRepository()
                 .setURI(url).setDirectory(targetDir).setTimeout(60)
                 .setCredentialsProvider(staticCredentials(settings));

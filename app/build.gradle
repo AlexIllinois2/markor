@@ -99,6 +99,9 @@ android {
             excludes += ['META-INF/LICENSE-LGPL-2.1.txt', 'META-INF/LICENSE-LGPL-3.txt', 'META-INF/LICENSE-W3C-TEST']
             // JGit jars ship signature files, descriptors and classpath junk that break APK packaging
             excludes += ['META-INF/ECLIPSE_*', 'META-INF/*.version', 'META-INF/DEPENDENCIES', 'META-INF/NOTICE', 'META-INF/ABOUT.html', 'META-INF/ABOUT.md', 'module-info.class', 'META-INF/maven/**']
+            // jgit 与 jgit.ssh.jsch 各带一份 plugin.properties（OSGi Bundle-Name/Vendor，Android 用不到），
+            // 不排除会让 mergeJavaResource 因重复文件报错
+            excludes += ['plugin.properties']
         }
     }
 
@@ -176,6 +179,13 @@ dependencies {
     // Git support for notebook folders (https://mvnrepository.com/artifact/org.eclipse.jgit)
     // 5.13 is the last line compiled for Java 8; 6.x and newer need Java 11 and won't run on Android.
     implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.3.202401111512-r'
+    // SSH transport (public key auth). JGit moved JSch into this artifact; swap jsch 0.1.55
+    // (2018, no ed25519) for the maintained fork with the same package so GitHub's default
+    // ssh-ed25519 / rsa-sha2 keys work.
+    implementation('org.eclipse.jgit:org.eclipse.jgit.ssh.jsch:5.13.3.202401111512-r') {
+        exclude group: 'com.jcraft', module: 'jsch'
+    }
+    implementation 'com.github.mwiede:jsch:0.2.21'
     // JGit logs via slf4j and warns on every call when no binding is present
     implementation 'org.slf4j:slf4j-nop:1.7.30'
     // JGit uses java.nio.file / java.time / streams, which API 21..25 do not provide

@@ -11,6 +11,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -67,7 +68,24 @@ public final class GitNotebook {
     @Nullable
     private static Runnable _timer = null;
 
+    /**
+     * 提示的兜底出口。界面（MainActivity）一暂停就 detach，而同步按钮在设置页和文件浏览器里也能按，
+     * 只走 Ui 回调的话结果会被整个丢掉 —— 用户看到的就是「点了没反应」。记下 application context，
+     * 没有界面时改用 Toast 把结果说出来。
+     */
+    @Nullable
+    private static volatile Context _appContext = null;
+
+    /** 作者未配置的提示一次进程只弹一次，免得自动同步每轮都刷 */
+    private static final AtomicBoolean _authorHinted = new AtomicBoolean(false);
+
     private GitNotebook() {
+    }
+
+    private static void remember(@Nullable final Context context) {
+        if (context != null) {
+            _appContext = context.getApplicationContext();
+        }
     }
 
     public static boolean isAvailable(@Nullable final AppSettings settings) {
@@ -88,6 +106,7 @@ public final class GitNotebook {
 
     /** 前台定时器只在界面还在时运行，后台那条路交给 WorkManager */
     public static void startTimer(final Context context) {
+        remember(context);
         stopTimer();
         final AppSettings settings = AppSettings.get(context);
         final int minutes = settings.getGitSyncIntervalMinutes();
@@ -111,7 +130,10 @@ public final class GitNotebook {
         }
     }
 
-    /** 编辑 / 新建 / 重命名 / 删除之后调用：3s 防抖把连续改动并成一次同步 */
+    /**
+     * 编辑 / 新建 / 重命名 / 删除之后调用：保存即提交，提交不等防抖；
+     * 远端那部分（拉 + 推）仍然 3s 防抖，连续改动并成一次网络往返。
+     */
     public static void onFileSystemChanged(final Context context, @Nullable final File file) {
         final AppSettings settings = AppSettings.get(context);
         if (!isAvailable(settings) || !settings.isGitCommitOnEditEnabled() || file == null) {
@@ -121,15 +143,29 @@ public final class GitNotebook {
         if (repository == null || !isInside(repository, file)) {
             return;
         }
+        final Context app = context.getApplicationContext();
+        remember(app);
+        // 立刻提交：本地改动先落成一个 commit，不等定时器也不等防抖
+        commitOnSave(app, settings);
         if (_debounce != null) {
             MAIN.removeCallbacks(_debounce);
         }
-        final Context app = context.getApplicationContext();
         _debounce = () -> {
             _debounce = null;
             requestSync(app, false, true);
         };
         MAIN.postDelayed(_debounce, DEBOUNCE_MS);
+    }
+
+    /** 保存后的自动提交：成功不弹提示（每次保存都弹太吵），失败与配置缺失照样反馈 */
+    private static void commitOnSave(final Context context, final AppSettings settings) {
+        warnIfAuthorMissing(settings);
+        run(settings, (repo, appSettings) -> {
+            if (repo.commitNow()) {
+                appSettings.setGitLastSyncInfo(timestamp() + " · "
+                        + context.getString(R.string.git_committed));
+            }
+        }, null);
     }
 
     /**
@@ -138,6 +174,7 @@ public final class GitNotebook {
      */
     public static void onNotebookOpened(final Context context) {
         final AppSettings settings = AppSettings.get(context);
+        remember(context);
         if (!isAvailable(settings)) {
             return;
         }
@@ -159,8 +196,24 @@ public final class GitNotebook {
         }, null);
     }
 
+    /**
+     * 冷启动时立刻拉一次远端，不等界面出现（从编辑器 / 通知 / 小组件进来时 MainActivity 可能一直不在前台）。
+     * 成败只写进「最近同步」；冲突留给 onNotebookOpened，界面在时再弹对话框。
+     */
+    public static void onAppStarted(final Context context) {
+        final AppSettings settings = AppSettings.get(context);
+        remember(context);
+        if (!isAvailable(settings)) {
+            return;
+        }
+        startTimer(context);
+        run(settings, (repo, appSettings) -> appSettings.setGitLastSyncInfo(
+                summarize(appSettings, repo.pullOnly())), null);
+    }
+
     public static void requestSync(final Context context, final boolean manual, final boolean silent) {
         final AppSettings settings = AppSettings.get(context);
+        remember(context);
         if (!manual && !settings.isGitSyncEnabled()) {
             return;
         }
@@ -168,6 +221,7 @@ public final class GitNotebook {
         if (settings.isGitAutoSyncPaused() && !manual) {
             return;
         }
+        warnIfAuthorMissing(settings);
         run(settings, (repo, appSettings) -> {
             final GitRepo.SyncResult result = repo.sync();
             if (result.conflict) {
@@ -186,6 +240,7 @@ public final class GitNotebook {
 
     public static void requestPull(final Context context) {
         final AppSettings settings = AppSettings.get(context);
+        remember(context);
         run(settings, (repo, appSettings) -> {
             final GitRepo.SyncResult result = repo.pullOnly();
             if (result.conflict) {
@@ -197,13 +252,23 @@ public final class GitNotebook {
     }
 
     public static void requestPush(final Context context) {
-        run(AppSettings.get(context), (repo, settings) -> postMessage(context.getString(
+        final AppSettings settings = AppSettings.get(context);
+        remember(context);
+        run(settings, (repo, appSettings) -> postMessage(context.getString(
                 repo.pushCurrent() ? R.string.git_pushed : R.string.git_nothing_to_sync), false), errorPoster());
     }
 
     public static void requestCommit(final Context context) {
-        run(AppSettings.get(context), (repo, settings) -> postMessage(context.getString(
-                repo.commitNow() ? R.string.git_committed : R.string.git_nothing_to_sync), false), errorPoster());
+        requestCommit(context, false);
+    }
+
+    public static void requestCommit(final Context context, final boolean silent) {
+        final AppSettings settings = AppSettings.get(context);
+        remember(context);
+        warnIfAuthorMissing(settings);
+        run(settings, (repo, appSettings) -> postMessage(context.getString(
+                repo.commitNow() ? R.string.git_committed : R.string.git_nothing_to_sync), false),
+                silent ? null : errorPoster());
     }
 
     public static void requestStatus(final Context context, final StatusCallback callback) {
@@ -258,8 +323,19 @@ public final class GitNotebook {
      * onError 为空时失败只记进「最近同步」摘要，不打扰用户。
      */
     private static void run(final AppSettings settings, final Task task, @Nullable final Consumer<String> onError) {
-        // 手动动作只看「笔记本是不是仓库」，自动路径才受同步开关约束
-        if (settings.getGitRepositoryDirectory() == null || !BUSY.compareAndSet(false, true)) {
+        // 手动动作只看「笔记本是不是仓库」，自动路径才受同步开关约束。
+        // 这两处早退以前是彻底无声的：用户在设置页按了推送，结果既没成功提示也没失败提示。
+        // 手动/非静默的请求要把原因说出来，自动请求（onError 为空）继续安静跳过。
+        if (settings.getGitRepositoryDirectory() == null) {
+            if (onError != null) {
+                postMessage(settings.getContext().getString(R.string.git_not_a_repository), true);
+            }
+            return;
+        }
+        if (!BUSY.compareAndSet(false, true)) {
+            if (onError != null) {
+                postMessage(settings.getContext().getString(R.string.git_sync_busy), true);
+            }
             return;
         }
         BACKGROUND.execute(() -> {
@@ -287,11 +363,25 @@ public final class GitNotebook {
         return text -> postMessage(text, true);
     }
 
+    /**
+     * 作者没填就把话说清楚。git 本身不报错（会用默认身份提交），所以这条不拦同步，
+     * 只是把「忘了填作者」从一个看不见的坑变成一句能看见的提示。
+     */
+    private static void warnIfAuthorMissing(final AppSettings settings) {
+        if (settings.isGitAuthorConfigured() || !_authorHinted.compareAndSet(false, true)) {
+            return;
+        }
+        final String text = settings.getContext().getString(R.string.git_author_missing);
+        settings.setGitLastSyncInfo(timestamp() + " · " + text);
+        postMessage(text, true);
+    }
+
     /** Worker 本身就在后台线程，这里直接跑完一次同步；返回 false 表示已有同步在跑，应该退避重试 */
     public static boolean runBackgroundSync(final AppSettings settings) throws IOException {
         if (!BUSY.compareAndSet(false, true)) {
             return false;
         }
+        warnIfAuthorMissing(settings);
         try {
             final GitRepo repo = openRepo(settings);
             if (repo == null) {
@@ -371,6 +461,13 @@ public final class GitNotebook {
             final Ui ui = _uiRef == null ? null : _uiRef.get();
             if (ui != null) {
                 ui.onGitMessage(text, isError);
+                return;
+            }
+            // 没有界面可挂（设置页、编辑器、冷启动）时用 Toast 兜底，别让结果凭空消失
+            final Context context = _appContext;
+            if (context != null) {
+                Toast.makeText(context, isError ? context.getString(R.string.git_sync_failed, text) : text,
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -381,6 +478,12 @@ public final class GitNotebook {
             final Ui ui = _uiRef == null ? null : _uiRef.get();
             if (ui != null) {
                 ui.onGitConflict(copy, stage == null ? "merge" : stage);
+                return;
+            }
+            final Context context = _appContext;
+            if (context != null) {
+                Toast.makeText(context, context.getString(R.string.git_conflict_message) + "\n"
+                        + TextUtils.join("\n", copy), Toast.LENGTH_LONG).show();
             }
         });
     }

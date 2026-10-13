@@ -528,7 +528,7 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_target_folder">Target folder</string>
     <string name="git_cloning">Cloning…</string>
     <string name="git_clone_failed">Clone failed: %1$s</string>
-    <string name="git_https_url_required">Only https:// URLs are supported, e.g. https://github.com/user/notes.git</string>
+    <string name="git_https_url_required">Only https:// or ssh:// URLs are supported, e.g. https://github.com/user/notes.git or ssh://git@ssh.github.com:443/user/notes.git</string>
     <string name="git_clone_target_exists">The target folder already exists and is not empty. Remove it or rename the repository first.</string>
     <string name="git_clone_done">Repository cloned, notebook set to %1$s</string>
     <string name="git_not_a_repository">The notebook folder is not a Git repository</string>
@@ -545,6 +545,9 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_nothing_to_sync">Nothing to sync</string>
     <string name="git_sync_failed">Git sync failed: %1$s</string>
     <string name="git_sync_paused">Auto-sync paused after the merge was discarded. Sync once manually to resume.</string>
+    <string name="git_sync_busy">Another Git operation is still running. Try again in a moment.</string>
+    <string name="git_author_missing">Commit author is not set. Git does not fail on this, but your commits are recorded with a placeholder identity. Open Settings → Git → Commit author and enter your name and e-mail.</string>
+    <string name="git_author_not_set">Not set — a placeholder identity is used</string>
     <string name="git_auto_sync_interval">Auto-sync interval</string>
     <string name="git_interval_off">Off</string>
     <string name="git_interval_1m">1 minute</string>
@@ -564,6 +567,10 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_access_token">Access token</string>
     <string name="git_access_token_summary">Stored in the Android keystore. Needed for pushing; public repositories can be cloned and pulled without it.</string>
     <string name="git_secure_storage_unavailable">Storing an access token requires Android 6.0 or newer</string>
+    <string name="git_ssh_key_path">SSH private key file</string>
+    <string name="git_ssh_key_summary">Select an OpenSSH private key for public key authentication. When port 22 is blocked, use ssh://git@ssh.github.com:443/user/repo.git as the GitHub clone URL.</string>
+    <string name="git_ssh_passphrase">SSH key passphrase</string>
+    <string name="git_ssh_passphrase_summary">Leave empty if the key has no passphrase. Stored in the Android keystore.</string>
     <string name="git_conflict_strategy">Conflict handling</string>
     <string name="git_conflict_strategy_markers">Keep conflict markers (resolve myself)</string>
     <string name="git_conflict_strategy_union">Keep both sides</string>

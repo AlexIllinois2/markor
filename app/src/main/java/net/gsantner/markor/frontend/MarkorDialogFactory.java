@@ -1079,7 +1079,7 @@ public class MarkorDialogFactory {
 
     private static void startGitClone(final Activity activity, final String url) {
         final AppSettings as = AppSettings.get(activity);
-        if (!url.startsWith("https://")) {
+        if (!isSupportedGitUrl(url)) {
             showGitMessage(activity, activity.getString(R.string.git_https_url_required), true);
             return;
         }
@@ -1108,6 +1108,14 @@ public class MarkorDialogFactory {
         return parent != null ? parent : notebook;
     }
 
+    /** https、ssh（含 GitHub 走 443 的 ssh://git@ssh.github.com:443/...）和 scp 形式的 git@host:path */
+    private static boolean isSupportedGitUrl(final String url) {
+        return url.startsWith("https://") || url.startsWith("ssh://")
+                || GIT_SCP_LIKE_URL.matcher(url).matches();
+    }
+
+    private static final Pattern GIT_SCP_LIKE_URL = Pattern.compile("[^/@]+@[^:/]+:[^/].*");
+
     /** 目标目录已存在且非空时返回 null：绝不往用户已有的数据里写 */
     private static File getGitCloneTargetDirectory(final AppSettings as, final String url) {
         String name = url.replaceAll("[/\\\\]+$", "");
@@ -1116,6 +1124,9 @@ public class MarkorDialogFactory {
         if (name.endsWith(".git")) {
             name = name.substring(0, name.length() - ".git".length());
         }
+        // scp 形式最后一跳没有斜杠（git@github.com:notes.git），再按冒号切一次
+        final int colon = name.lastIndexOf(':');
+        name = colon >= 0 ? name.substring(colon + 1) : name;
         if (name.isEmpty()) {
             return null;
         }

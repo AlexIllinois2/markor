@@ -258,7 +258,10 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
                     ? TextViewUtils.getIndexFromLineOffset(_hlEditor.getText(), lineNumber, 0)
                     : _hlEditor.length();
         } else {
-            targetSelection = _appSettings.getLastEditPosition(_document.path, _hlEditor.length());
+            // 有记忆就用记忆（上次编辑位置）；没记忆的文件才由「从文末开始」决定落点：
+            // 勾选落文末，不勾选落开头。以前兜底值写死成文末，开关读都没读，怎么勾都是文末。
+            targetSelection = _appSettings.getLastEditPosition(_document.path,
+                    _appSettings.isEditorStartOnBotttom() ? _hlEditor.length() : 0);
         }
 
         if (_webView != null) {
@@ -272,6 +275,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         _hlEditor.recomputeHighlighting();
         // Defer initial placement until after the highlight-triggered reflow work has run.
         _hlEditor.post(() -> {
+            // 记忆优先：高度还对得上的话连滚动位置一起还原，落点设置这时不参与
             if (!hasLineNumber) {
                 final int lastEditHeight = _appSettings.getLastEditHeight(_document.path, 0);
                 if (lastEditHeight > 0 && lastEditHeight == _verticalScrollView.getHeight()) {

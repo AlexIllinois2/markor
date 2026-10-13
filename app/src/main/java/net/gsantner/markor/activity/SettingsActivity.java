@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -201,9 +202,20 @@ public class SettingsActivity extends MarkorBaseActivity {
                     + (lastSync.isEmpty() ? "" : "\n" + lastSync)
                     : getString(R.string.git_not_a_repository));
             updateSummary(R.string.pref_key__git_commit_message, _appSettings.getGitCommitMessageTemplate());
+            // 作者没填本身不会让 git 报错（会用占位身份提交），所以在这里显式标出来
+            final boolean authorSet = _appSettings.isGitAuthorConfigured();
+            updateSummary(R.string.pref_key__git_author_name, authorSet
+                    ? _appSettings.getGitAuthorName() : getString(R.string.git_author_not_set));
+            updateSummary(R.string.pref_key__git_author_email, authorSet
+                    ? _appSettings.getGitAuthorEmail() : getString(R.string.git_author_not_set));
             setPreferenceVisible(R.string.pref_key__git_access_token, Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && _appSettings.isGitAccessTokenSet()) {
                 updateSummary(R.string.pref_key__git_access_token, getString(R.string.hidden_password));
+            }
+            updateSummary(R.string.pref_key__git_ssh_key_path, _appSettings.getGitSshKeyPath());
+            setPreferenceVisible(R.string.pref_key__git_ssh_passphrase, Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && _appSettings.isGitSshPassphraseSet()) {
+                updateSummary(R.string.pref_key__git_ssh_passphrase, getString(R.string.hidden_password));
             }
 
             final int[] experimentalKeys = new int[]{
@@ -347,6 +359,37 @@ public class SettingsActivity extends MarkorBaseActivity {
                     MarkorDialogFactory.showGitTextSettingDialog(getActivity(), R.string.git_access_token,
                             getActivity().getString(R.string.hidden_password), true, value -> {
                                 _appSettings.setGitAccessToken(value);
+                                doUpdatePreferences();
+                            });
+                    return true;
+                }
+                case R.string.pref_key__git_ssh_key_path: {
+                    MarkorFileBrowserFactory.showFileDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
+                        @Override
+                        public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
+                            _appSettings.setGitSshKeyPath(file.getAbsolutePath());
+                            doUpdatePreferences();
+                        }
+
+                        @Override
+                        public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
+                            dopt.titleText = R.string.git_ssh_key_path;
+                            dopt.rootFolder = Environment.getExternalStorageDirectory();
+                            dopt.newDirButtonEnable = false;
+                            // 私钥文件没有扩展名，不能按类型过滤
+                            dopt.fileOverallFilter = (context, f) -> true;
+                        }
+                    }, fragManager, getActivity(), null);
+                    return true;
+                }
+                case R.string.pref_key__git_ssh_passphrase: {
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                        Toast.makeText(getActivity(), R.string.git_secure_storage_unavailable, Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                    MarkorDialogFactory.showGitTextSettingDialog(getActivity(), R.string.git_ssh_passphrase,
+                            getActivity().getString(R.string.hidden_password), true, value -> {
+                                _appSettings.setGitSshPassphrase(value);
                                 doUpdatePreferences();
                             });
                     return true;

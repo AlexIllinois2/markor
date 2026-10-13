@@ -21,7 +21,7 @@ buildscript {
 
     repositories {
         mavenCentral()
-        maven { url 'https://maven.google.com' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
         maven { url "https://jitpack.io" }
         google()
     }
@@ -41,7 +41,7 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven { url 'https://maven.google.com' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
         maven { url "https://jitpack.io" }
         google()
     }

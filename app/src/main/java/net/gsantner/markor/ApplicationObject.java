@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import androidx.multidex.MultiDexApplication;
 
 import net.gsantner.markor.model.AppSettings;
+import net.gsantner.markor.model.git.GitNotebook;
 import net.gsantner.markor.model.git.GitSyncJob;
 
 public class ApplicationObject extends MultiDexApplication {
@@ -50,5 +51,7 @@ public class ApplicationObject extends MultiDexApplication {
 
         // 上次退出前若开着 git 同步，进程重启后要把后台任务补排上
         GitSyncJob.schedule(getApplicationContext(), _appSettings);
+        // 冷启动立刻拉一次远端，不等笔记本界面出现（从编辑器/小组件进来时 MainActivity 可能不起）
+        GitNotebook.onAppStarted(getApplicationContext());
     }
 }

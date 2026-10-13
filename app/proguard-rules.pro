@@ -26,6 +26,16 @@
 # shrinking cannot see from the call graph, so keep the package as-is.
 -keep class org.eclipse.jgit.** { *; }
 -dontwarn org.eclipse.jgit.**
+
+# JSch (SSH transport for JGit). The key exchange / cipher / MAC / signature / key pair
+# algorithms are registered as class *names* in JSch's config and loaded with Class.forName,
+# so R8 cannot see them from the call graph and strips them -> ClassNotFoundException
+# (e.g. com.jcraft.jsch.DHEC256) the moment a git clone opens an SSH session.
+# Keep the whole library, names and members, so reflection keeps working.
+-keep class com.jcraft.jsch.** { *; }
+-keep class com.jcraft.jzlib.** { *; }
+-dontwarn com.jcraft.jsch.**
+-dontwarn com.jcraft.jzlib.**
 -dontwarn java.nio.file.**
 -dontwarn javax.security.auth.**
 -dontwarn org.slf4j.impl.**

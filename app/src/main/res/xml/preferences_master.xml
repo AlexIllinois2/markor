@@ -107,6 +107,14 @@
                     android:key="@string/pref_key__git_access_token"
                     android:summary="@string/git_access_token_summary"
                     android:title="@string/git_access_token" />
+                <Preference
+                    android:key="@string/pref_key__git_ssh_key_path"
+                    android:summary="@string/git_ssh_key_summary"
+                    android:title="@string/git_ssh_key_path" />
+                <Preference
+                    android:key="@string/pref_key__git_ssh_passphrase"
+                    android:summary="@string/git_ssh_passphrase_summary"
+                    android:title="@string/git_ssh_passphrase" />
             </PreferenceCategory>
         </PreferenceCategory>
 
