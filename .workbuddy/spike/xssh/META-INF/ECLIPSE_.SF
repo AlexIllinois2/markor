@@ -1,0 +1,63 @@
+Signature-Version: 1.0
+Created-By: 11.0.21 (Eclipse Adoptium)
+SHA-256-Digest-Manifest: fnyBYw5pLMO+fpQxPr1rV5CsEtRPOivR6CHX8ywMKhg=
+SHA-256-Digest-Manifest-Main-Attributes: qawVck5+3mW5JnxcsLmTUw8h/s9ujJ8
+ dBcXXi42+m/k=
+
+Name: org/eclipse/jgit/internal/transport/jsch/JSchText.properties
+SHA-256-Digest: W9UHAILlrShs/IVvCL2lfsp9l7ir7tyUCDlswF9xgmY=
+
+Name: org/eclipse/jgit/transport/OpenSshConfig$Host.class
+SHA-256-Digest: neEKQO93cGG3AgPhaZURQYfq1ZLpZ2mTFC6yELqd3Kg=
+
+Name: org/eclipse/jgit/transport/OpenSshConfig.class
+SHA-256-Digest: Qwh+5Zohv9OomG6Dr8q9tqMnxr5edDyhtRsExVWYv6Q=
+
+Name: about.html
+SHA-256-Digest: AlMZFBs6rvv0XZ+LyuiOKiQR3dVCATkdF2ZfFl6CqFI=
+
+Name: org/eclipse/jgit/transport/CredentialsProviderUserInfo.class
+SHA-256-Digest: jiKNYAj2EzVA6FUzNE7rKlppHjw9D6xPz2Py6QCFsgs=
+
+Name: org/eclipse/jgit/transport/JschSession$JschFtpChannel$2.class
+SHA-256-Digest: pBXuGPwRFI8FksX4CWvpA8ck0yc2lpmIWnvZljA5nTQ=
+
+Name: org/eclipse/jgit/transport/JschSession$JschFtpChannel.class
+SHA-256-Digest: K5pKY3bMUgsVluK4S/E/D5r8guP8pz0/63J/6Fa4bfY=
+
+Name: org/eclipse/jgit/transport/OpenSshConfig$Host$1.class
+SHA-256-Digest: wVNrnD3XdMQbNiLMge9hbLSZaDCNB8xBUwFB5FI1UsE=
+
+Name: META-INF/maven/org.eclipse.jgit/org.eclipse.jgit.ssh.jsch/pom.prop
+ erties
+SHA-256-Digest: TsbgkgTE/jtqP0G6q0oYSMbEMhMg+2RZtsqMp1vkHN0=
+
+Name: org/eclipse/jgit/transport/JschSession$JschProcess.class
+SHA-256-Digest: ywVNBaQyo7Ci/9lYEtRk64m3g5m/ZhNf8lGV5ILAiSQ=
+
+Name: META-INF/services/org.eclipse.jgit.transport.SshSessionFactory
+SHA-256-Digest: Cbl2V2sg122TKTV4s1IabarLCLg8CMJFAhvyotUoO0Q=
+
+Name: META-INF/maven/org.eclipse.jgit/org.eclipse.jgit.ssh.jsch/pom.xml
+SHA-256-Digest: dm4NQeq+lFYVGRUvKP2elPh5MhiN7U9ph4lj0yMmQzg=
+
+Name: org/eclipse/jgit/transport/JschConfigSessionFactory$JschBugFixingC
+ onfigRepository$JschBugFixingConfig.class
+SHA-256-Digest: CSVPb84pRq8qph5ltsPK0DYw2SL7K6G4u9cfTOc5Bnk=
+
+Name: org/eclipse/jgit/internal/transport/jsch/JSchText.class
+SHA-256-Digest: tuYbmpAttPyqAQ9dIMAEEzumSckHaDJBbMGx8F2P4Q8=
+
+Name: org/eclipse/jgit/transport/JschConfigSessionFactory.class
+SHA-256-Digest: Cqu2G2X6iIvrkzH1d8l54rv+q0hda6k4N9Bpq9prvaM=
+
+Name: plugin.properties
+SHA-256-Digest: eH9UrshRZnyXmuqKjGmR9U5k+k2ZqEcWBX6j6fSkStA=
+
+Name: org/eclipse/jgit/transport/JschConfigSessionFactory$JschBugFixingC
+ onfigRepository.class
+SHA-256-Digest: vJS0dJaYl8QmyRFTXLyByJ9W47AHbBhkZBuiVMn3Nkk=
+
+Name: org/eclipse/jgit/transport/JschSession.class
+SHA-256-Digest: yhKjOIaLb8ftRuFBh/uPrtceMg6DGbK4BCXI18tmPwY=
+

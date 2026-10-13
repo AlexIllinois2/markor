@@ -1,0 +1,956 @@
+diff --git a/.atomignore b/.atomignore
+old mode 100755
+new mode 100644
+diff --git a/app/src/main/java/net/gsantner/markor/ApplicationObject.java b/app/src/main/java/net/gsantner/markor/ApplicationObject.java
+index be46edd..171d200 100644
+--- a/app/src/main/java/net/gsantner/markor/ApplicationObject.java
++++ b/app/src/main/java/net/gsantner/markor/ApplicationObject.java
+@@ -12,6 +12,7 @@ import android.webkit.WebView;
+ import androidx.multidex.MultiDexApplication;
+ 
+ import net.gsantner.markor.model.AppSettings;
++import net.gsantner.markor.model.sqlite.SqliteNotebook;
+ 
+ public class ApplicationObject extends MultiDexApplication {
+     // Make resources not marked as unused
+@@ -46,5 +47,8 @@ public class ApplicationObject extends MultiDexApplication {
+             new WebView(getApplicationContext());
+         } catch (Exception ignored) {
+         }
++
++        // 若配置了 SQLite 笔记本, 在应用启动时恢复会话 (工作区 + 双向同步)
++        SqliteNotebook.activate(getApplicationContext(), null);
+     }
+ }
+diff --git a/app/src/main/java/net/gsantner/markor/activity/DocumentActivity.java b/app/src/main/java/net/gsantner/markor/activity/DocumentActivity.java
+index 274c23f..05dddac 100644
+--- a/app/src/main/java/net/gsantner/markor/activity/DocumentActivity.java
++++ b/app/src/main/java/net/gsantner/markor/activity/DocumentActivity.java
+@@ -27,9 +27,11 @@ import androidx.fragment.app.FragmentManager;
+ 
+ import net.gsantner.markor.R;
+ import net.gsantner.markor.format.FormatRegistry;
++import net.gsantner.markor.frontend.MarkorDialogFactory;
+ import net.gsantner.markor.frontend.textview.TextViewUtils;
+ import net.gsantner.markor.model.AppSettings;
+ import net.gsantner.markor.model.Document;
++import net.gsantner.markor.model.sqlite.SqliteNotebookUtils;
+ import net.gsantner.markor.util.MarkorContextUtils;
+ import net.gsantner.opoc.format.GsTextUtils;
+ import net.gsantner.opoc.frontend.base.GsFragmentBase;
+@@ -89,6 +91,12 @@ public class DocumentActivity extends MarkorBaseActivity {
+             return;
+         }
+ 
++        // 点击 SQLite 数据库文件时询问是否作为笔记本打开
++        if (!forceOpenInThisApp && SqliteNotebookUtils.isSqliteNotebookFile(file)) {
++            askUserIfWantsToOpenAsNotebook(activity, file);
++            return;
++        }
++
+         if (!forceOpenInThisApp && file.isFile() && !FormatRegistry.isFileSupported(file)) {
+             askUserIfWantsToOpenFileInThisApp(activity, file);
+             return;
+@@ -128,6 +136,19 @@ public class DocumentActivity extends MarkorBaseActivity {
+         activity.startActivity(intent);
+     }
+ 
++    /** 询问是否将 SQLite 数据库文件作为笔记本打开 */
++    public static void askUserIfWantsToOpenAsNotebook(final Activity activity, final File file) {
++        new AlertDialog.Builder(activity, R.style.Theme_AppCompat_DayNight_Dialog_Rounded)
++                .setTitle(R.string.sqlite_menu)
++                .setMessage(R.string.sqlite_open_as_notebook_confirm)
++                .setIcon(R.drawable.ic_save_black_24dp)
++                .setPositiveButton(android.R.string.ok, (dialog, which) ->
++                        MarkorDialogFactory.tryActivateSqliteNotebook(activity, file, null))
++                .setNegativeButton(R.string.cancel, null)
++                .create()
++                .show();
++    }
++
+     public static void askUserIfWantsToOpenFileInThisApp(final Activity activity, final File file) {
+         if (!FormatRegistry.isExternalFile(file) && GsFileUtils.isContentsPlainText(file)) {
+             new AlertDialog.Builder(activity, R.style.Theme_AppCompat_DayNight_Dialog_Rounded)
+diff --git a/app/src/main/java/net/gsantner/markor/activity/MainActivity.java b/app/src/main/java/net/gsantner/markor/activity/MainActivity.java
+index 1df6964..49611d3 100644
+--- a/app/src/main/java/net/gsantner/markor/activity/MainActivity.java
++++ b/app/src/main/java/net/gsantner/markor/activity/MainActivity.java
+@@ -39,7 +39,9 @@ import net.gsantner.markor.R;
+ import net.gsantner.markor.format.FormatRegistry;
+ import net.gsantner.markor.frontend.NewFileDialog;
+ import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
++import net.gsantner.markor.frontend.MarkorDialogFactory;
+ import net.gsantner.markor.model.Document;
++import net.gsantner.markor.model.sqlite.SqliteNotebook;
+ import net.gsantner.markor.util.MarkorContextUtils;
+ import net.gsantner.markor.widget.TodoWidgetProvider;
+ import net.gsantner.opoc.format.GsSimpleMarkdownParser;
+@@ -141,6 +143,15 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
+         if (!GsFileUtils.isDirectory(_startFolder)) {
+             _startFolder = _appSettings.getNotebookDirectory();
+         }
++
++        // SQLite 笔记本需要口令 (或库打不开)时弹出解锁对话框
++        if (_appSettings.isSqliteNotebookMode()) {
++            SqliteNotebook.activate(this, result -> {
++                if (result != SqliteNotebook.ActivateResult.OK) {
++                    MarkorDialogFactory.showSqliteNotebookUnlockDialog(MainActivity.this);
++                }
++            });
++        }
+     }
+ 
+     @Override
+@@ -494,6 +505,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
+                     dopt.startFolder = _startFolder;
+                     dopt.doSelectMultiple = dopt.doSelectFolder = dopt.doSelectFile = true;
+                     dopt.mountedStorageFolder = _cu.getStorageAccessFolder(MainActivity.this);
++                    dopt.showSqliteActions = true;
+                 }
+ 
+                 @Override
+diff --git a/app/src/main/java/net/gsantner/markor/activity/SettingsActivity.java b/app/src/main/java/net/gsantner/markor/activity/SettingsActivity.java
+index 47b7982..f41612d 100644
+--- a/app/src/main/java/net/gsantner/markor/activity/SettingsActivity.java
++++ b/app/src/main/java/net/gsantner/markor/activity/SettingsActivity.java
+@@ -156,8 +156,13 @@ public class SettingsActivity extends MarkorBaseActivity {
+         @Override
+         public void doUpdatePreferences() {
+             String remove = "/storage/emulated/0/";
++            // SQLite 笔记本模式下显示 db 文件路径
++            final File sqliteDb = _appSettings.getSqliteNotebookFile();
++            final String notebookSummary = sqliteDb != null
++                    ? getString(R.string.sqlite_open_db) + ": " + sqliteDb.getAbsolutePath().replace(remove, "")
++                    : _appSettings.getNotebookDirectory().getAbsolutePath().replace(remove, "");
+             updateSummary(R.string.pref_key__notebook_directory,
+-                    _cu.htmlToSpanned("<small><small>" + _appSettings.getNotebookDirectory().getAbsolutePath().replace(remove, "") + "</small></small>")
++                    _cu.htmlToSpanned("<small><small>" + notebookSummary + "</small></small>")
+             );
+             updateSummary(R.string.pref_key__quicknote_filepath,
+                     _cu.htmlToSpanned("<small><small>" + _appSettings.getQuickNoteFile().getAbsolutePath().replace(remove, "") + "</small></small>")
+@@ -245,6 +250,26 @@ public class SettingsActivity extends MarkorBaseActivity {
+             }
+         }
+ 
++        /** ToDo / QuickNote 只能选笔记本（普通文件夹或 SQLite 工作区）里的文本文件 */
++        private void configureNotebookScopedPicker(final GsFileBrowserOptions.Options dopt,
++                                                   @StringRes final int titleRes) {
++            dopt.titleText = titleRes;
++            dopt.rootFolder = _appSettings.getNotebookDirectory();
++            dopt.newDirButtonEnable = false;
++            dopt.fileOverallFilter = (context, file) ->
++                    MarkorFileBrowserFactory.IsMimeText.callback(context, file)
++                            && _appSettings.isInsideNotebook(file);
++        }
++
++        /** 从最近文件 / 收藏等入口点到笔记本外的文件时拒绝，并提示重新选择 */
++        private boolean selectableNotebookScopedFile(final File file) {
++            if (_appSettings.isInsideNotebook(file)) {
++                return true;
++            }
++            Toast.makeText(getActivity(), R.string.todo_quicknote_must_be_in_notebook, Toast.LENGTH_LONG).show();
++            return false;
++        }
++
+         @Override
+         @SuppressWarnings({"ConstantConditions", "ConstantIfStatement", "StatementWithEmptyBody"})
+         public Boolean onPreferenceClicked(Preference preference, String key, int keyResId) {
+@@ -272,26 +297,17 @@ public class SettingsActivity extends MarkorBaseActivity {
+                 }
+ 
+                 case R.string.pref_key__notebook_directory: {
+-                    MarkorFileBrowserFactory.showFolderDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
+-                        @Override
+-                        public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
+-                            _appSettings.setNotebookDirectory(file);
+-                            _appSettings.setRecreateMainRequired(true);
+-                            doUpdatePreferences();
+-                        }
+-
+-                        @Override
+-                        public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
+-                            dopt.titleText = R.string.select_storage_folder;
+-                            dopt.rootFolder = _appSettings.getNotebookDirectory();
+-                        }
+-                    }, fragManager, getActivity());
++                    // 打开文件夹 或 打开 SQLite db (可加密)
++                    MarkorDialogFactory.showOpenNotebookDialog(getActivity());
+                     return true;
+                 }
+                 case R.string.pref_key__quicknote_filepath: {
+                     MarkorFileBrowserFactory.showFileDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
+                         @Override
+                         public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
++                            if (!selectableNotebookScopedFile(file)) {
++                                return;
++                            }
+                             _appSettings.setQuickNoteFile(file);
+                             _appSettings.setRecreateMainRequired(true);
+                             doUpdatePreferences();
+@@ -299,9 +315,7 @@ public class SettingsActivity extends MarkorBaseActivity {
+ 
+                         @Override
+                         public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
+-                            dopt.titleText = R.string.quicknote;
+-                            dopt.rootFolder = _appSettings.getNotebookDirectory();
+-                            dopt.newDirButtonEnable = false;
++                            configureNotebookScopedPicker(dopt, R.string.quicknote);
+                         }
+                     }, fragManager, getActivity(), MarkorFileBrowserFactory.IsMimeText);
+                     return true;
+@@ -310,6 +324,9 @@ public class SettingsActivity extends MarkorBaseActivity {
+                     MarkorFileBrowserFactory.showFileDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
+                         @Override
+                         public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
++                            if (!selectableNotebookScopedFile(file)) {
++                                return;
++                            }
+                             _appSettings.setTodoFile(file);
+                             _appSettings.setRecreateMainRequired(true);
+                             doUpdatePreferences();
+@@ -317,9 +334,7 @@ public class SettingsActivity extends MarkorBaseActivity {
+ 
+                         @Override
+                         public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
+-                            dopt.titleText = R.string.todo;
+-                            dopt.rootFolder = _appSettings.getNotebookDirectory();
+-                            dopt.newDirButtonEnable = false;
++                            configureNotebookScopedPicker(dopt, R.string.todo);
+                         }
+                     }, fragManager, getActivity(), MarkorFileBrowserFactory.IsMimeText);
+                     return true;
+diff --git a/app/src/main/java/net/gsantner/markor/frontend/MarkorDialogFactory.java b/app/src/main/java/net/gsantner/markor/frontend/MarkorDialogFactory.java
+index 059bff7..6fa0a70 100644
+--- a/app/src/main/java/net/gsantner/markor/frontend/MarkorDialogFactory.java
++++ b/app/src/main/java/net/gsantner/markor/frontend/MarkorDialogFactory.java
+@@ -47,6 +47,7 @@ import androidx.annotation.Nullable;
+ import androidx.annotation.RequiresApi;
+ import androidx.annotation.StringRes;
+ import androidx.appcompat.app.AlertDialog;
++import androidx.appcompat.app.AppCompatActivity;
+ import androidx.core.content.ContextCompat;
+ 
+ import net.gsantner.markor.R;
+@@ -58,13 +59,17 @@ import net.gsantner.markor.format.todotxt.TodoTxtTask;
+ import net.gsantner.markor.frontend.filesearch.FileSearchDialog;
+ import net.gsantner.markor.frontend.filesearch.FileSearchEngine;
+ import net.gsantner.markor.frontend.filesearch.FileSearchResultSelectorDialog;
++import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
+ import net.gsantner.markor.frontend.textview.HighlightingEditor;
+ import net.gsantner.markor.frontend.textview.SyntaxHighlighterBase;
+ import net.gsantner.markor.frontend.textview.TextViewUtils;
+ import net.gsantner.markor.model.AppSettings;
++import net.gsantner.markor.model.sqlite.SqliteNotebook;
++import net.gsantner.markor.model.sqlite.SqliteNotebookUtils;
+ import net.gsantner.opoc.format.GsTextUtils;
+ import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog;
+ import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog.DialogOptions;
++import net.gsantner.opoc.frontend.filebrowser.GsFileBrowserOptions;
+ import net.gsantner.opoc.util.GsCollectionUtils;
+ import net.gsantner.opoc.util.GsContextUtils;
+ import net.gsantner.opoc.util.GsFileUtils;
+@@ -1263,6 +1268,328 @@ public class MarkorDialogFactory {
+         GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
+     }
+ 
++    //########################
++    //## SQLite 笔记本 (打开/转换/解锁)
++    //########################
++
++    /** 转换任务体；允许抛受检异常，由 runSqliteConvertAsync 统一转成 Toast */
++    private interface SqliteTask {
++        void run() throws Exception;
++    }
++
++    /** 在后台线程执行转换任务, 完成或失败时用 Toast 提示 */
++    private static void runSqliteConvertAsync(final Activity activity, final SqliteTask task) {
++        new Thread(() -> {
++            try {
++                task.run();
++                activity.runOnUiThread(() ->
++                        Toast.makeText(activity, R.string.sqlite_convert_done, Toast.LENGTH_LONG).show());
++            } catch (Exception e) {
++                final String detail = e.getMessage() != null ? e.getMessage() : e.toString();
++                activity.runOnUiThread(() -> Toast.makeText(activity,
++                        activity.getString(R.string.sqlite_convert_failed, detail), Toast.LENGTH_LONG).show());
++            }
++        }, "sqlite_convert").start();
++    }
++
++    /** 密码输入对话框 (掩码显示)。allowEmpty 时空输入也会回调空字符串 */
++    private static void showSqlitePasswordDialog(final Activity activity, final int titleRes,
++            final CharSequence message, final boolean allowEmpty, final GsCallback.a1<String> callback) {
++        final DialogOptions dopt = baseConf(activity);
++        dopt.isSearchEnabled = true;
++        dopt.titleText = titleRes;
++        dopt.messageText = message;
++        dopt.searchHintText = R.string.file_encryption_password;
++        dopt.searchInputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD;
++        dopt.selectionMode = DialogOptions.SelectionMode.NONE;
++        dopt.callback = password -> {
++            if (allowEmpty || !TextUtils.isEmpty(password)) {
++                callback.callback(password == null ? "" : password);
++            }
++        };
++        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
++    }
++
++    /**
++     * 校验并激活 SQLite 笔记本:
++     * 已记住的派生密钥可用 → 直接激活; 需要密码/密码错 → 弹窗重输;
++     * 不是笔记本库或旧版格式 → 报错且不占用笔记本位置。
++     */
++    public static void tryActivateSqliteNotebook(final Activity activity, final File dbFile,
++            @Nullable final GsCallback.a1<Boolean> onDone) {
++        activateSqliteNotebook(activity, dbFile, null, onDone);
++    }
++
++    private static void activateSqliteNotebook(final Activity activity, final File dbFile,
++            @Nullable final char[] password, @Nullable final GsCallback.a1<Boolean> onDone) {
++        SqliteNotebook.open(activity, dbFile, password, result -> {
++            switch (result) {
++                case OK: {
++                    final AppSettings as = AppSettings.get(activity);
++                    final File previousNotebook = as.getNotebookDirectory();
++                    as.setSqliteNotebookFile(dbFile);
++                    as.setRecreateMainRequired(true);
++                    relocateNotebookScopedFiles(activity, previousNotebook);
++                    if (onDone != null) {
++                        onDone.callback(true);
++                    }
++                    return;
++                }
++                case PASSWORD_REQUIRED: {
++                    promptSqliteNotebookPassword(activity, dbFile, false, onDone);
++                    return;
++                }
++                case WRONG_PASSWORD: {
++                    promptSqliteNotebookPassword(activity, dbFile, true, onDone);
++                    return;
++                }
++                case NOT_NOTEBOOK_DB: {
++                    showToast(activity, activity.getString(R.string.sqlite_notebook_not_a_notebook));
++                    if (onDone != null) {
++                        onDone.callback(false);
++                    }
++                    return;
++                }
++                case LEGACY_DB: {
++                    showConfirmDialog(activity, R.string.sqlite_menu,
++                            activity.getString(R.string.sqlite_notebook_legacy_db), null, null);
++                    if (onDone != null) {
++                        onDone.callback(false);
++                    }
++                    return;
++                }
++                default: {
++                    showToast(activity, activity.getString(R.string.sqlite_notebook_open_failed));
++                    if (onDone != null) {
++                        onDone.callback(false);
++                    }
++                }
++            }
++        });
++    }
++
++    private static void showToast(final Activity activity, final String text) {
++        activity.runOnUiThread(() -> Toast.makeText(activity, text, Toast.LENGTH_LONG).show());
++    }
++
++    /**
++     * 笔记本换了根目录（切文件夹 / 切 db / 停用 db）之后，把 ToDo 与 QuickNote 收回新笔记本内。
++     * 没能跟着过来的（新笔记本里没有同名相对路径的）会退回笔记本内的默认文件，需要告知用户重选。
++     */
++    private static void relocateNotebookScopedFiles(final Activity activity,
++                                                    @Nullable final File previousNotebook) {
++        final List<String> fallback = AppSettings.get(activity).relocateNotebookScopedFiles(previousNotebook);
++        if (!fallback.isEmpty()) {
++            showToast(activity, activity.getString(R.string.todo_quicknote_reset_after_switch,
++                    TextUtils.join(", ", fallback)));
++        }
++    }
++
++    private static void promptSqliteNotebookPassword(final Activity activity, final File dbFile,
++            final boolean wasError, @Nullable final GsCallback.a1<Boolean> onDone) {
++        String msg = activity.getString(R.string.sqlite_notebook_open_file, dbFile.getAbsolutePath());
++        if (wasError) {
++            msg = activity.getString(R.string.sqlite_notebook_invalid_password) + "\n" + msg;
++        }
++        showSqlitePasswordDialog(activity, R.string.sqlite_notebook_password, msg, false,
++                password -> activateSqliteNotebook(activity, dbFile, password.toCharArray(), onDone));
++    }
++
++    /** "打开文件夹 / 打开 SQLite db" 选择对话框 */
++    public static void showOpenNotebookDialog(final Activity activity) {
++        final DialogOptions dopt = baseConf(activity);
++        final List<String> data = new ArrayList<>();
++        data.add(activity.getString(R.string.sqlite_open_folder));
++        data.add(activity.getString(R.string.sqlite_open_db));
++        dopt.data = data;
++        dopt.isSearchEnabled = false;
++        dopt.titleText = R.string.notebook;
++        dopt.positionCallback = positions -> {
++            if (positions.get(0) == 0) {
++                pickNotebookFolder(activity);
++            } else {
++                pickSqliteNotebookDb(activity);
++            }
++        };
++        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
++    }
++
++    /** 打开普通文件夹作为笔记本 (停用 sqlite 模式) */
++    public static void pickNotebookFolder(final Activity activity) {
++        final AppSettings as = AppSettings.get(activity);
++        MarkorFileBrowserFactory.showFolderDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
++            @Override
++            public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
++                final File previousNotebook = as.getNotebookDirectory();
++                as.setSqliteNotebookFile(null);
++                SqliteNotebook.deactivate();
++                as.setNotebookDirectory(file);
++                as.setRecreateMainRequired(true);
++                relocateNotebookScopedFiles(activity, previousNotebook);
++            }
++
++            @Override
++            public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
++                dopt.titleText = R.string.select_storage_folder;
++                final File db = as.getSqliteNotebookFile();
++                dopt.rootFolder = db != null && db.getParentFile() != null
++                        ? db.getParentFile() : as.getNotebookDirectory();
++            }
++        }, ((AppCompatActivity) activity).getSupportFragmentManager(), activity);
++    }
++
++    /** 选择 SQLite db 文件作为笔记本打开 */
++    public static void pickSqliteNotebookDb(final Activity activity) {
++        final AppSettings as = AppSettings.get(activity);
++        MarkorFileBrowserFactory.showFileDialog(new GsFileBrowserOptions.SelectionListenerAdapter() {
++            @Override
++            public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
++                tryActivateSqliteNotebook(activity, file, null);
++            }
++
++            @Override
++            public void onFsViewerConfig(GsFileBrowserOptions.Options dopt) {
++                dopt.titleText = R.string.sqlite_open_db;
++                final File db = as.getSqliteNotebookFile();
++                dopt.rootFolder = db != null && db.getParentFile() != null
++                        ? db.getParentFile() : as.getNotebookDirectory();
++                dopt.newDirButtonEnable = false;
++            }
++        }, ((AppCompatActivity) activity).getSupportFragmentManager(), activity,
++                (context, file) -> file.isDirectory() || SqliteNotebookUtils.isSqliteNotebookFile(file));
++    }
++
++    /** 按文件类型列出可用的 SQLite 转换操作 */
++    public static void showSqliteConvertDialog(final Activity activity, final File file) {
++        final boolean isDir = file.isDirectory();
++        final boolean isDb = SqliteNotebookUtils.isSqliteNotebookFile(file);
++        final boolean isZip = SqliteNotebookUtils.isZipFile(file);
++        if ((!isDir && !isDb && !isZip) || file.getParentFile() == null) {
++            Toast.makeText(activity, R.string.sqlite_convert_unsupported, Toast.LENGTH_SHORT).show();
++            return;
++        }
++
++        final DialogOptions dopt = baseConf(activity);
++        final List<String> data = new ArrayList<>();
++        final List<Runnable> actions = new ArrayList<>();
++
++        if (isDir) {
++            data.add(activity.getString(R.string.sqlite_export_to_db));
++            actions.add(() -> convertFolderToDb(activity, file));
++        }
++        if (isZip) {
++            data.add(activity.getString(R.string.sqlite_convert_zip_to_db));
++            actions.add(() -> convertZipToDb(activity, file));
++        }
++        if (isDb) {
++            data.add(activity.getString(R.string.sqlite_extract_to_folder));
++            actions.add(() -> convertDbToFolder(activity, file));
++            data.add(activity.getString(R.string.sqlite_export_to_zip));
++            actions.add(() -> convertDbToZip(activity, file));
++        }
++
++        dopt.data = data;
++        dopt.isSearchEnabled = false;
++        dopt.titleText = R.string.sqlite_menu;
++        dopt.messageText = file.getAbsolutePath();
++        dopt.positionCallback = positions -> actions.get(positions.get(0)).run();
++        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
++    }
++
++    private static String stripSqliteExtension(final String name) {
++        return name.replaceFirst("(?i)\\.(db|sqlite|sqlite3|vsdb)$", "");
++    }
++
++    private static void convertFolderToDb(final Activity activity, final File srcDir) {
++        final File dest = new File(srcDir.getParentFile(), srcDir.getName() + ".db");
++        askSqliteOverwriteThen(activity, dest, () ->
++                showSqlitePasswordDialog(activity, R.string.sqlite_export_to_db,
++                        activity.getString(R.string.sqlite_password_empty_means_plain, dest.getAbsolutePath()),
++                        true, password -> runSqliteConvertAsync(activity, () ->
++                                SqliteNotebookUtils.exportFolderToDb(srcDir, dest, password.toCharArray()))));
++    }
++
++    private static void convertZipToDb(final Activity activity, final File zipFile) {
++        final File dest = new File(zipFile.getParentFile(),
++                stripSqliteExtension(zipFile.getName()) + ".db");
++        askSqliteOverwriteThen(activity, dest, () ->
++                showSqlitePasswordDialog(activity, R.string.sqlite_convert_zip_to_db,
++                        activity.getString(R.string.sqlite_password_empty_means_plain, dest.getAbsolutePath()),
++                        true, password -> runSqliteConvertAsync(activity, () ->
++                                SqliteNotebookUtils.importZipToDb(activity, zipFile, dest, password.toCharArray()))));
++    }
++
++    private static void convertDbToFolder(final Activity activity, final File dbFile) {
++        final File dest = new File(dbFile.getParentFile(), stripSqliteExtension(dbFile.getName()));
++        askSqlitePasswordIfEncrypted(activity, dbFile, password ->
++                askSqliteOverwriteThen(activity, dest, () -> runSqliteConvertAsync(activity, () ->
++                        SqliteNotebookUtils.extractDbToFolder(activity, dbFile, password, dest))));
++    }
++
++    private static void convertDbToZip(final Activity activity, final File dbFile) {
++        final File dest = new File(dbFile.getParentFile(), stripSqliteExtension(dbFile.getName()) + ".zip");
++        askSqlitePasswordIfEncrypted(activity, dbFile, password ->
++                askSqliteOverwriteThen(activity, dest, () -> runSqliteConvertAsync(activity, () ->
++                        SqliteNotebookUtils.exportDbToZip(activity, dbFile, password, dest))));
++    }
++
++    /** 目标文件已存在时先询问是否覆盖 */
++    private static void askSqliteOverwriteThen(final Activity activity, final File dest, final Runnable action) {
++        if (!dest.exists()) {
++            action.run();
++            return;
++        }
++        showConfirmDialog(activity, 0,
++                activity.getString(R.string.sqlite_overwrite_confirm, dest.getAbsolutePath()),
++                null, action::run);
++    }
++
++    /**
++     * 需要口令的转换操作：本机记住过该库的派生密钥就直接执行，否则先弹窗取口令再执行。
++     * (值级加密下派生密钥无法反推口令，所以只用于免输口令打开，不能拿来重设密码)
++     */
++    private static void askSqlitePasswordIfEncrypted(final Activity activity, final File dbFile,
++            final GsCallback.a1<char[]> callback) {
++        if (!SqliteNotebookUtils.requiresPassword(activity, dbFile)) {
++            callback.callback(null);
++            return;
++        }
++        showSqlitePasswordDialog(activity, R.string.sqlite_notebook_password,
++                activity.getString(R.string.sqlite_notebook_open_file, dbFile.getAbsolutePath()),
++                false, password -> callback.callback(password.toCharArray()));
++    }
++
++    /** SQLite 笔记本解锁对话框 (密码失效时); 中性按钮 = 停用 sqlite 模式 */
++    public static void showSqliteNotebookUnlockDialog(final Activity activity) {
++        final AppSettings as = AppSettings.get(activity);
++        final File dbFile = as.getSqliteNotebookFile();
++        if (dbFile == null) {
++            return;
++        }
++        final DialogOptions dopt = baseConf(activity);
++        dopt.isSearchEnabled = true;
++        dopt.titleText = R.string.sqlite_notebook_unlock;
++        dopt.messageText = activity.getString(R.string.sqlite_notebook_open_file, dbFile.getAbsolutePath());
++        dopt.searchHintText = R.string.file_encryption_password;
++        dopt.searchInputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD;
++        dopt.selectionMode = DialogOptions.SelectionMode.NONE;
++        dopt.callback = password -> {
++            if (!TextUtils.isEmpty(password)) {
++                activateSqliteNotebook(activity, dbFile, password.toCharArray(), null);
++            }
++        };
++        dopt.neutralButtonText = R.string.sqlite_stop_using;
++        dopt.neutralButtonCallback = dialog -> {
++            dialog.dismiss();
++            final File previousNotebook = as.getNotebookDirectory();
++            as.setSqliteNotebookFile(null);
++            SqliteNotebook.deactivate();
++            as.setRecreateMainRequired(true);
++            relocateNotebookScopedFiles(activity, previousNotebook);
++        };
++        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
++    }
++
+     public static void showGoToLineDialog(
+             final Activity activity,
+             final @NonNull HighlightingEditor editText
+diff --git a/app/src/main/java/net/gsantner/markor/model/AppSettings.java b/app/src/main/java/net/gsantner/markor/model/AppSettings.java
+index 80aed82..dbb2054 100644
+--- a/app/src/main/java/net/gsantner/markor/model/AppSettings.java
++++ b/app/src/main/java/net/gsantner/markor/model/AppSettings.java
+@@ -28,6 +28,7 @@ import net.gsantner.markor.BuildConfig;
+ import net.gsantner.markor.R;
+ import net.gsantner.markor.activity.MarkorBaseActivity;
+ import net.gsantner.markor.format.FormatRegistry;
++import net.gsantner.markor.model.sqlite.SqliteNotebookDb;
+ import net.gsantner.markor.util.MarkorContextUtils;
+ import net.gsantner.markor.util.ShortcutUtils;
+ import net.gsantner.opoc.format.GsTextUtils;
+@@ -95,6 +96,11 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
+     }
+ 
+     public File getNotebookDirectory() {
++        // SQLite 笔记本模式下, 根目录映射为内部工作区 (由 SqliteNotebook 会话双向同步)
++        final File dbFile = getSqliteNotebookFile();
++        if (dbFile != null) {
++            return SqliteNotebookDb.getWorkspaceDir(getContext(), dbFile);
++        }
+         return new File(getString(R.string.pref_key__notebook_directory, getDefaultNotebookFile().getAbsolutePath()));
+     }
+ 
+@@ -105,6 +111,71 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
+                 rstr(R.string.app_name).toLowerCase(Locale.ROOT));
+     }
+ 
++    // -----------------------------------------------------------------
++    // SQLite 笔记本 (值级加密, 与 vsnote 通用；缓存派生密钥而不是明文口令)
++    // -----------------------------------------------------------------
++
++    /**
++     * @return 当前 SQLite 笔记本 db 文件; 未启用 sqlite 模式、或该文件已不存在时为 null。
++     * 笔记本只有两种状态：要么是一个文件夹，要么是一个存在的 db —— 二者不共存，
++     * db 文件不见了就自动回到文件夹模式，绝不会因此生成一个空库。
++     */
++    public File getSqliteNotebookFile() {
++        final String path = getString(R.string.pref_key__notebook_sqlite_path, "");
++        if (path == null || path.trim().isEmpty()) {
++            return null;
++        }
++        final File file = new File(path);
++        return file.isFile() ? file : null;
++    }
++
++    /** 传入 null 表示停用 sqlite 模式 (回到普通文件夹模式) */
++    public void setSqliteNotebookFile(final File file) {
++        setString(R.string.pref_key__notebook_sqlite_path,
++                file == null ? "" : GsFileUtils.getPath(file));
++    }
++
++    public boolean isSqliteNotebookMode() {
++        return getSqliteNotebookFile() != null;
++    }
++
++    /** 缓存条目按 db 文件区分：库改名或挪目录后旧条目自然失效，需要重新输口令 */
++    @NonNull
++    private String notebookKeyAlias(@NonNull final File dbFile) {
++        return SqliteNotebookDb.PASSWORD_KEY_NAME + "_" + SqliteNotebookDb.md5Hex(dbFile.getAbsolutePath());
++    }
++
++    /**
++     * @return 本机记住的 PBKDF2 派生密钥 (base64)，用于跳过重复的 60 万次 KDF 迭代；没有则 null
++     */
++    @Nullable
++    public String getSqliteNotebookKey(@NonNull final File dbFile) {
++        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
++            return null;
++        }
++        final char[] stored = loadKeystoreKey(notebookKeyAlias(dbFile));
++        return (stored == null || stored.length == 0) ? null : new String(stored);
++    }
++
++    /** @param derivedKeyBase64 传 null 或空串表示忘掉这台机器上记住的该库密钥 */
++    public void setSqliteNotebookKey(@NonNull final File dbFile, @Nullable final String derivedKeyBase64) {
++        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
++            return;
++        }
++        storeKeystoreKey(derivedKeyBase64 == null ? "" : derivedKeyBase64, notebookKeyAlias(dbFile));
++    }
++
++    @RequiresApi(api = Build.VERSION_CODES.M)
++    @Nullable
++    private char[] loadKeystoreKey(@NonNull final String alias) {
++        return new PasswordStore(getContext()).loadKey(alias);
++    }
++
++    @RequiresApi(api = Build.VERSION_CODES.M)
++    private void storeKeystoreKey(@NonNull final String value, @NonNull final String alias) {
++        new PasswordStore(getContext()).storeKey(value, alias, PasswordStore.SecurityMode.NONE);
++    }
++
+     public File getQuickNoteFile() {
+         return new File(getString(R.string.pref_key__quicknote_filepath, getDefaultQuickNoteFile().getAbsolutePath()));
+     }
+@@ -129,6 +200,76 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
+         return new File(getDefaultNotebookFile(), rstr(R.string.todo_default_filename));
+     }
+ 
++    // -----------------------------------------------------------------
++    // 笔记本级文件 (ToDo / QuickNote) 必须待在笔记本根目录以内
++    // -----------------------------------------------------------------
++
++    /** 文件是否位于当前笔记本根目录（普通文件夹或 SQLite 笔记本的工作区）之内 */
++    public boolean isInsideNotebook(@Nullable final File file) {
++        if (file == null) {
++            return false;
++        }
++        final String notebook = canonicalPath(getNotebookDirectory());
++        final String path = canonicalPath(file);
++        return notebook.length() > 0 && (path.equals(notebook) || path.startsWith(notebook + File.separator));
++    }
++
++    /**
++     * 笔记本换了根目录（切文件夹、换 db、db 改名导致工作区目录变化）之后，把 ToDo / QuickNote 收回新笔记本内：
++     * 仍在新笔记本里的保持不动；能按旧相对路径在新笔记本里找到的跟着笔记本走；
++     * 两者都不成立的退回「新笔记本 / 默认文件名」，让主界面照常可用。
++     *
++     * @param previousNotebook 切换前的笔记本根目录，用于换算相对路径
++     * @return 没能保住原文件、被退回默认文件名的默认文件名列表（空表示都跟着过来了）
++     */
++    @NonNull
++    public List<String> relocateNotebookScopedFiles(@Nullable final File previousNotebook) {
++        final File notebook = getNotebookDirectory();
++        final String todoName = rstr(R.string.todo_default_filename);
++        final String quickName = rstr(R.string.quicknote_default_filename);
++        final List<String> fallback = new ArrayList<>();
++        final File todo = getTodoFile();
++        if (!isInsideNotebook(todo)) {
++            final File moved = mapIntoNotebook(todo, previousNotebook, notebook);
++            final boolean kept = moved != null && moved.isFile();
++            setTodoFile(kept ? moved : new File(notebook, todoName));
++            if (!kept) {
++                fallback.add(todoName);
++            }
++        }
++        final File quick = getQuickNoteFile();
++        if (!isInsideNotebook(quick)) {
++            final File moved = mapIntoNotebook(quick, previousNotebook, notebook);
++            final boolean kept = moved != null && moved.isFile();
++            setQuickNoteFile(kept ? moved : new File(notebook, quickName));
++            if (!kept) {
++                fallback.add(quickName);
++            }
++        }
++        return fallback;
++    }
++
++    /** 旧笔记本里的相对路径映射到新笔记本；不在旧笔记本内时返回 null */
++    @Nullable
++    private File mapIntoNotebook(@NonNull final File file, @Nullable final File previousNotebook,
++                                 @NonNull final File notebook) {
++        if (previousNotebook == null) {
++            return null;
++        }
++        final String previous = canonicalPath(previousNotebook);
++        final String path = canonicalPath(file);
++        return previous.length() > 0 && path.startsWith(previous + File.separator)
++                ? new File(notebook, path.substring(previous.length() + 1)) : null;
++    }
++
++    private String canonicalPath(@NonNull final File file) {
++        try {
++            return file.getCanonicalPath();
++        } catch (IOException e) {
++            return GsFileUtils.getPath(file);
++        }
++    }
++
+     public File getSnippetsDirectory() {
+         final File _default = new File(getNotebookDirectory(), ".app/snippets");
+         final File snf = new File(getString(R.string.pref_key__snippet_directory_path, _default.getAbsolutePath()));
+diff --git a/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserFragment.java b/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserFragment.java
+index 9fa77df..35b50cf 100644
+--- a/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserFragment.java
++++ b/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserFragment.java
+@@ -48,6 +48,7 @@ import net.gsantner.markor.frontend.MarkorDialogFactory;
+ import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
+ import net.gsantner.markor.frontend.filesearch.FileSearchEngine;
+ import net.gsantner.markor.model.AppSettings;
++import net.gsantner.markor.model.sqlite.SqliteNotebookUtils;
+ import net.gsantner.markor.util.MarkorContextUtils;
+ import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog;
+ import net.gsantner.opoc.frontend.base.GsFragmentBase;
+@@ -281,6 +282,17 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
+             _fragmentMenu.findItem(R.id.action_check_all).setVisible(_filesystemViewerAdapter.areItemsSelected() && selCount < totalCount);
+             _fragmentMenu.findItem(R.id.action_clear_selection).setVisible(_filesystemViewerAdapter.areItemsSelected());
+ 
++            // SQLite 转换菜单: 单选文件夹/db/zip, 或无选择且当前目录非虚拟时针对当前目录
++            final File selSingleSqlite = selCount == 1 ? selFiles.iterator().next() : null;
++            final File curFolder = getCurrentFolder();
++            final boolean sqliteConvertTarget = _dopt.showSqliteActions && (
++                    (selSingleSqlite != null && (selSingleSqlite.isDirectory()
++                            || SqliteNotebookUtils.isSqliteNotebookFile(selSingleSqlite)
++                            || SqliteNotebookUtils.isZipFile(selSingleSqlite)))
++                            || (selCount == 0 && !_filesystemViewerAdapter.isCurrentFolderVirtual()
++                            && curFolder != null && curFolder.isDirectory()));
++            _fragmentMenu.findItem(R.id.action_sqlite_convert).setVisible(sqliteConvertTarget);
++
+             final MenuItem sortItem = _fragmentMenu.findItem(R.id.action_sort);
+             if (sortItem != null) {
+                 final @ColorInt int colorWhite = _cu.rcolor(getContext(), R.color.dark__primary_text);
+@@ -465,6 +477,17 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
+                 }
+                 return true;
+             }
++            case R.id.action_sqlite_convert: {
++                if (getActivity() != null) {
++                    final File target = currentSelection.isEmpty()
++                            ? getCurrentFolder()
++                            : _filesystemViewerAdapter.resolveVirtualFile(currentSelection.iterator().next());
++                    if (target != null) {
++                        MarkorDialogFactory.showSqliteConvertDialog(getActivity(), target);
++                    }
++                }
++                return true;
++            }
+             case R.id.action_fs_copy_to_clipboard: {
+                 if (_filesystemViewerAdapter.areItemsSelected()) {
+                     final File file = new ArrayList<>(currentSelection).get(0);
+diff --git a/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserOptions.java b/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserOptions.java
+index c74a85a..c0f6438 100644
+--- a/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserOptions.java
++++ b/app/src/main/java/net/gsantner/opoc/frontend/filebrowser/GsFileBrowserOptions.java
+@@ -66,6 +66,9 @@ public class GsFileBrowserOptions {
+ 
+         public boolean descModtimeInsteadOfParent = false;
+ 
++        // 显示 SQLite 转换菜单 (导出为 db / 解包 / 导出为 zip)
++        public boolean showSqliteActions = false;
++
+         public int itemSidePadding = 16; // dp
+ 
+         // Visibility of elements
+diff --git a/app/src/main/res/menu/filesystem__menu.xml b/app/src/main/res/menu/filesystem__menu.xml
+index b9639cd..3f34b6f 100644
+--- a/app/src/main/res/menu/filesystem__menu.xml
++++ b/app/src/main/res/menu/filesystem__menu.xml
+@@ -73,6 +73,13 @@
+         android:visible="false"
+         app:showAsAction="never" />
+ 
++    <item
++        android:id="@+id/action_sqlite_convert"
++        android:icon="@drawable/ic_save_black_24dp"
++        android:title="@string/sqlite_menu"
++        android:visible="false"
++        app:showAsAction="never" />
++
+     <item
+         android:id="@+id/action_go_to"
+         android:layout_width="match_parent"
+diff --git a/app/src/main/res/values-zh-rCN/strings.xml b/app/src/main/res/values-zh-rCN/strings.xml
+index 569387f..5356385 100644
+--- a/app/src/main/res/values-zh-rCN/strings.xml
++++ b/app/src/main/res/values-zh-rCN/strings.xml
+@@ -496,4 +496,29 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
+     <string name="capitalize_sentences">大写句首字母 (a note→A note)</string>
+     <string name="use_tab_to_indent">使用 Tab 键缩进行</string>
+     <string name="folder_local">本地文件夹</string>
++
++    <!-- SQLite 笔记本 -->
++    <string name="sqlite_menu">SQLite</string>
++    <string name="sqlite_open_folder">打开文件夹</string>
++    <string name="sqlite_open_db">打开 SQLite 数据库</string>
++    <string name="sqlite_export_to_db">导出为 SQLite 数据库</string>
++    <string name="sqlite_convert_zip_to_db">转换为 SQLite 数据库</string>
++    <string name="sqlite_extract_to_folder">解包到文件夹</string>
++    <string name="sqlite_export_to_zip">导出为 zip</string>
++    <string name="sqlite_convert_unsupported">不是文件夹、zip 压缩包或 SQLite 数据库文件</string>
++    <string name="sqlite_convert_done">转换完成</string>
++    <string name="sqlite_convert_failed">转换失败：%s</string>
++    <string name="sqlite_notebook_password">SQLite 数据库密码</string>
++    <string name="sqlite_password_empty_means_plain">目标位置：%s\n密码留空则不加密</string>
++    <string name="sqlite_notebook_unlock">解锁 SQLite 笔记本</string>
++    <string name="sqlite_notebook_open_file">文件：%s</string>
++    <string name="sqlite_notebook_invalid_password">无法打开数据库：密码错误或文件已损坏</string>
++    <string name="sqlite_notebook_not_a_notebook">不是可用的笔记本数据库（文件不存在、为空或缺少 node 表）。要新建请在文件夹上选择「导出为 SQLite 数据库」</string>
++    <string name="sqlite_notebook_legacy_db">该笔记本库是旧版格式，请先解包为文件夹，再新建数据库</string>
++    <string name="sqlite_notebook_open_failed">无法打开 SQLite 笔记本</string>
++    <string name="sqlite_overwrite_confirm">%s 已存在，是否覆盖？</string>
++    <string name="sqlite_stop_using">停用 SQLite 笔记本</string>
++    <string name="sqlite_open_as_notebook_confirm">将此 SQLite 数据库作为笔记本打开？</string>
++    <string name="todo_quicknote_must_be_in_notebook">请在笔记本（文件夹或 SQLite 数据库）内选择文件</string>
++    <string name="todo_quicknote_reset_after_switch">笔记本已切换：新笔记本里没有 %s，已改用笔记本内的默认文件，可在设置中重新选择</string>
+ </resources>
+diff --git a/app/src/main/res/values-zh-rTW/strings.xml b/app/src/main/res/values-zh-rTW/strings.xml
+index 7fbe90b..a97795b 100644
+--- a/app/src/main/res/values-zh-rTW/strings.xml
++++ b/app/src/main/res/values-zh-rTW/strings.xml
+@@ -439,4 +439,29 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
+     <string name="advanced_filtering_help"><![CDATA[<small><a href="https://www.github.com/gsantner/markor/discussions/1940">進階過濾語法</a></small>]]></string>
+     <string name="filter">過濾器</string>
+     <string name="text_case">文本大小寫</string>
++
++    <!-- SQLite 筆記本 -->
++    <string name="sqlite_menu">SQLite</string>
++    <string name="sqlite_open_folder">開啟資料夾</string>
++    <string name="sqlite_open_db">開啟 SQLite 資料庫</string>
++    <string name="sqlite_export_to_db">匯出為 SQLite 資料庫</string>
++    <string name="sqlite_convert_zip_to_db">轉換為 SQLite 資料庫</string>
++    <string name="sqlite_extract_to_folder">解壓縮到資料夾</string>
++    <string name="sqlite_export_to_zip">匯出為 zip</string>
++    <string name="sqlite_convert_unsupported">不是資料夾、zip 壓縮檔或 SQLite 資料庫檔案</string>
++    <string name="sqlite_convert_done">轉換完成</string>
++    <string name="sqlite_convert_failed">轉換失敗：%s</string>
++    <string name="sqlite_notebook_password">SQLite 資料庫密碼</string>
++    <string name="sqlite_password_empty_means_plain">目標位置：%s\n密碼留空則不加密</string>
++    <string name="sqlite_notebook_unlock">解鎖 SQLite 筆記本</string>
++    <string name="sqlite_notebook_open_file">檔案：%s</string>
++    <string name="sqlite_notebook_invalid_password">無法開啟資料庫：密碼錯誤或檔案已損壞</string>
++    <string name="sqlite_notebook_not_a_notebook">不是可用的筆記本資料庫（檔案不存在、為空或缺少 node 表）。要建立請在資料夾上選擇「匯出為 SQLite 資料庫」</string>
++    <string name="sqlite_notebook_legacy_db">該筆記本資料庫為舊版格式，請先解包為資料夾，再建立新資料庫</string>
++    <string name="sqlite_notebook_open_failed">無法開啟 SQLite 筆記本</string>
++    <string name="sqlite_overwrite_confirm">%s 已存在，是否覆蓋？</string>
++    <string name="sqlite_stop_using">停用 SQLite 筆記本</string>
++    <string name="sqlite_open_as_notebook_confirm">將此 SQLite 資料庫作為筆記本開啟？</string>
++    <string name="todo_quicknote_must_be_in_notebook">請在筆記本（資料夾或 SQLite 資料庫）內選擇檔案</string>
++    <string name="todo_quicknote_reset_after_switch">筆記本已切換：新筆記本中沒有 %s，已改用筆記本內的預設檔案，可在設定中重新選擇</string>
+ </resources>
+diff --git a/app/src/main/res/values/string-not_translatable.xml b/app/src/main/res/values/string-not_translatable.xml
+index 6198fc7..6a928aa 100644
+--- a/app/src/main/res/values/string-not_translatable.xml
++++ b/app/src/main/res/values/string-not_translatable.xml
+@@ -142,6 +142,7 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
+     <string name="pref_key__is_dynamic_highlighting_activated" translatable="false">pref_key__is_dynamic_highlighting_activated</string>
+     <string name="pref_key__load_last_directory_at_startup" translatable="false">pref_key__load_last_directory_at_startup</string>
+     <string name="pref_key__notebook_directory" translatable="false">pref_key__notebook_directory</string>
++    <string name="pref_key__notebook_sqlite_path" translatable="false">pref_key__notebook_sqlite_path</string>
+     <string name="pref_key__last_opened_directory" translatable="false">pref_key__last_opened_directory</string>
+     <string name="pref_key__font_family" translatable="false">pref_key__font_family</string>
+     <string name="pref_key__editor_font_size" translatable="false">pref_key__editor_font_size</string>
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+index a6f467f..a022fe9 100644
+--- a/app/src/main/res/values/strings.xml
++++ b/app/src/main/res/values/strings.xml
+@@ -517,4 +517,29 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
+     <string name="static_cursor">Static cursor</string>
+     <string name="disable_cursor_blinking">Disable cursor blinking</string>
+     <string name="folder_local">Folder local</string>
++
++    <!-- SQLite notebook -->
++    <string name="sqlite_menu">SQLite</string>
++    <string name="sqlite_open_folder">Open folder</string>
++    <string name="sqlite_open_db">Open SQLite database</string>
++    <string name="sqlite_export_to_db">Export as SQLite database</string>
++    <string name="sqlite_convert_zip_to_db">Convert to SQLite database</string>
++    <string name="sqlite_extract_to_folder">Extract to folder</string>
++    <string name="sqlite_export_to_zip">Export as zip</string>
++    <string name="sqlite_convert_unsupported">Not a folder, zip archive or SQLite database file</string>
++    <string name="sqlite_convert_done">Conversion finished</string>
++    <string name="sqlite_convert_failed">Conversion failed: %s</string>
++    <string name="sqlite_notebook_password">SQLite database password</string>
++    <string name="sqlite_password_empty_means_plain">Destination: %s\nLeave the password empty to create an unencrypted database</string>
++    <string name="sqlite_notebook_unlock">Unlock SQLite notebook</string>
++    <string name="sqlite_notebook_open_file">File: %s</string>
++    <string name="sqlite_notebook_invalid_password">Could not open database: wrong password or damaged file</string>
++    <string name="sqlite_notebook_not_a_notebook">Not a usable notebook database (missing, empty or without the node table). To create one use \"Export as SQLite database\" on a folder.</string>
++    <string name="sqlite_notebook_legacy_db">This notebook database uses an outdated format. Extract it to a folder first, then create a new database.</string>
++    <string name="sqlite_notebook_open_failed">Could not open SQLite notebook</string>
++    <string name="sqlite_overwrite_confirm">%s already exists. Overwrite?</string>
++    <string name="sqlite_stop_using">Stop using SQLite notebook</string>
++    <string name="sqlite_open_as_notebook_confirm">Open this SQLite database as notebook?</string>
++    <string name="todo_quicknote_must_be_in_notebook">Choose a file from inside the notebook (folder or SQLite database)</string>
++    <string name="todo_quicknote_reset_after_switch">Notebook changed: %s does not exist in the new notebook, so it was reset to the file inside the notebook. Pick it again in the settings.</string>
+ </resources>
+diff --git a/app/src/test/java/other/de/stanetz/jpencconverter/cryption/JavaPasswordbasedCryptionTest.java b/app/src/test/java/other/de/stanetz/jpencconverter/cryption/JavaPasswordbasedCryptionTest.java
+old mode 100755
+new mode 100644
+diff --git a/gradle.properties b/gradle.properties
+old mode 100755
+new mode 100644
+diff --git a/gradlew b/gradlew
+old mode 100755
+new mode 100644

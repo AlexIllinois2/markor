@@ -26,6 +26,7 @@ import net.gsantner.markor.R;
 import net.gsantner.markor.activity.MainActivity;
 import net.gsantner.markor.format.FormatRegistry;
 import net.gsantner.markor.format.markdown.MarkdownTextConverter;
+import net.gsantner.markor.model.git.GitNotebook;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.opoc.util.GsContextUtils;
 import net.gsantner.opoc.util.GsFileUtils;
@@ -355,6 +356,7 @@ public class Document implements Serializable {
             setContentHash(content);
             _modTime = fileModTime();
             setGlobalTouchTime();
+            GitNotebook.onFileSystemChanged(context, file);
         } else {
             Log.i(Document.class.getName(), "File write failed, size = " + fileBytes() + "; file=" + file);
         }

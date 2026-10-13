@@ -21,3 +21,12 @@
 # ERROR: Missing classes detected while running R8. Please add the missing classes or apply additional keep rules that are generated in /home/runner/work/markor/markor/app/build/outputs/mapping/flavorAtestRelease/missing_rules.txt.
 # ERROR: R8: Missing class java.awt.AlphaComposite (referenced from: java.awt.image.BufferedImage com.vladsch.flexmark.util.ImageUtils.makeRoundedCorner(java.awt.image.BufferedImage, int, int) and 1 other context)
 -ignorewarnings
+
+# JGit (git notebook). Message bundles (NLS) and transport selection rely on names that
+# shrinking cannot see from the call graph, so keep the package as-is.
+-keep class org.eclipse.jgit.** { *; }
+-dontwarn org.eclipse.jgit.**
+-dontwarn java.nio.file.**
+-dontwarn javax.security.auth.**
+-dontwarn org.slf4j.impl.**
+

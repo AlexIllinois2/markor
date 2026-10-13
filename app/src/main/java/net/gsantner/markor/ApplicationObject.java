@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import androidx.multidex.MultiDexApplication;
 
 import net.gsantner.markor.model.AppSettings;
+import net.gsantner.markor.model.git.GitSyncJob;
 
 public class ApplicationObject extends MultiDexApplication {
     // Make resources not marked as unused
@@ -46,5 +47,8 @@ public class ApplicationObject extends MultiDexApplication {
             new WebView(getApplicationContext());
         } catch (Exception ignored) {
         }
+
+        // 上次退出前若开着 git 同步，进程重启后要把后台任务补排上
+        GitSyncJob.schedule(getApplicationContext(), _appSettings);
     }
 }

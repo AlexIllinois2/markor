@@ -98,6 +98,28 @@
         android:title="@string/import_from_device"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_git_sync"
+        android:icon="@drawable/ic_sync_black_24dp"
+        android:title="@string/git_sync"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_git_pull"
+        android:title="@string/git_pull_now"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_git_push"
+        android:title="@string/git_push_now"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_git_status"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/git_show_status"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_check_all"
         android:icon="@drawable/ic_check_circle_24dp"
         android:title="@string/select_all"

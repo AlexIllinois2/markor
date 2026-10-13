@@ -32,6 +32,8 @@ import net.gsantner.markor.R;
 import net.gsantner.markor.frontend.MarkorDialogFactory;
 import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
 import net.gsantner.markor.model.AppSettings;
+import net.gsantner.markor.model.git.GitNotebook;
+import net.gsantner.markor.model.git.GitSyncJob;
 import net.gsantner.markor.util.BackupUtils;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.markor.widget.TodoWidgetProvider;
@@ -187,6 +189,23 @@ public class SettingsActivity extends MarkorBaseActivity {
                 updateSummary(R.string.pref_key__set_encryption_password, getString(R.string.hidden_password));
             }
 
+            final File gitRepository = _appSettings.getGitRepositoryDirectory();
+            final boolean hasGitRepository = gitRepository != null;
+            for (final int keyId : new int[]{R.string.pref_key__git_sync_now, R.string.pref_key__git_pull,
+                    R.string.pref_key__git_push, R.string.pref_key__git_status}) {
+                setPreferenceVisible(keyId, hasGitRepository);
+            }
+            final String lastSync = _appSettings.getGitLastSyncInfo();
+            updateSummary(R.string.pref_key__git_sync_enabled, hasGitRepository
+                    ? gitRepository.getAbsolutePath().replace(remove, "")
+                    + (lastSync.isEmpty() ? "" : "\n" + lastSync)
+                    : getString(R.string.git_not_a_repository));
+            updateSummary(R.string.pref_key__git_commit_message, _appSettings.getGitCommitMessageTemplate());
+            setPreferenceVisible(R.string.pref_key__git_access_token, Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && _appSettings.isGitAccessTokenSet()) {
+                updateSummary(R.string.pref_key__git_access_token, getString(R.string.hidden_password));
+            }
+
             final int[] experimentalKeys = new int[]{
                     R.string.pref_key__swipe_to_change_mode,
                     R.string.pref_key__todotxt__hl_delay,
@@ -242,6 +261,10 @@ public class SettingsActivity extends MarkorBaseActivity {
             } else if (eq(key, R.string.pref_key__notebook_directory, R.string.pref_key__quicknote_filepath, R.string.pref_key__todo_filepath)) {
                 WrMarkorWidgetProvider.updateLauncherWidgets();
                 TodoWidgetProvider.updateTodoWidgets();
+            } else if (eq(key, R.string.pref_key__git_sync_enabled, R.string.pref_key__git_sync_interval_minutes)) {
+                // 后台任务的节奏跟着这两项走，界面在时另有前台定时器
+                GitSyncJob.schedule(context, _appSettings);
+                GitNotebook.startTimer(context);
             }
         }
 
@@ -286,6 +309,46 @@ public class SettingsActivity extends MarkorBaseActivity {
                             dopt.rootFolder = _appSettings.getNotebookDirectory();
                         }
                     }, fragManager, getActivity());
+                    return true;
+                }
+                case R.string.pref_key__git_clone: {
+                    MarkorDialogFactory.showGitCloneDialog(getActivity());
+                    return true;
+                }
+                case R.string.pref_key__git_sync_now: {
+                    GitNotebook.requestSync(getActivity(), true, false);
+                    return true;
+                }
+                case R.string.pref_key__git_pull: {
+                    GitNotebook.requestPull(getActivity());
+                    return true;
+                }
+                case R.string.pref_key__git_push: {
+                    GitNotebook.requestPush(getActivity());
+                    return true;
+                }
+                case R.string.pref_key__git_status: {
+                    MarkorDialogFactory.showGitStatusDialog(getActivity());
+                    return true;
+                }
+                case R.string.pref_key__git_commit_message: {
+                    MarkorDialogFactory.showGitTextSettingDialog(getActivity(), R.string.git_commit_message,
+                            _appSettings.getGitCommitMessageTemplate(), false, value -> {
+                                _appSettings.setGitCommitMessageTemplate(value);
+                                doUpdatePreferences();
+                            });
+                    return true;
+                }
+                case R.string.pref_key__git_access_token: {
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                        Toast.makeText(getActivity(), R.string.git_secure_storage_unavailable, Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                    MarkorDialogFactory.showGitTextSettingDialog(getActivity(), R.string.git_access_token,
+                            getActivity().getString(R.string.hidden_password), true, value -> {
+                                _appSettings.setGitAccessToken(value);
+                                doUpdatePreferences();
+                            });
                     return true;
                 }
                 case R.string.pref_key__quicknote_filepath: {

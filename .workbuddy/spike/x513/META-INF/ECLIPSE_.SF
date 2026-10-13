@@ -1,0 +1,4743 @@
+Signature-Version: 1.0
+Created-By: 11.0.21 (Eclipse Adoptium)
+SHA-256-Digest-Manifest: CefWJ5I7Zpln+4bYUqVEr6Pi/e+kK+T2bPtLXi38Qtw=
+SHA-256-Digest-Manifest-Main-Attributes: Frnouq26a3nBNf+qDwj0maOr8yhdWVX
+ kN69jhDkD6D8=
+
+Name: org/eclipse/jgit/util/RawParseUtils.class
+SHA-256-Digest: ab7VCmNiipNXYemunnqvPHtGpN6DYCWnNkfZrRKPDec=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache.class
+SHA-256-Digest: MJR5a37+UTR6pBQCpmzmdA79HoUSmKVybwJ6dMQLwCE=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Type$2.class
+SHA-256-Digest: QyXQ2Lzq7t/kDGkBhmv2pLBNSQdT+ybI2XKYA4e2yp8=
+
+Name: org/eclipse/jgit/errors/TranslationStringMissingException.class
+SHA-256-Digest: EfKSLiE2M8UwaC88BvaP6GqktkiVzVyXx2yPI2DaQ1E=
+
+Name: org/eclipse/jgit/util/io/InterruptTimer.class
+SHA-256-Digest: lp/YKu+xCi4kIj69oyXlOtWJwrXODRM2r0TIZPBeLzI=
+
+Name: org/eclipse/jgit/revwalk/ReachabilityChecker.class
+SHA-256-Digest: s58tmNonDZfrd6XQp6pVx9Mu9Im3ogSe8oFVZE9VD2A=
+
+Name: org/eclipse/jgit/internal/storage/file/LazyObjectIdSetFile.class
+SHA-256-Digest: O9zERhFI3SmR2Ck5W4Wa5zuaTI4n1OxexJPkRQDLZRc=
+
+Name: org/eclipse/jgit/internal/storage/pack/package-info.class
+SHA-256-Digest: O626ETFknLpMZRQH/wX/GfamYRgG8EjmJN7RQLDOdaU=
+
+Name: org/eclipse/jgit/revwalk/filter/PatternMatchRevFilter.class
+SHA-256-Digest: ma6TMU64kKvyuuxdJNafoayTaMncTFVg8f4HENBd/B8=
+
+Name: org/eclipse/jgit/transport/PostReceiveHookChain.class
+SHA-256-Digest: hRxJyOAkD0j60dxr4BhMWfGBEi2YkU6sgcy2on4Hn4E=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndex.class
+SHA-256-Digest: giMvcn+P06TgiQKgjgq6hc3k8qvE7EWvTwv76CRwy2k=
+
+Name: org/eclipse/jgit/revwalk/filter/AndRevFilter$Binary.class
+SHA-256-Digest: Fr4yYVjPsYRCG0Nkzza+lb7nfgJ7xvjpfEm260oI0y0=
+
+Name: org/eclipse/jgit/storage/pack/PackConfig.class
+SHA-256-Digest: cqsmuQACK2JTGcMzoqbqCOf/QEzi92biAlcJF9kuplw=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase.class
+SHA-256-Digest: 7NxynKPSFHRKgSGobYlkVVhnm1wFzVeUzlXuSQAexxY=
+
+Name: org/eclipse/jgit/transport/RequestNotYetReadException.class
+SHA-256-Digest: mD2ysnPiU2DJTlSG1gCfTm/DhWwn/k5x/PAdIqDc5KY=
+
+Name: org/eclipse/jgit/transport/SideBandOutputStream.class
+SHA-256-Digest: bUEJy/iU8z4iw25KKWKbEPVog7Wf6Vy+d1KLGf0ri4o=
+
+Name: org/eclipse/jgit/util/time/ProposedTimestamp.class
+SHA-256-Digest: zvtaeKAPmtAM5WviFeECHiTOQjMVqjha4vE93v5shMw=
+
+Name: org/eclipse/jgit/diff/Edit$Type.class
+SHA-256-Digest: WQASVZWo0ZZrL5bb7fiRYpY+jszF41TatswFIx9KTfY=
+
+Name: org/eclipse/jgit/internal/storage/file/ReflogEntryImpl.class
+SHA-256-Digest: Bl0TezZyj+muDGwmutUwKF/QVwPe/JRdS16UdIt6LoM=
+
+Name: org/eclipse/jgit/lib/ObjectIdRef$PeeledTag.class
+SHA-256-Digest: C6HXd/qFkguZfRZpqODVnoebjdc3lEC1NMtzKtuJwqU=
+
+Name: org/eclipse/jgit/api/ReflogCommand.class
+SHA-256-Digest: G0QO1VZuGN+F2sbpnV8Qa17bITpCyXeb2oviNXQSFww=
+
+Name: org/eclipse/jgit/api/ApplyCommand$StreamLoader.class
+SHA-256-Digest: tiA9CI/TZyhxcn9ntfg0+fHox1PdEGzieEaNYU6LE3E=
+
+Name: org/eclipse/jgit/lib/CoreConfig$EolStreamType.class
+SHA-256-Digest: aMGgB5/xqVrf781vrEP1D687TRhOzQ+C9qOqPGS6/2g=
+
+Name: org/eclipse/jgit/api/errors/CheckoutConflictException.class
+SHA-256-Digest: HtLPn1z8g4+YBIxE2nNImM2tjnUHGN+lrg+xwjLIFR0=
+
+Name: org/eclipse/jgit/internal/storage/io/NullMessageDigest.class
+SHA-256-Digest: oPVdyKP58AyCjZMc+9StigdufwPMoPJ543vGMDtlmkU=
+
+Name: org/eclipse/jgit/util/CachedAuthenticator$CachedAuthentication.cla
+ ss
+SHA-256-Digest: JliUwTJy/lxPGOJVQQ+6o+GFmgVf36+eEA0g6kOSmbY=
+
+Name: org/eclipse/jgit/util/io/TimeoutOutputStream.class
+SHA-256-Digest: qwSoxDyKCU7cS+JN962lZcDc5mAUYTnkzS30ri9qYCM=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Basic.class
+SHA-256-Digest: o5nmhgOFZbNkdZNNm3Ftiq7Z9iwm0zsRUlvok1K32Dg=
+
+Name: org/eclipse/jgit/treewalk/filter/TreeFilterMarker.class
+SHA-256-Digest: 4eTrwKPnaPUUD8xFtBgQVVN1NrinsqHanNjwCqhepqA=
+
+Name: org/eclipse/jgit/gitrepo/RepoProject$CopyFile.class
+SHA-256-Digest: ofNcwBff+UzlaRh1gx1S+/FW5IC1dRPQgtZLyUhzZoU=
+
+Name: org/eclipse/jgit/lib/CoreConfig$AutoCRLF.class
+SHA-256-Digest: 4L8xz8zy5Tr0jf+O/IvditMKL5FiZHXPkw7DLqkzC6c=
+
+Name: org/eclipse/jgit/revwalk/filter/OrRevFilter.class
+SHA-256-Digest: HGeKCjULUHAJe8xHFG2/V8xIh+C7w5L62Sv2zRo3kMs=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$StrongCleanupQu
+ eue.class
+SHA-256-Digest: 2KN7jXkx7IwUx94oNnl3/Vc+qyd5jMfPa3DNIbjN1Jo=
+
+Name: org/eclipse/jgit/revwalk/filter/AuthorRevFilter$PatternSearch.clas
+ s
+SHA-256-Digest: iBpQIKU+PFVdiR4Lce+Qv32yv6ghZe4DKt2n1RVGm3Y=
+
+Name: org/eclipse/jgit/transport/Daemon$2.class
+SHA-256-Digest: ci+fTbMJWqX3m47XWmosnYDc1WRvUth0YjDyb+x4bks=
+
+Name: org/eclipse/jgit/revwalk/BlockObjQueue$Block.class
+SHA-256-Digest: ASF+akvulbCSSibtq252QsGC54n0YdbExNi9zv13yCA=
+
+Name: org/eclipse/jgit/util/time/MonotonicSystemClock.class
+SHA-256-Digest: 0cFO81KPijcpktXMEyKrcpAU24gV6f0w4nRRq3eFwZM=
+
+Name: org/eclipse/jgit/lib/internal/WorkQueue$1.class
+SHA-256-Digest: qQh5EM2NrTMt3wGTgRDHk9yvnhrz2FGrD6+CsXXanbM=
+
+Name: org/eclipse/jgit/transport/PackParser$InflaterStream.class
+SHA-256-Digest: +8jGbzW/VetmvGdA7ol9MaRYrRRRU2oB4Ey1/ElPXHc=
+
+Name: org/eclipse/jgit/treewalk/filter/NotIgnoredFilter.class
+SHA-256-Digest: 6zh1OxYOWQupuGPsPOPFgLgooeeIHeaNaNvKteco1Q8=
+
+Name: org/eclipse/jgit/internal/storage/file/PackReverseIndex.class
+SHA-256-Digest: VMxrDDVh4ib66weT+Qn46XhuUWOf6RzplgJX75vneAs=
+
+Name: org/eclipse/jgit/api/ShowNoteCommand.class
+SHA-256-Digest: 8Xub3Q8yZw4v23vKBlEh8nWcu0emR2YYGu4oaNQzIWg=
+
+Name: org/eclipse/jgit/errors/InvalidPatternException.class
+SHA-256-Digest: MI2+EkYkMx+LaL7StZgAJDLFQ7WdWQCshsUtpP+Us8E=
+
+Name: org/eclipse/jgit/notes/NonNoteEntry.class
+SHA-256-Digest: r4rN6BfajW/EH2wJdAK0FSsqiXQ6vXbk21pRBdBr744=
+
+Name: org/eclipse/jgit/patch/package-info.class
+SHA-256-Digest: DcvNOs/8FmRSKm+49lcWggmZToyIwQ1KDpXcnWHAzSU=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaTask.class
+SHA-256-Digest: rLNGJ4FDp7m9y9hT30eOlD1kQDbppQy6axOhnJiatfs=
+
+Name: org/eclipse/jgit/transport/PackParser$Source.class
+SHA-256-Digest: +ChcIAw3uA6B9kXt8zEDil2wX8Q6XaVcpk1rd5zaXLY=
+
+Name: org/eclipse/jgit/fnmatch/LastHead.class
+SHA-256-Digest: zJFT0OQWZcfsSImFU65aygCHI6iUmRMIpBrbA4iPsmM=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInserter.class
+SHA-256-Digest: 1A/Q9ABuIuzm1ik5y0OLpcm70af0yPtyOMHGgqc+MN0=
+
+Name: org/eclipse/jgit/internal/transport/connectivity/IterativeConnecti
+ vityChecker.class
+SHA-256-Digest: hl5PCZE+64Le4RhIFbtuMFzDasbo869hw6WqbdbPD80=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository.class
+SHA-256-Digest: 0rVmNXMRkoTYLStZG1A/Eyr0wG6vvZrD743IRnWY6gM=
+
+Name: org/eclipse/jgit/merge/ResolveMerger.class
+SHA-256-Digest: sTNnYHL4EtmEyLcY6mH/gnOLm97GqMa+oqCdooWFnxM=
+
+Name: org/eclipse/jgit/transport/ReceivePack$MessageOutputWrapper.class
+SHA-256-Digest: nTfzMi5XHr7V33qFPiBUC77lKP7c/k37bPe71p3NlGw=
+
+Name: org/eclipse/jgit/util/SignatureUtils.class
+SHA-256-Digest: UvDPGNitxEVgl4g/1qDqR2/aYZPkvQB6dsOu1EFS6kI=
+
+Name: org/eclipse/jgit/lib/Config.class
+SHA-256-Digest: e9D4dodsx/K1aftJVJuCBY1++h4jNTYXlNPTXKWOxD4=
+
+Name: org/eclipse/jgit/api/errors/TooLargePackException.class
+SHA-256-Digest: zZHVObhtBH/HpbviBl/rTe8eDsl8MzmJiiq2LLYS//4=
+
+Name: org/eclipse/jgit/transport/ObjectCountCallback.class
+SHA-256-Digest: pgtF5MzbvSb84JjQdsikqd993EcfWpupYesoyny1uEk=
+
+Name: org/eclipse/jgit/internal/storage/file/CachedObjectDirectory$Unpac
+ kedObjectId.class
+SHA-256-Digest: ZLJz3ajzhFnG5WBnxXs6+kEohY1w9iQEc5Ng52lN/RI=
+
+Name: org/eclipse/jgit/transport/WalkRemoteObjectDatabase$FileStream.cla
+ ss
+SHA-256-Digest: CC7KlSBl7VlJ7xX+sA5zxuhHPvHnFucJYBji9IphnEE=
+
+Name: org/eclipse/jgit/storage/file/WindowCacheConfig.class
+SHA-256-Digest: q/Dj4+LWb3QEJq5PnSX0oByqEQnpAWJLkq7C0kSyaew=
+
+Name: org/eclipse/jgit/revwalk/RevBlob.class
+SHA-256-Digest: ajRC0/TzhsmVQfJueT4v2sLuANHKE8Ox/N84yUDRYRQ=
+
+Name: org/eclipse/jgit/api/DeleteBranchCommand.class
+SHA-256-Digest: BsyWrS2VpCHJFqDbqyY2AZ2e6VsKPYPjt3c8sfuvEtI=
+
+Name: org/eclipse/jgit/gitrepo/RepoProject$LinkFile.class
+SHA-256-Digest: LRRC99359GItofkZyiBUtE/sF/6Dz0tobiGQ/mCBd28=
+
+Name: org/eclipse/jgit/util/RefMap$SetIterator.class
+SHA-256-Digest: JyjYufz7Xtpm8mmzBN2DHguO+Sb6RyXg2VPjbg+2Cxs=
+
+Name: org/eclipse/jgit/diff/SimilarityIndex$TableFullException.class
+SHA-256-Digest: bPjubn8Q7L1bLFcvmGf/8TvBDNeMgrSM2A4Ky7vcxfY=
+
+Name: org/eclipse/jgit/dircache/DirCache$DirCacheConfig.class
+SHA-256-Digest: I7EEFvI1syk0Egg1la+6G7VQOqiqihliB9/8Wjy9HAU=
+
+Name: org/eclipse/jgit/util/GSSManagerFactory$SunGSSManagerFactory.class
+SHA-256-Digest: 1fa9wmHwigZHWNg5BTWV2TBk2pLSOIp9BKFEDZMqcnY=
+
+Name: org/eclipse/jgit/api/ApplyResult.class
+SHA-256-Digest: NRlVjBzi5gE8l3cI/lYmA/KjlUsg76qO+sWZ24pTM+s=
+
+Name: org/eclipse/jgit/lib/RefUpdate$Store.class
+SHA-256-Digest: Zkr5KSW4t3brcIBEF6TBgvW7D6bUH6bb9hpJOPapdDo=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh.class
+SHA-256-Digest: jerxMUHEzD49EHCJ3ceN5YRSff6WhCY1q8ht3AYRnOU=
+
+Name: org/eclipse/jgit/transport/SshSessionFactory.class
+SHA-256-Digest: K1jdxmm/kSWxljVww8+STowcYGKQaJbnIelN28LGQkU=
+
+Name: org/eclipse/jgit/treewalk/filter/PathFilterGroup.class
+SHA-256-Digest: rgh4v9BX9RUMQ2I+Z33mnL37OEP9UJoUX99qODXlVyE=
+
+Name: org/eclipse/jgit/transport/TransportHttp$LongPollService.class
+SHA-256-Digest: zqTxAAr8pK9JJ5gkfdxRRB12FNjoj3WTuDcWoREdNlk=
+
+Name: org/eclipse/jgit/util/io/CountingOutputStream.class
+SHA-256-Digest: JOF/XFDorzshzCtgilTtBMH7kxdd3AVAErmlNz10Cro=
+
+Name: org/eclipse/jgit/lib/RepositoryState$12.class
+SHA-256-Digest: hY6Bz0WKBokO8CEo/ZsKTmbiWgEt18oy65U+PTcplZI=
+
+Name: org/eclipse/jgit/fnmatch/AbstractHead.class
+SHA-256-Digest: djnOj91mfmdwFd0Gevoj7Q2LvYwuINpXyECZ2Cta8mw=
+
+Name: org/eclipse/jgit/lib/TypedConfigGetter.class
+SHA-256-Digest: ln7uUkvkYB2iluwFTwM235vwPPAIVfq3xbfg7Dczagg=
+
+Name: org/eclipse/jgit/nls/NLS.class
+SHA-256-Digest: 1842yjg5YID7skfhbuWTwPZ5hcpq3/vheRX+FUDFJok=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$PackSource$Pa
+ ckSourceComparator.class
+SHA-256-Digest: HixB9xAKHNyJ+MJtuhKenVr66BVTHMeV+gOl9lBH8X8=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter$MergeBaseFilter.class
+SHA-256-Digest: h6SZd6cxVFaqQCiOr+cUoUAum2Z0rRaT+AkwvkHHr6Y=
+
+Name: org/eclipse/jgit/blame/Candidate$HeadCandidate.class
+SHA-256-Digest: 29TmL3OE3dmflMp76LhhisGEuhiCHQbIf1632d0cVwk=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$7.class
+SHA-256-Digest: fEH25c+CVO874Jf3VunBhQUxbCNfqni9Eh1o79BkVEs=
+
+Name: org/eclipse/jgit/transport/Connection.class
+SHA-256-Digest: BQ7ykYBr/sx3gqm9p31vuuDROHSU+TmrV7yQNkG0e1Y=
+
+Name: org/eclipse/jgit/util/Hex.class
+SHA-256-Digest: Yx5h4ocdRzUPw49Tui9vO7SSwQjZOXNMzH1Hy8Cq/lM=
+
+Name: org/eclipse/jgit/util/RawSubStringPattern.class
+SHA-256-Digest: ZgFM++7Ka2bQ0ok7pP1keuXZEpJrP5/jABLYlZVrsYk=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPacksChangedListener.clas
+ s
+SHA-256-Digest: BbeenauyEQsMuKDLrcgPLeQM3ZgLlhY3BuvDWoBZjNs=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableReader$ObjCurso
+ rImpl.class
+SHA-256-Digest: YyIF2Qo2NltYMqbLxQ7BmW3WfhgTL4MxprxyD9jIJsE=
+
+Name: org/eclipse/jgit/revwalk/RevObjectList$Block.class
+SHA-256-Digest: 6f7kvD1vCXpWyTHWZWgkxKQApUmDqgC2xHIznt+ujrQ=
+
+Name: org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream.
+ class
+SHA-256-Digest: nNz4VvhGURteGXgogNSD321DY3VN0Im087uLiGuCKGU=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$JetS3tV2.class
+SHA-256-Digest: s1/WXq9tetQm9IpZZjWS2Rva+XrBSFI9XVFZrQLS0w0=
+
+Name: org/eclipse/jgit/transport/NetRC.class
+SHA-256-Digest: 2ovcT9Y0xunvNWXROfHTcXHD3TGPpRVSij+1P+RuS/E=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$PackSource.cl
+ ass
+SHA-256-Digest: JxNfoUI3KnOEh7oSem0cRkRhJJjg7UnE7k94d7U9fBA=
+
+Name: org/eclipse/jgit/treewalk/FileTreeIterator$FileModeStrategy.class
+SHA-256-Digest: RqCbIzjvzTVSsA+jjfRLtglw0fSqz2bm1wXJjY9v470=
+
+Name: org/eclipse/jgit/api/errors/InvalidMergeHeadsException.class
+SHA-256-Digest: g9o8IdPY8VEgrVUmNsxCda7my5S3YbtGvuY4OlWvxrw=
+
+Name: org/eclipse/jgit/lib/RebaseTodoLine.class
+SHA-256-Digest: TM50i84b1qCHlaTrEUJD5rMoVdZ6f8bUSaFY3Gbrl68=
+
+Name: org/eclipse/jgit/lib/RepositoryCacheConfig.class
+SHA-256-Digest: kXoikhyLm+Tn/xdrLiQc3hva4r6LJ93Tl06UTU6wnY0=
+
+Name: org/eclipse/jgit/lib/SymbolicRef.class
+SHA-256-Digest: ipmWqG0Cql9M3FfnDIOCW2tkjWMgDJfHhgL2dqAjoZk=
+
+Name: org/eclipse/jgit/lib/RepositoryState$2.class
+SHA-256-Digest: nrLgySs0sOtwaLUvMm5jYbgINL4euVLKiQ4CBK0l0I8=
+
+Name: org/eclipse/jgit/merge/ThreeWayMergeStrategy.class
+SHA-256-Digest: G4WPBG/hQBgT+AqX8CKCu/Fy4pOaKcEso75YhSCRfgQ=
+
+Name: org/eclipse/jgit/internal/revwalk/PedestrianObjectReachabilityChec
+ ker.class
+SHA-256-Digest: QnE8Y8y2WaxJd9PX3bFX1oxlWnN1erD4kFTuzLOJqPA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRefUpdate.class
+SHA-256-Digest: jzB1XNB7OnaVdx5rCRBYrY4K7mmyCVlLD1g0Zc4cOiQ=
+
+Name: org/eclipse/jgit/api/errors/StashApplyFailureException.class
+SHA-256-Digest: aw5oP93QpHgIYxKc61fpyop5dpu4P1uknN6epkRAXJI=
+
+Name: org/eclipse/jgit/internal/storage/file/FileRepository$AttributesNo
+ deProviderImpl.class
+SHA-256-Digest: DJxntRcjRjeUoSH6xGJq0yd830rTnkV9AAGGE+IAqbE=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitTimeRevFilter$Before.class
+SHA-256-Digest: PEt5Hu82mMUnO3iircF0LDVQA8cWBwdgJe//XP0rUPQ=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$PunctPattern.class
+SHA-256-Digest: 8mtNqOXvEDf3Jk57fLpjog0vaSAj2SjPMsVIlbj0jCM=
+
+Name: org/eclipse/jgit/transport/http/HttpConnectionFactory.class
+SHA-256-Digest: QV1Q6Bh0wiFyPyEr4ZuEwTDMvCanes97EUPL5N/2l0k=
+
+Name: org/eclipse/jgit/transport/UserAgent.class
+SHA-256-Digest: wVkaO6f9xkujBUO/jsJZsO+TFHwg9199NlZROP0BIIQ=
+
+Name: org/eclipse/jgit/transport/UploadPack$RequestPolicy.class
+SHA-256-Digest: dYUerV2FPuKDWnnljdEZ+WAN+DITYbmAl6E5SWMWgrk=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableDatabase.class
+SHA-256-Digest: 2XhouMS5Zs5BQ6fjawWTpBYornYWfQQvY0p3MIYKQak=
+
+Name: org/eclipse/jgit/notes/FanoutBucket.class
+SHA-256-Digest: /j7s6YtECZJxrU1AcQRoPe0BINZIzZVB/KwufbEawQ4=
+
+Name: org/eclipse/jgit/internal/storage/file/CachedObjectDirectory.class
+SHA-256-Digest: 9s8lM5XFcXiRQJ0UefMlrPOSyMR313Iv9gMxgNqi4to=
+
+Name: org/eclipse/jgit/revplot/PlotWalk$PlotRefComparator.class
+SHA-256-Digest: pW2q0Tc2IlwJTDO7DdSg2AKeiltwDJrkqT5cG/kB93s=
+
+Name: org/eclipse/jgit/transport/UploadPack$SideBandErrorWriter.class
+SHA-256-Digest: OMMEhhjjK0ddXrs7j20hHwQy8teis3Ub83KrKUIEdzs=
+
+Name: org/eclipse/jgit/internal/storage/reftable/Reftable.class
+SHA-256-Digest: XTYTN/Wx7C1z5XUioS2ipTDPpNI/JybTPLI5PKQLNC0=
+
+Name: org/eclipse/jgit/internal/storage/file/FileObjectDatabase.class
+SHA-256-Digest: fIPpw35KX7Nr7ZnDXoNnkJu6ekDVQAbUrk0XaX2Lxwo=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexWriterV1.cla
+ ss
+SHA-256-Digest: F6Mc50S59oenEH9Ut+dDcrAR91wcViWHE7By3Yo7Pwc=
+
+Name: org/eclipse/jgit/treewalk/filter/SkipWorkTreeFilter.class
+SHA-256-Digest: iMBLH9dAZtSNA2VJK5pn0NZx5uMfDGHAV0ao4q2RVIY=
+
+Name: org/eclipse/jgit/diff/DiffFormatter$FormatResult.class
+SHA-256-Digest: IsyzrLfeCij37aOXe/G0AcQzyaboUXuLyLoJlNTz90g=
+
+Name: org/eclipse/jgit/api/ResetCommand.class
+SHA-256-Digest: 2G1tm3oZsv+GEkkrjaYzaSBrneAR3gInUpqTp2jxqKE=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectoryRename.class
+SHA-256-Digest: zhsT+RCVtARc+phmN6C88BmaPmFxokmuCeTLwIaeNCs=
+
+Name: org/eclipse/jgit/lib/GpgConfig.class
+SHA-256-Digest: iBzIW6jkdns9aD4GWvkTopoDIUO+WG7dBQy99Es+U7c=
+
+Name: org/eclipse/jgit/patch/CombinedHunkHeader.class
+SHA-256-Digest: tByz27+MIsdJA2hmPMmCyEV+4Km5uhLURJVlqIfxNuM=
+
+Name: org/eclipse/jgit/transport/Transport$Operation.class
+SHA-256-Digest: nFcBj1S7dcIZHxGqBy6krhucdo+CmyxfhRBQfGfcAxo=
+
+Name: org/eclipse/jgit/patch/FileHeader.class
+SHA-256-Digest: +JFVYgkZ3MIUpcaicLCB2GEy59wvksWDNHH350/u2Mw=
+
+Name: org/eclipse/jgit/internal/storage/file/LocalObjectToPack.class
+SHA-256-Digest: bRWfv9SWue9XqYgL67rj6/XvLL287PWTLu/AIM5eobQ=
+
+Name: org/eclipse/jgit/api/errors/CannotDeleteCurrentBranchException.cla
+ ss
+SHA-256-Digest: i5Wj6jYoICZi5CKlI2jFUZxyux1IpaluPvlLugQomRE=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh$1.class
+SHA-256-Digest: heC+SCu0ZHdFgZNavj/04/3+lsUckPRQgjzT604+Xbc=
+
+Name: org/eclipse/jgit/transport/FtpChannel$FtpException.class
+SHA-256-Digest: wd3Y3lGpkFyMNBP3cprjoGV3JAQRLsJ/bFVwvIG/IdU=
+
+Name: org/eclipse/jgit/patch/CombinedHunkHeader$1.class
+SHA-256-Digest: DJuD4Q7d4TkONeUQS1cpqt2Oea4s04rAU5ussxGIAy0=
+
+Name: org/eclipse/jgit/util/io/AutoCRLFInputStream.class
+SHA-256-Digest: 5ztpNVt0+3ErTpdb0kOQ6k/fuY21SKFrA7Je0ShVrmE=
+
+Name: org/eclipse/jgit/events/ListenerList.class
+SHA-256-Digest: LtvRZkXrpoXBF8vZMUAHv7xZVbs2nZZ/YertlAUoz4Y=
+
+Name: org/eclipse/jgit/blame/BlameResult.class
+SHA-256-Digest: IuKaZptwuSelgzS3KWaDvhsn5Vg0lMjKalMH1XURsfo=
+
+Name: org/eclipse/jgit/revwalk/MergeBaseGenerator.class
+SHA-256-Digest: gnTLIMD2wqlHmUlsF8/8yNbhHAk4TtFd5YjvqU0NyZM=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIterator
+ V2$1.class
+SHA-256-Digest: V/cQNrvHOaWtuFV6FooPbq9kF+oU2juHHgJkrCada2E=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$2.class
+SHA-256-Digest: Y4wVkPMwNFnNBTeCNXIGuylgMqItQ2TjHwftYJ0DQxY=
+
+Name: org/eclipse/jgit/internal/storage/pack/IntSet.class
+SHA-256-Digest: +P63ePmzC25wqTutjExKtOQhCHgYBfJDKJAfqw4SnJk=
+
+Name: org/eclipse/jgit/attributes/package-info.class
+SHA-256-Digest: 4h8O7ESDFpYblrCKEYM2lonuQ8F+JBpEopFOeKHZbYA=
+
+Name: org/eclipse/jgit/util/HttpSupport.class
+SHA-256-Digest: p1HYjVz6s4S8AsCKE7Aq8VVl0kqvqp4QEnZ8KCRIEPc=
+
+Name: org/eclipse/jgit/errors/NoWorkTreeException.class
+SHA-256-Digest: e9CNZ79j/45JNDyjHl/ItN5f8v/cNBYkmGb1XBwlrNs=
+
+Name: org/eclipse/jgit/transport/InternalPushConnection.class
+SHA-256-Digest: GVGsw02pn9MEzDWY65txMBP78ogcaRsjm77V+R1ymec=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInserter$Reader.class
+SHA-256-Digest: DdkaRJwq5JceIcBMpCJfpkbyzO8SYqthIyh7htxkU2E=
+
+Name: org/eclipse/jgit/api/CheckoutCommand$2.class
+SHA-256-Digest: zAIoeBuyxQcs5vzUKmNtceHs+Q02YcG2gDrav72UFLs=
+
+Name: org/eclipse/jgit/revplot/AbstractPlotRenderer.class
+SHA-256-Digest: rmyzP9EEk6eswUU+CTO9rSRzDCb4AGnE/646BZ5SRWs=
+
+Name: org/eclipse/jgit/errors/UnpackException.class
+SHA-256-Digest: 91sEdVrBayeSx729N39maqffm2KNDmOkpcodw8xjEhU=
+
+Name: org/eclipse/jgit/api/CheckoutResult$Status.class
+SHA-256-Digest: CzHnrilaIxd1c7BZltAFantaCee7YA6OGJXhKSe+xA4=
+
+Name: org/eclipse/jgit/merge/EolAwareOutputStream.class
+SHA-256-Digest: cMUtHgXjk7vz5ma9lrlTj/oBoXplmunwZLF9Cht4cvY=
+
+Name: org/eclipse/jgit/util/io/AutoLFInputStream.class
+SHA-256-Digest: oha/22qio2gmK5svrYOxwfdEs5SJ+2NY8evWMYSQH2U=
+
+Name: org/eclipse/jgit/lib/ConfigConstants.class
+SHA-256-Digest: Dq9SY/++l3iSIRtv4gfr32KpY/+MgMpX0ttS3ZgMhGY=
+
+Name: org/eclipse/jgit/lib/AsyncObjectSizeQueue.class
+SHA-256-Digest: 6hFHKpV+kCTAnn1tS6LKGbKJjQ5BrH0oMkWgpseGGb0=
+
+Name: org/eclipse/jgit/transport/ProtocolV2Hook$1.class
+SHA-256-Digest: 341k1aNHu2BRO70ne0DqxjFVj+JGgR90k3kZhZ70g7o=
+
+Name: org/eclipse/jgit/transport/ReceivePack$ReceiveConfig.class
+SHA-256-Digest: fgkSSIEAfVgHkI1MwByDgT3BZ2VCLVltQVWjoOiEukM=
+
+Name: org/eclipse/jgit/revwalk/DateRevQueue.class
+SHA-256-Digest: yrMaoDDqIm58NthBRuWji7p8TIRbz0JcqVsNlN1NJgU=
+
+Name: org/eclipse/jgit/errors/CorruptPackIndexException.class
+SHA-256-Digest: ts5wREXyLAaOeRk0ZHLWBAuwr5K+7V+dHxsCSYDEp9s=
+
+Name: org/eclipse/jgit/transport/PackParser$ObjectTypeAndSize.class
+SHA-256-Digest: 7otlC45RZx7hns7oifmFxiBdQGftjtNNzNb++wkdtd0=
+
+Name: org/eclipse/jgit/errors/DiffInterruptedException.class
+SHA-256-Digest: 2Oj0eX6E4ii35F1rdkm2Xi4xoR+rrkVJpo10T1BBXjA=
+
+Name: org/eclipse/jgit/util/IntList.class
+SHA-256-Digest: 2T4C3UxCvBccMFG4HdcLKf26MjIRj58SMmpqAZW2sOQ=
+
+Name: org/eclipse/jgit/merge/StrategyOneSided.class
+SHA-256-Digest: eu4ekve5SDReNTK7GyTIp7oMSzFhTlQIZHU/1xEJQGo=
+
+Name: org/eclipse/jgit/treewalk/FileTreeIterator$DefaultFileModeStrategy
+ .class
+SHA-256-Digest: EwYLZEsjhgwwg4YjbNahX8E/xuQKKDDYvEH4+4NjNXA=
+
+Name: org/eclipse/jgit/transport/http/HttpConnection.class
+SHA-256-Digest: 3Ivqwv3lR932IWhsCWcAFpCvR6vUSQuLcVaCOLopwos=
+
+Name: org/eclipse/jgit/transport/PreUploadHook$1.class
+SHA-256-Digest: ybYFm/ptApnIlqDAjIdUE5vQGHevD+S2lOd9Pev5Zp4=
+
+Name: org/eclipse/jgit/util/FS_Win32.class
+SHA-256-Digest: C/GYtrKmTHgdykmgi++igIFNG8A1ubju2ijmcaf28bE=
+
+Name: org/eclipse/jgit/transport/PackedObjectInfo.class
+SHA-256-Digest: RS2ZV4UxKIkJokcHGdpqj6das6JB1F0lpIWuLAm3KDM=
+
+Name: org/eclipse/jgit/transport/ReceivedPackStatistics$Builder.class
+SHA-256-Digest: msUwc6r4eb1jKwDBoU0QKD4dnbiexMlh/E3mKaqI4Hg=
+
+Name: org/eclipse/jgit/treewalk/NameConflictTreeWalk.class
+SHA-256-Digest: 2dMMQfiI1DE9djg0z3H0G+/+TX45Py06KNnkXfbkKws=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$Entry.class
+SHA-256-Digest: T7qvIUWfCvkTOq6ZBrcCW9/oLutxqq2/LAP9NHSO6zo=
+
+Name: org/eclipse/jgit/transport/http/HttpConnectionFactory2$GitSession.
+ class
+SHA-256-Digest: OgyBGyMy+jg6t57n6p3mB6m4A4ULyvWeR6fM+FNBWxU=
+
+Name: org/eclipse/jgit/lib/BlobObjectChecker.class
+SHA-256-Digest: 3e4d5f7fF+WWaU4u+Klrisbjw9d4nN6yWhgt3Y6DUdE=
+
+Name: org/eclipse/jgit/diff/ContentSource.class
+SHA-256-Digest: lq1o8uT3fWim6Yi4LsJhzpwMePaJSEs55kxLnY2cHYM=
+
+Name: org/eclipse/jgit/lib/AbbreviatedObjectId.class
+SHA-256-Digest: nnd2skb1ZNWrv3QZiktzRbEvtthwzfRgyW49jJx5Yak=
+
+Name: org/eclipse/jgit/util/BlockList.class
+SHA-256-Digest: Zx2GYR90jTRszoWKytcCeMQm+Vji8Aqw0Y7mMhhrwjw=
+
+Name: org/eclipse/jgit/revwalk/filter/package-info.class
+SHA-256-Digest: fcLvrgatICaw869Qp83pgbfrNkPgUG7KuaNRQRuvGB0=
+
+Name: org/eclipse/jgit/transport/HttpConfig$1.class
+SHA-256-Digest: 2AjvIZFthxnanjN/pAkL6ylsLqCUYLOSqv2EUzrMU64=
+
+Name: org/eclipse/jgit/util/RefMap.class
+SHA-256-Digest: lFhwvQApTrYUkd1OWGMKIwhiz52qwexSfCkGALNWOEQ=
+
+Name: org/eclipse/jgit/notes/InMemoryNoteBucket.class
+SHA-256-Digest: eGPR22cv+kOykKeXF41YnA7zAtQDkfItUCLbk4GKhJQ=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCursor.class
+SHA-256-Digest: Crpr5dSQ0uZmT9Cg9FtHR+u79gnO7rW8bhFyaBlne4w=
+
+Name: org/eclipse/jgit/lib/CoreConfig$CheckStat.class
+SHA-256-Digest: 5d0OWrixf+Ik+TCLUrmleUrVzDAzGtWvMu++yKolY9I=
+
+Name: org/eclipse/jgit/transport/TransportLocal$ForkLocalFetchConnection
+ .class
+SHA-256-Digest: k5P1/5c1Alaus6oNyEsvcMTMZvNBazPSzvwRjmDKVMI=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsText.class
+SHA-256-Digest: tLu8ZWkUhaRb4gnytGsskTKv8BzPLwMm0UTOfGqkUdU=
+
+Name: org/eclipse/jgit/util/SimpleLruCache.class
+SHA-256-Digest: Qw1RzcAuKyD2LTl7vOOKNMofeak+c65bkja2uhJ+oow=
+
+Name: org/eclipse/jgit/internal/storage/file/PackFileSnapshot.class
+SHA-256-Digest: Tml51kpdmKDCFRaSISbTE9dp4wTihTFHxzpB2neq1fU=
+
+Name: org/eclipse/jgit/events/IndexChangedListener.class
+SHA-256-Digest: 4dKmv+FbZ7e+P8JcZROEGULYdyEaVBJJK7DYvq6jdGs=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFlagFilter.class
+SHA-256-Digest: K7Q+OYm92AkN5pd2IaH/PChX5+95uTTwZg3hkFtjdxg=
+
+Name: org/eclipse/jgit/util/io/IsolatedOutputStream$NamedThreadFactory.c
+ lass
+SHA-256-Digest: 7WSV7q5Das/CQxtkrJZmIh6gS57Nxvi+Ow5tppLjDSM=
+
+Name: org/eclipse/jgit/lib/ObjectIdSubclassMap.class
+SHA-256-Digest: 0/Q0jdVrOQFTBV012n5YMjnvhQ2gzTkvQ/BGJvkHrgw=
+
+Name: org/eclipse/jgit/internal/revwalk/PedestrianReachabilityChecker.cl
+ ass
+SHA-256-Digest: W7o4ZdEvSfxQPHtKry+6y0b7Dvxyn2/r9rinRHMgr24=
+
+Name: org/eclipse/jgit/util/io/AutoLFOutputStream.class
+SHA-256-Digest: 2v/xZxwKvsIM4x3EKdH5yDE920WBf2yr2Q7XvS70gZo=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$DeleteLogEn
+ try.class
+SHA-256-Digest: NlSQFaPQerF7qDhXQn9qUkBAbFGmWvusxHnrU4TXH1I=
+
+Name: org/eclipse/jgit/revwalk/RevFlagSet.class
+SHA-256-Digest: U8YMPvd9rQZB/PO3JvPhVxL0n/GcwEZ5jA5diRIOk5Q=
+
+Name: org/eclipse/jgit/internal/transport/http/DelegatingSSLSocketFactor
+ y.class
+SHA-256-Digest: QXdu4GkJkMERJekwloP9g5JoGxyFnsLPwKPy34rx6cQ=
+
+Name: org/eclipse/jgit/treewalk/filter/OrTreeFilter$Binary.class
+SHA-256-Digest: j1fHkQHgtRsPGlJqBs7MNPaWa72tRsuKG4t/PJG8q3s=
+
+Name: org/eclipse/jgit/transport/FetchHeadRecord.class
+SHA-256-Digest: H4EEPUV/Fcd+K+1Q9QUMU5OiC082eVnAVUeKSV5wjlY=
+
+Name: org/eclipse/jgit/notes/FanoutBucket$1.class
+SHA-256-Digest: 4EAgCmXXhmBTlVE6/W4Vg/eLBGsTcZFoF5yYIYm7sbA=
+
+Name: org/eclipse/jgit/dircache/Checkout.class
+SHA-256-Digest: zBF3MfsSceyl85VTIT/4sqnlX0njtKab0BusUjReQbs=
+
+Name: org/eclipse/jgit/transport/http/JDKHttpConnection$1.class
+SHA-256-Digest: C/MMM4nGuSualOlcFUjPPWtN7OqXGc3rE5pTrlYtR7I=
+
+Name: org/eclipse/jgit/transport/resolver/RepositoryResolver.class
+SHA-256-Digest: XyU+Wv2CBHrKx+sv0z/Bqr4IJORvjA/oPSGXmaS3oZI=
+
+Name: org/eclipse/jgit/transport/PreReceiveHookChain.class
+SHA-256-Digest: Qn3Sc0YwTmmq3N9gfy3ka9/IfOOcqXLAzlwbYirssfk=
+
+Name: org/eclipse/jgit/lib/IndexDiff$ProgressReportingFilter.class
+SHA-256-Digest: PABxaSl7jhzPUKCOmAcpXdPERTTFZlNEyZKlkzNlrps=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftableDatabase.class
+SHA-256-Digest: BmJq/5jUjBNw5MzQWynRxgu3+a7OOP0SV41bQ5Vxi8M=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriterBitmapPreparer$Co
+ mmitSelectionHelper.class
+SHA-256-Digest: kARMHh6mHXrkqIZVca9mu+gSgvwu0IMeXjQ96v8u4cc=
+
+Name: org/eclipse/jgit/api/errors/UnsupportedSigningFormatException.clas
+ s
+SHA-256-Digest: pfIgIjhR0Z6X1Xi02rZrvfbzIjfNteOZB/0ZhnGTfqM=
+
+Name: org/eclipse/jgit/api/CheckoutCommand$1.class
+SHA-256-Digest: UuJ6eDVcFD4VnWx2NrH91++umaQ8er+9SgozC/mc8oo=
+
+Name: org/eclipse/jgit/lib/BatchingProgressMonitor.class
+SHA-256-Digest: S5GC2/zG8AQzdCnz6htzj2lJzlIisoqWXX+uK1Ia69o=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable$RefQueue
+ Entry.class
+SHA-256-Digest: dOYHDQN6xvBtf2hWonRG4ZhnfhgTOgAelCuLgYGGyrk=
+
+Name: org/eclipse/jgit/errors/IndexReadException.class
+SHA-256-Digest: Fx7qW/P4oOsjavgVXTkqCFKs75/XsYNkvtAqxytua9s=
+
+Name: org/eclipse/jgit/events/IndexChangedEvent.class
+SHA-256-Digest: N+tUN/WG3NumzLNjNa7oWmb4dM6jpEHcWOH9uceiXhs=
+
+Name: org/eclipse/jgit/merge/MergeConfig$MergeConfigSectionParser.class
+SHA-256-Digest: GV/+XkIJBmka13BYR7ryFSwgjHeeSA9kI5LH7Xed2AY=
+
+Name: org/eclipse/jgit/lib/RepositoryState$6.class
+SHA-256-Digest: IeBdkKm1UlGPjFGKVQQ93ynSuF8CRXq65Tp+HGGnP0k=
+
+Name: org/eclipse/jgit/transport/ProtocolV0Parser.class
+SHA-256-Digest: t8VlqHDOsudUeChJWd3Hi1KFcyErxAal7fWLYrX0P1w=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFlagFilter$HasAll.class
+SHA-256-Digest: r+Rfk+lFoa6JKHbtGzTn5aSKf8kI3emkOHgi0xgUixI=
+
+Name: org/eclipse/jgit/internal/transport/ssh/OpenSshConfigFile$Replacer
+ .class
+SHA-256-Digest: RAYRwNlMnFdkHK3LcCJL7WpNyQ7ZTMwf8VH8EceROTo=
+
+Name: org/eclipse/jgit/lib/ObjectBuilder.class
+SHA-256-Digest: MdUQBYel7+4NA9Pg4cW11+w/wTwtqqTf09H8M0frczE=
+
+Name: org/eclipse/jgit/transport/TransportHttp$MultiRequestService.class
+SHA-256-Digest: qcLQ9TDHefG0itZOzQQIJWyWRgnHDJQZt1hnidKyPmo=
+
+Name: org/eclipse/jgit/dircache/DirCacheEditor$DeletePath.class
+SHA-256-Digest: 0pxUQ92H92q/7/grMvZJZNI8KlOi8Bc+bF19hw1j/H4=
+
+Name: org/eclipse/jgit/revwalk/TopoSortGenerator.class
+SHA-256-Digest: dQB5otziQSvsITJM8LlLeom8OP9x37gbl4PPeBewdBY=
+
+Name: org/eclipse/jgit/internal/storage/dfs/BeforeDfsPackIndexLoadedEven
+ t.class
+SHA-256-Digest: 7NrkbW7g+5TlGYD0CDXr4wn7OYZoNo8dMkHbmYzZ3cs=
+
+Name: org/eclipse/jgit/api/errors/RefNotAdvertisedException.class
+SHA-256-Digest: rwBXGsMlzr18nbUTYVkPXzkXdi1SSqAHFBsuTCNDBMw=
+
+Name: org/eclipse/jgit/util/RefList$1.class
+SHA-256-Digest: 9aYk7AwGZeoNb+OXWFVqtuI40SK4AKD7qea6OIgzqqo=
+
+Name: META-INF/maven/org.eclipse.jgit/org.eclipse.jgit/pom.xml
+SHA-256-Digest: S9ui8ErO8eDnAp9E0liAorHq4i+PjEX7+SakzRzSxH8=
+
+Name: org/eclipse/jgit/diff/EditList.class
+SHA-256-Digest: R9a58g+Z1NMMWGzwVP551Jre3+B0YamBiCJhlSCVpmg=
+
+Name: org/eclipse/jgit/diff/RawTextComparator$1.class
+SHA-256-Digest: MsBnhdb6/mcDEX2vPXaByXB6ghOIBJKNGIXtfUf3Y1c=
+
+Name: org/eclipse/jgit/internal/transport/ssh/OpenSshConfigFile$State.cl
+ ass
+SHA-256-Digest: 3nHkiadLNWJCIoqAXS+hhALcfhLiDAHqx9C3/77jfjo=
+
+Name: META-INF/maven/org.eclipse.jgit/org.eclipse.jgit/pom.properties
+SHA-256-Digest: YtbXBHKoWqnP11ynjTKF1t2f0MusWllJpWB+TMA0wSg=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$MemPack.c
+ lass
+SHA-256-Digest: Q3tyXUsl6CMqSmUrBdxBbpf0TCxlNnivLB1hdstw9Jc=
+
+Name: org/eclipse/jgit/transport/RemoteRefUpdate$Status.class
+SHA-256-Digest: MmCsyVkcgFyORYc1lwjlO7ISh4aXsMGOjLK8MMVIiKo=
+
+Name: org/eclipse/jgit/revwalk/MergeBaseGenerator$CarryStack.class
+SHA-256-Digest: EOJrhFnTKDSmxgmuC70Wzm00kaz1GWnz/yxwA2bXAYY=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable$MergedLo
+ gCursor.class
+SHA-256-Digest: pu9b2as4ZKyVbfC0mEwvV79/WmnZjCZo0oP+KVFobRA=
+
+Name: org/eclipse/jgit/diff/HashedSequence.class
+SHA-256-Digest: N2ayb6M4AQMOEgGYSElNWdp1+OoZBqIUJ/ImrUX1tmg=
+
+Name: org/eclipse/jgit/util/io/InterruptTimer$AlarmState.class
+SHA-256-Digest: 2vigYbdG2bJlDresBAhCR+5fKCylNLeyKOFWRirA3n4=
+
+Name: org/eclipse/jgit/transport/CredentialItem$YesNoType.class
+SHA-256-Digest: RyXHMdhGBwxYI7Gk3+xVhPtX7kklAJMfsryffnjq/Ns=
+
+Name: org/eclipse/jgit/transport/CredentialItem$Username.class
+SHA-256-Digest: dWNTqM/gtoJz93uHNN/ebYmMOOzvQ17+aiWzaGzKmno=
+
+Name: org/eclipse/jgit/treewalk/filter/AndTreeFilter.class
+SHA-256-Digest: BLip9mY5L1F1sk4UfJLTiDVqqTaX8Aqd4BNFKMNxCSc=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$LocalFile.class
+SHA-256-Digest: u2jKaRMp+2uZABm+VYH1N5UZ7WrPvie0Xg1n6SwiceM=
+
+Name: org/eclipse/jgit/api/RemoteSetUrlCommand$UriType.class
+SHA-256-Digest: p6PaQVRMDk8m1H1XSuZ5U52VEi/6NcSQz+sumPsgq6c=
+
+Name: org/eclipse/jgit/lib/RepositoryState$7.class
+SHA-256-Digest: WvkuCTigVPsCQZC5NV58cDcTiPQNchvQ6lfGqZyVj14=
+
+Name: org/eclipse/jgit/transport/PacketLineIn$InputOverLimitIOException.
+ class
+SHA-256-Digest: +G4etYddQep3WKWED7Rxb4uuSguX6NgL9lEKWgNBsoc=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$12.class
+SHA-256-Digest: VS2V/s8QNXCy+6Rcg/lVndrtcUNWL/21WTgWzqXgByA=
+
+Name: org/eclipse/jgit/transport/ReceiveCommand.class
+SHA-256-Digest: +3BMWiad6v+zDQMb8aAyalFNHhoF1730QUsDnmtrLm0=
+
+Name: org/eclipse/jgit/gitrepo/ManifestParser.class
+SHA-256-Digest: qJxuOdO2J6cPoHbv7rFO7sVRikKo6pLtRkINOpcck4Y=
+
+Name: org/eclipse/jgit/lib/ObjectReader$Filter.class
+SHA-256-Digest: TJTmC1VBiJHZDPOHX1wl5Ja4uU+Y28UqjGJnvQh9T1Y=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter.class
+SHA-256-Digest: QCfSA4HgXL29mq9Zw/uGzFlT+H/rGzmfOEQpdgJGwT8=
+
+Name: org/eclipse/jgit/util/io/InterruptTimer$AutoKiller.class
+SHA-256-Digest: Q5Q/NNKB5bqqX9G9ljU6vKpRUtZlQYDMp24KbUF/fJ0=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableCompactor.class
+SHA-256-Digest: rlWitCYnSgjwijsLUb5b5xUuXkgB/iWrnoH5RfWcB+o=
+
+Name: org/eclipse/jgit/internal/revwalk/AddToBitmapFilter.class
+SHA-256-Digest: 6BZxLfZe8vU89XXSywYqWllcytPGNNX54afYBTF08M4=
+
+Name: org/eclipse/jgit/diff/MyersDiff$MiddleEdit$ForwardEditPaths.class
+SHA-256-Digest: m1Y1z76EKhBLFbyn89XVwwGGaYXBb6/oCFhJfh1TU4E=
+
+Name: org/eclipse/jgit/errors/UnmergedPathException.class
+SHA-256-Digest: QpKw/v98gIU1z4AWyfBmkZjB8tfMzVbUrh/HA/hCq20=
+
+Name: org/eclipse/jgit/dircache/DirCacheEntry.class
+SHA-256-Digest: sE6VDir95v8ueaXxrydYd4Jx4u7aKUN6M+o3vcWyaxc=
+
+Name: org/eclipse/jgit/api/RemoveNoteCommand.class
+SHA-256-Digest: pa/MnhHfF/z1hm4fkWbu9GpvFSh9vHjAkvk/W+xbZiQ=
+
+Name: org/eclipse/jgit/revwalk/filter/MessageRevFilter$PatternSearch.cla
+ ss
+SHA-256-Digest: HGZRJMl7iGHYp6ExYCFIJdLRv8pnKWMRGRuZw47WfJo=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$1.class
+SHA-256-Digest: E+YyUGulnTfppLff+jtNvL/NIXcYnmCyOwgpfHLO6Ag=
+
+Name: org/eclipse/jgit/lib/RepositoryCache$FileKey.class
+SHA-256-Digest: wzcDPW0zO0A5WPOXvAMaTGwKBtCLsBFZyoPZQgHWvck=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaTask$Block.class
+SHA-256-Digest: k4TW42D7hYB3Enn/FvKyHzXOjtgFq9GcN+gcg8QJnqM=
+
+Name: org/eclipse/jgit/transport/PushCertificateIdent.class
+SHA-256-Digest: /Fy6xSSFTF1kkFkXxv6DrWK5E+3XlJRBxp7dA8ydHZk=
+
+Name: org/eclipse/jgit/transport/AmazonS3.class
+SHA-256-Digest: Q8gwqBNwWUrhtZ3tBVKhirqRoN/lOwoxLm0oxv9Tj2w=
+
+Name: org/eclipse/jgit/lib/FileModeCache$CacheItem.class
+SHA-256-Digest: K1fQdlre4yNaiqU+w0dqxfM2W6JSefYXtHRy/bNstSQ=
+
+Name: org/eclipse/jgit/diff/DiffEntry.class
+SHA-256-Digest: V2RTWyyHV3WfURlZOSSkwhIg5GfnsWOUJPuu5O2DMxE=
+
+Name: org/eclipse/jgit/api/CheckoutCommand.class
+SHA-256-Digest: i0gVmABpEChpCHvFCgxxgDqvw0wXdhxvo28FPXaJVvg=
+
+Name: org/eclipse/jgit/transport/UploadPack$ReachableCommitTipRequestVal
+ idator.class
+SHA-256-Digest: by/HIy/Gs6uzJbadJfCIGN8b7zinLXsWIIySWqkXCM0=
+
+Name: org/eclipse/jgit/diff/RawTextComparator$2.class
+SHA-256-Digest: rXRg1DpW2oi9ZqJD9rIJmja5wlNfyr8ifi3qmNI/Bmw=
+
+Name: org/eclipse/jgit/storage/file/WindowCacheStats.class
+SHA-256-Digest: MUosb+Nd95YxyYQT/eJ097giJmnEqYCSzhLaMaWiVvc=
+
+Name: org/eclipse/jgit/api/SubmoduleDeinitCommand$NoSuchSubmoduleExcepti
+ on.class
+SHA-256-Digest: UgMkrcwPP+UMy453KuwEa3fDYcgfZ9mWVjuGcrwY63Q=
+
+Name: org/eclipse/jgit/transport/LsRefsV2Request.class
+SHA-256-Digest: 9GTVAwITqec5xzR6pIwfg2Hf04Ex4JPi/tU5FrfgNM8=
+
+Name: org/eclipse/jgit/internal/storage/pack/StoredObjectRepresentation.
+ class
+SHA-256-Digest: Ra33dzDVkN7W25ksLy+Wqg57m6Nke7Ir/cKJvF00xl4=
+
+Name: org/eclipse/jgit/hooks/PostCommitHook.class
+SHA-256-Digest: jcNXedcn4lThKaTaC6nkKLeLurAVDvsk2GYtddSO5MI=
+
+Name: org/eclipse/jgit/lib/RebaseTodoFile.class
+SHA-256-Digest: NcBeQfcxr0RUl8iq10DNpWI/RSB5qy6tC85NkacmKLE=
+
+Name: org/eclipse/jgit/dircache/DirCacheIterator$LazyLoadingAttributesNo
+ de.class
+SHA-256-Digest: Cn6VjZPptLPixdMQy+EWc+N7R+IM+rssu0QVc22zi6I=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjectRepresentation.clas
+ s
+SHA-256-Digest: NlElt30E58ZNA3y/X4yRVnKfPkcoFWRxekCjkYX1m4s=
+
+Name: org/eclipse/jgit/revwalk/package-info.class
+SHA-256-Digest: YhA1GliSg7yd4ZmBJOm5y+qWLWecUbYEUOlFHmmOkvY=
+
+Name: org/eclipse/jgit/notes/Note.class
+SHA-256-Digest: mcx2Wg9m6iL0vGmit473Qf5+7zL3aojjBIbYaXwYun0=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$1.class
+SHA-256-Digest: gQGAorsOhFtyx8QtJfB3ad1HAMzWqdI3Ple48h1bMIY=
+
+Name: org/eclipse/jgit/patch/BinaryHunk.class
+SHA-256-Digest: CD8GgYEIbUmrX1IjSr3tJvR5oLUEQyXOvAGQNeXaRMM=
+
+Name: org/eclipse/jgit/errors/UnsupportedCredentialItem.class
+SHA-256-Digest: UFHNyTG/Rx2eyFcLrgRhv6aQij86EIMn63DoKQWXPSo=
+
+Name: org/eclipse/jgit/api/NameRevCommand$NameRevCommit.class
+SHA-256-Digest: 1rR2K7kD/zdnn1IWHl5XY6xXAPyK5+p8mI/GyT40Lug=
+
+Name: org/eclipse/jgit/transport/RemoteSession2.class
+SHA-256-Digest: L//hHYKyBkeSoRGrSgCxEeL0IiWHr8M+dUbDSvQVu5k=
+
+Name: org/eclipse/jgit/transport/UploadPackInternalServerErrorException.
+ class
+SHA-256-Digest: 6mFWtLeBzy7lbSWMMn+uKbAuYVl+jN5+B0hmZ8stzjk=
+
+Name: org/eclipse/jgit/lib/BranchTrackingStatus.class
+SHA-256-Digest: UHyq/8m9bnk0BhwCQCWlwGh1qtTO/DneU9faxYZGXP0=
+
+Name: org/eclipse/jgit/api/RemoteSetUrlCommand.class
+SHA-256-Digest: +Lc0zObqg4pTcGC3Myx1/BzgO+mZmVOTXCK5Z829X/A=
+
+Name: org/eclipse/jgit/util/FS$FSFactory.class
+SHA-256-Digest: uRZCJzn+tFZjN8YKL+hW2H8nOo731WFdRdW8xEq6oGw=
+
+Name: org/eclipse/jgit/storage/pack/PackStatistics.class
+SHA-256-Digest: u4UGIMEeP4xhBVHQEdNE04qG/kCf7IiFRohEkhL8LAM=
+
+Name: org/eclipse/jgit/revwalk/AbstractRevQueue.class
+SHA-256-Digest: Kk26bvjVauYwg6FuOoYzeEhj2oDRsNAQrLZmzV3IKw4=
+
+Name: org/eclipse/jgit/transport/RemoteSession.class
+SHA-256-Digest: LYPymAOn91iSXIFwNwnX5pZcK019v7Hh5eShRwNEQng=
+
+Name: org/eclipse/jgit/util/sha1/SHA1.compress
+SHA-256-Digest: wZ2Mhj7MNtVqp1WEKGNpzyD0MYqOWz22Hp39QwWY+ak=
+
+Name: org/eclipse/jgit/diff/ContentSource$WorkingTreeSource.class
+SHA-256-Digest: /IepSshPRLgPtJ/GhRnYZI3UjvYOW7Oba63IC5tg//I=
+
+Name: org/eclipse/jgit/blame/ReverseWalk$ReverseCommit.class
+SHA-256-Digest: FlvD3mR0be8O9jnBk+YT0sRfYpnkcPredBrgpEQYwaE=
+
+Name: org/eclipse/jgit/transport/Transport.class
+SHA-256-Digest: yLpf2K5pnINwl9bK3cDWa7SjjowHl0xud+FGw/891J0=
+
+Name: org/eclipse/jgit/lib/RepositoryState$13.class
+SHA-256-Digest: Wx3HNfW9oBWx6pMPgvF5s4XNLp0hoXBpUyePkgDEW/g=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableReader$RefCurso
+ rImpl.class
+SHA-256-Digest: GgpyVTxqxyLRCTyTEQF/hwuPKCRcEuC4/LoNmq0AUmU=
+
+Name: org/eclipse/jgit/lib/BaseRepositoryBuilder.class
+SHA-256-Digest: y0CJRtSgMOoSgJLfo6dC/d+c2851HYjZuWzu4wR9+lY=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexRemapper$1.c
+ lass
+SHA-256-Digest: q6LFjvoQ5STyvVf96UZbSYZbI4G2UArfmDPrdUN1lKc=
+
+Name: org/eclipse/jgit/api/RebaseResult.class
+SHA-256-Digest: 1AjJrNMB1ASCjxEXd5r8k+HJTAJ2/fb56txX5NvEMKA=
+
+Name: org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableExce
+ ption.class
+SHA-256-Digest: q0ShuP87If8eWRsGoQ4drcqpwnasJ3oQMgjy7ZDORRM=
+
+Name: org/eclipse/jgit/lib/Ref$Storage.class
+SHA-256-Digest: T1kSjM2BsDGlFKxw5+lvy+qx6u6Ob73AiteKKHVk7cY=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$CompressedB
+ itmap$1.class
+SHA-256-Digest: cCsb8YvtFFmgM3Yw5f5zhLU3f1+dCtVbgWRMMCqg1vc=
+
+Name: org/eclipse/jgit/internal/storage/file/LockFile$1.class
+SHA-256-Digest: UTvmak4kYDxHwW7Ponn6mUgBO/WY4DG80zUrav7awxc=
+
+Name: org/eclipse/jgit/util/io/BinaryDeltaInputStream.class
+SHA-256-Digest: GaGpCVqodJ/+ar9n/ix6ahAbstooWm6SMdEgGViuTqg=
+
+Name: org/eclipse/jgit/api/errors/PatchFormatException.class
+SHA-256-Digest: 5WI1qfNQ28V9st39icaB/iu3f6FRrYsCl/WKT9/O/C4=
+
+Name: org/eclipse/jgit/transport/HttpTransport.class
+SHA-256-Digest: JP+Jc+P0scQscCNLSgPbD4nKQmiq8+fPkP8tl9co+/E=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndex.class
+SHA-256-Digest: ZAtN57nHWMjz3QdsSP8g9GrPwXG/pzCNJfVyaZ0cAbg=
+
+Name: org/eclipse/jgit/revwalk/RevObjectList.class
+SHA-256-Digest: 3d+vHUF0jryThZ8Wb0dwfBIr9N87pTCicdYUeiecoig=
+
+Name: org/eclipse/jgit/lib/EmptyProgressMonitor.class
+SHA-256-Digest: ICgV8/+GMPqT6P+B7fLyRDM9szvfRDsezvq6O2k27Nw=
+
+Name: org/eclipse/jgit/attributes/AttributesNode.class
+SHA-256-Digest: kb50hTKex8Yk+fJARwrDvGr8GjABFijMhK+yPjDxKgg=
+
+Name: org/eclipse/jgit/attributes/AttributesProvider.class
+SHA-256-Digest: bEBNi42PLVnA4j1mRS3xAl1QjjFa7Lo7xcSKM1A+u5U=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCache$ReadableChanne
+ lSupplier.class
+SHA-256-Digest: MT3qmHFNMslZOJf/LEEY50MrgljRD68zXgFGb4ifZJs=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPacksChangedEvent.class
+SHA-256-Digest: TGdSCKlON4lHTfJB47Kb+SqzYDuR6AJ+heNseEuzMeU=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriterBitmapPreparer$Co
+ mmitSelectionHelper$1.class
+SHA-256-Digest: vt2Frr4EIKmxFmvkaPofTjvFAGdZzcDfgaBq6IkI4Qo=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftable.class
+SHA-256-Digest: Hyz5oLvdE5sUxXkSVN848z8mquhVwBch5o7/bd/paTI=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$8.class
+SHA-256-Digest: 7Z8YlT+ggtC6rJV8p5YVwoRnVC3tbaf/XB4hSZqydOg=
+
+Name: org/eclipse/jgit/fnmatch/WildCardHead.class
+SHA-256-Digest: kKhFOWy55JLZ/DvAc8NVscHlsWczVdglFU28SoXLYKE=
+
+Name: org/eclipse/jgit/blame/Candidate$BlobCandidate.class
+SHA-256-Digest: C2qwONIk1SvtQpTVwGWcna8ysNm1zXscQ2rGiaX+nzM=
+
+Name: org/eclipse/jgit/transport/ObjectInfoRequest.class
+SHA-256-Digest: npV9016sP7rcMypAnzwZTku0SOYfECcmWo18YX57LOk=
+
+Name: org/eclipse/jgit/api/ApplyCommand.class
+SHA-256-Digest: LsUVMY41j8+AQ+AoPSAxZYyUEq4Rou1X/6txO+p0xw8=
+
+Name: org/eclipse/jgit/transport/UploadPack$ErrorWriter.class
+SHA-256-Digest: gdkkRtma//XqU8tsvmnNxzD73b0Pyext3get71xV5Lc=
+
+Name: org/eclipse/jgit/lib/IndexDiff.class
+SHA-256-Digest: xS1ztHD/fkZO9fBJ9b6LE3J/Wqx/Y37rFyK6VUeYIQI=
+
+Name: org/eclipse/jgit/lib/RefWriter.class
+SHA-256-Digest: 8IIj6MhGZJ/dd95VXHXPpj4SlrIo1+4HTbcYd5SSlq8=
+
+Name: org/eclipse/jgit/transport/InternalPushConnection$1.class
+SHA-256-Digest: FvnwfMBypiqK/BgUp+aM0RWU1h1XpPnULI5yAFIqbv0=
+
+Name: org/eclipse/jgit/lib/ConfigSnapshot$CaseFoldingSet.class
+SHA-256-Digest: YtM2Mth+pu12lCnitApk6iYXjKQa3wlUo4Qzt4fN0eQ=
+
+Name: org/eclipse/jgit/ignore/IgnoreNode$MatchResult.class
+SHA-256-Digest: tvJhxF0Xo46BORd7fJWV0lViIKTgy8uF0LrMQBTweG8=
+
+Name: org/eclipse/jgit/util/RefMap$1.class
+SHA-256-Digest: M+A7hO81I8VIE5BzAlSN0ObSiiivMCGGUXyV4Xoczas=
+
+Name: org/eclipse/jgit/internal/storage/pack/ObjectToPack.class
+SHA-256-Digest: FFsxuHetumqsyrLh/TWUhTbiVXNtI14ZYuzhSTHA6NA=
+
+Name: org/eclipse/jgit/transport/ProtocolV2HookChain.class
+SHA-256-Digest: h0JnW4I5Hlwd7v8KtUnJ7wBvML3+4Atj7uF/I7IH+rg=
+
+Name: org/eclipse/jgit/lib/FileMode.class
+SHA-256-Digest: 5dypeotD3gJPaGGYL3fJ5tJYlcFyKwmw9LjfNCHS744=
+
+Name: org/eclipse/jgit/api/errors/AbortedByHookException.class
+SHA-256-Digest: DLN0broVX9CC5gHcKOTeytBgQUmKy4k4yTvyLK5b3OA=
+
+Name: org/eclipse/jgit/api/errors/InvalidRemoteException.class
+SHA-256-Digest: yaxJZw7cV1n8VWuYtpNu3cT0GoxTjPVNHqm51jXmKkk=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$11.class
+SHA-256-Digest: NO2KSSKYDdUX+aaixQcj/Gxy0yuty0qIo2Nf4uQNk7U=
+
+Name: org/eclipse/jgit/util/FS$LockToken.class
+SHA-256-Digest: Mc6QlTuFP/MKqci6H5ZRQbWzUU6kh/0Sj9BjBDHERGY=
+
+Name: org/eclipse/jgit/internal/storage/pack/BitmapCommit.class
+SHA-256-Digest: Ku4AkwI8JIs5UIqa1RKqNBJPlDJ7eWPgmd6JQ8gNYY8=
+
+Name: org/eclipse/jgit/util/FS$Holder.class
+SHA-256-Digest: lXXlkPYu5tHOYNNWn6YbYmEO6Tdx1jZzJCgGHGXRSXQ=
+
+Name: org/eclipse/jgit/transport/PushCertificate.class
+SHA-256-Digest: cL1nifiX0UB5zhSPmwUxN8z5CIXtcGZewfM2FHxCgR4=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexRemapper.cla
+ ss
+SHA-256-Digest: kG4HoXmhyWbBEnbViEy3Xvxl9zG+LjOAPB30v7kEPfM=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh$ExtSession.class
+SHA-256-Digest: XX1avZmA7O84HXlvz9J/1NiJyRJQeC4rGDVHq3Xc7XE=
+
+Name: org/eclipse/jgit/util/io/SilentFileInputStream.class
+SHA-256-Digest: GyyWus1bP05cHQ12X7dEMfNjUfWzwA/S/EaxJcD4G9o=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexWriterV2.class
+SHA-256-Digest: lILD1Dp2B5YSYqMfW9RR7R+W2i46mZEahxdbwwYQlOU=
+
+Name: org/eclipse/jgit/transport/resolver/ReceivePackFactory.class
+SHA-256-Digest: 2CBuSVoCYMwrNCerBy8RXlHwp3LUHhBnN5btkyCq5AI=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicR
+ ef.class
+SHA-256-Digest: msZlKeRLTWncV8iGNzln1j0Unwb5WMTP7O1wsMtSZ/I=
+
+Name: org/eclipse/jgit/errors/NoClosingBracketException.class
+SHA-256-Digest: NUrpNPW+dxpqkWcr7fRIINR0bGUiHFMg5ul0XXk/WP0=
+
+Name: org/eclipse/jgit/lib/ObjectInserter$Filter.class
+SHA-256-Digest: NetGht/BXUUjM93l1yc6CC37g79VIhV7/zAvf9U4rnI=
+
+Name: org/eclipse/jgit/transport/FilterSpec$ObjectTypes.class
+SHA-256-Digest: S3dqu0pzk/9CB1Tfp+RvCdgwMKXKCe0yyiTt/lOLtMA=
+
+Name: org/eclipse/jgit/transport/ReceivePack$Reporter.class
+SHA-256-Digest: /YGfSX43uuP9kBMppCMy7IQfTkPe+tgvQhI4n0ZLXm8=
+
+Name: org/eclipse/jgit/transport/PostUploadHookChain.class
+SHA-256-Digest: xhScqdV77mv8MVDB2uoU5RlXJkjZdPuF3kkYK6qsoHc=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner.c
+ lass
+SHA-256-Digest: gNW7XF3Kev4GBKsLRWq3kGisKGPCWc4hoZUVcPzNSdI=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaIndexScanner.class
+SHA-256-Digest: kL9azJNqP9uFldfaYVr8PS+XsxCSbXf3t0qbuBcv71g=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$10.class
+SHA-256-Digest: Y560ura3ztFDaG0cw/9ShK+pjYij9uFS3CsYOjFgMmI=
+
+Name: org/eclipse/jgit/transport/http/JDKHttpConnectionFactory$JdkConnec
+ tionSession.class
+SHA-256-Digest: jbSRFr5o6WiEzY3tU8Lvh0rKO0LbqzhZ2ZJSzCxjaCQ=
+
+Name: org/eclipse/jgit/transport/PacketLineIn$AckNackResult.class
+SHA-256-Digest: tYzh5G+A5ti0drpiiC/sOfofjZ4ONJAklna5sQJqZqA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsFsck.class
+SHA-256-Digest: /0vLg6ixcPWUMTz1B2mUKNrMtLB5hnpVGlqQ///8jtg=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableWriter$Stats.cl
+ ass
+SHA-256-Digest: npr6QF+dvwYK/82kPCVlsnGFwuHfKvf35KyYYZtnfDQ=
+
+Name: org/eclipse/jgit/transport/http/NoCheckX509TrustManager.class
+SHA-256-Digest: NjeiP5aB2PXfbhCcTKuBuppPpWByljDfHdXHYSI8GEc=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexRemapper$Ent
+ ry.class
+SHA-256-Digest: LifaG2NuibUYwzc6ZAbv5nIqz54iiG0MjJE5EigKru4=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockReader.class
+SHA-256-Digest: psvNH7VJbyL3zC5MPqipFy4vUwyM4rMsUoxSEPkpLdQ=
+
+Name: org/eclipse/jgit/util/io/EolStreamTypeUtil.class
+SHA-256-Digest: iZU/0Ft0ggs58TOwdCN5MZRuamS2/1hP6m+ezf+HqpU=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$PerDirectoryAttribut
+ esNode.class
+SHA-256-Digest: 76O4YGb0zW9hYZ1hq5p8hZNY0ZZ2dVHez7OzlHFfObM=
+
+Name: org/eclipse/jgit/util/io/TimeoutInputStream.class
+SHA-256-Digest: awKkGOSFt2OMBg7GFGjA8SYurvLV93hp6p/eIyRwVNk=
+
+Name: org/eclipse/jgit/revplot/PlotCommitList.class
+SHA-256-Digest: FCwTd1zEeS3WBv5u6mFWeyrTLE9Qr3BJ6Ret1unP4M0=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsCachedPack.class
+SHA-256-Digest: 9huSoZtz4N5OeaXqPmIE0JYUV2xJxpoRGnYYNanGvwI=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter$AllFilter.class
+SHA-256-Digest: LZDnLOOJooTScsO5nBvIS+YIm8yjs6bVXcNbMkb5WZg=
+
+Name: org/eclipse/jgit/transport/resolver/package-info.class
+SHA-256-Digest: 2P8nToIvGtWeiX16sSAW+ZEWQXPWyI5grOa6exGPLcU=
+
+Name: org/eclipse/jgit/lib/PersonIdent.class
+SHA-256-Digest: 8gwwVSCRoUje3v4qsPQubYeDKeEYPRSWREDrPqmNXto=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$PackSource$Co
+ mparatorBuilder.class
+SHA-256-Digest: euI9OStkAVue9pyHH8mlhoNuo+UbVMJzPwOddkQ+BzE=
+
+Name: org/eclipse/jgit/transport/PackParser$DeltaVisit.class
+SHA-256-Digest: HBVxAhMW4kYgUtgxcAedgFmgs/p2K5E01kGlql+kH9o=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status.class
+SHA-256-Digest: etiuaXdYxkBWpc9Ad1VjyA1w903skwMo+Ver50w28QY=
+
+Name: org/eclipse/jgit/util/Holder.class
+SHA-256-Digest: WmXJ0cIUPJCqaCQH+HSlnMe2iGb3/e/B0xXOnO6gVQw=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexV1.class
+SHA-256-Digest: GfNpzoTQClSl9amkI6YsYj/MnWhXRIUUOt2CEluINR8=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$Block.class
+SHA-256-Digest: /cnl89J+XBg8wuOXXMpiRwtlsJPuhJZ68s+otD3R49M=
+
+Name: org/eclipse/jgit/patch/HunkHeader$1.class
+SHA-256-Digest: GOSiyVUdZu4A5KPRhPUuVhshXAiimJ2nES8vx5WPmBc=
+
+Name: org/eclipse/jgit/util/CachedAuthenticator.class
+SHA-256-Digest: Nk5xnlfFpGQgMHRtM9MRRIEr79BQrb9M0lmNOF5NgkE=
+
+Name: org/eclipse/jgit/transport/Daemon.class
+SHA-256-Digest: 8dEXmR/vH2tfSZAHTnslKBOOqEISpMHEPAGVAGpM5uQ=
+
+Name: org/eclipse/jgit/revplot/PlotCommit.class
+SHA-256-Digest: 5MYFENleEPonn+ilGYZmMFmup/ffylZF3x8k2DrYVWk=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackFile$Delta.class
+SHA-256-Digest: w4E3d0heyfvrIncI+KgjFp+GNDpUO6gQDGsXlFS9yM8=
+
+Name: org/eclipse/jgit/api/errors/WrongRepositoryStateException.class
+SHA-256-Digest: 5kcj7L41NTDH0KpQxZJjw7W4l0f0SWBDtizs/ihIY2k=
+
+Name: org/eclipse/jgit/lib/Config$SectionParser.class
+SHA-256-Digest: pyQ4ay2N7P4AYo9Iw9ttLM/q8bcXVLbA+QdazOULAXw=
+
+Name: org/eclipse/jgit/diff/DiffConfig$RenameDetectionType.class
+SHA-256-Digest: AAYqSDCsdMLY4HjUuhi7v4iez3FAgA6QCU3hQKpmirc=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand.class
+SHA-256-Digest: sVG+pUGp/Hg3Uznjh/4mcDPSYVDzmjZreKFrI3eMDr8=
+
+Name: org/eclipse/jgit/ignore/FastIgnoreRule.class
+SHA-256-Digest: 2PKx8FA6IwRF2Asr2DdWYQiPgwkZYu2GSG3lu+wYqoI=
+
+Name: org/eclipse/jgit/submodule/SubmoduleConflict.class
+SHA-256-Digest: hZD6bQ1Rv25PMe4ysihTv02OOedyaVRVT6xCGdmETF8=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand$ManifestErrorException.class
+SHA-256-Digest: BK/uCtp8fteM9cYat1XrjRXZEXgaT/ytWqgLy2HfPaU=
+
+Name: org/eclipse/jgit/transport/FetchV0Request$Builder.class
+SHA-256-Digest: DuunLtcjSHrJ90ixIfhzCgcS38P151tjKM5D2o9U8U4=
+
+Name: org/eclipse/jgit/treewalk/AbstractTreeIterator.class
+SHA-256-Digest: zGSbc0qpn/kOXzupAl2PaOtLcCi8aUAsbtoQQ7NpoMs=
+
+Name: org/eclipse/jgit/util/BlockList$MyIterator.class
+SHA-256-Digest: m/hfGf8Le20JcdZThnXhop0asd1+k3yycLuflW2lc5M=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$MemObjDat
+ abase$1.class
+SHA-256-Digest: Zs6p4RMPL2NYJD4qn9kG5jYn6i1GUldP2EsRTzFOsCs=
+
+Name: org/eclipse/jgit/internal/storage/file/ReflogWriter.class
+SHA-256-Digest: oTj6VPzdpSuQrkaLT+YUmqHix/c5s5c5KquE2gogtqw=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$6.class
+SHA-256-Digest: ASbtlXD2dtrJOwvfra3rgz9y7WvDtEvXTF4JA3xv+Kw=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$Vals.class
+SHA-256-Digest: Svhe26wbgQh6/vKaWxlZnNcynnym5gf31dOyaj3zRac=
+
+Name: org/eclipse/jgit/revwalk/RevWalk$2.class
+SHA-256-Digest: 5uQyOxMqap4EXTM6LwDNA2nxqrAMM0tk3c7JXVG1xKM=
+
+Name: org/eclipse/jgit/transport/TransferConfig$1.class
+SHA-256-Digest: IpQNivpUpeTgZWpSOlJNkA/9398QSgw8pimqq/2AQA4=
+
+Name: org/eclipse/jgit/transport/TransferConfig$FsckKeyNameHolder.class
+SHA-256-Digest: ILhW+NfglTKFy9t7tn1y4ZufoYVDCtnTAFi5TpQUtL0=
+
+Name: org/eclipse/jgit/api/errors/NoHeadException.class
+SHA-256-Digest: 8G/MHFVyDQMlFwyeNk59W4FB2TAzilXSLTWZ/3dJ/I4=
+
+Name: org/eclipse/jgit/lib/ConfigSnapshot.class
+SHA-256-Digest: 8YONl0EuFJJf74yfunPVLITdCpk01e4nfTLbhW9J4gY=
+
+Name: org/eclipse/jgit/fnmatch/package-info.class
+SHA-256-Digest: xffuOgxHHxSlDyC4o8cGi4z2+WPAUDwN1GnckpmQFEA=
+
+Name: org/eclipse/jgit/errors/RevisionSyntaxException.class
+SHA-256-Digest: 5MJRXtX6Y6xIfKls0GKCKxnFd0bUMXctigjYfiNNvh4=
+
+Name: org/eclipse/jgit/errors/AmbiguousObjectException.class
+SHA-256-Digest: BwtqRUb2WylofYKaj+LhYXvMAMotKJ6airPa7yx2yME=
+
+Name: org/eclipse/jgit/api/package-info.class
+SHA-256-Digest: LeCJ1VbkLYB8+jRlThxovqscADAzj7t/Yw+CzzLGyLM=
+
+Name: org/eclipse/jgit/transport/HMACSHA1NonceGenerator.class
+SHA-256-Digest: c7+1lVRYHrhwmtLYyOo8rLOQYdoy+qlXWiWtA9MQA5o=
+
+Name: org/eclipse/jgit/util/sha1/SHA1$Sha1Implementation.class
+SHA-256-Digest: 6m9GN6j4RLuaZstQq5PgxW3OrjWR4gELD2OXgOEqvNE=
+
+Name: org/eclipse/jgit/lib/RepositoryState$3.class
+SHA-256-Digest: 8nrHN9Kuea/lnyDd/Fjw9zEFwNBEIp0yVrjQDJ0hI1c=
+
+Name: org/eclipse/jgit/blame/Candidate.class
+SHA-256-Digest: 2AG9YOpec1N/jpAxbBZQEndmj6kBcuAKMTcSCGtj9Dk=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$PackList.clas
+ s
+SHA-256-Digest: X+KfLWMuIxR3D4gaDwl1GM+9Q6597LEeIj/CufV893o=
+
+Name: org/eclipse/jgit/revwalk/RevObject.class
+SHA-256-Digest: DSsaa3LVWd0iBaiNDqJXzQsP52ax791xYk00YE7J2J8=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$DepthAwareVisita
+ tionPolicy.class
+SHA-256-Digest: Pedfg94kR+eE4YKP2E8o9vGxWKlo5MRpNavGWE5x/w4=
+
+Name: org/eclipse/jgit/internal/storage/pack/CachedPackUriProvider$PackI
+ nfo.class
+SHA-256-Digest: 7vVmGLmY54eHeXI9HNm0cF2bqWiJp3+t5LcBXVdRDm8=
+
+Name: org/eclipse/jgit/patch/CombinedHunkHeader$CombinedOldImage.class
+SHA-256-Digest: eO18wYCy1alkkdUyko+3NHt2VX9p/mqhjcwyBYJAuhw=
+
+Name: org/eclipse/jgit/transport/URIish.class
+SHA-256-Digest: 6Zu2uPvIafli/eirQ0vpsrwiG+fvatnWnweeHh7Vc1g=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter$OnlyMergesFilter.class
+SHA-256-Digest: BTAhc+WNiYP36utbXMxymiPg3BwF6zNtFMdrmLt8zhY=
+
+Name: org/eclipse/jgit/util/Base64.class
+SHA-256-Digest: cnIhFOQZrC2QBE0oS9tCfhwP0g+kUP8fFzOvoUnlqWE=
+
+Name: org/eclipse/jgit/lib/BatchingProgressMonitor$Task.class
+SHA-256-Digest: L84gP1mZW5ThiUXniaGYm6sOYzAmVLa3z4EmyokBqQ8=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter$NoneFilter.class
+SHA-256-Digest: AxZaQ9zRtd6n697/arkmMWDgexZytyS5hE4VJkFF3aI=
+
+Name: org/eclipse/jgit/lib/RepositoryState$11.class
+SHA-256-Digest: 3aNDvbOspGoW0rO+qS+f4z91yHjfyTGcYWTjutIV44A=
+
+Name: org/eclipse/jgit/transport/SshConstants.class
+SHA-256-Digest: Sslg0H7KDGjv8zlzhwKJOnSyB4NuFB1P/Ch5gOrJoHY=
+
+Name: org/eclipse/jgit/diff/RawTextComparator$3.class
+SHA-256-Digest: 0TZmJ93mVFoKjd7aeuRQibQVIXsK1P2qW5zWYSaeEcE=
+
+Name: org/eclipse/jgit/errors/NoMergeBaseException.class
+SHA-256-Digest: IlxCWV3p/zlcyMZ8PLNnn2nhbXaBI9GoerlvjyuGfpA=
+
+Name: org/eclipse/jgit/events/WorkingTreeModifiedEvent.class
+SHA-256-Digest: CSeFAM3+62ID/vvofFGp4afyq7SGoWMNDlexqNQDwik=
+
+Name: org/eclipse/jgit/util/io/LimitedInputStream.class
+SHA-256-Digest: zwpPn+iXMeP6LzMwOaZljunbW0y4kt+i/kKsX0Dda2E=
+
+Name: org/eclipse/jgit/transport/ReceivePack$1.class
+SHA-256-Digest: 6MiLApE2Q80nAoMJZv5Y0CfEUgtOFyz3jygyAop2x0w=
+
+Name: org/eclipse/jgit/internal/storage/file/UnpackedObject.class
+SHA-256-Digest: JH5EUE5X13LwDgMh2t2zEthXxzKpTDC61BJ6Rec4FDU=
+
+Name: org/eclipse/jgit/transport/TransportLocal.class
+SHA-256-Digest: lp/EzMkCT7TTYYvHh9VTeIfoQXBx29J1FEutwWlPNow=
+
+Name: org/eclipse/jgit/internal/storage/file/BasePackBitmapIndex$StoredB
+ itmap.class
+SHA-256-Digest: cHCktr5bMF3EctfS0hNKFA+5BqoEA1mBvvYlaDMtNcY=
+
+Name: org/eclipse/jgit/api/SubmoduleSyncCommand.class
+SHA-256-Digest: r4J5WuE+epusj8GHM8GYOptkHBceqxyFm3pB1SFbHY0=
+
+Name: org/eclipse/jgit/lib/CheckoutEntry.class
+SHA-256-Digest: jfLIBNyjGQAkB1GctqgBTCcKXEEP+fWgulOkQu86OqQ=
+
+Name: org/eclipse/jgit/treewalk/filter/TreeFilter.class
+SHA-256-Digest: 5jgd2yPi9GbrhiaVjkx4Fg+HjYg3fDXmBYDWTfPwM88=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$1.class
+SHA-256-Digest: 0pEUXMeUFUVVZUNsZyb7MsaS0XbgSXQccHqylXf1uL8=
+
+Name: org/eclipse/jgit/transport/UploadPack$AnyRequestValidator.class
+SHA-256-Digest: ULGK0tvS713RPgE+qmSBvm5Uo3yL2KxQ0znhT9dck0Q=
+
+Name: org/eclipse/jgit/util/sha1/SHA1.class
+SHA-256-Digest: 2tCdpMwuf+i03JTbcf/pUnnuvZNk+yhTR2LVpvDc59A=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$MutableState.cla
+ ss
+SHA-256-Digest: jwmxrBIzyAUif7nyN1ydfJN6ePd0p8dn/x49/x8KlD0=
+
+Name: org/eclipse/jgit/transport/FetchV2Request$Builder.class
+SHA-256-Digest: gaozf/4UxqzFusgVCMZpohGUeIwdlaQYgeM/Hu4Y7Jg=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjDatabase$PackListImpl.
+ class
+SHA-256-Digest: Lc0Mf/ktpfczm45keu4/pcKCylZicqJxrC/2jXM95oM=
+
+Name: org/eclipse/jgit/lib/internal/WorkQueue$2.class
+SHA-256-Digest: /RCgWUikAsTZ9Yiw4FhtXUo1lbijoP3jfCmYjuAteYU=
+
+Name: org/eclipse/jgit/lib/FileMode$7.class
+SHA-256-Digest: Nj7idChCuT+O1pXmog10zCfmN2KlJ85Uv4fNIAUOSEA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/BeforeDfsPackIndexLoadedList
+ ener.class
+SHA-256-Digest: ENyyNxAfFdKUr7VmvQe54VCdmvNhCrvuCvjfBa3RJnM=
+
+Name: org/eclipse/jgit/transport/FtpChannel.class
+SHA-256-Digest: hZPbIQHZuiXi3/HopZzsI5IDirHrDG2hSPT7XFGzr6M=
+
+Name: org/eclipse/jgit/internal/storage/file/InflatingBitSet.class
+SHA-256-Digest: KzuB9knKrh1gJAaSJWbgFi52X0zL5ig9+LhwTbAXr+g=
+
+Name: org/eclipse/jgit/transport/UploadPack.class
+SHA-256-Digest: IUs2S47wOHe41k8BS4Nw7N5Au8bsidL84tlpAKPhap4=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$PackfileUriConfi
+ g.class
+SHA-256-Digest: ahPzmU1V9TpZA3klFK2l6j3NujlSV7Uz+HdUehHJogE=
+
+Name: org/eclipse/jgit/diff/HistogramDiffIndex.class
+SHA-256-Digest: ZxqZHhMKBTwYDOVgUZlLHV7AVCVjHdM3Nd0O68unbA8=
+
+Name: org/eclipse/jgit/api/NameRevCommand$1.class
+SHA-256-Digest: tJSJw16esSU4m2mLkeWvkrMi7Quboahw2tF8b+DLnuM=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$11.class
+SHA-256-Digest: KI5ovQEbXcJCXUNLfacvamgISi2PlpXHkhs4RZziwhk=
+
+Name: org/eclipse/jgit/attributes/AttributesRule.class
+SHA-256-Digest: FHJE/m+yuAcUQCmendFFioTd3WE5Oovw7sobFYU2wiI=
+
+Name: org/eclipse/jgit/lib/RepositoryState$8.class
+SHA-256-Digest: VdwI1moAdfie0nn9jPKiqMOcQjiSxUXiy1jV/8lm0Zk=
+
+Name: org/eclipse/jgit/ignore/internal/AbstractMatcher.class
+SHA-256-Digest: 4CdrTAJjnWNFsQvRDTYvrjwmRSFA3ujBiGtU3du6Mek=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser.c
+ lass
+SHA-256-Digest: vut0jeZ6QqLgeKSl1bLchgAOvFhW7R2IvUrXzJUmJU4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReaderOptions.class
+SHA-256-Digest: x3FB6i6KI6aa2ZtOkoXygcnVFbz9hYLvXNT2ogMwvGg=
+
+Name: org/eclipse/jgit/transport/CapabilitiesV2Request.class
+SHA-256-Digest: reiB/E2E0Sl344COLzQUVqw+TgBdULRJKrMTZcEPiAk=
+
+Name: org/eclipse/jgit/lib/ObjectStream.class
+SHA-256-Digest: szSOSWWDsDNFCXrlZ6XbITAlrXLKGKXT0Qh5kQ08K28=
+
+Name: org/eclipse/jgit/transport/TransportSftp$1.class
+SHA-256-Digest: oLZll8G0pkvl7ZmFwDYBsBlelW8hRlNq1IcTJ7BBdFI=
+
+Name: org/eclipse/jgit/internal/storage/file/GcLog.class
+SHA-256-Digest: jBLH9Q8UiAPNNPvqsQkL1Otd9wYjEnQ3rnmZ96L8k+I=
+
+Name: org/eclipse/jgit/api/CleanCommand.class
+SHA-256-Digest: hPmRp91EXYUeE+JFEKa5cSRKJP2eytpqX2WVFm8BCmE=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$SoftCleanupQueu
+ e.class
+SHA-256-Digest: Qo3Q1/+OPoFYknNFnspqMEjZopSblfjbrSUDf5GNosw=
+
+Name: org/eclipse/jgit/merge/StrategySimpleTwoWayInCore.class
+SHA-256-Digest: pFAVdNRETmefx1g0693H9eMbDQWAnqyrRYAFk2tYoqQ=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRepository$EmptyAttribute
+ sNodeProvider.class
+SHA-256-Digest: Mkh0PU5FbkmdhOKUr3+xOv/p+Tcn+plzqMa03W8gcg4=
+
+Name: org/eclipse/jgit/transport/UploadPack$Option.class
+SHA-256-Digest: SyKUOTupeIyrs1q1Ub3f82+XwEV0UXDQvlpiKF1aTtk=
+
+Name: org/eclipse/jgit/revwalk/TopoNonIntermixSortGenerator.class
+SHA-256-Digest: nBYOD9lS4SyQLirkMU1nuFZV+B7I9361d2fuGjZGaZY=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateHa
+ ndle.class
+SHA-256-Digest: wFOzJg9T4JagdRtVVDVRwz8FNBygCR2TyzhJei2Bc44=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$JGitV1.class
+SHA-256-Digest: 0MUiUbzkcElcU9iZY0MB+d3x1YY7yV3Nunr7TQjoszQ=
+
+Name: org/eclipse/jgit/diff/RawTextComparator$5.class
+SHA-256-Digest: IyXEA5RhhQnfflW8I6Ovc44l5AmRucswtsXTR2xrn0w=
+
+Name: org/eclipse/jgit/transport/Daemon$3.class
+SHA-256-Digest: bOBvx1eYX5D3S6/CvLtsoY3vyaRqSVKezDNAqLs36i4=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableWriter$RefList.
+ class
+SHA-256-Digest: HCgnMVKXyT7hB82DDZNongSRCv9X+9gaPL6hPgBufj4=
+
+Name: org/eclipse/jgit/api/errors/ServiceUnavailableException.class
+SHA-256-Digest: JsbHbZau/Z7fktt72vbdtNef1FpjFxGH43/bae/Qruk=
+
+Name: org/eclipse/jgit/transport/PushCertificateParser$StreamReader.clas
+ s
+SHA-256-Digest: 3qnG1RYKlJxrRttgueKdgY/Ihd47QaDpsaqvEVGUG/I=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod.class
+SHA-256-Digest: IM2l+D9cdkz+1wfrl2ZPXUyE/k9Shq7F46d6ozOWxmI=
+
+Name: org/eclipse/jgit/diff/HistogramDiff.class
+SHA-256-Digest: CbzYD/QnSxm8Cx1aXCYEO6GSTe3aLdLDCA5A2MjF8NY=
+
+Name: org/eclipse/jgit/patch/FileHeader$PatchType.class
+SHA-256-Digest: 5Jx8iP6qsI3+oqu6AdMi5vevcJsvEzU+A3NaOL2Gk/I=
+
+Name: org/eclipse/jgit/lib/RepositoryCache.class
+SHA-256-Digest: YUktaJ1d5gy+j3k3dRh5wL4lD/fz5Ug4EeF+uIyVfag=
+
+Name: org/eclipse/jgit/api/errors/InvalidTagNameException.class
+SHA-256-Digest: fnbm/Tg1IjMMDHFelU/jdhIjLrVyUgDQeC7IHXOpwqY=
+
+Name: org/eclipse/jgit/treewalk/filter/OrTreeFilter.class
+SHA-256-Digest: tryA/ErlGCqrB7hbqHgG+7ysnnW97dkJAm9aTE0ecOg=
+
+Name: org/eclipse/jgit/api/LogCommand.class
+SHA-256-Digest: bQGy0MJMWfywLOt/IVFwWNrSGK3I6SD3KNqI63uD6d4=
+
+Name: org/eclipse/jgit/api/errors/TooLargeObjectInPackException.class
+SHA-256-Digest: dtC7W7BufpH9NJKyxqIJYjWxtAZQf7y93AQHphjiWjg=
+
+Name: org/eclipse/jgit/transport/PushCertificateStore$1.class
+SHA-256-Digest: 9R8An7gAIamaMHsVi4mE+1wqO0ZGgsp+ZjRLNRhj2J0=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand$DefaultRemoteReader.class
+SHA-256-Digest: TaRjx/esMCT1wOHbQEUQRsJRHkrzvP+5osE14xMAwnE=
+
+Name: org/eclipse/jgit/annotations/NonNull.class
+SHA-256-Digest: GunEK5EytnXTlJCp+huJF/GTwOrzk5EXOMt+j3nqt5M=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$MemRefDat
+ abase.class
+SHA-256-Digest: hZp86SGzlo2SoSMcyFutrRvviK6G5uSRj9eTqnUJHQI=
+
+Name: org/eclipse/jgit/diff/Subsequence.class
+SHA-256-Digest: iqwe+K9NBvEhQS7MtNV1mOu+2suldlblJQkvRuvPLt8=
+
+Name: org/eclipse/jgit/transport/TransportBundle.class
+SHA-256-Digest: c/q2J+1yPeOkt3f+CZy6EW6qWqESzTl+FX4P0DnlOLk=
+
+Name: org/eclipse/jgit/util/Stats.class
+SHA-256-Digest: zTLeIFX//ZeLdYpV2NsNU6ZA/eKbRGnEFLG/jmnzhAE=
+
+Name: org/eclipse/jgit/diff/RenameDetector$1.class
+SHA-256-Digest: 1y1Vi6jL1GEu/mWRYaVyy9VnVajnwLduYwmZ7u3OAWo=
+
+Name: org/eclipse/jgit/transport/TransportHttp$AcceptEncoding.class
+SHA-256-Digest: XQZn2L+TtopHrE+uoS4TElhALBDEHwOdW7AGZ2XKRgQ=
+
+Name: org/eclipse/jgit/lib/BitmapIndex$BitmapBuilder.class
+SHA-256-Digest: UCLr8xGHfxhutJ+p5t/WmIFS6NZFKPEi2s+RQHUGVy4=
+
+Name: org/eclipse/jgit/internal/storage/file/Pack.class
+SHA-256-Digest: CRTPbkbd7Uv5wssmp5WWCFK3wmybTuWgST4vQR26kuM=
+
+Name: org/eclipse/jgit/internal/storage/file/ByteBufferWindow.class
+SHA-256-Digest: n8XNn7jh0+zLNITIUKJqigkZY88JAbWGlLgiET1+RV4=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$PerDirectoryIgnoreNo
+ de.class
+SHA-256-Digest: 91eiF9dRxlRZSgLx9fYfyr20saHwpPY1z8zH43lTET4=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitTimeRevFilter$Between.class
+SHA-256-Digest: cQaRssgQMNOSqu7OxlbC7AHcLObg6TlYvfETrZqd43A=
+
+Name: org/eclipse/jgit/treewalk/FileTreeIterator.class
+SHA-256-Digest: vjlFRqkhX49JQWKWDcKwEtXdE5kU4NLXCUJ/ElLpczs=
+
+Name: org/eclipse/jgit/diff/DiffAlgorithm$SupportedAlgorithm.class
+SHA-256-Digest: P/U4rrQSQoYlEAB4qWZokREs5bXFOFfjTlbAoc7fLXc=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaWindow$ArrayStream.cla
+ ss
+SHA-256-Digest: XNPFiLP7AlMXIKBdg/OpruhL+UANwC2AAWmqhygd75k=
+
+Name: org/eclipse/jgit/api/errors/TransportException.class
+SHA-256-Digest: Yde0Ku0xYLsdEdUlN7EweRCCO/CNGVGktEkbJ23USVA=
+
+Name: org/eclipse/jgit/util/FS.class
+SHA-256-Digest: m84E0BwJIYeJJX9UpRzALMtJ0hlv2//jh0Is/5Ncja4=
+
+Name: org/eclipse/jgit/revwalk/filter/NotRevFilter.class
+SHA-256-Digest: a1j/4YUDJ3iTr/0tP6NeHPQUgvKvndvlVU/JUOrCyFk=
+
+Name: org/eclipse/jgit/events/RepositoryListener.class
+SHA-256-Digest: NO+pFcAVlI6z0uyRDqSe5P6l7Nar+wRZ5TlsxodbnYI=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateRe
+ pository.class
+SHA-256-Digest: J+JeGpN7lguJ7alfZ6gX6Iwke931oEQgR8OOaUikdXQ=
+
+Name: org/eclipse/jgit/internal/transport/connectivity/FullConnectivityC
+ hecker.class
+SHA-256-Digest: yGWhu2BPr2fTqWS9+c/Vo2d8TZe/I5tKC1XyTES8VDs=
+
+Name: org/eclipse/jgit/api/errors/WrongObjectTypeException.class
+SHA-256-Digest: 4XdFKIqY+I+/ozcPToRUIcmzSBmS7pzkj1yttNybH7E=
+
+Name: org/eclipse/jgit/transport/NonceGenerator.class
+SHA-256-Digest: kgfzjvFsqnkxmWxL/Te1Oig0/Q83bOQnWM3WAuvoUPU=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter$NoMergesFilter.class
+SHA-256-Digest: hyZyc7ZBquv2hlPOiYqSuaVIIQl3KWFwEejBrGiYLBs=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableStack$Writer.cl
+ ass
+SHA-256-Digest: 9FDD2qjp3VqelanzHOpU0zT2Whow7aIkjY5Xc9V3kOQ=
+
+Name: org/eclipse/jgit/lib/CoreConfig$EOL.class
+SHA-256-Digest: SVrzyPAW4hCBUJRr/luih6zuY8hVaBwgPlsUH1Zk7ek=
+
+Name: org/eclipse/jgit/transport/FilterSpec.class
+SHA-256-Digest: K2f52qXjHs0WyceTpETcwrtSOqH8+MCjPBzEDZqEa0c=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCache$Ref.class
+SHA-256-Digest: 77bfHScGNwsx7DTA3DCcr/zy5ZSvF4y8WlJKsQF4ifQ=
+
+Name: org/eclipse/jgit/revwalk/filter/ObjectFilter$AllFilter.class
+SHA-256-Digest: FCIT8+rpyIuOvkfCBOeprZOLGoeSpgBE694RHQmdNIc=
+
+Name: org/eclipse/jgit/transport/Daemon$1.class
+SHA-256-Digest: vSGusiOiS6HImLw8YNP4UevKmja7/9E2uvLYTrTOmlQ=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsStreamKey$ForReverseIndex
+ .class
+SHA-256-Digest: o4UDOxFVGMIBHRoZ2Y2pNeiCmsdFYIPD/uwJ+7qnMGc=
+
+Name: org/eclipse/jgit/internal/storage/file/FileSnapshot.class
+SHA-256-Digest: 7V00fsQ+KN4bXGv21HLlZZvlrn0td3tGqC1voVy2VEg=
+
+Name: org/eclipse/jgit/util/FileUtils.class
+SHA-256-Digest: OFKOp1lBWwb/b/zJREUEf3GHy1IfrBWTyOratNaXzjg=
+
+Name: org/eclipse/jgit/hooks/PrePushHook.class
+SHA-256-Digest: XGd8lMnQoedQq/IRY8L0E9Xx3HtdNcOBo2TJuH7Qhj0=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$4.class
+SHA-256-Digest: bLttRvRztTICi0wUCfA4WhEkKQaHle1/6ifAfVk+83M=
+
+Name: org/eclipse/jgit/api/VerifySignatureCommand.class
+SHA-256-Digest: +4yl7i5QbTR5Zkj4e98gTFKoMq+eC79XgbcMtMwVO6c=
+
+Name: org/eclipse/jgit/lib/TextProgressMonitor.class
+SHA-256-Digest: h/GdAQnasuHG1bm+niqp+NIc3XT/jqqsSvhsOZl1088=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$ByteArray
+ ReadableChannel.class
+SHA-256-Digest: 8/8pWUeY8ONYcYpsWn8aTwGgGUg3dRKNETNVScIV6JE=
+
+Name: org/eclipse/jgit/transport/PreUploadHook.class
+SHA-256-Digest: zUzo35zzWGdBg9lYFQvsfSn1gLznUHB6XUwwCCdIlpo=
+
+Name: org/eclipse/jgit/transport/PushCertificateStore.class
+SHA-256-Digest: FfyS0Xtb8cmIdnlzGNAbJiJ1lJCdANb/SjS66k7hE7s=
+
+Name: org/eclipse/jgit/transport/BasePackPushConnection.class
+SHA-256-Digest: 7bSEw0cn45M0Ghvh5DTC1cwzwAs4Z7Rsdi9ICd/9HrU=
+
+Name: org/eclipse/jgit/api/errors/InvalidRefNameException.class
+SHA-256-Digest: MAofkw0tQxwzn0s/aOC/r44AxUo/uth6+sMJMk4rBCc=
+
+Name: org/eclipse/jgit/revwalk/filter/OrRevFilter$Binary.class
+SHA-256-Digest: N0FPQcgo2W/ETZIIgPjqUnkCtvrC3InJCQOVlM6hf3M=
+
+Name: org/eclipse/jgit/errors/SymlinksNotSupportedException.class
+SHA-256-Digest: O0GrRjunNkxk18FIoAtuA9QruUfC2sdzpVPl+HF0SUM=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockReader$1.class
+SHA-256-Digest: OJFfxqA6VJixeYRAFdXAawZzv2DON2d/ayvK82oJMvo=
+
+Name: org/eclipse/jgit/lib/SubmoduleConfig$FetchRecurseSubmodulesMode.cl
+ ass
+SHA-256-Digest: sfK/DCUVq6gQmlou5Atmot6090av/oL+INxcPfWbSew=
+
+Name: org/eclipse/jgit/api/ListBranchCommand.class
+SHA-256-Digest: Wcvm9Pa0n5Yj2PV0GXoNhXT5EDLplwnroCosM565l6A=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexWriter.class
+SHA-256-Digest: JxFsHDGj3C3F10s+nRLeDH2xFFRB+t9hTfATrkGFEgI=
+
+Name: org/eclipse/jgit/errors/PackInvalidException.class
+SHA-256-Digest: R3hM6l+SIAyD17hGK+KrciC4X+wgaAIl56ktCBk5cnE=
+
+Name: org/eclipse/jgit/treewalk/FileTreeIterator$FileEntry.class
+SHA-256-Digest: oibi4l8np9lMEiOmlWOWi06h1T/mFEHJWvrPsDkDEJg=
+
+Name: org/eclipse/jgit/api/RenameBranchCommand.class
+SHA-256-Digest: T0Shubw+TIrOR6+DrmgAQd5me97ttwp7d75Kj1m1aTc=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV1$IndexV1Iterator
+ .class
+SHA-256-Digest: GOeyntTyzO1GgdyIqxIyRkz9pZKQLoVqgcohGQsWphg=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream.class
+SHA-256-Digest: MaCd1ShGyNzWAh2iqqm5o8TjvHUpJZpOkgRGXVUk8Ug=
+
+Name: org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason.class
+SHA-256-Digest: uLPQCLUh6/0jP4HNdZtv1fAjMUtog24teUByj+pryik=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$DigitPattern.class
+SHA-256-Digest: MLf2OVWOSwOfr9rFJ3s7bbCNBfUgIO0tHffHIDNjNIE=
+
+Name: org/eclipse/jgit/gitrepo/internal/RepoText.properties
+SHA-256-Digest: KGe4ZfXaZgEbyOykFNstkuf9KYiGqF5R1hdazZLHnok=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$BlockInputStream.class
+SHA-256-Digest: yKYh1nR2uoREcwkhETtJuBD6ilisEcGvsQSDAB/vE3s=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$LetterPattern.class
+SHA-256-Digest: V9Mi/Lq/zBkZ/le6hBFTfpJ789tiJZrRFe5rg5LLOdc=
+
+Name: org/eclipse/jgit/transport/PushConfig.class
+SHA-256-Digest: CC534TBYWakVunAGgf6+agEIvj7Udoa6hw5IWvA/jxg=
+
+Name: org/eclipse/jgit/internal/storage/file/ByteWindow.class
+SHA-256-Digest: D/saDcrtYu5cPTt6DQSrTVU7Ax119wzb3ZjEZOUvIks=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$IndexEntry.
+ class
+SHA-256-Digest: Nt4Mu74jCMYQzXu8m7cu1lam/VelpGrMV8gVizhedqY=
+
+Name: org/eclipse/jgit/revwalk/RevWalk.class
+SHA-256-Digest: NyfKJVxhT7Q2RkBjtqBP36+rws4psBRha5VLoSsPkgU=
+
+Name: org/eclipse/jgit/revwalk/DelayRevQueue.class
+SHA-256-Digest: Gl42EteQispdpbavGL2DErdSWMQ6QYuAV5lUv0aO1dM=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRepository$EmptyAttribute
+ sNodeProvider$EmptyAttributesNode.class
+SHA-256-Digest: clLCKOAVhz4/gAIFuJS5VNKhAoXc1kcouYI1lD8mp9I=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$3.class
+SHA-256-Digest: domCN6AfD0ztDMnncjGv27lfCqGMhYBSer18Lx/uZ4s=
+
+Name: org/eclipse/jgit/api/CreateBranchCommand$SetupUpstreamMode.class
+SHA-256-Digest: DZ/MKWqhsRMDZwkROlkqW+yCQc3scWAmQatOwmwc8W4=
+
+Name: org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig.cla
+ ss
+SHA-256-Digest: NQJaxPx7zZSdaBWdDnG95xxjdGCCFMnPzyJ9PITxLqk=
+
+Name: org/eclipse/jgit/dircache/DirCacheBuildIterator.class
+SHA-256-Digest: C4cEMqqqcFHlpIIiUqstAIyuYZELT4tmndDcUnjIh98=
+
+Name: org/eclipse/jgit/patch/Patch.class
+SHA-256-Digest: H/W/Vov1xKNY1icrBJND4ZK5MZ6hjLWmWFlw0TUJgQY=
+
+Name: org/eclipse/jgit/lib/RepositoryState$5.class
+SHA-256-Digest: /4XhNaq6nerelbwi4q8eO2XH89fgt/Dk+YxtNRHleLY=
+
+Name: org/eclipse/jgit/transport/resolver/ServiceNotEnabledException.cla
+ ss
+SHA-256-Digest: YtJUpqJsnaVTDdYsWiBgDbXmz3B3BxmlA3zO3rJhx5c=
+
+Name: org/eclipse/jgit/treewalk/filter/OrTreeFilter$List.class
+SHA-256-Digest: 3aOKCFGg5vNiaqYcYGQUG77FkmHt+Utz6cQhYt/RJx0=
+
+Name: org/eclipse/jgit/merge/MergeChunk$ConflictState.class
+SHA-256-Digest: In83qusF7Vzn7aijwI63F9kSsdS0i02ZLqhVBw12UIg=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableDatabase$1.clas
+ s
+SHA-256-Digest: 7mpAjvCU+gqBPmhe2iwNKs9M/mK4e7LvEge2jHRsODI=
+
+Name: org/eclipse/jgit/storage/pack/PackStatistics$Accumulator.class
+SHA-256-Digest: tvpCghoYM7vaC7Jqn18xKsGyj41wqzI1BdSkE2Z7prg=
+
+Name: org/eclipse/jgit/treewalk/filter/PathFilter.class
+SHA-256-Digest: KKZ0BWY6AV7C4ihYLWd0G+NoPTjY3iPumNo52YeMQ/I=
+
+Name: org/eclipse/jgit/internal/fsck/FsckPackParser$ObjFromPack.class
+SHA-256-Digest: OiYX0JOiFnbxPximWRfjQlxIQgcLJ9jqZzVeIuc4kK4=
+
+Name: org/eclipse/jgit/transport/RemoteRefUpdate.class
+SHA-256-Digest: qvjvSf9F50Pl+ZdKRBKOyHJRguzW7BV/+jVTjQL3pjM=
+
+Name: org/eclipse/jgit/dircache/DirCacheCheckout.class
+SHA-256-Digest: 6XCQ1MXfGjMBesMAIIid1IWdQIVHXzC7gJjvwxwjlqo=
+
+Name: org/eclipse/jgit/notes/package-info.class
+SHA-256-Digest: nOzXWj8sGuvy5M5RluVEDrb672p9e1SkOqIpfQLdnaA=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$9.class
+SHA-256-Digest: 7x0XVqMotXX+1X80ppbO1LkfxJNYWyuY9aMq0gVh0pI=
+
+Name: org/eclipse/jgit/transport/PushCertificateParser$StringReader.clas
+ s
+SHA-256-Digest: WsjPpM9PT/GnaYxs4/IQiituXxswIBlJuFJpslj1m2M=
+
+Name: org/eclipse/jgit/nls/GlobalBundleCache.class
+SHA-256-Digest: cHJ2bQUv7x9QL84gAT6TYBX0ipblT7vxn0FRUlfd5ME=
+
+Name: org/eclipse/jgit/dircache/DirCacheEditor$DeleteTree.class
+SHA-256-Digest: 07yzGtT3qLecTTg7c6AF0a8elR5g6kc+DDNG88pDFv8=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter.class
+SHA-256-Digest: fY4VvyfCanRFuppYfKqF5GlkQbr6i33oJK95WdXXINM=
+
+Name: org/eclipse/jgit/api/DeleteTagCommand.class
+SHA-256-Digest: z62+ApantQp7lEJF+LAKYfLK2X716v3pkOUMV7FQyq8=
+
+Name: org/eclipse/jgit/transport/ProtocolV2Parser.class
+SHA-256-Digest: z8nt+1LUjuAsOHh7qXP+HzkKzCtjduZrX3tSL9G/zYo=
+
+Name: org/eclipse/jgit/ignore/package-info.class
+SHA-256-Digest: /g2oPKVRsCJmVFGGQZr6eIYvQ6CXTgDMz/+fDO36Feg=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$CompressedB
+ itmap.class
+SHA-256-Digest: tJHaZ91yupQZRV66OoHw2dzkyfdLhBou5uhVnE0VUZw=
+
+Name: org/eclipse/jgit/util/sha1/SHA1Native.class
+SHA-256-Digest: PwjCoVG4rFefS8216NdT+K7bvqiX0MktR1xxYR5u+xk=
+
+Name: org/eclipse/jgit/api/TransportConfigCallback.class
+SHA-256-Digest: o3TQreLVzHzNf+0uCOvr+MOPiOPLNH7Dh1r6Mu1Iumc=
+
+Name: org/eclipse/jgit/lib/DefaultTypedConfigGetter.class
+SHA-256-Digest: GPPWDfXnA/hKaqf2dnw9fR9Kd9+X1o+K3bakykmsPkU=
+
+Name: org/eclipse/jgit/hooks/CommitMsgHook.class
+SHA-256-Digest: 2Fsux1qC095T/pMmgKqiksNsnO/+d6y4o1WuTFktJ9c=
+
+Name: org/eclipse/jgit/lib/ObjectStream$SmallStream.class
+SHA-256-Digest: U0opl/U7xhElRfJLX/CERWLGeF/Nw3ThH86ImVW6aL4=
+
+Name: org/eclipse/jgit/revwalk/filter/SubStringRevFilter.class
+SHA-256-Digest: 6Zhhkm1xHXXC/i5NZx/CYgjaQa9nxsyVFRQAWdhkkgg=
+
+Name: org/eclipse/jgit/transport/TransportBundleFile.class
+SHA-256-Digest: kCoI+S9OI1yOIGHmmlbevaUYeijm1/zpc7eFCuypfTA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRepositoryBuilder.class
+SHA-256-Digest: t/blWPIznJN1onQfRlfyqTA49aIOl0GuKzUreU4RJfY=
+
+Name: org/eclipse/jgit/api/StashCreateCommand$1.class
+SHA-256-Digest: aWomK4PklCcK4sYCOjGQC10v3Qrfsm7DQSRfu9zBhHQ=
+
+Name: org/eclipse/jgit/internal/storage/file/UnpackedObjectCache.class
+SHA-256-Digest: ZW0ErF6cYGKvtfCRFFlvphvFa3AtWGaLXQLwFaV6Jc8=
+
+Name: org/eclipse/jgit/lib/GpgSigner.class
+SHA-256-Digest: cSGMqL+SMr3Ke/PipOhn0sg63oRAak3hlXZnRhKvYAM=
+
+Name: org/eclipse/jgit/treewalk/TreeWalk.class
+SHA-256-Digest: KoKhjgK1t+M4zkQoGvoIMKb2ppZpqcqIJ8iuiggR9nw=
+
+Name: org/eclipse/jgit/diff/package-info.class
+SHA-256-Digest: IbX1L8NcFG0fa9J90iBV+yz+tnEXgtamMAwAWwzVv3w=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$MutableBitm
+ apIndex.class
+SHA-256-Digest: KjkSXUAJhsiQYPsXjlgw3SIvza9dYE9V3pg5C2byoHA=
+
+Name: org/eclipse/jgit/util/ChangeIdUtil.class
+SHA-256-Digest: yzEtnR6mu4vYKnJ8uVFSD23KRqCNLHfniu8Qnm7BzRE=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$State.class
+SHA-256-Digest: 6Q02e76WTqDCvPyiZk0TgQodLlR7eyU8BK5Sd0zpuh0=
+
+Name: org/eclipse/jgit/util/References.class
+SHA-256-Digest: Ak86KYe33vW0/2bmyvSxeK2LAvj+TyGlzXK+OsfsZTQ=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$3.class
+SHA-256-Digest: 2UWDovnIF8LOjiHdyS3w9qX3YZvneUfRCanWVULklNs=
+
+Name: org/eclipse/jgit/transport/AdvertiseRefsHookChain.class
+SHA-256-Digest: KxXrbRYxD8TWLjTyB2DZUJ2rL3tqevlyd9zVIupM0t4=
+
+Name: org/eclipse/jgit/transport/UploadPack$AdvertisedRequestValidator.c
+ lass
+SHA-256-Digest: aJcEU7QBeXgDC3NYMNWa/t7oOh4O/vLXipXiYqEoUcg=
+
+Name: org/eclipse/jgit/diff/DiffEntry$Side.class
+SHA-256-Digest: SN8KsjNmaTt9L3+uOdEVJskn1Xj8GsqE/eyFcnTSoJM=
+
+Name: org/eclipse/jgit/errors/TooLargePackException.class
+SHA-256-Digest: qF74krVQ7Cv/4FZcyjCxduqLvTUQ90qkdF+6h22mK7s=
+
+Name: org/eclipse/jgit/diff/ContentSource$Pair.class
+SHA-256-Digest: vWVhJoiit4erPfvps9/7kbKEiQIV0IzbwRCSFXK2B0Y=
+
+Name: org/eclipse/jgit/lib/CommitBuilder.class
+SHA-256-Digest: HQoHS8MTMvdRLYX/G0OO4fezvngpWIoL0970VgP6iXc=
+
+Name: org/eclipse/jgit/transport/TransferConfig.class
+SHA-256-Digest: Qe4l1mYxfPr3z1cmFnbtGGd0zeUrQv+hnonez2NcpRM=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaCache.class
+SHA-256-Digest: YNT9y3U2FKCvXvmd0mF51E87COpFVlWUKFSb5FSh2pg=
+
+Name: org/eclipse/jgit/errors/PackProtocolException.class
+SHA-256-Digest: Pyr3S5BXe6HMMJvQXPvjpx5vV6V36WwwBU4CJnz8DyA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftableStack.class
+SHA-256-Digest: OLl7crhZrr7DURwUeMW+HCIf3nn2KceMTu5cJaXVILw=
+
+Name: org/eclipse/jgit/hooks/GitHook.class
+SHA-256-Digest: 6/+fMLbClyPiaFIEcCFF0BEvjrYkbIkHFcv6vApMT/E=
+
+Name: org/eclipse/jgit/internal/storage/file/FileSnapshot$1.class
+SHA-256-Digest: uyvpAPk2eNovz1wU/4+PYv9eq1dExhNEchSQ4W/F0lw=
+
+Name: org/eclipse/jgit/lib/FileMode$3.class
+SHA-256-Digest: FxdVajmIcdqNHA6UxTwqDKg3KvURjE/pciGgqKQULkg=
+
+Name: org/eclipse/jgit/internal/storage/file/PackLock.class
+SHA-256-Digest: F26jleDyF3bLvXWRl+Yv961fXJm1LysagymjwjhWCY4=
+
+Name: org/eclipse/jgit/transport/CredentialItem.class
+SHA-256-Digest: wkdAsAdKGpav7t9Ddzs7Jhw1NAwsyc+CHChrRUvRGi8=
+
+Name: org/eclipse/jgit/ignore/internal/WildMatcher.class
+SHA-256-Digest: PzAY4gsFY6+fJGePVCe/5Yb565JMsoDnLJMpVYvqyMA=
+
+Name: org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2.class
+SHA-256-Digest: bkygNpAv3cJUbXBxWmE2365MCGfTRQVpZfOB2jgkKXA=
+
+Name: org/eclipse/jgit/api/CloneCommand$Callback.class
+SHA-256-Digest: 0WU1i60l0gRfI2wPphhi8yik3dGmKLQR21aTkZEL3Aw=
+
+Name: org/eclipse/jgit/lib/ObjectStream$Filter.class
+SHA-256-Digest: OaBsMlHhce4EbQ7gMb/ZmEWqI13MG8gQDsQ557AHqxE=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$Keys.class
+SHA-256-Digest: yfbWVSddLVCo0+1MDA9srXEYBdLB2c2XBrvqAppXmoM=
+
+Name: org/eclipse/jgit/transport/SshTransport.class
+SHA-256-Digest: 7fOXqiQXiYiLp6Im4S7YuvZoCdkFM3XU2UHBheRmYI0=
+
+Name: org/eclipse/jgit/util/FS$ExecutionResult.class
+SHA-256-Digest: T69riLjtppIFAL3RLDYczKPD0heRKiOTGzQcYXcsNlA=
+
+Name: org/eclipse/jgit/internal/package-info.class
+SHA-256-Digest: M/ktfmPpGk2vFYb6OEX8kFGvb64Z7W2wBLN5AfqcmU4=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry.class
+SHA-256-Digest: gFwuMXFVLpybBdE+Yq6AiUJp+To+P7w8dGIW7X/k4e0=
+
+Name: org/eclipse/jgit/lib/ObjectReader$1.class
+SHA-256-Digest: F5CIXRZfqbGfbV9oapa1gKnTIaBjRhmVhBYRoeyvh2A=
+
+Name: org/eclipse/jgit/errors/IndexWriteException.class
+SHA-256-Digest: 937DPrwQq7Y+tDD3oBzR4fJJ8f7V2SI8UxCd8YXcz68=
+
+Name: org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$D
+ elta.class
+SHA-256-Digest: 1HIJDiq01CH3VTd21dxD4DGfbksd1XwUtoZTQkJ2dEw=
+
+Name: org/eclipse/jgit/util/RelativeDateFormatter.class
+SHA-256-Digest: Q4SSjoiDa4Oj5M02Wx66DmMlPqs/678ItX+d15SigJI=
+
+Name: org/eclipse/jgit/api/SubmoduleStatusCommand.class
+SHA-256-Digest: iuyCMRUlWMrWr1AhaL3Oo5L8ngxG2v01q0WYXHvokQU=
+
+Name: org/eclipse/jgit/revwalk/StartGenerator.class
+SHA-256-Digest: q2uMMF1EyCcmp/VQOJFrj4q7q6sKg8hMd3Kcxsg7DLg=
+
+Name: org/eclipse/jgit/ignore/internal/NameMatcher.class
+SHA-256-Digest: 54w4T+yYDFS3W/8sMllqBkV4B9CJgma0kHDR/wYc6TI=
+
+Name: org/eclipse/jgit/api/LsRemoteCommand.class
+SHA-256-Digest: 8oqA/uk1J8+niVabr40OmSXnIHkQrqUTaFPCqR+5a9k=
+
+Name: org/eclipse/jgit/internal/storage/dfs/PackInputStream.class
+SHA-256-Digest: eA9lE+qWjgCDIVkn17aLDYoFm4pGH7t9t5YRyPUflrM=
+
+Name: org/eclipse/jgit/util/ProcessResult.class
+SHA-256-Digest: CAXIL70VDcdYrpJS9tCBM56JcdLUXittcVp9sv3KFnE=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Type$4.class
+SHA-256-Digest: iWgtGpKNXDDGAYQpCXbaQznC1o88KEVMQeyy5fic0LY=
+
+Name: org/eclipse/jgit/internal/storage/dfs/BlockBasedFile.class
+SHA-256-Digest: zxtz1T5gpczrKA0WWnStZyXXk3qxn5/vVO8Hq8B0s+M=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockSizeTooSmallExcept
+ ion.class
+SHA-256-Digest: P6kB5iEVa8T321mdTLqLKfxAl7xBO5cF30zcBjW86lk=
+
+Name: org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$1.class
+SHA-256-Digest: /HQOFnn7n9+6CrDPvG41TjGqw/jBFQ/zvnnHCiBdzHA=
+
+Name: org/eclipse/jgit/revwalk/FollowFilter.class
+SHA-256-Digest: 1MvnIOarnppTLYxHUN2qOEcav/4e4BsQNF6wNp4Sek0=
+
+Name: org/eclipse/jgit/api/PullCommand.class
+SHA-256-Digest: SIs2ILfaiYRFmS2lvkXME7+dR8qrgwBQOC0PoXxTO0I=
+
+Name: org/eclipse/jgit/lib/RepositoryState$1.class
+SHA-256-Digest: U5/wf+waKNW4/JuNtjUj9eJrD0CmJJNi8Kal94TTnI4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackDescription.class
+SHA-256-Digest: xsk7GeNOFpz8Bu4ogrRPnORUKHs0oy3cHq9SDsVqNFw=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaCache$Ref.class
+SHA-256-Digest: 9RgVibGTHoDjb1CJ5fMgCiNqjc0YenFmpuM/aKKFSGU=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer.class
+SHA-256-Digest: KWh7AKfYn8EgMp9vfvxeknyXPrvQZb/NPE43YPLWAKc=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$8.class
+SHA-256-Digest: 3AKdWEeYMnVBdEwkdoxpqxcSWKrX4XqL0e5+HSmC/VQ=
+
+Name: org/eclipse/jgit/errors/NoRemoteRepositoryException.class
+SHA-256-Digest: YgdZ70r1hXNQ65VJS/i//vlf2NF+RKRP1T52TCb77ag=
+
+Name: org/eclipse/jgit/internal/storage/file/LazyObjectIdSetFile$Entry.c
+ lass
+SHA-256-Digest: yyhZ2m9LIRQIVeerR0eBy2jJi0P3aEN1Ku55ByvTej0=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$PageRef.class
+SHA-256-Digest: 4JRQfLD5nHM8dRzSzh3OQulFILk6F1W9npAF45C78dk=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsObjectToPack.class
+SHA-256-Digest: tt+i6jaKRFitSsj3wMGLy6At7Ym1O3jf4UUJQ+LPoNo=
+
+Name: org/eclipse/jgit/transport/AbstractAdvertiseRefsHook.class
+SHA-256-Digest: wL6t7P7UvxoMjQoaQU7yIFYH2JdUnK/vJuSO3xnXBdM=
+
+Name: org/eclipse/jgit/merge/package-info.class
+SHA-256-Digest: H8NB6rtP70IpWXqDMe7yOH7Yeh/Ilu6bZadsIvLlTlo=
+
+Name: org/eclipse/jgit/api/ListNotesCommand.class
+SHA-256-Digest: VTQjDq6KQofGV5PhQrn2g6BAoAwKLP4xOyMPnBRU5e4=
+
+Name: org/eclipse/jgit/internal/storage/pack/BitmapCommit$Builder.class
+SHA-256-Digest: NpV+t5nZ1O1h5BQ8vnVmmW29XIfxMlAB3mX/8E6eayw=
+
+Name: org/eclipse/jgit/revwalk/BoundaryGenerator$InitialGenerator.class
+SHA-256-Digest: Sm32vhywekO+8Z0n7ggh4bpaJwSRUiZI2c8iQNXnjjo=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$2.class
+SHA-256-Digest: RSCDTDB3EFCT4rtRhwm2N3kptflWR+NJXukXxhTjrwY=
+
+Name: org/eclipse/jgit/revwalk/DepthGenerator.class
+SHA-256-Digest: vZ1hr0GSPzQ3dcBjEtiL529OxaA9zMNgSmogvaJPlFI=
+
+Name: org/eclipse/jgit/util/RefList$Builder.class
+SHA-256-Digest: Wx8TifOysKeURfAm2zyd5kEfK7f15hvYPzffo0AJcV8=
+
+Name: org/eclipse/jgit/util/SystemReader$Default$1.class
+SHA-256-Digest: c365IESomYUdUHWwLtiMX3geRO+vZuWK/SNLItHZRL4=
+
+Name: org/eclipse/jgit/internal/storage/file/UnpackedObject$LargeObject.
+ class
+SHA-256-Digest: yNMpPPPQKRios/3m0ZSA1PTacFg98APdEWavAonszIs=
+
+Name: org/eclipse/jgit/api/ArchiveCommand$UnsupportedFormatException.cla
+ ss
+SHA-256-Digest: wEOw95gvGNXluA97aEnm4G8B3zTcOhdZabMzpZCvwJ0=
+
+Name: org/eclipse/jgit/revwalk/DateRevQueue$Entry.class
+SHA-256-Digest: ffTrbHkmAL6CvIyZU2Zatu3yp7v/9TNDsXNeNIuz7Ac=
+
+Name: org/eclipse/jgit/treewalk/TreeWalk$OperationType.class
+SHA-256-Digest: K2Ab2J5TGu7jQt4g5Rob+HBAGozRE0S3W/pw2Ue8JHI=
+
+Name: org/eclipse/jgit/util/RawCharSequence.class
+SHA-256-Digest: JlmgzZCETabpnbsxtNKROZc1FeexZFp9XOC4uM9lTiI=
+
+Name: org/eclipse/jgit/transport/ReceivedPackStatistics.class
+SHA-256-Digest: n09yE4DMI8BCA3tr/QngGy5a733STY8o9fZXRZKuZsQ=
+
+Name: org/eclipse/jgit/internal/storage/file/BasePackBitmapIndex.class
+SHA-256-Digest: XeO/dcCWPu9jwmUGnNojbRbo8n1cRXaaxlPdUkVIIkk=
+
+Name: org/eclipse/jgit/transport/ReceivePack$PostReceiveExecutor.class
+SHA-256-Digest: JGFMhrfvOl+3BJcBlNo2qPHaAFS9aDz4yLXYBT1Lzlg=
+
+Name: org/eclipse/jgit/transport/ReceiveCommand$Result.class
+SHA-256-Digest: Gbg5sRdu1/I3WMXWuM5LwvAB5AZIT+IoNTBV5DZB6xc=
+
+Name: org/eclipse/jgit/util/LfsFactory$LfsInstallCommand.class
+SHA-256-Digest: 6XoxiUFpvg9GCo2mulM0HDWlopePp1+4VjOvaP32/XU=
+
+Name: org/eclipse/jgit/revwalk/PendingGenerator.class
+SHA-256-Digest: BAN7HzoUlO7yewhcAX9wk/YNUUBm0gHA16NheVhjs+k=
+
+Name: org/eclipse/jgit/transport/ReceivePack$DefaultUnpackErrorHandler.c
+ lass
+SHA-256-Digest: vpBQYfi14wEq+B3H7pmbuXaGSOc0lXRk8G3sKmYYBAw=
+
+Name: org/eclipse/jgit/nls/TranslationBundle.class
+SHA-256-Digest: AsMUOoLDWrIN6dL2TkZ+6KYazNyCFuN2m3pnlUa8HJo=
+
+Name: org/eclipse/jgit/revwalk/DepthWalk$RevWalk.class
+SHA-256-Digest: rJO7hPuvAVFrAdcATYIOqrE6osvHjz8UWeP7ymXsoC0=
+
+Name: org/eclipse/jgit/errors/BinaryBlobException.class
+SHA-256-Digest: Z7ma5GSFjmGTYDw72RzkC1RKI+lBDIkr4a3KqxAVCew=
+
+Name: org/eclipse/jgit/util/GSSManagerFactory$DefaultGSSManagerFactory.c
+ lass
+SHA-256-Digest: xdQYpqlOGwaAjNf6gHHWAiPhOv/rjhb532teo1vbeOY=
+
+Name: org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table.c
+ lass
+SHA-256-Digest: ByBkKm/aQ7Rfg2qD9Tju+2pC38s0qCd9d20pkppfRkc=
+
+Name: org/eclipse/jgit/util/GitDateParser$ParseableSimpleDateFormat.clas
+ s
+SHA-256-Digest: bOj4Gf3dyGWhWZdKQsImgQqfyrui+Vc1pameKKlolds=
+
+Name: org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3.class
+SHA-256-Digest: MScZsoWquVh5RkCnHO5tyxUeGC+BmYWo8M0y8DVffo0=
+
+Name: org/eclipse/jgit/lib/RefUpdate$2.class
+SHA-256-Digest: +45Sao6IXu3Ki2837tlH/4vHbBpUQgY5jDABm9T+cgo=
+
+Name: org/eclipse/jgit/lib/ObjectReader$2.class
+SHA-256-Digest: cT2nfKXyEkFLKQYBbIHsuxv8dR090iP+O2S1jxn8L9k=
+
+Name: org/eclipse/jgit/lib/FileMode$2.class
+SHA-256-Digest: Opfuf8ZlfhuIhaFpw2pnp6uY14ypDk4Jg32LCq7d1Zk=
+
+Name: org/eclipse/jgit/api/CheckoutCommand$Stage.class
+SHA-256-Digest: L9kLCk9zZ+AxjloSFXZyK2Ti/VQfB2+xONxsbPMkVHY=
+
+Name: org/eclipse/jgit/api/AddCommand.class
+SHA-256-Digest: bXQ2oA9+YAL7TKnB74WJlKAzsofhAOERbXTGr7c8ODg=
+
+Name: org/eclipse/jgit/api/VerifySignatureCommand$Result.class
+SHA-256-Digest: 4fbt8C15VuQFmCMGlK05w0enPkMhdhOP+GZlpiFDUnA=
+
+Name: org/eclipse/jgit/revwalk/AbstractRevQueue$AlwaysEmptyQueue.class
+SHA-256-Digest: Nz7VS0PDqAmbdyattEgejjjqX4vH/F8yhRgED0AloAY=
+
+Name: org/eclipse/jgit/api/errors/DetachedHeadException.class
+SHA-256-Digest: eGwSZFl5t7+GC75PO3bD/cQWNMBbF5kKpsIdeWiDUGE=
+
+Name: org/eclipse/jgit/transport/TransportHttp$SmartHttpPushConnection.c
+ lass
+SHA-256-Digest: 18OpNvyZ2JqdeSdndZfBvMKvRAIKldfaMgbZY2N0phs=
+
+Name: org/eclipse/jgit/dircache/DirCacheIterator.class
+SHA-256-Digest: J8kF6a1hv3reh19GBx2GU90XSJ8pFgh+rCrhWUnt06U=
+
+Name: org/eclipse/jgit/transport/TransferConfig$ProtocolVersion.class
+SHA-256-Digest: IZEXR+gcu7t5T9Gg3Tq6988+jSfF8KcMZAGtNsHzElI=
+
+Name: org/eclipse/jgit/attributes/Attribute$State.class
+SHA-256-Digest: BVZKA8N45L/HZFsVsrTpnktBquTZNG0dnagv5UZaGYI=
+
+Name: org/eclipse/jgit/hooks/Hooks.class
+SHA-256-Digest: gItmCF2+utj/5aDYRSZScOW/Fs2qSuQlXSr2L2WS6kc=
+
+Name: org/eclipse/jgit/internal/revwalk/BitmappedReachabilityChecker.cla
+ ss
+SHA-256-Digest: EB0TL9lYCaQKanRTkN11m6NcbjN7wiWCs29DPm/VWLk=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$None.class
+SHA-256-Digest: mOCtYEvpywOpeBquO2IIpCYqiHB7onBv49gC8aMeehM=
+
+Name: org/eclipse/jgit/errors/SearchForReuseTimeout.class
+SHA-256-Digest: 5Qsvh0DCiuMzQVHq6YtV9IhZDtHQBXgN+loHWTbpHM8=
+
+Name: org/eclipse/jgit/internal/JGitText.class
+SHA-256-Digest: 6AKs1zRXjP2ZgXxWgmSWq2RapOsPe5WTfPn0gQmhP/Y=
+
+Name: org/eclipse/jgit/errors/LargeObjectException$ExceedsByteArrayLimit
+ .class
+SHA-256-Digest: t7DsJ7UQpY/nFirFF1HvNRgPDse2Ah1A7ucYoWcv4Qg=
+
+Name: org/eclipse/jgit/fnmatch/FileNameMatcher.class
+SHA-256-Digest: oPUQ5rSMMOGg34apAhbiFXxyZ+Ld9MYy8xloVp4p9s4=
+
+Name: org/eclipse/jgit/util/io/BinaryHunkInputStream.class
+SHA-256-Digest: pib/1BUMSfUmsa8DH0Jdd1pvXAzM93/fKyfgGpVJ3+E=
+
+Name: org/eclipse/jgit/revwalk/RevWalk$3.class
+SHA-256-Digest: Ua3vhrjZ9fbfEcNuXw/hWx7pUJsxacAR9zreA+q6cRo=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$7.class
+SHA-256-Digest: atoy/wXB1WePuE/3Kob9lP/khADbnYdZRwGPG4Ov54o=
+
+Name: org/eclipse/jgit/revwalk/TreeRevFilter.class
+SHA-256-Digest: FM1Ljul3ivtXD50ZnTAqEBZJqyEUNR0Z1Vf/FOTwbRo=
+
+Name: org/eclipse/jgit/hooks/PreCommitHook.class
+SHA-256-Digest: 1wX9Wt4IneJfbtjkikS1uefMjqKZ9yFS8jGeiwE40rs=
+
+Name: org/eclipse/jgit/events/RepositoryEvent.class
+SHA-256-Digest: ECRDNAOstbw3BkqFWNe/2zppEXkx/myHbaUdj1VZKkc=
+
+Name: org/eclipse/jgit/transport/ReceivePack$3.class
+SHA-256-Digest: iywl3XN6X+iCjCNlmnp4ljIDtRpaJFJ3PjWRBF9OhNM=
+
+Name: org/eclipse/jgit/treewalk/filter/NotTreeFilter.class
+SHA-256-Digest: K+Ha29ekpJWYWYqiUgFiw6kro/kFNqGQDJfk4uXFLqs=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableStack$Compactio
+ nStats.class
+SHA-256-Digest: ah6UTpqBmLSRjDyyKed3+pvIuTjxWxRhFb5IaMuiaAE=
+
+Name: org/eclipse/jgit/api/Status.class
+SHA-256-Digest: d/x6L01vPIgnJ/s0+I+Flckl2zWDew4cynEn7850rK0=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Type$3.class
+SHA-256-Digest: 3zXnnLD+VpkcPLnG4zGb0QonDzD/2rEMJFoG7L2Y+O8=
+
+Name: org/eclipse/jgit/transport/TransferConfig$FsckMode.class
+SHA-256-Digest: OnUr5y7BQKhl11CRZhHA0ZdSDB00XIBzj2fPhVec6mk=
+
+Name: org/eclipse/jgit/transport/TransportAmazonS3$DatabaseS3.class
+SHA-256-Digest: 8LFO0PC4z/AJh4QD6smBECMDRxYj5Xuc52K/RezV0lY=
+
+Name: org/eclipse/jgit/lib/FileMode$4.class
+SHA-256-Digest: YHyPHU0VDflHCXjjjBJivKH5foU1AezurxlxThqdjuY=
+
+Name: org/eclipse/jgit/util/io/AutoCRLFOutputStream.class
+SHA-256-Digest: ykeMhp06OjBVy3LrtQ9pyldb1BOWB9WQVk8j6aE/UZo=
+
+Name: org/eclipse/jgit/util/SystemReader$Default.class
+SHA-256-Digest: C1ft8AY+Ic41wFcw+s1NaXva+4K5kshxogxGjvv0Hz4=
+
+Name: org/eclipse/jgit/internal/storage/file/WriteConfig.class
+SHA-256-Digest: VgND3tTHyRB36CUU53cMy32uWr0XlNXF7ba/zQGVk7I=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern.class
+SHA-256-Digest: uhmR38u9GDzBIWH7BLgkjtIgcyi6u9RBqbky+b4S3P4=
+
+Name: org/eclipse/jgit/internal/fsck/FsckPackParser.class
+SHA-256-Digest: iiqqAyJwP6DWAwSppKqeziiWKrX4+VdhxGARlF/Y+mY=
+
+Name: org/eclipse/jgit/api/FetchCommand.class
+SHA-256-Digest: OGD6V+w/tGfLyahxDQnOdyh2FyedB04jRUC1uWkrcqI=
+
+Name: org/eclipse/jgit/gitrepo/RepoProject$ReferenceFile.class
+SHA-256-Digest: ZKy+8BVCGF81pPiBTKFARLoWF4DQOWxZ3bimth7R8r0=
+
+Name: org/eclipse/jgit/merge/MergeFormatter.class
+SHA-256-Digest: Q/nrUpv4fBcJoXUSJ83m4FZAXaWd5nys3PMXKMbG45w=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$4.class
+SHA-256-Digest: AamfnYtRwSDOEzjlIDFaMdLaVgTAK7LmZL7GAsc6wH4=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableDatabase.class
+SHA-256-Digest: k2rairkM5/k8TUCxvndl7qNHVl6Y8sWu1ePcdFFYlWQ=
+
+Name: org/eclipse/jgit/diff/RenameDetector.class
+SHA-256-Digest: hJfizpshOKxRyuA6oey1QsVHPz1YmnAHlba21IxfsMI=
+
+Name: org/eclipse/jgit/lib/Repository.class
+SHA-256-Digest: qKzTyEa6yFgrlNHzanWyoZ6nxyJFzBf0gKFvvuw+dOE=
+
+Name: org/eclipse/jgit/transport/UploadPack$TipRequestValidator.class
+SHA-256-Digest: IigFkFocekESVyDmnKVjz6/y50zld9ckLvXL4V/Tyk8=
+
+Name: org/eclipse/jgit/merge/SquashMessageFormatter.class
+SHA-256-Digest: krrCXh0Pyyl7+6JERyZ503Pqd3XbMb+fTz642+ZjitU=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableDatabase$FileRe
+ fRename.class
+SHA-256-Digest: upVKLvtzz+DZDHNB2+3t0wPYEdlC9aOpOexFt/Iufnw=
+
+Name: org/eclipse/jgit/lib/ObjectInserter$Formatter.class
+SHA-256-Digest: z1S+LBU5H0iwC5Ei/66aLksdA2CCNBEpuTnQpIzk0f8=
+
+Name: org/eclipse/jgit/diff/Edit.class
+SHA-256-Digest: y190diAFMHAZi14Z0oqa0wnzMSYt6CfWea0vZyRCsY8=
+
+Name: org/eclipse/jgit/merge/MergeResult$1.class
+SHA-256-Digest: Wz8DxE5dJhaDiPh2PYRXcVcT781niYQMa4z6chchikE=
+
+Name: org/eclipse/jgit/internal/storage/pack/BaseSearch$TreeWithData.cla
+ ss
+SHA-256-Digest: 5316pjIaKMdX81sBY6qoteWFAZW9kjDPd60+c6V/5b0=
+
+Name: org/eclipse/jgit/transport/PushProcess.class
+SHA-256-Digest: KZ0+j3vXSGI/DYeAfPb5i4tzzbZV78MAX2bv4isT/n0=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableWriter.class
+SHA-256-Digest: hUoH1o7xmnvhftDE4NhcKxXn49PhFoZ05v1f2z1QiRc=
+
+Name: org/eclipse/jgit/transport/TransportHttp.class
+SHA-256-Digest: ocpbAO/DsSpOkpDDQBPtBvTsz1aruUMrNullu/GTuew=
+
+Name: org/eclipse/jgit/internal/storage/file/Pack$Delta.class
+SHA-256-Digest: 98raA0fE50nTpGY4PSjF5m+WSIKkmXGazIpoIBunGFE=
+
+Name: org/eclipse/jgit/ignore/IgnoreNode.class
+SHA-256-Digest: rQn4uFsnSJ/jB5vfvX+MKXWPJmi0Q9Z8Oneyhh1S4Gk=
+
+Name: org/eclipse/jgit/lib/FileMode$5.class
+SHA-256-Digest: MbAFX8fXSd4NDrLLW0pkcHzDpdNRlotMqCPDEa5Twu4=
+
+Name: org/eclipse/jgit/merge/Merger.class
+SHA-256-Digest: 98wWG+liV+tqtiWI9YvSzPsmbGVm264H3WWZjhpoxSI=
+
+Name: org/eclipse/jgit/transport/InsecureCipherFactory.class
+SHA-256-Digest: FmyST5Zcx+KFAuYcc5+l557vnlMewjdnSIg3LCFNg7s=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCache.class
+SHA-256-Digest: fm2tgL1mBtyr0du43ZWmyf6WxeecDGTUWf/qugF8U1A=
+
+Name: org/eclipse/jgit/transport/FtpChannel$DirEntry.class
+SHA-256-Digest: 2LJZD1ZzEyDjk1gt85l2HSFyrkr7nANIPMx6tlTctDg=
+
+Name: org/eclipse/jgit/treewalk/filter/InterIndexDiffFilter.class
+SHA-256-Digest: zOKCpLBL5DkuZ+ojvxsZeGIKMhSL53E3bjFd3qgV+Fw=
+
+Name: org/eclipse/jgit/attributes/FilterCommandRegistry.class
+SHA-256-Digest: qxwp9k3JgeCJHJQU4FAZPeCQ+TGdAtIllIbuh4SnLIs=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Type$1.class
+SHA-256-Digest: YxJi6tI80OIAh+WWZGFWB4tRg9f/r9XxnLcbfgM/qiM=
+
+Name: org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection.cla
+ ss
+SHA-256-Digest: xGBCW2zMflgVDUS6ayUakijYVXUTaiSfPyGQkXlmefc=
+
+Name: org/eclipse/jgit/diff/PatchIdDiffFormatter.class
+SHA-256-Digest: vCU9Ds+mubyGFSrOu0pAiBZ7qrgq6KDntku7OLAXWLI=
+
+Name: org/eclipse/jgit/util/Paths.class
+SHA-256-Digest: /nXL2ZpfWQayrSL+1n0TAhOvrJlK54yHpbO4kdMueps=
+
+Name: org/eclipse/jgit/internal/storage/file/LargePackedWholeObject.clas
+ s
+SHA-256-Digest: 2Gp8e/vW98Nu+RbPOBCg3uz10P5dEEedoMq5hJm2P9c=
+
+Name: org/eclipse/jgit/transport/resolver/FileResolver.class
+SHA-256-Digest: 7vqcPrFjMUVoNnZbc9XyAdhfrUGTKqVAJaQM3KLpdTA=
+
+Name: org/eclipse/jgit/internal/storage/file/BitSet.class
+SHA-256-Digest: 158tyHctb93+8YkCHNlQHMB4qseNIpMgIYdovmixs2k=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$5.class
+SHA-256-Digest: mLCckBx87s4/lH3d+3IZZmVYcWU2yZky69t17FqNRNY=
+
+Name: org/eclipse/jgit/storage/pack/PackStatistics$ObjectType.class
+SHA-256-Digest: RQfGcNhvo1QqVWCod9GC87E+F35YifryLEoY4uuMx1w=
+
+Name: org/eclipse/jgit/api/DescribeCommand$1.class
+SHA-256-Digest: RxAu64o6NiF3qrt/vIfxnHccQyXKZF0hkV+IkosiUwY=
+
+Name: org/eclipse/jgit/api/CloneCommand.class
+SHA-256-Digest: YxNZXhDjsHl+18BOc0Onco+P3eNHDX2Oj1JF+pd6uzs=
+
+Name: org/eclipse/jgit/transport/DaemonService.class
+SHA-256-Digest: fRMN+us7BGQ8vBQiqm+IHWEitKFu4HGbjxxmvNh/zeM=
+
+Name: org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Entry.class
+SHA-256-Digest: gwVmp/PSu04JvMAyiI/Nv/mqxseFrRvrOyEGPTK6f3U=
+
+Name: org/eclipse/jgit/util/io/UnionInputStream.class
+SHA-256-Digest: 8NTmv07ZcyRUv81Vn8AdkNGM/qamVugrPG95cWVm/5c=
+
+Name: org/eclipse/jgit/merge/MergeAlgorithm.class
+SHA-256-Digest: EmI4wrKoYjkjw0B32cTC9R7LbF5g26Q4SGeJc64DF04=
+
+Name: org/eclipse/jgit/internal/storage/file/PackedBatchRefUpdate.class
+SHA-256-Digest: NHb68eqQXjcIIc2HuyPoqi/tm2ExhG1+k9/YucAq8kI=
+
+Name: org/eclipse/jgit/util/io/InterruptTimer$AlarmThread.class
+SHA-256-Digest: 3Qh29bKtuF+cj/FbB3lfJwKF+LsKlIXk69EjhIwzcws=
+
+Name: org/eclipse/jgit/lib/RefUpdate$1.class
+SHA-256-Digest: Mh2hg5Oghu48yehvTROC9QM5cuIpZE0/m/fsomukF2s=
+
+Name: org/eclipse/jgit/revwalk/RevWalk$1.class
+SHA-256-Digest: MdEbw1xaev2EZPPcoZFtjYCdMuLuiB/eBdz/EKyAo80=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$SoftRef.class
+SHA-256-Digest: Y6EjucZhZpzwZne/xudSjbkBd049GDcYvdiAWpa4q70=
+
+Name: org/eclipse/jgit/util/FS$FileStoreAttributes.class
+SHA-256-Digest: Pnz9LhUJby5KnuCc98e6Q0in72ER3hIZbG+PiBdCuWE=
+
+Name: org/eclipse/jgit/dircache/BaseDirCacheEditor.class
+SHA-256-Digest: Z6IVjS8/KlkeRiXEvwNaOHHxu1Nl3aBj8pBpUSLDM0M=
+
+Name: org/eclipse/jgit/attributes/AttributesHandler.class
+SHA-256-Digest: jRZ2OYqdATiLy4llwKPmDcoJ+lblQBf1pCXJWNQCwaQ=
+
+Name: org/eclipse/jgit/fnmatch/Head.class
+SHA-256-Digest: F0YFEfA+eLFbDtmwMR6R7TaFHNBkZ+E9LV675PhVJus=
+
+Name: org/eclipse/jgit/transport/UnpackErrorHandler.class
+SHA-256-Digest: jTGRYIlq3+81QfmgtdNLgmf4SoKVcy0lRifH60dmqIU=
+
+Name: org/eclipse/jgit/transport/TrackingRefUpdate$Command.class
+SHA-256-Digest: talrk0KfBcGL5CA0P5lHaPxVzkaH4Tv0b13xcp8az0U=
+
+Name: org/eclipse/jgit/errors/IllegalTodoFileModification.class
+SHA-256-Digest: 8Ll63uckMuC5QRXhlTlKIJYRIXzj8isjHWgBOSBzVyA=
+
+Name: org/eclipse/jgit/lib/ObjectIdSubclassMap$1.class
+SHA-256-Digest: KZO3J5V0UQLQyaxT6UtuaCeJzqRMVL/i/Bbn/LjH4B0=
+
+Name: org/eclipse/jgit/lib/BlobObjectChecker$1.class
+SHA-256-Digest: lz2YMFwdeGSVGIHG5wZ4EBDKpoYC3+LGK5rum7Rtn4g=
+
+Name: org/eclipse/jgit/lib/RepositoryState$9.class
+SHA-256-Digest: empbfQe3SLvgWzdkKXBx9Rvt/LSb05xSEtXhMev6GOI=
+
+Name: org/eclipse/jgit/treewalk/filter/ByteArraySet.class
+SHA-256-Digest: j24x7qpOgqZcFUP4YRvYhRrRGfw9axdZ3hIyIusHxtA=
+
+Name: org/eclipse/jgit/transport/PackParser$UnresolvedDelta.class
+SHA-256-Digest: fP5Jzjfwn/e4aqtB6pJHHNJFtkjqpA0+uiJ0mejN93c=
+
+Name: org/eclipse/jgit/internal/storage/file/UnpackedObject$1.class
+SHA-256-Digest: sr/mHCnICENl++OzlNoaPW6VH8VrIlsnzBTWTO3PRw8=
+
+Name: org/eclipse/jgit/util/LRUMap.class
+SHA-256-Digest: vJaoaMC4Y+lT/wxXUCG/AkTVJlUHzihArJYB4RwhKmc=
+
+Name: org/eclipse/jgit/treewalk/filter/PathSuffixFilter.class
+SHA-256-Digest: yaHrZXEeiUk7Lik1wgIngJ/pVhZjJTanVVuQrZ8X6+I=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInserter$Reader$StreamL
+ oader.class
+SHA-256-Digest: xVVL/sqTb5vxTmgi4/g1SkICD7sth78icraMri1yERY=
+
+Name: org/eclipse/jgit/api/CloneCommand$FETCH_TYPE.class
+SHA-256-Digest: JchGjpA17nGasY1hSv2SJfmsMhZpqO2ZzmdtsTcMB2A=
+
+Name: org/eclipse/jgit/transport/AwsRequestSignerV4.class
+SHA-256-Digest: Ovss33OR2OwZU/JMHoiij0yrqsGC0MFXgK2/0WMDIXc=
+
+Name: org/eclipse/jgit/transport/CapabilitiesV2Request$Builder.class
+SHA-256-Digest: kjolUWXAvFH3Z2b6KuNd5/e2FytA6cZFwmTxySjlddk=
+
+Name: org/eclipse/jgit/util/GitDateFormatter$Format.class
+SHA-256-Digest: 87e7eKVPrGcThhTX/GCX2wspuU2NRRQAnSbh5gEkiHE=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$10.class
+SHA-256-Digest: Gc729GqtGrYCwYL04xxAMIWHbABj830Wuizu05dUCtc=
+
+Name: org/eclipse/jgit/revwalk/FixUninterestingGenerator.class
+SHA-256-Digest: kz6TY8N/9sqC98GUfdiDkaQV4adASE95cAfVI/vtaHA=
+
+Name: org/eclipse/jgit/treewalk/filter/package-info.class
+SHA-256-Digest: 0++wBAcYMwnYZ7C2/ZiSQZlmlEsMxYxR1tqwyKF5e48=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry.class
+SHA-256-Digest: AFzRy+ejn2IDWMHHXM7kDHn3SC4ZFxYt2ebVSyrzrV0=
+
+Name: org/eclipse/jgit/internal/storage/file/SimpleDataOutput.class
+SHA-256-Digest: qUSQEn0qwknoEDy8oQFGDqQ1Wm4apiPTyUk7S1W5wb4=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter.class
+SHA-256-Digest: 2yaOPmWUdDEwyKbhkkmle6vV85tOAmL5+CTAmvV0gEo=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DeltaBaseCache.class
+SHA-256-Digest: lBAGLBceViF8P5e/2dZXqSxjC5Gntr0tTzcjIxoAQVk=
+
+Name: org/eclipse/jgit/lib/RefDatabase.class
+SHA-256-Digest: +fDiN1KZFU/HWfEHmupW+JGcDOFTaSXC8yfmL6C01wQ=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory.class
+SHA-256-Digest: Gqjk32IVgK5UiIf+Vlh5EaEGS64ACf+S9PMBdR8L5cE=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead.class
+SHA-256-Digest: yGZ5Q+Fv5LsBHdqscN/k3rUquttCKcqSaLeIE1JUBI8=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$6.class
+SHA-256-Digest: 0ZGOXzy6GSA/U38d5ghT8o/4i/JcIBxCzD9yvsxcdGw=
+
+Name: org/eclipse/jgit/diff/ContentSource$WorkingTreeSource$1.class
+SHA-256-Digest: 3GnBw8iLRNfV18Ty8RK+MXlGY8HlS1DNCWOyyZ5CECU=
+
+Name: org/eclipse/jgit/notes/DefaultNoteMerger.class
+SHA-256-Digest: kX933qlKxgFJBxcbxfZ4pMskJFra4Etx1IidQk4DIv0=
+
+Name: org/eclipse/jgit/transport/CredentialItem$Password.class
+SHA-256-Digest: 1PWIVqHTWgSqoIJkij2FkLlMt+g5w+GNIFUAGJHehl8=
+
+Name: org/eclipse/jgit/transport/WantNotValidException.class
+SHA-256-Digest: svT8YGxfxCZrqzwJLAAqBFa1nzPTFNDrU9n8vOiOJtY=
+
+Name: org/eclipse/jgit/revwalk/DepthWalk$Commit.class
+SHA-256-Digest: B0ze8fwHVB5Ci3YAMrXKduVZj0S3HOgPtubLGmx/O7k=
+
+Name: org/eclipse/jgit/api/StashApplyCommand.class
+SHA-256-Digest: /hy1yVsiZH2LgOAxgaFkJsQEZaNNL3KQR7zt5Axyd+M=
+
+Name: org/eclipse/jgit/merge/StrategySimpleTwoWayInCore$InCoreMerger.cla
+ ss
+SHA-256-Digest: BMtGKXQXFRgozqzDIB+I4szsidxJ9wIQAiZyzh3eHmA=
+
+Name: org/eclipse/jgit/revwalk/FIFORevQueue.class
+SHA-256-Digest: xKbChyH/l/CVmkmZ+tBkjuiMcweFEj6EQ184uusDNUc=
+
+Name: org/eclipse/jgit/errors/UnsupportedPackIndexVersionException.class
+SHA-256-Digest: GrCe0bFSpmBfagEuqiB9zzRoZ0deMvGummySjURhg9s=
+
+Name: org/eclipse/jgit/logging/PerformanceLogRecord.class
+SHA-256-Digest: 1qIXOKR/YiKz4PiXo20+mb2hHknqHRPN6VW9ShhVrRg=
+
+Name: org/eclipse/jgit/dircache/DirCacheEditor.class
+SHA-256-Digest: bRW8J23Z/2an8mLi8C52FSEsPqImjxDNqY4NkeDnaOs=
+
+Name: org/eclipse/jgit/lib/ObjectIdOwnerMap$1.class
+SHA-256-Digest: QErY7tNjOA5wgEe3jlD9aAxGMkc3kJfFTwKoVfqOvaA=
+
+Name: org/eclipse/jgit/api/DiffCommand.class
+SHA-256-Digest: FWPDuW7lSVvv1mX2uN1k904PmS2LXLZ/De8OkJuTklY=
+
+Name: org/eclipse/jgit/revwalk/ObjectWalk$VisitationPolicy.class
+SHA-256-Digest: gx9E4Cpz8N/AkAw1Div7PFzS8Xs7JCVdMd5qhPidSyE=
+
+Name: org/eclipse/jgit/diff/SimilarityIndex.class
+SHA-256-Digest: UCLb3b3nzKe5XgewTcUGKWIxL2CGK//AUYUcRNp20HE=
+
+Name: org/eclipse/jgit/transport/TransportHttp$CredentialItems.class
+SHA-256-Digest: ENuctxuKgtzEJqt1/25LUsYVgqEtEcpNhgL97Qx1WbI=
+
+Name: org/eclipse/jgit/transport/UploadPack$FirstLine.class
+SHA-256-Digest: n47f0Od/AE/YKuqYLSZl8F7Lx5YqNBcvpJtJDXvp+84=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableReader$LogCurso
+ rImpl.class
+SHA-256-Digest: tF1bp9MW7NYIbPpE0RHP1YUerkjPRLSGPZCYSHzgTE4=
+
+Name: org/eclipse/jgit/api/VerificationResult.class
+SHA-256-Digest: qXysflg5MfCGwhKCkhz6/RZboSzFs+lS9fo3msR9Ji4=
+
+Name: org/eclipse/jgit/lib/FileMode$6.class
+SHA-256-Digest: fmCcffDF14qai+Q6Bvg9PFmi2nbPXGfR3Sz5zR2yXBg=
+
+Name: org/eclipse/jgit/treewalk/filter/AndTreeFilter$Binary.class
+SHA-256-Digest: 8mQ0grdQh17HQBXFGuZJGdizea5ndsf1ajXYVFeQk34=
+
+Name: org/eclipse/jgit/lib/TagBuilder.class
+SHA-256-Digest: MHFpl/B+fQ5K3QC4IW7QUe6Pw+aFItX0HNQr4O1X4uM=
+
+Name: org/eclipse/jgit/revwalk/BlockRevQueue.class
+SHA-256-Digest: gSpZyUpemY5MASQmOG/q9km5sibha2tP5H+ouy02XiE=
+
+Name: org/eclipse/jgit/ignore/internal/TrailingAsteriskMatcher.class
+SHA-256-Digest: 6MztW9Sv5BGeP830kD856yf0g1h+Idf8ppQ0tFehxLU=
+
+Name: org/eclipse/jgit/lib/ConfigLine.class
+SHA-256-Digest: 0EKZJKJGS4ivPb5t8V5Zy47lEcCGXf+O2LZ8JpHxQhw=
+
+Name: org/eclipse/jgit/diff/RawTextComparator$4.class
+SHA-256-Digest: ZwNoLKBDExUrZBYZwTuXtlJHzDst+PTi60lu5YinV94=
+
+Name: org/eclipse/jgit/lib/UserConfig.class
+SHA-256-Digest: CgiTnvmkUU+oRiS+ja9PohZUdtrOKPhWkzsjC23HTiE=
+
+Name: org/eclipse/jgit/util/IO.class
+SHA-256-Digest: qF4FLE8Z7LG2CFhYCkrtF1yUotFC6exiXzRvzNNLNs0=
+
+Name: org/eclipse/jgit/revplot/PlotWalk.class
+SHA-256-Digest: hEq5yNgdbQFD7Lo/kobUbV81WrLjfZTOc+58n2Y43tA=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$CharacterRange.class
+SHA-256-Digest: XIoqmuowBrYVGTQUC90MHIxpR/1GCEecNbJha6Ef8yo=
+
+Name: org/eclipse/jgit/api/ArchiveCommand$Format.class
+SHA-256-Digest: 2TQUUnAqHOPdVKnT+SlrxzKLVKDDJtPydbj1HJnhG2s=
+
+Name: org/eclipse/jgit/util/GitDateFormatter.class
+SHA-256-Digest: h1DZnvDQ9WIDmwqPH0ASyEeiefci6EdNYev7VIyZFpk=
+
+Name: org/eclipse/jgit/transport/TestProtocol.class
+SHA-256-Digest: d116YfcJ7PpaGmlSrX9nvz+ZUyrBPdvohXW67HjOEUA=
+
+Name: org/eclipse/jgit/transport/SshConfigStore$1.class
+SHA-256-Digest: nq9575kKt5RsSt3IzPLoZ37EH4F8Vtd8awVVhcAcYDM=
+
+Name: org/eclipse/jgit/errors/ConfigInvalidException.class
+SHA-256-Digest: bncuJAzxTbnNBJxRjpW1pKNvnah0H/JMpx2m/Tojccg=
+
+Name: org/eclipse/jgit/transport/BasePackFetchConnection.class
+SHA-256-Digest: aiHEykuczPl5hosG9+sIoQZzcRcrq7yV9McbM3SP6pY=
+
+Name: org/eclipse/jgit/errors/EntryExistsException.class
+SHA-256-Digest: vhq0LgW6/1llXNu0OybgcBjy6r02iU0abJLdPFsS1iA=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectoryInserter.cla
+ ss
+SHA-256-Digest: inRLAebp/7MFc46fBOaxY1z2PteuQV0LwmPUotWIKOU=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$1.class
+SHA-256-Digest: kstNZogSS9/E2JhGLViOpMGlLMYCmowEVO68EIUBVAI=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$1.class
+SHA-256-Digest: zBEtOeMQWPFaTpiNoWeqdrqJWD2hTzEKye+imjH2Aps=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCacheConfig.class
+SHA-256-Digest: 7LcUUUkh0EviUwfpFsYROiVFZzXgmy6RYCx5YHhJFiE=
+
+Name: org/eclipse/jgit/util/io/MessageWriter.class
+SHA-256-Digest: ZEhVzfASTbpQxcwJCVjp9PA19OWH+Hp7ndgFgFafxNo=
+
+Name: org/eclipse/jgit/dircache/DirCacheTree.class
+SHA-256-Digest: LTAKOcbPQKoziZkUiK9KxnnLi+n9qW7qZhlRs1H+MNQ=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableStack$StackEntr
+ y.class
+SHA-256-Digest: l+/pQw57cnDOPzzuqVWfWHK6EQYkD8op+6aOVNDjtZA=
+
+Name: org/eclipse/jgit/api/errors/PatchApplyException.class
+SHA-256-Digest: Cfg3hjrGR/kfOD9OhLLTpYmRzUcfW3FKTaqddIHcJuA=
+
+Name: org/eclipse/jgit/transport/BasePackPushConnection$CheckingSideBand
+ OutputStream.class
+SHA-256-Digest: pI6AraLEZxSGaV8PSx1nvDfHPQmDjbN0Mdg8lg98oAA=
+
+Name: org/eclipse/jgit/util/StringUtils.class
+SHA-256-Digest: SEV0d+7pRXvKhToKTfD2VajLpCQiAQc6JafGGr5HZTU=
+
+Name: org/eclipse/jgit/storage/file/FileBasedConfig.class
+SHA-256-Digest: 3YxtMR4GA617v9J69TN4N0v8ss2vEgup3ZdPbx5LUvg=
+
+Name: org/eclipse/jgit/transport/ReceivePack$2.class
+SHA-256-Digest: vk/MZshrMPieUpwkQdlBGagtY5YXhV6ukjskc+olXv0=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeOptions.class
+SHA-256-Digest: lki3zgaZqBd9YJKNXPwat5UJhu9eo4kuGR0vEwRsigw=
+
+Name: org/eclipse/jgit/ignore/internal/LeadingAsteriskMatcher.class
+SHA-256-Digest: 636SpqpbhFfT5Mj8Aka63hLGlikS9Sx7cQhheCFIAxc=
+
+Name: org/eclipse/jgit/revwalk/BlockRevQueue$BlockFreeList.class
+SHA-256-Digest: tkJcadzpdmc7I+MhlrTM0mBD1rNMGJK5HFnyvx4LklE=
+
+Name: org/eclipse/jgit/transport/AmazonS3$ListParser.class
+SHA-256-Digest: orm50J3wpk0CYS7RkI5HrEqbQYO6Z4pscjmKYnDf4mk=
+
+Name: org/eclipse/jgit/api/SubmoduleDeinitCommand$SubmoduleDeinitStatus.
+ class
+SHA-256-Digest: 9fqhFh53D0bFbo69uZVM8UC9SQGDFoiVf7K6dZTjD78=
+
+Name: org/eclipse/jgit/lib/ReflogEntry.class
+SHA-256-Digest: OHOfoW2j+GYkHcXUQqB+JIUkM3Gi18sQqbdzFgcHBP4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter$StreamLoader.cla
+ ss
+SHA-256-Digest: o/PYXQrDFudALfk7T/4rqPEBtmurCq2NNh8G3GI8afA=
+
+Name: org/eclipse/jgit/api/MergeCommand$FastForwardMode$Merge.class
+SHA-256-Digest: d7AzgjVzULdAoTbvksJjRV5eTnbIjFj6FOchJPq0QEQ=
+
+Name: org/eclipse/jgit/lib/GpgSignatureVerifierFactory.class
+SHA-256-Digest: r9Qyig+2IlO9ow4pIfXsUpoBzsZTa6uFJLWMHJV5xcg=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableWriter$Section.
+ class
+SHA-256-Digest: x5Pcm/Tiw8xS+IJICgzuJIeIPEMWJGnT75Ga61qmMsI=
+
+Name: org/eclipse/jgit/util/GitDateParser$1.class
+SHA-256-Digest: BaDw8azeINTAMKzUHL9cJzmgaIOkjsdfzHzh2/yENN4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRepository.class
+SHA-256-Digest: +DsyWizYfW2CLq3TPLsj3UUVuGId4n8Yjn2mFikz2Dc=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$Heap.class
+SHA-256-Digest: 4uad9mtGMVbqMU3aeaoBlAyij5YvBrQf9oGb/3V32Hg=
+
+Name: org/eclipse/jgit/lib/BatchRefUpdate.class
+SHA-256-Digest: tortSzgqRpj0aU1qfu0OF3t0TiWy5+MWx0gno/OsHOE=
+
+Name: org/eclipse/jgit/revwalk/FooterKey.class
+SHA-256-Digest: tJRVhcxmvYY6LVpEVOB+wtaOuUCn0xQQsF0vqjGu3lo=
+
+Name: org/eclipse/jgit/lib/CommitConfig.class
+SHA-256-Digest: uVeh8fsHw6Qa92OQ77HiOc+uXbI7oeM9tO8zhWW2RFE=
+
+Name: org/eclipse/jgit/transport/CredentialItem$StringType.class
+SHA-256-Digest: QxNGjvv9wG5saLFd1oFUatXFp+x9EpTrqnKFp5hLugA=
+
+Name: org/eclipse/jgit/lib/ObjectChecker$ErrorType.class
+SHA-256-Digest: ywasNu08XfZ1r8DUNlIamz+gOBIxURpatN264WQeCuM=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable$MergedRe
+ fCursor.class
+SHA-256-Digest: dGkyV28B8GMri3VThi4zqN4OHrdxkPTNn7KyPbYs7lg=
+
+Name: org/eclipse/jgit/lib/FileMode$1.class
+SHA-256-Digest: GBiN0pL513T6zheM6aVtfHA8gMnCrqLobcFEYYx4Q00=
+
+Name: org/eclipse/jgit/api/PushCommand.class
+SHA-256-Digest: +/W7KoX8Zr4wSNvmuu2EitbsmaUwWO3A2Sy/Kc4+2kI=
+
+Name: org/eclipse/jgit/ignore/IMatcher.class
+SHA-256-Digest: hg77GPE3OZJxkkgxa1caaPIbHhsp4GG/boWEWXZyjXE=
+
+Name: org/eclipse/jgit/revwalk/FooterLine.class
+SHA-256-Digest: 3ETTrMjsfIEYQ1rZHT3zSGRd4pgaap9b08OYICa9NpU=
+
+Name: org/eclipse/jgit/revwalk/filter/OrRevFilter$List.class
+SHA-256-Digest: sGzSksepF2IbrflbZsZ5GnLK5SjAxnH0a31nwBMBmFI=
+
+Name: org/eclipse/jgit/transport/WalkPushConnection.class
+SHA-256-Digest: qeQB7/B3ONypHU2zR2Bu1/5OC4PChghrOFbZ0bPeM+0=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus.class
+SHA-256-Digest: SAU5kXklbVFKdflLAdAZsjisemjFPrrYZVm2fXN2Xa8=
+
+Name: org/eclipse/jgit/lib/ThreadSafeProgressMonitor.class
+SHA-256-Digest: aElkoaW2BaxvIQauJvu2V4QR8owxp64TnrkMwZCR3lw=
+
+Name: org/eclipse/jgit/internal/storage/file/GC$RepoStatistics.class
+SHA-256-Digest: 0WuNlKnXjj8hg0zMAtlhv/ckGjADevehOAe/VDFk0bQ=
+
+Name: org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs.class
+SHA-256-Digest: szq4wYMFDgfKVDutH1W4vidnht8LoRQtD/vCH8u39zY=
+
+Name: org/eclipse/jgit/revwalk/filter/MessageRevFilter.class
+SHA-256-Digest: P8MjQEPdwYtiJB02q3blcXtKZcL8CKGAaxKnd5hvqdI=
+
+Name: org/eclipse/jgit/util/sha1/SHA1Java$State.class
+SHA-256-Digest: qTTDf1+11lf6SasV5AHt1ThxUxHZWB3gMK2N/6ktups=
+
+Name: org/eclipse/jgit/lib/AsyncOperation.class
+SHA-256-Digest: UFfm/WbxraFUwfPNKG/DlSDvwXZ3jo+YpQNrTQK0/jY=
+
+Name: org/eclipse/jgit/lib/StoredConfig.class
+SHA-256-Digest: RsQrNBaAN8I1aeiIrqKMVeumC2QACFJgzyLEESwzALw=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$UpperPattern.class
+SHA-256-Digest: JnYYpXSwBKs0T4/MBWTF87NO4CorDNuQhDAGty8xFPs=
+
+Name: org/eclipse/jgit/transport/LsRefsV2Request$Builder.class
+SHA-256-Digest: HjVLQZpYsWs6moI9gwVWNveEZ635SMSmF9UjGXqEtu4=
+
+Name: org/eclipse/jgit/api/SubmoduleUpdateCommand.class
+SHA-256-Digest: Zq29L6iAn9BE2MuhtwiKtajXZtn2lw09x/GrVPW3nPw=
+
+Name: org/eclipse/jgit/treewalk/FileTreeIterator$NoGitlinksStrategy.clas
+ s
+SHA-256-Digest: 4yfdybTAE9fZ3Ct4RhDMiaFIl/PaAWRUwtW700gciOI=
+
+Name: org/eclipse/jgit/errors/LargeObjectException$ExceedsLimit.class
+SHA-256-Digest: uUdkw5rNdOKK3lpwdTYA/obk3L7+FEBLiHBP2LMQ1rQ=
+
+Name: org/eclipse/jgit/api/errors/FilterFailedException.class
+SHA-256-Digest: yGdYQmacPdGbFAYBUmm0jPEVlurOLOnQFk7FiM+j/N8=
+
+Name: org/eclipse/jgit/fnmatch/RestrictedWildCardHead.class
+SHA-256-Digest: 02BkAjCd3WqVFr19BSU6KSQzCdoEpileKPZcgGm2304=
+
+Name: org/eclipse/jgit/api/TagCommand.class
+SHA-256-Digest: bdc9fBMOIJTax95fE40aSKnNM837BcEIhg1G153q580=
+
+Name: org/eclipse/jgit/lib/RepositoryState$10.class
+SHA-256-Digest: FuxoBbpeRgdNJxoz56obp3YhBuSRCGt5V2PJl40NuRw=
+
+Name: org/eclipse/jgit/errors/CommandFailedException.class
+SHA-256-Digest: 45b2p1H8VQ3u7ZLsHt0nUifPNPNGJjM4TOEBs3H/OzA=
+
+Name: org/eclipse/jgit/revwalk/RevSort.class
+SHA-256-Digest: Et849xGCDIusBfi9ZeHx0CoBwjz8t0RdHGYkrmwHDnc=
+
+Name: org/eclipse/jgit/util/FS$StreamGobbler.class
+SHA-256-Digest: 6rRPDQ3N4X9Rc/CyelPyo1rMpjy8Mhe9IXio4DNNTBU=
+
+Name: org/eclipse/jgit/api/GitCommand.class
+SHA-256-Digest: 765ZblXze/btFKrLyWHY+tUMpI63ECd6lmwfkuPGupY=
+
+Name: org/eclipse/jgit/transport/TransportHttp$Service.class
+SHA-256-Digest: 2pxoDQhw+BNAKbBAv2/Ln0NPsJEWciBDNwIjN2WuwL0=
+
+Name: org/eclipse/jgit/transport/SshConfigStore$HostConfig.class
+SHA-256-Digest: SzW5KlomaiLyV/44MCE6hLLEal7YPdgDV2Ik9XQM3gU=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReader.class
+SHA-256-Digest: rhhHXVaMIITcqMEPdpKM4TD3yhtdEUkHywXKDC85YuY=
+
+Name: org/eclipse/jgit/lib/CoreConfig$SymLinks.class
+SHA-256-Digest: hnxo0fRCaoI6QY/AJ2T5h0iIMwgv/R1Ln9ODtkZsnOs=
+
+Name: org/eclipse/jgit/transport/Daemon$Acceptor.class
+SHA-256-Digest: TPbVlFWbLbKCqww2DohBjnlv1KA7+1DI9RvaOYHhdI4=
+
+Name: org/eclipse/jgit/diff/HistogramDiff$State.class
+SHA-256-Digest: Gcd39OCtZlIy4+KmI/8P8rpyN1colny/E55unFDZeLA=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitterRevFilter$PatternSearch.c
+ lass
+SHA-256-Digest: gVIUNJpdlNEQITDkkDxg1zENcg8SlzKx8Ik+X2T4S+c=
+
+Name: org/eclipse/jgit/revwalk/RevFlagSet$1.class
+SHA-256-Digest: 3pzP3IiooMEODw6Z3jNgcMkr+vUzWD7ZEQQKYJxUnvM=
+
+Name: org/eclipse/jgit/transport/http/JDKHttpConnection.class
+SHA-256-Digest: fqNI+UnTlgPsS1Ma5OnXuk0z6qOmNFGzzlO/EAOql/c=
+
+Name: org/eclipse/jgit/treewalk/InstantComparator.class
+SHA-256-Digest: AYgFqeey9hBJzlAY7FCn7J1EHDuCB4SwuZ8vK2ItufY=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand$RemoteFile.class
+SHA-256-Digest: okx7iLXd7PSuTcHy2oL4GBrLFrqCtqbql8XGSLFd+/U=
+
+Name: org/eclipse/jgit/internal/storage/reftable/RefCursor.class
+SHA-256-Digest: JNWBcEHNzFWgVNAzQ0MSLFvsE33y4p8SUh9b41NxBzQ=
+
+Name: org/eclipse/jgit/util/SshSupport.class
+SHA-256-Digest: 75KH56N3pupSL1A7q8cii+41uGHN2321DtxRD4ElY0g=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$RootIgnoreNode.class
+SHA-256-Digest: lF7ydriqiBEEZqUuSIzMNQl7A61mzZVQYWLvI5GUTv4=
+
+Name: org/eclipse/jgit/lib/AsyncObjectLoaderQueue.class
+SHA-256-Digest: FjDgKa21w/CyG56C9fuHgOnFGpV2bfPt1EusGM+Ev4U=
+
+Name: org/eclipse/jgit/transport/NetRC$1.class
+SHA-256-Digest: qaLhGLdYGuZtqYwBO7n5kNFKAOCR0S46ykcxOkC9yWQ=
+
+Name: org/eclipse/jgit/util/FS_Win32$1.class
+SHA-256-Digest: qVXmJPAHifImeQKcq6FY/tKYcJsKNAw9PN2W6C6Tob4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackCompactor.class
+SHA-256-Digest: uI768tEhQRXLcOhuD9SrOW7eqj1fWjKcCiVi4pys29U=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$WhitespacePattern.class
+SHA-256-Digest: nmEZIx6mERnARLuAWFckEJPuTo3zFV6kFvQN2iAYTv0=
+
+Name: org/eclipse/jgit/api/AddNoteCommand.class
+SHA-256-Digest: 5WFsYyISuqoPCRYEmvazH7RFufHIXRpn48EZJ/EKxWo=
+
+Name: org/eclipse/jgit/transport/PushResult.class
+SHA-256-Digest: GPpR8/gA2IPIhhDJneOerD86642N+TmOFlygXvkQKvE=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRefRename.class
+SHA-256-Digest: l+ENS4TOAOiPAZDQezp2Ua00fk87Nb2Lu/n7Mx/CKYA=
+
+Name: org/eclipse/jgit/lib/ObjectIdRef$Unpeeled.class
+SHA-256-Digest: 0FrRdv8v3cBBOipc/pektFFcSxjrUG2M1jk0sL7fKn8=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRefDatabase.class
+SHA-256-Digest: cffDVcWeis+9ytolqvAbyJ0wKQRwZtlmYzWvhcXV3Ys=
+
+Name: org/eclipse/jgit/revwalk/RevTag.class
+SHA-256-Digest: 5qn7m8iz5dBb9rl3LQ0BEiFDcZx62oYlrcofk/2WdFI=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter$ReadBackStream.c
+ lass
+SHA-256-Digest: u7efEeXTr3Ptxc9QoFnwHdE0H4xm5Am9OFAjJs76qL0=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$5.class
+SHA-256-Digest: BrNTJ7vO1Vj4jIPtO1dE2kffkCAKFQamRlgHEsGZezA=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand$RemoteUnavailableException.cl
+ ass
+SHA-256-Digest: XKW5lPVZqR5UuuWP1nzwYSKPPjb1ajLmmWPtMzoh6Xo=
+
+Name: org/eclipse/jgit/transport/RefSpec.class
+SHA-256-Digest: itfyAqmb5m2CCYevlJX4LfdtWTLUJJTYYwKHWpBnmeA=
+
+Name: org/eclipse/jgit/events/package-info.class
+SHA-256-Digest: g/9uJRszpNXjrulQnGehhoArI82kXLN5HcYpXuPsxZU=
+
+Name: org/eclipse/jgit/transport/RefLeaseSpec.class
+SHA-256-Digest: aXTHfvEaDBp6LaiysKOwKEbxq1Q+m8lQ1kAQ2uktnr4=
+
+Name: org/eclipse/jgit/transport/HttpConfig$HttpRedirectMode.class
+SHA-256-Digest: Xdlm3UFNVrrkHk+/Dk3vif32gbwmlIFvovEPizd2MRE=
+
+Name: org/eclipse/jgit/transport/TransportGitAnon.class
+SHA-256-Digest: z2D0lNq/1iC+nku+N+UrwURMs4Q24vObKJz2DnSfYjs=
+
+Name: org/eclipse/jgit/treewalk/CanonicalTreeParser.class
+SHA-256-Digest: kiWmyLH97H0rtpFV3bc73BuXBS7uo7Y1mAGQ43Guwv0=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCache$HashEntry.clas
+ s
+SHA-256-Digest: 2xAOIyvVVFsSvkYGyel4Z5qrMEFdIqtEDSI0g9ecsq4=
+
+Name: org/eclipse/jgit/transport/TcpTransport.class
+SHA-256-Digest: n8UEKn8HSUxD2cCgJKUJiV/AEhQDqop/DZwBFXvmmOI=
+
+Name: org/eclipse/jgit/transport/TrackingRefUpdate.class
+SHA-256-Digest: 9nrt5ZPObf9k8I1MLXPOB65yeVGlbgp6iZVdxLQdej4=
+
+Name: org/eclipse/jgit/api/ResetCommand$ResetType.class
+SHA-256-Digest: bWmKIO5pzYGSzJk0P5UkBI4SCta8x5AP0wC9gxby2Fo=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection.clas
+ s
+SHA-256-Digest: l4DvBufk1snK12PTYq49mNtD017kOkdurttT0yABjFM=
+
+Name: org/eclipse/jgit/lib/SubmoduleConfig.class
+SHA-256-Digest: mQL4Pd0XCl69zAvQetinL+Thk6JujpeJLYBMH4jIu38=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexBuilder$Posi
+ tionEntry.class
+SHA-256-Digest: 4OHefEX+CUvYjbOGKtqmh7YBVgeUlcAZWfp/x4kWA2A=
+
+Name: org/eclipse/jgit/transport/http/HttpConnectionFactory2.class
+SHA-256-Digest: 5n4BNydOpFtRWb8sDskBJWD8+sanNlfAS6VxF2Uq6VI=
+
+Name: org/eclipse/jgit/util/sha1/UbcCheck.class
+SHA-256-Digest: TYbPQpIdMAUFYEPCmCDo1qvS0ezySzcshjYCr79fdYQ=
+
+Name: org/eclipse/jgit/lib/RepositoryState$4.class
+SHA-256-Digest: DuopdfeQkLLIzW8dodHVcdI8KbfbQeHj1DY5iAgbBtY=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectoryInserter$SHA
+ 1OutputStream.class
+SHA-256-Digest: kSSIfNQUeSq7vzILY+NFOy69LA73T5LBsGWxsw2TAHk=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaTask$Slice.class
+SHA-256-Digest: iYTAIp+CXJn6pexr6yNqWXMn3EsMPcZvDyrqwYTrZ1g=
+
+Name: org/eclipse/jgit/transport/TransportHttp$HttpObjectDB.class
+SHA-256-Digest: SIYMy349ItHrQeWXJeU7g3UIcyE3O0CPA3w8JvHYJGo=
+
+Name: org/eclipse/jgit/lib/GpgSignature.class
+SHA-256-Digest: fseHexj3WAyHNFGFBAhNlbA9FEqhrEZVGmHoONCxdg4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackCompactor$ObjectIdWit
+ hOffset.class
+SHA-256-Digest: Wygi87Tht8akgfnHx3H6zw0mkCWSHRSl/QM1H8TF35Q=
+
+Name: org/eclipse/jgit/transport/HttpConfig.class
+SHA-256-Digest: y0PJLuzuEQ3JcGsRdu1T1cTwyNfLFOB2J9okNYDnQJQ=
+
+Name: org/eclipse/jgit/transport/PacketLineIn.class
+SHA-256-Digest: WdkErFAWxv3ObHbej4j1vjIjKc66JF5deUDltClB9Fo=
+
+Name: org/eclipse/jgit/lib/ObjectId.class
+SHA-256-Digest: JtiPLs2kiwOHOr45e4iO693DxxlUTLwP7WMWXr2Hq08=
+
+Name: org/eclipse/jgit/transport/TransportBundleFile$1.class
+SHA-256-Digest: PumLPBDv/Yor5WLBp7jH4jspTD5VrKkBZU/cai54eTk=
+
+Name: org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList.class
+SHA-256-Digest: SdS+2c0O40DTJN2ty0wBtnVZihXe5t47BBdEt0A6org=
+
+Name: org/eclipse/jgit/transport/TransportSftp$SftpObjectDB.class
+SHA-256-Digest: OXbV+ssOW0FCO3UTq8Y0sjupAU8xtO9arJKvosEt604=
+
+Name: org/eclipse/jgit/treewalk/filter/ByteArraySet$Hasher.class
+SHA-256-Digest: uMHxFekomLB6N+Y11Lw4IDoOCorpebludVcmy+qGd5Q=
+
+Name: org/eclipse/jgit/lib/Ref.class
+SHA-256-Digest: 0vh1FoC/Dh533UJKNQ3jarJ06NI+E8a6JTSZ3uK6i5g=
+
+Name: org/eclipse/jgit/api/SubmoduleInitCommand.class
+SHA-256-Digest: +SvXT2QyMsTzO3JGfZdILklgKNIvfRvJ7Z8nQ8Ywrs4=
+
+Name: org/eclipse/jgit/revwalk/BitmapWalker$BitmapObjectFilter.class
+SHA-256-Digest: kpam9T3Wk3/HDKA8IVhykIQhCXyRPAjc7B7I9Tp8Inw=
+
+Name: org/eclipse/jgit/errors/LargeObjectException$OutOfMemory.class
+SHA-256-Digest: hseho690TMgJmvNackFZ7jgIrCnOMUeuzASxhSUUkLU=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableDatabase$FileRe
+ ftableBatchRefUpdate.class
+SHA-256-Digest: GtWbnG/kI8+LuwHE9zWAEf+M62VFtF8PVXzTeAXhehE=
+
+Name: org/eclipse/jgit/merge/StrategyResolve.class
+SHA-256-Digest: NRJArmWZ/CMIy8PeFC/NOkvqlvSoZzhGrtTOa4izOBg=
+
+Name: org/eclipse/jgit/api/errors/NoMessageException.class
+SHA-256-Digest: W1YMvBYwYIZBRG0tbceipedPJy5+gsCYzUe0qj8Vud8=
+
+Name: org/eclipse/jgit/transport/PostUploadHook.class
+SHA-256-Digest: 2jVHQ/FoR2TNbyYucKvVSD5i9FbyyHH2EzziMrh/Pjo=
+
+Name: org/eclipse/jgit/treewalk/filter/PathFilterGroup$Group.class
+SHA-256-Digest: Fnp9YA2//SwfP6K+lIXP8KWV4aO0L0p0Vuj7ClAc64o=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftableBatchRefUpdate.cl
+ ass
+SHA-256-Digest: gVDn2qym+j/k3HGNpPvGX6NGQnlHING8Ntt7O00E68Q=
+
+Name: org/eclipse/jgit/errors/UnsupportedPackVersionException.class
+SHA-256-Digest: mA9MHhCBiPgdwYs7JMqqwf2gcvmChwuTCjKwPVE3ccg=
+
+Name: org/eclipse/jgit/revwalk/RenameCallback.class
+SHA-256-Digest: VpmhQDGVtjwf6jpvpDya4WXKpC/jFYdYQmE/kZifuPQ=
+
+Name: org/eclipse/jgit/transport/BasePackConnection.class
+SHA-256-Digest: ysKAKqavEw85CZaoyJE9j9xx/s9CR6FKSmdOQD0x7LA=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateHa
+ ndle$Id.class
+SHA-256-Digest: ev/eG7NLLZA0RAylrcUXc+F2FTsUVHJ9QeXomWGRTYA=
+
+Name: org/eclipse/jgit/merge/ContentMergeStrategy.class
+SHA-256-Digest: 5rs2EE4AAp0/6+AUUVvH3w9SWytJa7/k3JjNkkz9OHc=
+
+Name: org/eclipse/jgit/api/DescribeCommand$1Candidate.class
+SHA-256-Digest: N8wjUrCmRJGgrlPtKkWHr5sRPgF7VR8puFCQMHnOoZE=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase.cla
+ ss
+SHA-256-Digest: iUZehMfMiZHMQVlZM8CC4cCYPdSId92+XuecgbboE4k=
+
+Name: org/eclipse/jgit/merge/MergeResult.class
+SHA-256-Digest: z31bXGdKxEUxZwCDa6AdJyL2/8nCzZCyJrc/bViGM8c=
+
+Name: org/eclipse/jgit/attributes/Attribute.class
+SHA-256-Digest: 4mnFtAkWrPc67MTBbcrjisncprvazl0mpPkmf08/1GU=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$MemObjDat
+ abase.class
+SHA-256-Digest: ceEQP6/jve3AiSk6nLVLtI0jk0sBxYlA7wiq7TiTD68=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackOutputStream.class
+SHA-256-Digest: dACgi/oZHChQn9euh4cQ7+azaxpp6wyAwjTW8ljmtzU=
+
+Name: org/eclipse/jgit/transport/UploadPack$ReachableCommitRequestValida
+ tor.class
+SHA-256-Digest: VmSr9C2oOSpqQRwhYj1rd4EazjHeTaE4Bm6BTvTI1kg=
+
+Name: org/eclipse/jgit/transport/BundleWriter.class
+SHA-256-Digest: /Cy/VJGRbB7p1/upCwYaFQqA5ClpdZpbaEA/7kOR8ho=
+
+Name: org/eclipse/jgit/transport/PushCertificateStore$2.class
+SHA-256-Digest: Q+sX55TNn0MU2wiaJqGEFOkSvFm2L5nti0i2BTaktU4=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$JGitV2.class
+SHA-256-Digest: RV88piKziLkVPxhXbSg+Prz+yko/19LcCiHOXf1Ontc=
+
+Name: org/eclipse/jgit/diff/RawText.class
+SHA-256-Digest: XnzSYbwdP4ELEgUrylYGI8SoM7VzrLBKv2Chw+kj1k8=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Type.class
+SHA-256-Digest: P6XcWV9nEg1o59pmTeIscq0uOiu3gURQcfwMYBy53cc=
+
+Name: org/eclipse/jgit/api/StashCreateCommand.class
+SHA-256-Digest: gzXy1Z0jv8BBGW4Wd09omouYPaWnUEL7bO8MdRLbMbQ=
+
+Name: org/eclipse/jgit/api/MergeCommand$ConflictStyle.class
+SHA-256-Digest: zh7xbce7K7ycU+uBAlRM7ExL1sIyZesk498oh89g7Fw=
+
+Name: org/eclipse/jgit/errors/InvalidObjectIdException.class
+SHA-256-Digest: JIOnsgGqajE3us7GG1BY4SqII2Qm/EBj05PAbw+rQ5M=
+
+Name: org/eclipse/jgit/util/LongMap.class
+SHA-256-Digest: IQIBoIpwrPlP+Ne2VH5VR1LiFeFQzeQ3F+heUOZ17/M=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackParser.class
+SHA-256-Digest: Bdo/LCYFPc4Zzh0+2kc3bt25hKh3i5pqhuo2d/XgI/U=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$NoEncryption.class
+SHA-256-Digest: xgf9+SV9XO3I5+zxv+oVnFGwzRYH5alP3Fqx+9c3FN8=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReader$2.class
+SHA-256-Digest: SqvcOPi4y3JGypklytegbuFNlSwFw4tHAr5QdESr7uk=
+
+Name: org/eclipse/jgit/api/MergeResult.class
+SHA-256-Digest: iGYdRmK3l4xrYmu1rwRd3tm+EN0CGBoHmRB066s8wTg=
+
+Name: org/eclipse/jgit/util/QuotedString.class
+SHA-256-Digest: /ggdjMUzJu5SCc5VVFMWrQWYfqphPrMCAVt2BhkqKBM=
+
+Name: org/eclipse/jgit/internal/storage/file/PackDirectory.class
+SHA-256-Digest: VgKAcm7NEfL1HZZ8sN4Xu/V9pfRI/Ua2Q/ro5qPPgAg=
+
+Name: org/eclipse/jgit/dircache/DirCacheCheckout$CheckoutMetadata.class
+SHA-256-Digest: BMFSFNw1YieVF/O5b2TQ0IhEnRGFr4kT1PefFzGDq1E=
+
+Name: org/eclipse/jgit/util/SimpleLruCache$Entry.class
+SHA-256-Digest: EBmFW59it5j1CzFlggv95t5bGdy2acyN2l/A3eH9jIE=
+
+Name: org/eclipse/jgit/revwalk/DepthWalk$ObjectWalk.class
+SHA-256-Digest: FBftrdoIxIRif0xu49WKDndmWQTxyd/sP+qCjwipQwg=
+
+Name: org/eclipse/jgit/transport/DaemonService$ServiceConfig.class
+SHA-256-Digest: 1nDq6DA45W71URYZgZxcIHAXfJZa45N/x7sPS9uWQSQ=
+
+Name: org/eclipse/jgit/api/MergeResult$MergeStatus$9.class
+SHA-256-Digest: ULQGuhrzNqNXutLGB599x4y2pgypt3n8tN5mcK7ya60=
+
+Name: org/eclipse/jgit/util/sha1/SHA1.recompress
+SHA-256-Digest: kwrB8c/EdlqL9MFnask+SuNMdkJcydKyhD6I/1gQ0Wo=
+
+Name: org/eclipse/jgit/lib/RepositoryCache$Key.class
+SHA-256-Digest: rsxkVf8hN0u9ab2sFtrFw/iYZdP+cuU0OEHMaIz0On8=
+
+Name: org/eclipse/jgit/submodule/SubmoduleWalk$IgnoreSubmoduleMode.class
+SHA-256-Digest: jkdZy78lxiiAO+Q2HiKqEuLK3xMxsilBf5U7q7n5U2A=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$MutableEntr
+ y.class
+SHA-256-Digest: M5JcNjPs6ZNuAEtWaH0LMxstWbg1qdbM/HQ+AwoQVFo=
+
+Name: org/eclipse/jgit/errors/CorruptObjectException.class
+SHA-256-Digest: 7xLFkziSzVu8Uz3HF3ox0Mtq0loKZT/saPmw/S9PekQ=
+
+Name: org/eclipse/jgit/transport/AmazonS3$KeyInfo.class
+SHA-256-Digest: mhJUpPFlX47DHKd64Ds5uZBJXEhnppjk5bD+dXS73Aw=
+
+Name: org/eclipse/jgit/util/io/TeeOutputStream.class
+SHA-256-Digest: XA26NLXNFKfgiEampXSFH5li4TrutBmxLymNQ1EGqxI=
+
+Name: org/eclipse/jgit/internal/fsck/FsckError$CorruptIndex.class
+SHA-256-Digest: qg656P43mZ7KxVS3wIkCcBtTK5clxAtmRDc7cOVkNhI=
+
+Name: org/eclipse/jgit/revwalk/BoundaryGenerator.class
+SHA-256-Digest: wECC6GcRo0fMImD6B/Y8NU48n0F+OEiK1sUCuVa3P54=
+
+Name: org/eclipse/jgit/transport/WalkEncryption.class
+SHA-256-Digest: XNIVFzlMQ3kM77i+V6Exczy/v9A+ExtUXUuBEO3GvY8=
+
+Name: org/eclipse/jgit/transport/SideBandInputStream.class
+SHA-256-Digest: S/GVdXD/8SU8YskXQsyTgMFGC8Kaz4ham7TDy+Svfhk=
+
+Name: org/eclipse/jgit/util/GitDateParser.class
+SHA-256-Digest: 5HAlZwgodX8cSBWZBtXtJG8WRSKSgbkYyPTWe/0MJRM=
+
+Name: org/eclipse/jgit/revwalk/RewriteGenerator.class
+SHA-256-Digest: EpRxJm4/vtJwLuYkiWkgrLV0xT61df3+g/Qvr+Xh+94=
+
+Name: org/eclipse/jgit/lib/ObjectReader.class
+SHA-256-Digest: P6sX98IzMLTcWVILwPz3Xksa8c20CsJbEtB25oA9UQg=
+
+Name: org/eclipse/jgit/lib/BitmapIndex.class
+SHA-256-Digest: E5f+RTHYOAfiFnrIkGMs6jiz9uR2qBhqPkBavCiypGs=
+
+Name: org/eclipse/jgit/diff/DiffEntry$ChangeType.class
+SHA-256-Digest: RUclwXbB/k4u6SAcNLz8vMkD8OVb7wscrPwAUUsr1cc=
+
+Name: org/eclipse/jgit/api/errors/RefAlreadyExistsException.class
+SHA-256-Digest: CRHiqQvtdyArA3pIEnkK3w8UiGk5tVNB02smFoaq3bE=
+
+Name: org/eclipse/jgit/transport/AmazonS3$1.class
+SHA-256-Digest: uZDpoZHVBuJ73RpnMNc/lxyzpPLTklaVbGSNJOJrooI=
+
+Name: org/eclipse/jgit/diff/DiffConfig.class
+SHA-256-Digest: FJfMEcxWXrdxAOD4jBGUddmrOyz5wDK8D5Kdeml8FKQ=
+
+Name: org/eclipse/jgit/internal/transport/ssh/OpenSshConfigFile.class
+SHA-256-Digest: wWXegLH34fhgGEoE+D1wGtIPpKToQBT4JALtGgukhls=
+
+Name: org/eclipse/jgit/revwalk/RevFlag.class
+SHA-256-Digest: DTqnzkhddDjIi0TE4BjdXYRo6r4Cm43HgAtLAqebpV8=
+
+Name: org/eclipse/jgit/revwalk/BlockRevQueue$Block.class
+SHA-256-Digest: tnYV50DXBma6w2UeS9FC+o4y04Qjn63wGrSeBjXTL7w=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaEncoder.class
+SHA-256-Digest: f0O3+5EVSLXpQVwiTetIKi6E5+SD72Npfj2QX05VTWc=
+
+Name: org/eclipse/jgit/api/MergeCommand.class
+SHA-256-Digest: 0TR4XlQro1SluYHDdgs8tApyVhhGTVRvmpEiutjFFdo=
+
+Name: org/eclipse/jgit/api/errors/RefNotFoundException.class
+SHA-256-Digest: F1d2/Uej0Vp47vScmLoe+bfe0IqZRrcStvgS1IPswD4=
+
+Name: org/eclipse/jgit/transport/RefFilter.class
+SHA-256-Digest: CVhcmqVaRJFTeLk431fRsglj3SlLRhuNls8sowKBtqU=
+
+Name: org/eclipse/jgit/errors/RepositoryNotFoundException.class
+SHA-256-Digest: xWcROl/pfGKtURvFcM1ddLr6NuzmOfKpYLztYksJ/qQ=
+
+Name: org/eclipse/jgit/lib/RepositoryState$14.class
+SHA-256-Digest: 2iIAPIyBELQUbV25H0r3zuS2EA/lcJYr7VPbu9pyIZU=
+
+Name: org/eclipse/jgit/util/io/StreamCopyThread.class
+SHA-256-Digest: wmpuDxJ4rJaQFcphXpCVblJCeAEgmkTSz72Hq0a6gms=
+
+Name: org/eclipse/jgit/util/RawCharUtil.class
+SHA-256-Digest: SUao/feUcsi3Cm9/WObWO8f4mdey/zla8YNurm0aERA=
+
+Name: org/eclipse/jgit/internal/storage/dfs/LargePackedWholeObject.class
+SHA-256-Digest: Les6BH9ayPdHOEx6/kxcJ2xzCV20zQNIskbMrwguAgs=
+
+Name: org/eclipse/jgit/lib/GpgConfig$GpgFormat.class
+SHA-256-Digest: s3tJDct9rMwZlnmHXyOUPOjmMn9AIV6Ef4kjJ9JWaEw=
+
+Name: org/eclipse/jgit/transport/PreUploadHookChain.class
+SHA-256-Digest: vDOFOKbb8UDLmtzkPSJhgm0tkXn3nBYaASXBYbcJ3Gg=
+
+Name: org/eclipse/jgit/util/sha1/UbcCheck$DvInfo.class
+SHA-256-Digest: uxWMEo6h/i7ZSabLYJLQVgKKaneEJ8kvYp/pKxnkm2s=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsOutputStream.class
+SHA-256-Digest: OGMnHFIezAZSvcfsODVAADsnjxSkKieUjYQMUAXTgW8=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableStack$Segment.c
+ lass
+SHA-256-Digest: a/iJg8JSt+mxSaauFz4A/0CONk0Z93vpwjnAJweeSZ4=
+
+Name: org/eclipse/jgit/blame/ReverseWalk.class
+SHA-256-Digest: u0fKZbX2UOKecNfDv9jZu75MrFh40cATxMnWUabkx7A=
+
+Name: org/eclipse/jgit/revwalk/DepthWalk.class
+SHA-256-Digest: UO1oQZ8ib4yPUDRpMsUR3N0QIzLei0PD0R334HW86sY=
+
+Name: org/eclipse/jgit/util/package-info.class
+SHA-256-Digest: 6ZfUb93Vw1u+dryFMY4G+1ahyc9eX+XO1Tq6IZr9lRg=
+
+Name: org/eclipse/jgit/notes/NoteMap.class
+SHA-256-Digest: ZaKB3zrHOiUNDvHtoqkav2a/MIyUEfEiofhcyjRvJIM=
+
+Name: org/eclipse/jgit/merge/ThreeWayMerger.class
+SHA-256-Digest: l2It0VKKG1HEaL5IH3K12KQmsv+IiLqat8lEZIMEzvQ=
+
+Name: org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLo
+ oseObjectResult.class
+SHA-256-Digest: nHig7Qvj6oI7PDduyDxo9lCq4wzSx1OH3bYb/j469iY=
+
+Name: org/eclipse/jgit/errors/CompoundException.class
+SHA-256-Digest: kNfnqJokfNEaMM1riFngl5Z/IItCk4z8N3fP/ye5pCA=
+
+Name: org/eclipse/jgit/transport/RemoteConfig.class
+SHA-256-Digest: +jNTPbDixgPgkDOdAAD2hofYhS+EEJrwAVyg+V+01DU=
+
+Name: org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection.clas
+ s
+SHA-256-Digest: i+TJksmz5FBoPhAUmDOamllMZVfpVl31P3Lp9DKc8rw=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitTimeRevFilter$After.class
+SHA-256-Digest: 0fVKwh/SMf5Pe0X1fUb1RH6ocKhSuWwTvS/dsAHa/1Q=
+
+Name: org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths.class
+SHA-256-Digest: n2QIqSpOlNwqjqpqrS+/smZpBDtuY605uxNCL+DskMg=
+
+Name: org/eclipse/jgit/lib/BranchConfig.class
+SHA-256-Digest: xea7/L9zcxGVjY5xCmp+mU2iFKw+SQGgWKOdcPgHFTc=
+
+Name: org/eclipse/jgit/diff/SequenceComparator.class
+SHA-256-Digest: 2vWwHxaL0XyaN5DQP1ZFexx3YtRd7JKyD+0AmIhXgpo=
+
+Name: org/eclipse/jgit/transport/ProgressSpinner.class
+SHA-256-Digest: HHB0N6sqxYryuPzbUN2aTT1UWoEq6kWNCmLkIbOnTKQ=
+
+Name: org/eclipse/jgit/util/time/MonotonicClock.class
+SHA-256-Digest: 3wQQR5dqJQm05Sri0JPpbL9EuYAu3FUX/57BeJiOGno=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$StrongRef.class
+SHA-256-Digest: Wu3HiHlUh4Gum+d1LLA6AnAg3UnVmlpkWjeQ9XEtKWk=
+
+Name: org/eclipse/jgit/errors/StopWalkException.class
+SHA-256-Digest: MrPqH4GUjHLkyMsZ18euoepfLen7zf+NUkspcmAzq8w=
+
+Name: org/eclipse/jgit/lib/ObjectIdRef.class
+SHA-256-Digest: CSNqVTVIElFt7sj9wZ3OgM2DitZI9bqrzdq1UuSdViA=
+
+Name: org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry.class
+SHA-256-Digest: 6reK2L5cxlehJzlmEJqEkQml2YU3+EfV+RCG5c7YXfI=
+
+Name: org/eclipse/jgit/util/io/UnionInputStream$1.class
+SHA-256-Digest: jxhCwQvf7RTagEMvvPk4Ptm8EUCDij1BajaeaLSDczY=
+
+Name: org/eclipse/jgit/transport/ConnectivityChecker.class
+SHA-256-Digest: FyouxBcgayxbzHLsUA/mHmiToHi/t/6peFsTMuztXZc=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReader$1.class
+SHA-256-Digest: rdSiIgfpalSn68XsYvIQKx+RoLoVJAoFEbiACUFl5s0=
+
+Name: org/eclipse/jgit/util/FS$GobblerThread.class
+SHA-256-Digest: Av1y/5VsRgZllOWtCv8VPMbWKQhqZd/dp7Rf+QQnf5E=
+
+Name: org/eclipse/jgit/transport/DaemonClient.class
+SHA-256-Digest: sqCx0Hgjsm1N31o4nqpJ6bv9hQ/ZFm43fibuWxqtrSg=
+
+Name: org/eclipse/jgit/util/FS_POSIX$AtomicFileCreation.class
+SHA-256-Digest: GYGGqjRY5GHLIV+4tMwGaAp3GNhppz6atBUIr7h8GXk=
+
+Name: org/eclipse/jgit/api/SubmoduleDeinitCommand.class
+SHA-256-Digest: 2zfpRQzSocPzg5ZMZ2g5vd5U6lEmCdm8zQRC574otFk=
+
+Name: org/eclipse/jgit/attributes/FilterCommandFactory.class
+SHA-256-Digest: e4XVWzZtahV+z2TIohAqxRTsyAQ2yf3WINc/2oHqVvI=
+
+Name: org/eclipse/jgit/errors/RemoteRepositoryException.class
+SHA-256-Digest: Y8xJZdkXZGOxO1nrqH+c92JWH9SDoJV8iecsidUle3c=
+
+Name: org/eclipse/jgit/patch/HunkHeader.class
+SHA-256-Digest: UVQDggRHtdYqEr44uIZzGvCA9TuIu8UfpmxqlUJ1F+0=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter$Reader.class
+SHA-256-Digest: stkY5sXHumK+y2XNfDX7+W0rf8JN3p9IXyOlAkSB2c8=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$StatsRecorderIm
+ pl.class
+SHA-256-Digest: 1UIDNRL4bd3WPcs6W/OHZ2MAtZ1CtWxGw2chiycx+Jw=
+
+Name: org/eclipse/jgit/submodule/SubmoduleWalk.class
+SHA-256-Digest: Y/ZRPB1xqGUUju7aMW5JdjJbnZnHpLXLIzx2+FY7KHw=
+
+Name: org/eclipse/jgit/diff/SimilarityRenameDetector.class
+SHA-256-Digest: zf42bovidusydnvoMLHvz08m2NGRsCQ9UNy8biq2teM=
+
+Name: org/eclipse/jgit/internal/storage/file/LocalCachedPack.class
+SHA-256-Digest: QF4pNcPhCpHHLP3tHsONmtr3+eFQ3aQSAn+WQgTnXe8=
+
+Name: org/eclipse/jgit/diff/DiffFormatter.class
+SHA-256-Digest: jMpdoaOmGwFXoNMqVbbGnPAHnffLgbTT1F0vhzTbz2M=
+
+Name: org/eclipse/jgit/transport/WalkPushConnection$1.class
+SHA-256-Digest: BJIlB+m/L+qcnhO0wL9HFaAiSoRDdRcUTDRG7jl/vwk=
+
+Name: org/eclipse/jgit/notes/FanoutBucket$LazyNoteBucket.class
+SHA-256-Digest: YHruKbe707yAhg1eNRz22mGm8nhG8rAV/6D6tgKWKSE=
+
+Name: org/eclipse/jgit/transport/CredentialItem$CharArrayType.class
+SHA-256-Digest: /Cv00fSQ5FLO5yCczdriEulcuMQQfm7OgEKYbem9TPo=
+
+Name: org/eclipse/jgit/api/RmCommand.class
+SHA-256-Digest: E6SalYqtym/kUnZ071IdhbQPGRFvYZ16b2miOwviU+8=
+
+Name: org/eclipse/jgit/internal/storage/file/PackFile.class
+SHA-256-Digest: 8h3VKbV/I4+WOHoHteYI5D2u9tCridTCAoR8LKOacrc=
+
+Name: org/eclipse/jgit/api/CherryPickCommand.class
+SHA-256-Digest: Gf/LY5ECk9rbpZuJmFdeuhbbX/cKK/TaaD3WrTgW9EM=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter$StreamLoader$1.c
+ lass
+SHA-256-Digest: Aii2YIDxmrD2eSLBPROUPPc0d5UgiU0gdOgHDfF0yno=
+
+Name: org/eclipse/jgit/util/RefMap$Ent.class
+SHA-256-Digest: 3vIUjvMhdaaY2mZN/9JNMPhLTOc/F5+CM/76PZbngi4=
+
+Name: org/eclipse/jgit/blame/package-info.class
+SHA-256-Digest: cQtcQMSHpfnL/G3XVtWn+3Ij6PPX8oytNbmJlgrJYr4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRepositoryDescription.cla
+ ss
+SHA-256-Digest: xf/eqdG+gRrJuEaHE3qDu4+L0tONyIYSyWaqeK1pPBQ=
+
+Name: org/eclipse/jgit/revwalk/LIFORevQueue.class
+SHA-256-Digest: PCZR67dBoAgmTnXGdNLG02zkt8RJVCku8WnNKHaUzYs=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsGarbageCollector.class
+SHA-256-Digest: k3ztUR9f3RIJRmHwWQwcct5/9DR3g7sWAId/vW4aQi0=
+
+Name: org/eclipse/jgit/api/errors/GitAPIException.class
+SHA-256-Digest: Z2euFN0YMWDpYJ3ZSoJAW7nKFHY5mONHYeGO4iaokbE=
+
+Name: org/eclipse/jgit/transport/TagOpt.class
+SHA-256-Digest: VX4MKDw7Vi0JFES5pI+rD6x91dm/QEhXf4/vOaIaPD0=
+
+Name: org/eclipse/jgit/api/PullResult.class
+SHA-256-Digest: w2CpcHXJWEWg/dCjrPEDd36eixVC8/yMx6eALgQjJDM=
+
+Name: org/eclipse/jgit/transport/TransportSftp.class
+SHA-256-Digest: vnlV7yOivBqZbqRXmhHtZTrMmTXLgL5RZMqJuHJcf6M=
+
+Name: org/eclipse/jgit/api/RebaseCommand.class
+SHA-256-Digest: KGSzp3LGFYVQqodd4G/0yQVZlUfGwZRIDlFXFI6cG1c=
+
+Name: org/eclipse/jgit/diff/ContentSource$ObjectReaderSource.class
+SHA-256-Digest: 8FbJJXQG7UxiBeqxktkBm9Tl+gT2aaNtsiKgwTPcDu8=
+
+Name: org/eclipse/jgit/api/CreateBranchCommand.class
+SHA-256-Digest: xOqTWbioKsx/Ao3mWmUhjiSySmHOZXzVuhaKmrxMA88=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff.class
+SHA-256-Digest: lzCXm6eKgxmVEHlZIRT/qdkVvFgWniCmPblfLWDN3Aw=
+
+Name: org/eclipse/jgit/transport/ChainingCredentialsProvider.class
+SHA-256-Digest: jqmDU6E7kCdkzaHoB5VyGmq+oQvj4uVffc2VKYuph0A=
+
+Name: org/eclipse/jgit/api/ListBranchCommand$ListMode.class
+SHA-256-Digest: LLoNuEWTEZHJcr+YyrM3BpbhkdPd086Yuq4m3uLtsEM=
+
+Name: org/eclipse/jgit/lib/IndexDiff$StageState.class
+SHA-256-Digest: nr4z+ZEQCaP+EKhOD3ouBOhj66m6X7BTLMLCGyCLfV0=
+
+Name: org/eclipse/jgit/errors/TranslationBundleException.class
+SHA-256-Digest: RndX8BXCiib30r8FrlmYs85rK171m2/Qg98/JA/oOvU=
+
+Name: org/eclipse/jgit/util/NB.class
+SHA-256-Digest: F8kPfMZ1/zbc8b7ZoQE6crV5bvdiJxLjwXpqJ+bUfrw=
+
+Name: org/eclipse/jgit/lib/RefRename.class
+SHA-256-Digest: W6fxD5o6tqVjW/F8yX+U8OPqKBR8Uy17bswRd4kKJAc=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectoryUpdate.class
+SHA-256-Digest: dfzFozPcY9M3TrrKd2xSHRYOPYnUCcRcqmTHWYvQUlc=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV1$IndexV1Iterator
+ $1.class
+SHA-256-Digest: 451HTgEhgbs3U6nIEqFuQYB0va/uJlRnORNw7OIRMIE=
+
+Name: org/eclipse/jgit/lib/ObjectIdOwnerMap.class
+SHA-256-Digest: Mc03ydSVK43BJ+ntOqt6woc7HekaoP2kTtdFD6NRaSs=
+
+Name: org/eclipse/jgit/transport/BaseConnection.class
+SHA-256-Digest: 5zdYc2+4poxZExQh2XOzFup57EbCptGdjESZ/cQK0OA=
+
+Name: org/eclipse/jgit/transport/TestProtocol$TransportInternal$1.class
+SHA-256-Digest: iPpw3vyU8xS3Mbmwt2U1zwoR68IN3waZZV6/CKSZ+eg=
+
+Name: org/eclipse/jgit/api/RebaseCommand$InteractiveHandler.class
+SHA-256-Digest: ne9XKFPbckBojwAEzx6DWIRmb0KYogRu6MAKUTeXheU=
+
+Name: org/eclipse/jgit/transport/PacketLineIn$PacketLineInIterator.class
+SHA-256-Digest: KzEO8xmybXp1XW6E4XZTUm9F930ud3YBagiLKDnrF2U=
+
+Name: org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$1
+ .class
+SHA-256-Digest: kO25Hmi906ChsasqIVfnLUUU+XJWlgyqj6dCfXhXAQ0=
+
+Name: org/eclipse/jgit/util/QuotedString$GitPathStyle.class
+SHA-256-Digest: Fca7iUrW/cm577kkImHRlAW4/ZJgwYr5kJdDqD/dflQ=
+
+Name: org/eclipse/jgit/util/GSSManagerFactory.class
+SHA-256-Digest: R4KPNPYnHujxryLX8ptMYvJ/NCLpiKUnmRKfGl/bzFk=
+
+Name: org/eclipse/jgit/lib/AnyObjectId.class
+SHA-256-Digest: s+mx7wiD+ZBOKCviA9YiQhx+EIeuuY/DX90yYxQgbDE=
+
+Name: org/eclipse/jgit/lib/ObjectIdSerializer.class
+SHA-256-Digest: gcT4ig4NnYwX1PEFkk4aJBBl2sj6dIVL8t7pVNOfsL4=
+
+Name: org/eclipse/jgit/merge/MergeMessageFormatter.class
+SHA-256-Digest: elq+4gSpGUpXEuFRJ29e3JzLWvERnWG+dY9RXEX30bI=
+
+Name: org/eclipse/jgit/lib/ObjectInserter$Filter$1.class
+SHA-256-Digest: Ka4xmQ6VzLmWHRCSkjHR5ybes+pvDDPhtleluY5Xyyo=
+
+Name: org/eclipse/jgit/internal/transport/http/NetscapeCookieFile.class
+SHA-256-Digest: P1WOUYRbxpeo1WDZTgYTD5Q/5F3klrMpwLH1N6EmtM8=
+
+Name: org/eclipse/jgit/util/io/TeeInputStream.class
+SHA-256-Digest: KQpZG8W6nir7I8uxJm5Iis25r8eC9XoQ2W8UmX15yCw=
+
+Name: org/eclipse/jgit/transport/NetRC$State.class
+SHA-256-Digest: HWIHqHtd4JDJf2vLSCBWE56ai74cRa1aKyIuhfcZ8VA=
+
+Name: org/eclipse/jgit/internal/storage/file/LockFile.class
+SHA-256-Digest: 3L9WVJE1FaBzA+BAW/hPKCWHJbEax7yllbAvhOpjC6k=
+
+Name: org/eclipse/jgit/internal/fsck/package-info.class
+SHA-256-Digest: jm2/x63GM9nwxaWLxGYp9ngiFNj9Pgtw8L8HErhStXQ=
+
+Name: org/eclipse/jgit/treewalk/filter/TreeFilter$AnyDiffFilter.class
+SHA-256-Digest: LNZ2IR0ddmL17QKyeuvvS/sr3qY/BYpYHOgnolXwKkI=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator.class
+SHA-256-Digest: KAuox0gRH8AFBiu2Z9LTaMYSFzI0eOzrMk+OTgz4XOE=
+
+Name: org/eclipse/jgit/transport/ReceivePack.class
+SHA-256-Digest: gWoastlSI6gl5CDsPg7y8MHTlTTFP9BCUqMhKe+x520=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexWriterV1.class
+SHA-256-Digest: KdoLobHZ8ihoKR573oeyQh9zNGrRmxas4NnhPLTrd5Y=
+
+Name: org/eclipse/jgit/transport/FetchRequest.class
+SHA-256-Digest: sm2mSM6WhcN1SBzeSHdZgimSJis4cbjKjJJK8ZQ37nY=
+
+Name: org/eclipse/jgit/transport/resolver/ServiceNotAuthorizedException.
+ class
+SHA-256-Digest: wj+8I/YKaOO5q97EmwaVtF217eCPeexxUfc2V3Nt7l4=
+
+Name: org/eclipse/jgit/internal/revwalk/BitmappedReachabilityChecker$Rea
+ chedFilter.class
+SHA-256-Digest: gJV4nDmG2711xuwEoK6jOg9QKXTBctgI5hBYtAe+S/I=
+
+Name: org/eclipse/jgit/merge/StrategyOneSided$OneSide.class
+SHA-256-Digest: YWSoxY5/TZTzGHS/koPNWO3HtdTgOCJKCvP5uhcR2oM=
+
+Name: org/eclipse/jgit/revwalk/filter/AuthorRevFilter.class
+SHA-256-Digest: UyoeMgt+kUxubHA6uzJAR8CI3gD8wDiep1s6YjteQ/s=
+
+Name: org/eclipse/jgit/revplot/package-info.class
+SHA-256-Digest: gJB4i0q+r2s36ycBF4fdAzuznz+6q3A6CImoH+Ufuzw=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFlagFilter$HasAny.class
+SHA-256-Digest: 69aFIWAmTW0ZcfjMWsiY7F4MCJ+Ndj7QX9SHSOauE88=
+
+Name: org/eclipse/jgit/events/RefsChangedEvent.class
+SHA-256-Digest: TWL39sh6rd4XpsRaluLmBNYtxrm8CCWiOxJeUK6thto=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitTimeRevFilter.class
+SHA-256-Digest: yLYQbHca0s3E2kWlnq5lXpvCflHwbtp5eMx2nJn9kOA=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitterRevFilter$SubStringSearch
+ .class
+SHA-256-Digest: J2W5zDJIP/zjKXNKiMoCycu2m2w6WYs61KptJaL0tfg=
+
+Name: org/eclipse/jgit/diff/MyersDiff$MiddleEdit.class
+SHA-256-Digest: IedwGYFDyEFsX5dPZDTmmYl7g2cCSNUpzinBxQbACbc=
+
+Name: org/eclipse/jgit/transport/CredentialItem$InformationalMessage.cla
+ ss
+SHA-256-Digest: uHHm3X9BI5wnhNv/F3AtmxynM291gjOUYfx285SJbwg=
+
+Name: org/eclipse/jgit/api/StashDropCommand.class
+SHA-256-Digest: tUnDcyj7kbwnP5igibt9NMIO36sGbIIqCpSdBnBHFfQ=
+
+Name: org/eclipse/jgit/ignore/internal/Strings$PatternState.class
+SHA-256-Digest: KKcXHS3xhqqznUJJ5xfD36cEQYu/HjdzLXVXrMdNK/0=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaWindow.class
+SHA-256-Digest: bC5QD2GY+oRBk/IahY/DidkrjnpqX20cjYOTM5PWa+g=
+
+Name: org/eclipse/jgit/internal/storage/file/CheckoutEntryImpl.class
+SHA-256-Digest: DrlES5ZPqz6ln04w/LvbtTgZ1z43Jk8pUGUkb07T1gc=
+
+Name: org/eclipse/jgit/api/MergeCommand$FastForwardMode.class
+SHA-256-Digest: 8N/dKVRSG/lM9UHF0MiXICsm5XXV90yUsILAC6U5OAQ=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable$LogQueue
+ Entry.class
+SHA-256-Digest: MMUgf/TH+WhjGAq2oAiU2cHAT8Ph3mv5432CuatZvR0=
+
+Name: org/eclipse/jgit/api/errors/InvalidConfigurationException.class
+SHA-256-Digest: NNjpqby89ETxLrC5GOr/u1Y6DdvcHH0XvxHjFgEdLbI=
+
+Name: org/eclipse/jgit/patch/FormatError.class
+SHA-256-Digest: ZhmPSigRjRIJ93m20f/e5Hke2Mg5ZzVy5myjtvytKro=
+
+Name: org/eclipse/jgit/api/errors/CanceledException.class
+SHA-256-Digest: 5ytU5FiH3as9x+/oe+tAztBIBGkWc7l41JZN9SsjrJw=
+
+Name: org/eclipse/jgit/transport/package-info.class
+SHA-256-Digest: W6HYQMsLod+d2m6lU0p89Y82lsgOUY3pYzpaS4W4hDw=
+
+Name: org/eclipse/jgit/transport/TransportHttp$1.class
+SHA-256-Digest: gpPbIZ8VnRfJbasiYq/naN/qrTGibKv6tsK55jD2m8o=
+
+Name: org/eclipse/jgit/internal/transport/http/NetscapeCookieFileCache.c
+ lass
+SHA-256-Digest: CJovmOmP8iOQvHYDN9Ah4wrx1Npw9Yenm1GSWTLLQng=
+
+Name: org/eclipse/jgit/transport/ConnectivityChecker$ConnectivityCheckIn
+ fo.class
+SHA-256-Digest: J2Y11w3E898+NxgOJkfnxM09H5ZlllegqRY2M+T13Q0=
+
+Name: org/eclipse/jgit/revwalk/filter/MessageRevFilter$SubStringSearch.c
+ lass
+SHA-256-Digest: gBgRIag1/pFZckkIZjodle9JxIzIelit4fUDQ4qStII=
+
+Name: org/eclipse/jgit/api/Git.class
+SHA-256-Digest: BUAuk8BkCbNSqavLHaH9Gq6HCeE/I8TG8VJ4277CfpI=
+
+Name: org/eclipse/jgit/api/SubmoduleDeinitResult.class
+SHA-256-Digest: lxsuwBhkH8qgLDBa2n+ItzQxaYwmrys0KUZ+tzQ11SM=
+
+Name: org/eclipse/jgit/api/ListTagCommand.class
+SHA-256-Digest: mwxvF4Yo885vvADikIYZsYBOmC9bw7BkHwtCvzpM7gk=
+
+Name: org/eclipse/jgit/transport/SideBandProgressMonitor.class
+SHA-256-Digest: nZNLkTzxEbFy6GV43+t4y5NYs4HvKhStN+7enSpkzVc=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsConfig.class
+SHA-256-Digest: oxpZJcKcsO1USv8VWGTSjRSlR/YqyS3Vt4ttriAO02c=
+
+Name: org/eclipse/jgit/lib/ObjectIdRef$PeeledNonTag.class
+SHA-256-Digest: xKbrYBESORk7NhPJ9HZLiLfH3w43iwJC/N7asTwwl+c=
+
+Name: org/eclipse/jgit/diff/DiffAlgorithm.class
+SHA-256-Digest: TERtqHp9uEx4UIldinwev/Plineb9E4LhLzEGupU1Fk=
+
+Name: org/eclipse/jgit/transport/RefAdvertiser.class
+SHA-256-Digest: eHRbw2qMTDfHAH2BRil/vbMCJ7yFz8JPYO7pvEzw3wU=
+
+Name: org/eclipse/jgit/annotations/Nullable.class
+SHA-256-Digest: U2FKELcHfmTrwaYYakuYiwbUn15fGueuPlL0h75dc6E=
+
+Name: org/eclipse/jgit/errors/PackMismatchException.class
+SHA-256-Digest: bP3OZrpq99skMojnZfnpeWApdZvDeIn2/faN0FOdTIk=
+
+Name: org/eclipse/jgit/internal/storage/file/BasePackBitmapIndex$XorComp
+ ressedBitmap.class
+SHA-256-Digest: HV/y6g9xHgkbHCcVB44D11j+T8+Q/m8OoVSMs7FmPis=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$OneCharacterPattern.class
+SHA-256-Digest: rege+GU9zhsV7eYUIxrjoZmcB3e9/7qg6DduAths8Uc=
+
+Name: org/eclipse/jgit/lib/IndexDiff$WorkingTreeIteratorFactory.class
+SHA-256-Digest: x6jsoxtPV1wKYBLFXsshAo8WO4E9NA6Qbat/RF1QfDY=
+
+Name: org/eclipse/jgit/events/ConfigChangedEvent.class
+SHA-256-Digest: Cqyae4G6JvC1L+33n79wUAjLAvYd8eGk1Kt9/CzkZmc=
+
+Name: org/eclipse/jgit/transport/TransportHttp$2.class
+SHA-256-Digest: mj9M4z5reJSkGBXi/ixzMvVxJ3GUxd7afy/hC1mNL9I=
+
+Name: org/eclipse/jgit/internal/storage/io/BlockSource.class
+SHA-256-Digest: cNBCk6h8iGLeQDnOsm4YkPodGPwtc0Lp7QCUg8HCVNY=
+
+Name: org/eclipse/jgit/dircache/DirCache.class
+SHA-256-Digest: G58eIEyroZkIVrPOKSVfCZGYsgIjMOlydJpMgXTdZdI=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexBuilder$1.cl
+ ass
+SHA-256-Digest: 7/9zzRENcymURFJCTpZvGGt+/dJgSneDS9qOU5+S4mI=
+
+Name: org/eclipse/jgit/transport/TestProtocol$Handle.class
+SHA-256-Digest: MEMlWM1+emTpzAauLDYz1poZVLUFt65nX/65tQQ7sg8=
+
+Name: org/eclipse/jgit/ignore/IMatcher$1.class
+SHA-256-Digest: z69RGRg3jAn5omewHxcDcstMNL2q5F4jSnodUxlsw3Y=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReader$FoundObject.class
+SHA-256-Digest: F8q1IPrmHSj6GQ7rGSSUbExrzjofk5JNIau8IsjH9+A=
+
+Name: org/eclipse/jgit/util/io/AutoLFInputStream$IsBinaryException.class
+SHA-256-Digest: w7JRJG8MlRuSyNoYsfmBN285L2OeGkoVTRRTiQNjyH4=
+
+Name: org/eclipse/jgit/gitrepo/ManifestParser$IncludedFileReader.class
+SHA-256-Digest: jFyHOxSZINIhm0OEcsCi/F9ZKQgO7LLSRItHJE7Yguo=
+
+Name: org/eclipse/jgit/api/CherryPickResult$CherryPickStatus.class
+SHA-256-Digest: OOsJZbOgr5kEwxgbrB55vOzsBURIwDG2Y+0qH9pt6eQ=
+
+Name: org/eclipse/jgit/patch/BinaryHunk$Type.class
+SHA-256-Digest: qzxBSbCOXlpYJAId7QGqkoiJOO0M1u35Rx9QNATeBvg=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackExt.class
+SHA-256-Digest: Z/szSPWZT5QcqG97nscpxGsRj2eDowxWqcMAwTna0xA=
+
+Name: org/eclipse/jgit/util/LfsFactory.class
+SHA-256-Digest: F4eTJQxek2UiWn3PQNEeD+XxcVoZQhu8i+93lvPmfEw=
+
+Name: org/eclipse/jgit/lib/ReflogReader.class
+SHA-256-Digest: /zJcI8JyTVL0JYqt9keQUHMVjIGrp+I4NLb+4pQxBec=
+
+Name: org/eclipse/jgit/transport/PacketLineOut.class
+SHA-256-Digest: 5Zn6zB3aL0HCL9Lm4GHPiGRZplfXGYWBln1uN1mDe98=
+
+Name: org/eclipse/jgit/patch/HunkHeader$OldImage.class
+SHA-256-Digest: a/GPAV+m1+k+x7o+sUSXraiWY46+bmauZnfAVKd29zU=
+
+Name: org/eclipse/jgit/transport/PreReceiveHook.class
+SHA-256-Digest: Hh/WT+d/jaxWLg1qUgXLKOP90wwQG8cya0hnet7e0IY=
+
+Name: org/eclipse/jgit/lib/BlobBasedConfig.class
+SHA-256-Digest: 8gjWAZU3vrRWApwkAzTqNlfbyHqVe77C7bc5TsqQ7+w=
+
+Name: org/eclipse/jgit/errors/NotSupportedException.class
+SHA-256-Digest: 8daiOAKQL4U/YEvLyVwY0pW8wMlnGQM3TaIhk7XQjNY=
+
+Name: org/eclipse/jgit/lib/Constants.class
+SHA-256-Digest: rShpnIt9Fyec+TR8OF91OYN20vtQ8ueeC8jTRB8AZxE=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable.class
+SHA-256-Digest: wo8n5vttubYGA9AMYqrJKX2CI+KID6itp3Ay5zY3QR0=
+
+Name: org/eclipse/jgit/api/InitCommand.class
+SHA-256-Digest: 1bbox1dHUlgiRLaymy+H9eneKFKxfa6c50joNlTBBKI=
+
+Name: org/eclipse/jgit/diff/HashedSequenceComparator.class
+SHA-256-Digest: 1rj91JKHcKN+OM3WS+AOovbzoQ3YPlFg4l6sS9yXPsY=
+
+Name: org/eclipse/jgit/notes/NoteMapMerger.class
+SHA-256-Digest: 3upaoM78aCdsYPLfu3zfFoQE4J0h/FiG/wmKUgrCZt8=
+
+Name: org/eclipse/jgit/revwalk/AsyncRevObjectQueue.class
+SHA-256-Digest: bspHBbir5Gk4Pt11+Z/sGaEnOt1zl7evdt6edqQReKs=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$Entry.class
+SHA-256-Digest: KTLu7dRn/HLCkIL8JMv+CqC+TbG7Y50QXzSM5RJLaTs=
+
+Name: org/eclipse/jgit/storage/pack/PackStatistics$ObjectType$Accumulato
+ r.class
+SHA-256-Digest: L+fJN/1SAuBR8zCPjcZyL23EGS11B0pBRqh6YzE0UpE=
+
+Name: org/eclipse/jgit/transport/ReceiveCommandErrorHandler.class
+SHA-256-Digest: nJnoyzpYWwlwbs+90nyIoRFQJK/8fgK9LEh0kIxqtw4=
+
+Name: org/eclipse/jgit/internal/transport/ssh/OpenSshConfigFile$HostEntr
+ y.class
+SHA-256-Digest: yN+QgyufTcu9tYAu+DHNaPKfKRiP1pIw2fMWCdbRIW8=
+
+Name: org/eclipse/jgit/api/ArchiveCommand.class
+SHA-256-Digest: uFvUjDuQPClK/BoRSPOTt9Ri58Gabmuf490S7l6HhLU=
+
+Name: org/eclipse/jgit/transport/UploadPack$ResponseBufferedOutputStream
+ .class
+SHA-256-Digest: cRuAuMhollysHRk4bc7cSRFFIKtfIBU10VcJWfi0ggk=
+
+Name: org/eclipse/jgit/internal/storage/file/package-info.class
+SHA-256-Digest: POYfI3tOTRm2JXsz1Xf4r2RaKKhDZwU42cpoewLoxZc=
+
+Name: org/eclipse/jgit/transport/AmazonS3$Keys.class
+SHA-256-Digest: Bt1o+l5qv28G5Pns9BEreRI9aSmuPx4btGdurpsOW+Y=
+
+Name: org/eclipse/jgit/transport/InternalHttpServerGlue.class
+SHA-256-Digest: DnbRRAyQxXNj3igI7uZ5m9VhqbHEUvR6rvxj4DSQhJc=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriterBitmapPreparer.cl
+ ass
+SHA-256-Digest: TnFCbr5H8AxpE+jUHuTTCiQVt6+U30qo6YLOidxz+44=
+
+Name: org/eclipse/jgit/internal/storage/file/GlobalAttributesNode.class
+SHA-256-Digest: AO3P5bz/KNLWql91hOVqAXeg6Wp4aD7L2G5utHEzarU=
+
+Name: org/eclipse/jgit/internal/storage/pack/ThreadSafeDeltaCache.class
+SHA-256-Digest: PKEZw51XIZTLyIOeqhtMSL+OAViwop+rn8Ul1FL8uuw=
+
+Name: org/eclipse/jgit/transport/PushCertificateStore$PendingCert.class
+SHA-256-Digest: vuhllYtisddJywk08pmm1dwFZeUSYkLIWSUcCSX/gvY=
+
+Name: org/eclipse/jgit/transport/FetchProcess.class
+SHA-256-Digest: 2r5ZZNxurRWBBTYxGaE9lqLdYIcIGLFbVQ5ZrUSoGyU=
+
+Name: org/eclipse/jgit/internal/fsck/FsckError$CorruptObject.class
+SHA-256-Digest: 5Il/AgS+Z0wwHoMBgOs0SKdkb4dhhTeJjfMlXYYMfEw=
+
+Name: org/eclipse/jgit/util/time/MonotonicSystemClock$1.class
+SHA-256-Digest: BUUREjXEf3/6WfAagmzPWTFK2qIJoowOdlE0dH5qJgI=
+
+Name: org/eclipse/jgit/revwalk/filter/SkipRevFilter.class
+SHA-256-Digest: 1P8mjmRB/c7w3GrtMXVa+ZbBtRhcf/kJ6kgUgZgUrk4=
+
+Name: org/eclipse/jgit/notes/NoteParser.class
+SHA-256-Digest: xdtwQR/FfWHu0TJ8geSFqPkgybZ2Tt4+WX6/yH3tXM0=
+
+Name: org/eclipse/jgit/lib/Config$StringReader.class
+SHA-256-Digest: RfcgDSyiS87B6WnuPsEUElIG+ZjQkzVAbLDfEftBUcI=
+
+Name: org/eclipse/jgit/internal/storage/file/SimpleDataInput.class
+SHA-256-Digest: Rh7pBBsLYzsLRnJLD2jeoJ5ZFru667aofW7LYhCR1FU=
+
+Name: org/eclipse/jgit/lib/RepositoryCache$Lock.class
+SHA-256-Digest: KXE04BrQMXneurZqYsRD6V9ZbtRuYjpDjCedzE32Kxs=
+
+Name: org/eclipse/jgit/internal/transport/parser/FirstWant.class
+SHA-256-Digest: mE03wNuAVqX3IAaat87xG4TOF09h9BVyeOlDaMDtnp8=
+
+Name: org/eclipse/jgit/util/io/BinaryHunkOutputStream.class
+SHA-256-Digest: EnVLZV9Ko3o/thgozv9daIMyzkafvFa0kedJz2LitQM=
+
+Name: org/eclipse/jgit/notes/NotesMergeConflictException.class
+SHA-256-Digest: gZBXWvgETNWk7hJAJd24Deke1XQcvrw+3Zn9pLc7dII=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableReader.class
+SHA-256-Digest: BLsEO3Vt055iBhAJwpdVUcSyDyEaVwmYZb45N9OZpdE=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableOutputStream.cl
+ ass
+SHA-256-Digest: /w1PEtybCFy5URSIqUsVu1ZLm2y+VjbyVdkqbrWCKXA=
+
+Name: org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation.c
+ lass
+SHA-256-Digest: hi+n5BDLjvEpINGcvwlHeKX2hbI25Q4Txrr3HL0m1m8=
+
+Name: org/eclipse/jgit/api/RebaseResult$Status$12.class
+SHA-256-Digest: 7viJHpbbtbTae7+VehGyj4wJtVhw0hAA3JOJjBNDmLE=
+
+Name: org/eclipse/jgit/transport/UploadPack$RequestValidator.class
+SHA-256-Digest: MHfrcgzJhmcQYmNhD7UQ4zfeJnDm5fAO8Gdndq93uho=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsText.properties
+SHA-256-Digest: iFCAor1+JdzhcJM9uH3eSGZP+RxxYqyVg6IEaii2yY0=
+
+Name: org/eclipse/jgit/treewalk/filter/AndTreeFilter$List.class
+SHA-256-Digest: 9Doia+SNFhGBzVybRWQl7YAoM3+KeKpurEzTb2N+6NI=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInserter$PackStream.cla
+ ss
+SHA-256-Digest: rMjBWxVsHPgyo1JS7YC+1LqX1uVp+OQ1IFN6xNSX02U=
+
+Name: org/eclipse/jgit/lib/ObjectLoader$SmallObject.class
+SHA-256-Digest: TT+YNbE4ahcV6z/4LE9jLbdW8+wIWOscjBFz4YaD4ik=
+
+Name: org/eclipse/jgit/transport/RefAdvertiser$PacketLineOutRefAdvertise
+ r.class
+SHA-256-Digest: weErjlljduV/IjDiMmG2W4i75b44rIlJxhRE4YZsVac=
+
+Name: org/eclipse/jgit/transport/PushConfig$PushRecurseSubmodulesMode.cl
+ ass
+SHA-256-Digest: mgrS3F+fu/xqKgI0mIUh73EHnw251PFriPC3mqtMdto=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableReflogReader.cl
+ ass
+SHA-256-Digest: knITRqI1bGrSsMfefsK0fJ/Fg98f77BQCFajlQPsN2k=
+
+Name: org/eclipse/jgit/lib/CoreConfig$HideDotFiles.class
+SHA-256-Digest: +gpQXL/KTPfEmmqOK3ZRdhTTxTR4fco1GdGuWMpgvLI=
+
+Name: org/eclipse/jgit/revwalk/RevWalk$GetMergedIntoStrategy.class
+SHA-256-Digest: DM18WAKAbP2bxMdefjM5e2QEdS/zCeob70MD/KKEAJM=
+
+Name: org/eclipse/jgit/util/QuotedString$BourneStyle.class
+SHA-256-Digest: 718ptswjPoETP9WHCt051zVTgYIAFsO5YVbcSjdQDg0=
+
+Name: org/eclipse/jgit/util/Base85.class
+SHA-256-Digest: FAmVM0SRLqCXuKuU3VyBBWg71nGRMJgWmS8tQdEPpuc=
+
+Name: org/eclipse/jgit/api/RemoteAddCommand.class
+SHA-256-Digest: bpeH6nUFmiMzhNbePqGlkMCofV6oYt28N2hw14usl2I=
+
+Name: org/eclipse/jgit/transport/CredentialsProvider.class
+SHA-256-Digest: hog3mMQpmO2HRwwe0j6+BIf81uD6ne6iq7GWd8zmBd4=
+
+Name: org/eclipse/jgit/attributes/FilterCommand.class
+SHA-256-Digest: lkh231QbxNHhkKlWjRUUbKSNEJBmNDPVXb8bVjFmi2g=
+
+Name: org/eclipse/jgit/transport/ReceiveCommand$Type.class
+SHA-256-Digest: VdkxeF0SLK+ZNLTaESLGo0EdQqRre+KdhP+iNltGPIU=
+
+Name: org/eclipse/jgit/api/errors/EmptyCommitException.class
+SHA-256-Digest: +0w+tnleYFc/NSGf2KI/2w4/Y6b+aTCcwuOAybfdKd4=
+
+Name: org/eclipse/jgit/dircache/DirCache$DirCacheVersion.class
+SHA-256-Digest: jbODPETGTb0/SmmDZUUMPyk2xVIm4S2pq7VDqjmQ81M=
+
+Name: org/eclipse/jgit/transport/ObjectInfoRequest$Builder.class
+SHA-256-Digest: D2KxsyySGV12GpRhEz2GX498ymzDmJY0QHk3fRyugaE=
+
+Name: org/eclipse/jgit/transport/AdvertiseRefsHook.class
+SHA-256-Digest: XXL/UrbIZKiLonuC91zS8hE/7JFvFxNSlHor1Ba+540=
+
+Name: org/eclipse/jgit/internal/storage/pack/BinaryDelta.class
+SHA-256-Digest: fs6oQ7Ivd7vZ39ieA5esRr/7pzuJyOiA9TZMY/Jde0k=
+
+Name: org/eclipse/jgit/transport/AdvertiseRefsHook$1.class
+SHA-256-Digest: odLIS+LtsW5psjehP6IX7XEkTr/wJgMxVt6+E1WKL8k=
+
+Name: org/eclipse/jgit/util/FS_Win32_Cygwin.class
+SHA-256-Digest: 4LG9rEAawpMzv/cJ4FDTgUmOeeJu9dzyms0MiyRZkkk=
+
+Name: org/eclipse/jgit/notes/LeafBucket.class
+SHA-256-Digest: TOTWQ7wNi+yhnruHQKUTeYWnqDIckCo36zbXsckPEkM=
+
+Name: org/eclipse/jgit/transport/UploadPack$IOConsumer.class
+SHA-256-Digest: 2lY0tqnbGJGumNFjio75/23aYw986+t24yevp6y2wrA=
+
+Name: org/eclipse/jgit/gitrepo/RepoProject.class
+SHA-256-Digest: BpUJa5n9WmI1ZkkVmK68Kja4DbN0uQR8D6+Pk178zZ0=
+
+Name: org/eclipse/jgit/util/Monitoring.class
+SHA-256-Digest: IBN75g1+wli/RaTwaA92lfjOS9QuJppnWRSDqx0jKUw=
+
+Name: org/eclipse/jgit/util/LongList.class
+SHA-256-Digest: JOV8Ay6DVm1DjYTxXDLutlHQEOBUw3OH/Gm4zs72N8U=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableConfig.class
+SHA-256-Digest: RsdJu/FHAW1mlArBxQiq0/PcP9Pkd60bZVA6vLoC/oE=
+
+Name: org/eclipse/jgit/revwalk/filter/CommitterRevFilter.class
+SHA-256-Digest: llXWNp9j4NwHrILpf9r6/7mq/tFPUQOHGbs6iXwHBhg=
+
+Name: org/eclipse/jgit/transport/TransportLocal$1.class
+SHA-256-Digest: 0yOgDxiTHEBz75mfG0HR90eHIdjt1CG6CR6mrdBNfyY=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftableDatabase$1.class
+SHA-256-Digest: IEWDZHlqg7jGWj9j7PtTZPgnDTMQGFt3pOP63cBLoEg=
+
+Name: org/eclipse/jgit/internal/storage/file/ReflogReaderImpl.class
+SHA-256-Digest: M5kAG+hXTHRPNdXfe8jKavRet7C7+z9kJ7Y1pUbocZ0=
+
+Name: org/eclipse/jgit/internal/revwalk/AddUnseenToBitmapFilter.class
+SHA-256-Digest: LoRG0AcoA9SEXvQGnsHe6h9sds+u0VTsHzVdTXGZxgs=
+
+Name: org/eclipse/jgit/transport/FetchV0Request.class
+SHA-256-Digest: 5WYL8IWyEDJSgjU+v6oJ8q45TyY0kDoO6xu0HljA2RI=
+
+Name: org/eclipse/jgit/lib/Config$ConfigEnum.class
+SHA-256-Digest: ePD/iJLANIOmds8HPjY7XEaLMmUyCO6aUWvvuzYYo4E=
+
+Name: org/eclipse/jgit/transport/TransportAmazonS3$1.class
+SHA-256-Digest: XCMhWmFKqMFsLiArHm34NJ2A7auuBJ//M+4RnAfLEMM=
+
+Name: org/eclipse/jgit/transport/UsernamePasswordCredentialsProvider.cla
+ ss
+SHA-256-Digest: B0Qe/6D8K7VLygbk+NnHkIjeBsQOwKE2/djmmf+Ntfc=
+
+Name: org/eclipse/jgit/gitrepo/RepoCommand$RemoteReader.class
+SHA-256-Digest: XOo6FWY5w8gTmBKgMKhRJYgRPHbLwWW8wbI0Ed7wdKs=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$StatsRecorder.c
+ lass
+SHA-256-Digest: ZKR2Z+KyLDfS6l/ge7dzTZJRcWrcQjzFCJwTai3AzdY=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriterBitmapPreparer$No
+ tInBitmapFilter.class
+SHA-256-Digest: cPtVh7MKfhG20L3TPEfI07wsDubG/svDcRoqoe5asPY=
+
+Name: org/eclipse/jgit/revwalk/filter/RevFilter.class
+SHA-256-Digest: BfHcCLE2RRTfuFl0LbzGl/7mfHB7vr1iPW1tHbF4G84=
+
+Name: org/eclipse/jgit/transport/FetchV2Request.class
+SHA-256-Digest: 9HdEg0nzoUX3sr/CwMujtm8bfLV0e42NnqvewULY8u0=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LoosePeeledTag
+ .class
+SHA-256-Digest: +a4ciTwRvY0CSnkpzWK6WGn9QDqnjuYFF3cNtn/+3kI=
+
+Name: org/eclipse/jgit/internal/storage/reftable/EmptyLogCursor.class
+SHA-256-Digest: Bwd9Ub4RSSFKJeGfG4yohdm+rMAhsGtDk++/Ns7WixQ=
+
+Name: org/eclipse/jgit/api/NameRevCommand.class
+SHA-256-Digest: 7pIOXW/oDIxwtY249l3GV4P8/yeIbcMo/Cc807sUl7E=
+
+Name: org/eclipse/jgit/transport/ReceivePack$FirstLine.class
+SHA-256-Digest: cuI0T4bCxs00KITSYuV7NOiAn0i2DcaZa8jx/ZbSYQo=
+
+Name: org/eclipse/jgit/lib/GitmoduleEntry.class
+SHA-256-Digest: vVIlIdh1GaqrugIrmaAJy6wqKbcVn7z4a5byEbjwfVU=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Digest.class
+SHA-256-Digest: vtXMI9jFM9EahRbYekdA42g8KoSCEBdP7vtZtTHK8JM=
+
+Name: org/eclipse/jgit/transport/PushCertificateParser.class
+SHA-256-Digest: 6PrI+3rw5F51tyAyP5rBLKe4DTb1DVFeQX7Euxqg0Rk=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$Lock.class
+SHA-256-Digest: QiW7JCp9t4Mndk7hw2xrFAQIvBIwzroo4SIj+c5dAYw=
+
+Name: org/eclipse/jgit/lib/RepositoryBuilder.class
+SHA-256-Digest: Oi49Y1DNcnSQa1fATiPX2cMb9u2D5TVmwsQagL5b3W0=
+
+Name: org/eclipse/jgit/transport/WalkFetchConnection$RemotePack.class
+SHA-256-Digest: AENj/+CWOw1socRyRtYxr+KtdU4/5M1/FEaq9RtyUYU=
+
+Name: org/eclipse/jgit/internal/storage/pack/PackWriter$2.class
+SHA-256-Digest: 5N/7OSoG3FaFI7QuRRGFc22La3UxNYoKOs57EjmSkOc=
+
+Name: org/eclipse/jgit/internal/storage/pack/BaseSearch.class
+SHA-256-Digest: mcAXyhE80bhK3CKdXg6STsX7+bUxMI6+cMke8org7ow=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef.class
+SHA-256-Digest: pyxKBWYFFYODc9jbMLlY49NfwZfZzRQaphvw5nqvGnQ=
+
+Name: org/eclipse/jgit/util/SystemReader.class
+SHA-256-Digest: Pe3YxsjfJ0QnpZ7LNrk97v7gnrIxfP/6R40RX6LUUag=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$RefEntry.cl
+ ass
+SHA-256-Digest: ATtR4n/pETAt5ELn0g+rXWyCkkZKG9I3sP6pwyL7qE8=
+
+Name: org/eclipse/jgit/lib/ObjectChecker.class
+SHA-256-Digest: st7m3OaDMR+N2bGRlUgBKm+miGNfF2HFmYJth64ukgA=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaTask$WeightedPath.clas
+ s
+SHA-256-Digest: AuCO32XE4IQaI/t32jBip8Jda1iPTwCTtupRyjrhMtk=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh$2.class
+SHA-256-Digest: /mYIJHxgfnI1aVzpN+f7wOc9MArXjNpeXx0R9/QVH0g=
+
+Name: org/eclipse/jgit/lib/CoreConfig.class
+SHA-256-Digest: VAEqyft6/BvMHcDIROBOiVUdU3T5kIf9azTkcwddZx4=
+
+Name: org/eclipse/jgit/util/io/package-info.class
+SHA-256-Digest: aAZiRM3i5Bq6XsvrP5Pjx2bm4cjo577ePGgMRApQs2U=
+
+Name: org/eclipse/jgit/blame/Region.class
+SHA-256-Digest: L0u1rjrKtOcQM1hLfOJHaHapMMM+xW3cazjhlcMmcDI=
+
+Name: org/eclipse/jgit/internal/storage/reftable/LogCursor.class
+SHA-256-Digest: xEFgAcgoBqU4RRG15fYO3sW1MysV0Al9F9eVKsMAMNY=
+
+Name: org/eclipse/jgit/api/ArchiveCommand$FormatEntry.class
+SHA-256-Digest: +E3Af3uR74iMFKdxuYPEMjjD03inaZm9UHNOqHXL6H8=
+
+Name: org/eclipse/jgit/merge/StrategyRecursive.class
+SHA-256-Digest: 0LCOtb3Gee6CbqtMH3KjZ8LxsuB26Brx/+bSqdHBu8Q=
+
+Name: org/eclipse/jgit/util/TemporaryBuffer$LocalFile$1.class
+SHA-256-Digest: IaLzF5LO76vjFTmNVrEMFCil7M+V0JyODFDqifZs9oc=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$Builder.c
+ lass
+SHA-256-Digest: pGIy0fsNBraGC5d1XWode9QxMjh7Af8onkNJdhKs0FQ=
+
+Name: org/eclipse/jgit/util/io/NullOutputStream.class
+SHA-256-Digest: 1NrQug3QuS52fIEhpVf3Md3TbVYYZ2yenSMpkZLgyLA=
+
+Name: org/eclipse/jgit/transport/http/JDKHttpConnectionFactory$JdkConnec
+ tionSession$1.class
+SHA-256-Digest: 3tfmSaDixHoxSBzdS62siNUFX2Y1PYKN9W5b8bo4aMM=
+
+Name: org/eclipse/jgit/revwalk/RevCommitList.class
+SHA-256-Digest: T+rLxT/5XeRd8nk21/Xt/UHlYizk4UQMn+KysxFRdaQ=
+
+Name: org/eclipse/jgit/blame/BlameGenerator.class
+SHA-256-Digest: K21ZSHA+4VuyC1QuyqrjfcTscnJg7rWCdN7s+UZR+Co=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$ComboBitset
+ .class
+SHA-256-Digest: TWE0pme3JoLS6q+sSpOf6DGS+ajCKuAPdRnTZa3LSKE=
+
+Name: org/eclipse/jgit/internal/storage/file/InfoAttributesNode.class
+SHA-256-Digest: s5XV7uBnDbasqD6Fz8pqVI1vqUBq0QlFDx2P3oobhWo=
+
+Name: org/eclipse/jgit/errors/IncorrectObjectTypeException.class
+SHA-256-Digest: AuC2Us6l9k/QCyUPiGej3jt0iEm4gLk3YNqGDIFWp6Y=
+
+Name: org/eclipse/jgit/patch/CombinedFileHeader.class
+SHA-256-Digest: tWi8WxgvFbvvkgRkJVsvOb+ncm+qcePOfXJ9Rd5l5Ds=
+
+Name: org/eclipse/jgit/transport/TestProtocol$TransportInternal.class
+SHA-256-Digest: 0V3y6CPJ24AxUioB6Aw/GMdYy0Ov95Zg2/kx0uKRMbg=
+
+Name: org/eclipse/jgit/util/ProcessResult$Status.class
+SHA-256-Digest: 9daU8r1O6ohKlsK1wTcaW/dOGlZTVxKVKRW9ybb9UUw=
+
+Name: org/eclipse/jgit/transport/NetRC$NetRCEntry.class
+SHA-256-Digest: 1QC9MnQGBdjh8JbH6jMsQ9SWi0m1YVjvqxDxgbPFFMY=
+
+Name: org/eclipse/jgit/treewalk/EmptyTreeIterator.class
+SHA-256-Digest: NmWnlOni8YSH4ErkJNmrQWaCJAEoK87rwCYKP5MYjto=
+
+Name: org/eclipse/jgit/ignore/internal/PathMatcher.class
+SHA-256-Digest: KFIIeKs11n7B4tAk7LldxKvK3iM2XX583bIY8Qh4Y5M=
+
+Name: org/eclipse/jgit/lib/RepositoryState.class
+SHA-256-Digest: 3SIoBLQc1PgM4qfdprqr7aa3AStFXqRhaXXZxKx8qRA=
+
+Name: org/eclipse/jgit/api/RevertCommand.class
+SHA-256-Digest: 06+Rw8uh3HjrKMmjAb4ppeMHiLfLH/2ggphJ8WfvHRk=
+
+Name: org/eclipse/jgit/dircache/package-info.class
+SHA-256-Digest: mRsRVPyfs6GGzvBIcQDqO8/eQTXOYOfZHmw4wxBUoAk=
+
+Name: org/eclipse/jgit/ignore/internal/WildCardMatcher.class
+SHA-256-Digest: 2ZmJaIddfVxnubC2AVBLtamm2lW4cIt4QYudJ/jLDOg=
+
+Name: org/eclipse/jgit/internal/storage/file/ObjectDirectory.class
+SHA-256-Digest: yfD32CCfs5+MtMbQcidkSCH4lAkiar5FOwVTfNXV1ao=
+
+Name: org/eclipse/jgit/revplot/PlotLane.class
+SHA-256-Digest: 8IDhkwntAPf8faTZgaEISb6aUoZEEek8VSA/RZM5OqA=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LooseUnpeeled.
+ class
+SHA-256-Digest: 2O7daQkquLbwLNcTnk1Zq8Y40xrQwnfHDQ7ff51959c=
+
+Name: org/eclipse/jgit/lib/BitmapObject.class
+SHA-256-Digest: rst+kJFfhrFSeb7vKM75QyOiq+5X47uJ1R4f+rIqrFc=
+
+Name: org/eclipse/jgit/transport/PushConnection.class
+SHA-256-Digest: 9ZVawT7aBfimXf0DzPb0tJ0xMznZRk84PeZzcXwqHes=
+
+Name: org/eclipse/jgit/util/sha1/Sha1CollisionException.class
+SHA-256-Digest: S6bryLr041lx408kBe7NM6eTU/OaIqP9bOGUuoHTk8w=
+
+Name: org/eclipse/jgit/errors/MissingObjectException.class
+SHA-256-Digest: DGHpN9AmDRZ5riJIlOL5jDxY7NbjActUFniDki9Hgx0=
+
+Name: org/eclipse/jgit/errors/RevWalkException.class
+SHA-256-Digest: pVkhkvBT6CJ1bNf0R+iTiCJMFk1rUay19AjxZyscNOY=
+
+Name: org/eclipse/jgit/internal/submodule/SubmoduleValidator$SubmoduleVa
+ lidationException.class
+SHA-256-Digest: NBzLObKtlEteqeuz53+aWFpgiosqKjxddE3oj1jn2jA=
+
+Name: org/eclipse/jgit/lib/NullProgressMonitor.class
+SHA-256-Digest: +jb18X+v7KAabWxhqj6ONo4f0Pt1IOPsitJC2MNU8D0=
+
+Name: org/eclipse/jgit/logging/PerformanceLogContext.class
+SHA-256-Digest: x1FeJfwUBSmNPQgB0JfcAJjlFnG5maLc+lWdPnwiu40=
+
+Name: org/eclipse/jgit/internal/storage/file/DeltaBaseCache.class
+SHA-256-Digest: ojaRPI82TSEuiubyyI0jZsHlwt58TJsOlpFWdagpTuk=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$ObjEntry.cl
+ ass
+SHA-256-Digest: 3dAqURUlUG4li4X9oBmBVLc57wSLqnHxzSUy7l71swM=
+
+Name: org/eclipse/jgit/util/sha1/SHA1Java.class
+SHA-256-Digest: 1y8zyWOywQRLL9GywjkFw0Rj6g500GVPvqDkDiR3opw=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsStreamKey.class
+SHA-256-Digest: djS32Z7ZpiX+syY2cyrZugpQHawmC/L+StHv2BbakhY=
+
+Name: org/eclipse/jgit/revwalk/ObjectReachabilityChecker.class
+SHA-256-Digest: L4a4O8LGyh4yFpwKjIXCua/HrkyO3DqZYFirFKg0CAw=
+
+Name: org/eclipse/jgit/revwalk/ObjectWalk.class
+SHA-256-Digest: bWUcBj/hoyF4PB17uRs/6zUHCWUrZpbIWoou8K+iQHw=
+
+Name: org/eclipse/jgit/attributes/AttributesNodeProvider.class
+SHA-256-Digest: sYJ8ZdBXPOJmXRyU+t+5N2smyR0gwWqLBumbBgM9ewI=
+
+Name: org/eclipse/jgit/api/ApplyCommand$SHA1InputStream.class
+SHA-256-Digest: B6JtSRVc9YYVlL8FiMd2qVDNzD6l2R2CLgRU5sS9kiU=
+
+Name: org/eclipse/jgit/diff/Sequence.class
+SHA-256-Digest: nNs3ao1so+wKVJu+3rQ59njO3/L0CNwbF+izhVfG1FU=
+
+Name: org/eclipse/jgit/fnmatch/CharacterHead.class
+SHA-256-Digest: kRZKSam87lGKr895/Z+hzZOnKuxmhC9s3RltfCqvq2k=
+
+Name: org/eclipse/jgit/errors/TranslationBundleLoadingException.class
+SHA-256-Digest: cuoO/XSvRiyvyyXF21McbNseE7+4m1Ypyue+dXNdn3w=
+
+Name: org/eclipse/jgit/errors/MissingBundlePrerequisiteException.class
+SHA-256-Digest: iO7V078YISsDvwPPnY4hqH7Tr1xyA7YF8QQYLTIw/qc=
+
+Name: org/eclipse/jgit/util/LongMap$Node.class
+SHA-256-Digest: rs8/gnTTE9xYs878tpmD0tu7sZjlyke/zxf9sdkSn2Y=
+
+Name: org/eclipse/jgit/transport/http/JDKHttpConnectionFactory.class
+SHA-256-Digest: Fnsuh6kZSNFbIAytiIGFb4WTbNK6Nj8kVEw/3WGWhSg=
+
+Name: org/eclipse/jgit/api/RemoteRemoveCommand.class
+SHA-256-Digest: 9mEf4g4IeySz1LhwNlA+Y58aQF+Zly/r6bEFX3s6gEo=
+
+Name: org/eclipse/jgit/transport/BasePackFetchConnection$FetchStateV2.cl
+ ass
+SHA-256-Digest: 5bQxe0RApEaKjV0xtEIXD4AdWQrevya/YG1u139lQos=
+
+Name: org/eclipse/jgit/events/RefsChangedListener.class
+SHA-256-Digest: R6F5p1ZGo0jhybl6hv8Pez99WQaqyjdBCijwPX6/Uzo=
+
+Name: org/eclipse/jgit/util/FS_POSIX.class
+SHA-256-Digest: YXnmvUKnvCrdGep+6mqAh8EAfjcoAQ5sH1bffaB+nes=
+
+Name: org/eclipse/jgit/events/ListenerHandle.class
+SHA-256-Digest: OIT8gkd97zmekjyj21EVpJ2jV2UnrIIi6daHF3rEMqk=
+
+Name: org/eclipse/jgit/lib/RefComparator.class
+SHA-256-Digest: tZgTNjKk2DYUbTOSyRiXSiQbcitKUKulGBGjNa5cSg8=
+
+Name: org/eclipse/jgit/transport/TransportLocal$ForkLocalPushConnection.
+ class
+SHA-256-Digest: 9uTEyqJ3yuZ6sAqzN69tFnXPKXOX/QHsHLse53zBVLE=
+
+Name: org/eclipse/jgit/transport/WalkEncryption$SymmetricEncryption.clas
+ s
+SHA-256-Digest: 9G4h/xUYLlYofsTUtMxcDKEcrRPLewYt07rOz5HFVTM=
+
+Name: org/eclipse/jgit/lib/RefUpdate.class
+SHA-256-Digest: Bu+vhXmDjAUqvuOuGKqR7JQUlPU3SbJca+6DtgDPTNw=
+
+Name: org/eclipse/jgit/revwalk/filter/AuthorRevFilter$SubStringSearch.cl
+ ass
+SHA-256-Digest: IKBy8mXj8htC1WTCQ/7fcBWLTwlFeBZonLoj9mJ4JdI=
+
+Name: org/eclipse/jgit/api/ApplyCommand$StreamSupplier.class
+SHA-256-Digest: DqMEH2o3N5DYlEB/OMLpl6RXkZbp+eNU/WAYX5/ORy0=
+
+Name: org/eclipse/jgit/notes/NoteBucket.class
+SHA-256-Digest: G63vs7QjWQIsjTEEMRenSJyaU/m01eEyX2bqFhh4HfY=
+
+Name: org/eclipse/jgit/lib/ConfigSnapshot$SectionNames.class
+SHA-256-Digest: mAoXixkd5Mr20cUES3OlbG3wNPCWWfnkjkBGMUrlZqE=
+
+Name: org/eclipse/jgit/internal/storage/file/LooseObjects.class
+SHA-256-Digest: WbKbhOEtzqzephVHX/zKDSm2OiTcWqvsZtzy2STTSvk=
+
+Name: org/eclipse/jgit/api/errors/MultipleParentsNotAllowedException.cla
+ ss
+SHA-256-Digest: pbsE3CS+sdtqxnqr1WrUCGeDU6NS2sQ7b77zP+UYe2w=
+
+Name: org/eclipse/jgit/dircache/DirCacheBuilder.class
+SHA-256-Digest: c3PBHMJcbNywBPI4omxlaLPdxzXLRnlJ1YbFBAWEv2E=
+
+Name: org/eclipse/jgit/api/errors/InvalidRebaseStepException.class
+SHA-256-Digest: Hqbjj1sAIG3MnuoEuAOPixDFv13vI50lNgQ4nEqJJqw=
+
+Name: org/eclipse/jgit/transport/FetchConnection.class
+SHA-256-Digest: APapruCsDaj3cev351ch2n8LFVBxyj4JyK9JR53KW2Q=
+
+Name: org/eclipse/jgit/internal/storage/file/ByteArrayWindow.class
+SHA-256-Digest: nMYro3G1XC2zQXWJU+9iI/SY28TN20boyvQkyrLMCQQ=
+
+Name: org/eclipse/jgit/gitrepo/ManifestParser$Remote.class
+SHA-256-Digest: QaX00X2aMs23kB8llcR1CAzzwGAWaIat4jUSvQV8FYk=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsRefDatabase$RefCache.clas
+ s
+SHA-256-Digest: +4oQPQ/bUHUoNPme59twI3+dAVDXCV03xOVandE3szs=
+
+Name: org/eclipse/jgit/lib/InflaterCache.class
+SHA-256-Digest: rDqhVUscCD9PmXkM8rPwncOvjSxdhiFhgz1rxzKqCGo=
+
+Name: org/eclipse/jgit/transport/UploadPack$PackProtocolErrorWriter.clas
+ s
+SHA-256-Digest: b37LO0kPaDJlXEjeBKOhkyV8x+btMxnjvJrwtmIBAlY=
+
+Name: org/eclipse/jgit/api/StatusCommand.class
+SHA-256-Digest: 5HU5y4Y0BI7meWkglioY6NEwVRzPpEi6PxbrFXoNrhI=
+
+Name: org/eclipse/jgit/api/StashListCommand.class
+SHA-256-Digest: wyNjqSg9DUhpdKzbqd2bGhq2nyAz+BtyBRBRFXZtTFY=
+
+Name: org/eclipse/jgit/lib/RepositoryBuilderFactory.class
+SHA-256-Digest: 2Q/lKaiZVV1X4aCbziX1Ib5eaoRmhpxFcRVgl5ZSULY=
+
+Name: org/eclipse/jgit/revwalk/ObjectWalk$1.class
+SHA-256-Digest: jaXnwjxuBxtbQwcFQlYGh5+8h8JqFX77BNa0z6tq+og=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInputStream.class
+SHA-256-Digest: WATUA5yvpG0id0vY1ZHxza1GNMtsnKrPI9WxoSkXtns=
+
+Name: org/eclipse/jgit/lib/package-info.class
+SHA-256-Digest: CXXWsIz+wAU+mjedfYvhhN4izMIx46NuEApuG909yjs=
+
+Name: org/eclipse/jgit/submodule/package-info.class
+SHA-256-Digest: zLWWrIOy/4J/gKKIFShh+A74RzKKSn5Omr0U73L4qwU=
+
+Name: org/eclipse/jgit/util/io/IsolatedOutputStream.class
+SHA-256-Digest: 3CuIancnivI3hJb6wR5tzcFEC5rfjimXr4o+Vq9qdAM=
+
+Name: org/eclipse/jgit/events/ConfigChangedListener.class
+SHA-256-Digest: G75ecTYsl4Gmh4JzLoJudU/Xe4QNOCCix31YOh9Gd58=
+
+Name: org/eclipse/jgit/api/SubmoduleAddCommand.class
+SHA-256-Digest: vxN48VpYp1LhfYMUXqRf3+MZMIQ9y7MNkLs0ijwW4lg=
+
+Name: org/eclipse/jgit/revwalk/RevFlag$StaticRevFlag.class
+SHA-256-Digest: 8JO2pN3MTGA475t/jFTnO7tY7EBsn6m0qdNi1WFLVgM=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexBuilder$Stor
+ edEntry.class
+SHA-256-Digest: dKbqJ82GIrgls4WhMpcFIRCCMPuLW0B/UbCOqqUub1o=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$1.class
+SHA-256-Digest: oUJmjIJh/BC25/BPuV7yFLcp+N5f7hpAfq/9dUJofMM=
+
+Name: org/eclipse/jgit/api/RemoteListCommand.class
+SHA-256-Digest: 0NV7YOsR5e0iUppXrdp2CGVv0Gx5BngiCWx/wg46GFM=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$PackedRefList.
+ class
+SHA-256-Digest: 4thVM2Qx/iGBln82hG+cWD8e57QIYD7D4tCj83PmgsA=
+
+Name: org/eclipse/jgit/api/TransportCommand.class
+SHA-256-Digest: S0mdLHnE4jdeIEJbrqrrMRsaWsDuQUQQ+LdLdaBKADI=
+
+Name: org/eclipse/jgit/api/VerifySignatureCommand$VerifyMode.class
+SHA-256-Digest: /UvgQqYMe4Mf739CfV8bZfpQfushyOdJOD3qjAltREU=
+
+Name: org/eclipse/jgit/api/errors/ConcurrentRefUpdateException.class
+SHA-256-Digest: jIaujuI9cPv2NNXAt+1im6RBCcpVsgd0iD6E2251lwI=
+
+Name: org/eclipse/jgit/diff/HashedSequencePair.class
+SHA-256-Digest: Y5nbaMIwXMPJTdzHHoYhtqer1J7dcwP8+5bxtxIZHNk=
+
+Name: org/eclipse/jgit/api/DescribeCommand.class
+SHA-256-Digest: qcfIH9JbpYQcs9ExnSC6Xwqkpq31lyEUqBAicmAAOOY=
+
+Name: org/eclipse/jgit/lib/RefUpdate$Result.class
+SHA-256-Digest: 2McyPIbQsrkL+QXVFe6YNoB0f26Wl+5rhkeck8SjEK4=
+
+Name: org/eclipse/jgit/transport/BundleFetchConnection.class
+SHA-256-Digest: FaDvnNj0coO/vSYt9TID4EDK0bu8Ji0AwpmOVvR3SWc=
+
+Name: org/eclipse/jgit/api/CommitCommand.class
+SHA-256-Digest: QVVnTsm5Fs35uoLYI6ocTMRZT9LLSbbGS+dXkZHhkss=
+
+Name: org/eclipse/jgit/transport/resolver/UploadPackFactory.class
+SHA-256-Digest: hOQDwVtbRtL6noLZiyCodZDWJrC7w0SwAqz9nWSZnZw=
+
+Name: org/eclipse/jgit/api/errors/NotMergedException.class
+SHA-256-Digest: 32IFkHUWvZd2J2dh7On6oUvX4Tfq1yKonf42bJ4+mLY=
+
+Name: org/eclipse/jgit/api/BlameCommand.class
+SHA-256-Digest: PyFUJwnXmzue6xKBNgMkUO2vHE1V69MNv93mczNCKmY=
+
+Name: org/eclipse/jgit/errors/package-info.class
+SHA-256-Digest: dt3ek3D4SegTlN0+JmC4l0cY2FASb0ANmw760CynbSg=
+
+Name: org/eclipse/jgit/lib/CoreConfig$LogRefUpdates.class
+SHA-256-Digest: ZDHFxvYfI0YjM/JH7k8pDlXfOhyHIujiJqxgaj8Z/jE=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsInserter$PackStream.class
+SHA-256-Digest: QRY5EzhBMZfXZvnvmdMv7w8mqe0gmPnbT1OX2hHGbIo=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlockCache$RefLoader.clas
+ s
+SHA-256-Digest: drWYWsAsgV+BIYxFIPjuoPKdxe2OEj2E8ewO3A5Y9TY=
+
+Name: org/eclipse/jgit/api/errors/JGitInternalException.class
+SHA-256-Digest: VyrhK8VUEirTPF5ortk9zJSNq2Q2aM+aEuR/8bxk/9M=
+
+Name: org/eclipse/jgit/internal/storage/pack/CachedPackUriProvider.class
+SHA-256-Digest: AbmisZ9Fes3y2ACMfBPQSGY5QN75ZUSWgJ8vN+rEJMs=
+
+Name: org/eclipse/jgit/lib/FileModeCache.class
+SHA-256-Digest: 5P6XEiJ+gOFwWi35wV5wzvvN5fG2Yz3vSR1q3pV1eQ8=
+
+Name: org/eclipse/jgit/transport/BaseFetchConnection.class
+SHA-256-Digest: BaLNm+MMnsRvwu750v8Ehy517KA+ZyAUGmYWOG9RF/U=
+
+Name: org/eclipse/jgit/diff/MyersDiff.class
+SHA-256-Digest: 4+74FtrRjq81+ZBsKMs8EVJB41rfjnXkDY1VhywAaLQ=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsPackFile.class
+SHA-256-Digest: CCA7Sgw8rtZPf2lUEeV8x+3lP9PzyAOQnC6SZYOyeVk=
+
+Name: org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit.class
+SHA-256-Digest: YgOZSMB2K65YgwA0wagDzSpju+osGCMVIAQchN9EIuc=
+
+Name: org/eclipse/jgit/lib/BranchConfig$BranchRebaseMode.class
+SHA-256-Digest: VdIZh87SZYHP9rc9LF0xI+zLeXV/qtCz32dR1YYooEU=
+
+Name: org/eclipse/jgit/merge/MergeConfig.class
+SHA-256-Digest: yuchN7jywyTGw7nxsJI18HjdOrT9n8RJAnMOiuw87jk=
+
+Name: org/eclipse/jgit/patch/FormatError$Severity.class
+SHA-256-Digest: C9MRjnYeG4LiFFlIRHpGyCMuMzwYLhRBkWWcm5k1nxc=
+
+Name: org/eclipse/jgit/revwalk/filter/MaxCountRevFilter.class
+SHA-256-Digest: RGCiX14HcTTce3fZ46iKI+BIQh3G02xXavXZ5GJ9mKo=
+
+Name: org/eclipse/jgit/util/io/AutoLFInputStream$StreamFlag.class
+SHA-256-Digest: Gu+B0LwU9d8ENg9ZLa3N1+A1zG3fpPKPZxsmgx0xm4Y=
+
+Name: org/eclipse/jgit/internal/storage/dfs/ReadableChannel.class
+SHA-256-Digest: wmYSYWNwI3JZWt8etE+p6E4yvghGlbHNPqq395UHGJc=
+
+Name: org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection.
+ class
+SHA-256-Digest: QotjOhO1AEqVQbi2PWoEs+a8ucp/szatzJtI/O/YBGg=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableDatabase$FileRe
+ ftableRefUpdate.class
+SHA-256-Digest: OiF8000KuC0YJoq0GrtKMwEsWIuxNTY+vb6p23F+G88=
+
+Name: org/eclipse/jgit/transport/FetchResult.class
+SHA-256-Digest: Guzva+MNfn9dTpz3VHNBewKk6HwhICtkK9S794kQzb0=
+
+Name: org/eclipse/jgit/attributes/Attributes.class
+SHA-256-Digest: L4LruuAuQbdCpyv+5rShvYBGhY1htfqTW49dvDn1QCs=
+
+Name: org/eclipse/jgit/lib/ProgressMonitor.class
+SHA-256-Digest: Oe/VxbfMKMQEj5ErWAw2OZIITzTMpHIn3cRmUBlj4/o=
+
+Name: org/eclipse/jgit/nls/package-info.class
+SHA-256-Digest: oSZ2ms/7gD9tQGpyE3+Np9JBnIBhZnkl4SJoaUxd6UE=
+
+Name: org/eclipse/jgit/transport/TransportGitSsh$SshPushConnection.class
+SHA-256-Digest: Ou/s6T+t/yeMLVBu4YEagugXZnWQDAidxoC7P7spA38=
+
+Name: org/eclipse/jgit/diff/LowLevelDiffAlgorithm.class
+SHA-256-Digest: cSd3Xv48uFLwqrhHvlXIzS7/No7Yg8u7dVf7kxtbnWE=
+
+Name: org/eclipse/jgit/internal/storage/reftable/BlockWriter$LogEntry.cl
+ ass
+SHA-256-Digest: LkRQ1bJEQlVOgG/05HERHPSReFUOaPwanlvLq0iALY4=
+
+Name: org/eclipse/jgit/submodule/SubmoduleStatusType.class
+SHA-256-Digest: 0tgsIe84/lmVPivT7Z90PqAPfMnoi4Fpp+7xdyNhRxw=
+
+Name: org/eclipse/jgit/lib/GpgSignatureVerifier$SignatureVerification.cl
+ ass
+SHA-256-Digest: 9Qx6DiIf0fa69dC1Bq0Jxn9aLdRMcSpz0IaJ/kC5MoE=
+
+Name: org/eclipse/jgit/transport/InternalFetchConnection$2.class
+SHA-256-Digest: oRlOqmdsGtmbhmiQaSRSNXEN7qrG0sfSqYLvH/PVWGE=
+
+Name: org/eclipse/jgit/lib/BitmapIndex$Bitmap.class
+SHA-256-Digest: EUMm0I5gXCGtQjIYu3nXOPVIBkIIokXUwTHZoo2nFWk=
+
+Name: org/eclipse/jgit/diff/MyersDiff$MiddleEdit$BackwardEditPaths.class
+SHA-256-Digest: YHul4bjZOgkMvXn1RzQ9MJBtWqiE9/e1nR9Tvy/a3rg=
+
+Name: org/eclipse/jgit/treewalk/package-info.class
+SHA-256-Digest: u9J5V5k98csv79ekvHjt2odU8PTKgxEQFD9GO1Zrjs4=
+
+Name: org/eclipse/jgit/treewalk/WorkingTreeIterator$IteratorState.class
+SHA-256-Digest: 084tHRg+xJTEfS0atl4lU7WXWTZmuIDzRTMczYUv8t0=
+
+Name: org/eclipse/jgit/errors/CheckoutConflictException.class
+SHA-256-Digest: Q5ukN9gTHVynVN+1X8wGp8ByZKzWw9gOSkNDb6uexQQ=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReaderIoStats$Accumulator
+ .class
+SHA-256-Digest: ZEJvX63zM0JXwDmLFl+TU8cpApOoZvc6c/0nyKZwhLA=
+
+Name: org/eclipse/jgit/internal/storage/file/RefDirectory$LooseNonTag.cl
+ ass
+SHA-256-Digest: 5TcNs7HgpLHFxcX5RdNld1+zdsRFDt6z/IvNyOU/wrs=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$CompressedB
+ itmapBuilder.class
+SHA-256-Digest: HojSM4Tu5UmI5aJNv1mSJqpyoo9M2OwcIejMjgFiUcs=
+
+Name: org/eclipse/jgit/internal/storage/io/BlockSource$2.class
+SHA-256-Digest: hmHP5Mt/n75fJpEGvRQBHw59fwzgrJ6nts7W95QodwY=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV1.class
+SHA-256-Digest: Ivz9WVFO8IBIYYWw9aVe6HjTIjIepaoC5svBjXXSpwM=
+
+Name: org/eclipse/jgit/internal/JGitText.properties
+SHA-256-Digest: 8vHhC9D0XimitqFhNK2bH6JvsAFTrSHqUvcMn3cg9Ck=
+
+Name: org/eclipse/jgit/lib/MutableObjectId.class
+SHA-256-Digest: WfuBEsrqCr/zIO4MXkIZqBz+tpB4MwVeZo7Csp9Rj68=
+
+Name: org/eclipse/jgit/api/errors/package-info.class
+SHA-256-Digest: DIvzE7VeGG8IP8Nv6jTz6vpV2jADC0ECoqqSNmTmUeI=
+
+Name: org/eclipse/jgit/internal/transport/parser/FirstCommand.class
+SHA-256-Digest: TTDu9MCHw22Blq1yuUKOl1p0qKrMnBG7gCM9LlS2zbM=
+
+Name: org/eclipse/jgit/lib/ObjectDatabase.class
+SHA-256-Digest: icTsKOORXJXfVhVaL31ukdPIm3KucCm7wjGPnSOAY9s=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReftable$CacheSource.clas
+ s
+SHA-256-Digest: zN5pnOhp6cvaFYciQ2A0RbjY3MV8P+m77j20mY0tPBk=
+
+Name: org/eclipse/jgit/util/LfsFactory$LfsInputStream.class
+SHA-256-Digest: HeHAQZc1qfmA9YJySqr4oxzUcix05Z7Ttk1OSSrXWpM=
+
+Name: org/eclipse/jgit/errors/CorruptPackIndexException$ErrorType.class
+SHA-256-Digest: +u8fPKe73XQnN+LwoHUBUq40HKq7Eyb5EY4rV3Giy2Q=
+
+Name: org/eclipse/jgit/transport/BasePackFetchConnection$1.class
+SHA-256-Digest: xuhDd8HxPt9hAIu5/0JToCQ7IuBbAeGX/iaanfcBNiI=
+
+Name: org/eclipse/jgit/transport/HttpAuthMethod$Negotiate.class
+SHA-256-Digest: F2IbyS8W2Z5IvnH3QYiRozh/s5CnPMVlCT4Zjw17Rhs=
+
+Name: org/eclipse/jgit/submodule/SubmoduleStatus.class
+SHA-256-Digest: f8D4frqGC6bE73O4ygefvv2xmeSPmBUEadZPCUPu7Mo=
+
+Name: org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
+ .class
+SHA-256-Digest: UkQ8WsWzbqPBjmsRkafDwoOSlxotpVkkXwvmsF0SLH8=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl.class
+SHA-256-Digest: eMq1EueOSyABvdg6PEcrAWnHmLpJoLZ5skB2Inupxv0=
+
+Name: org/eclipse/jgit/merge/MergeChunk.class
+SHA-256-Digest: Z7AbroToAX4+dUWMzIZ+j8roWnoq8S1ypmtJYFM4BYc=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableWriter$IndexBui
+ lder.class
+SHA-256-Digest: P/+/KasqNK3wCJoDeAPviZGz5HJ3/p0uYHRTXa25ZM8=
+
+Name: org/eclipse/jgit/storage/file/FileRepositoryBuilder.class
+SHA-256-Digest: pXb9Gyb0KXrRgf9wgX9wurHVTso8iio6TIGK2hNZ0h4=
+
+Name: org/eclipse/jgit/transport/TransportGitAnon$1.class
+SHA-256-Digest: CfUnjfNzIiKaK+x7u1Ne2viP7DtYXYDHqqyCAxEksDg=
+
+Name: org/eclipse/jgit/internal/storage/dfs/package-info.class
+SHA-256-Digest: +7y81ipyGZ1x0rDOQhKQ/FFeXDQSsATDFSN2ytfnwH4=
+
+Name: org/eclipse/jgit/internal/storage/pack/CachedPack.class
+SHA-256-Digest: sDBiIDtBVpk/wNE61InYFsWIxm1q0YWbUHYoZQkoJFA=
+
+Name: org/eclipse/jgit/api/errors/NoFilepatternException.class
+SHA-256-Digest: XNELSW4OXDdcSYdc/MZQzmeRT3+Aw9reYuP8eEy6Tss=
+
+Name: org/eclipse/jgit/merge/MergeFormatterPass.class
+SHA-256-Digest: AMqEvK5eoqzzBJxQtErVqtUn3Ng6er2rpg8rxwvvVaQ=
+
+Name: org/eclipse/jgit/errors/LockFailedException.class
+SHA-256-Digest: /JjnkF65JBFUAxA2hjL302zPHNGqceV04hEIW2KtqUM=
+
+Name: org/eclipse/jgit/transport/InternalFetchConnection$1.class
+SHA-256-Digest: UJf+RBXz8kJR+4pUk2BLjTXYvD5xKsOA5mCXH7ehjHs=
+
+Name: org/eclipse/jgit/internal/storage/file/PackBitmapIndexBuilder.clas
+ s
+SHA-256-Digest: foeoBxk7KsB9RwAn998AHuP5pqkFxNUrkKSdVhPh8i4=
+
+Name: org/eclipse/jgit/util/RefList.class
+SHA-256-Digest: oeFYFuC5X0iodmv/ymUt0fh1GKMAou7Qu3RnvuwbECY=
+
+Name: org/eclipse/jgit/errors/NoMergeBaseException$MergeBaseFailureReaso
+ n.class
+SHA-256-Digest: 8VdzGRcb9HgkBk1ybhqRwK4BQF9pP32+la5Om+nGcRY=
+
+Name: org/eclipse/jgit/transport/PackParser.class
+SHA-256-Digest: 9cDgHQcAIqBsW7AdyBq/GndIksoh/td+qv/n2mtDwUw=
+
+Name: org/eclipse/jgit/util/FS$Attributes.class
+SHA-256-Digest: Kl91ELnH3kOHkVQg8DFovGhOvAyKrrZiH/jZCKeYlDw=
+
+Name: org/eclipse/jgit/transport/WalkRemoteObjectDatabase.class
+SHA-256-Digest: 4oUQjKreW6aFH2UAX248uHxuyBpS8ffX8IMf7unDGTI=
+
+Name: org/eclipse/jgit/internal/storage/io/BlockSource$1.class
+SHA-256-Digest: n1Y9oZPWInEdlEkSUDX/n9+WS1HH+9ha1OJTa9I8TEU=
+
+Name: org/eclipse/jgit/notes/LeafBucket$1.class
+SHA-256-Digest: RAxTRAD+CWYyCCkycDEGvOcyRLaawl27sAaXaz+KErg=
+
+Name: org/eclipse/jgit/errors/ObjectWritingException.class
+SHA-256-Digest: jAJyTAQPz/kEiTIUFUdFN3vAs4F7iI3prBc5wDEB/jQ=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableConstants.class
+SHA-256-Digest: 4liAQc/VbN+0azUzttEr1J0z7EASBU1ZavyjUe+vbw4=
+
+Name: org/eclipse/jgit/transport/OperationResult.class
+SHA-256-Digest: 2VQKAD/jG2Q2iYF5hgSobxXaz9BqEHZOaHzZAHrI/9k=
+
+Name: org/eclipse/jgit/lib/internal/WorkQueue.class
+SHA-256-Digest: mFOKy/u0W14vhvUptBVcJKVvjT0oP6CgTpfBLWICVvI=
+
+Name: org/eclipse/jgit/transport/ServiceMayNotContinueException.class
+SHA-256-Digest: KgtRG/vm1y4WaFkBbB/+/IQWM8MmujAz6Veah26SKms=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsStreamKey$ByteArrayDfsStr
+ eamKey.class
+SHA-256-Digest: kcYbRFJjaatOme9felMmryWNVoosxLeKBMEolcFnRl0=
+
+Name: org/eclipse/jgit/lib/GpgSignatureVerifier$TrustLevel.class
+SHA-256-Digest: dYlQdUDC9X4x7E1EDQ8YE52QksdCf6AcB2cOtWOwask=
+
+Name: org/eclipse/jgit/lib/TreeFormatter.class
+SHA-256-Digest: MBxIJEzKMbnoQVSVKDiwKeu8a5cP17yfCC3d/feD4sI=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndex$EntriesIterator.c
+ lass
+SHA-256-Digest: nN7SHH/XFySQprKhz6NONjQUCMXyIVzio+8PY9Gezgw=
+
+Name: org/eclipse/jgit/internal/storage/file/FileRepository.class
+SHA-256-Digest: FmWfY0KHRyVIaNn0Sef7mKhbyxFuXlkVwkkwkP8xb/o=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBlock.class
+SHA-256-Digest: 7SdJNWKx4AstDcifoQfoS9HKaJBz2ad/GGNE0cZA7zo=
+
+Name: org/eclipse/jgit/blame/Candidate$ReverseCandidate.class
+SHA-256-Digest: sLleF2aFjW5a7UM62nl1aq/ulkGTvtlsBYloILbc0vA=
+
+Name: org/eclipse/jgit/diff/MyersDiff$1.class
+SHA-256-Digest: Zxki/ozQqV+86ImdeZNbpdvFtiS7D4jQyfk7WPMbkKM=
+
+Name: org/eclipse/jgit/revwalk/filter/AndRevFilter.class
+SHA-256-Digest: fBradqRhJzs62lalUDYa8bekR/WpRRjQmnQDotc+Ko4=
+
+Name: org/eclipse/jgit/util/MutableInteger.class
+SHA-256-Digest: H/R1NGac9e3+c+dKeWBY/sv4tauwRzEq14lM/AvpJsU=
+
+Name: org/eclipse/jgit/api/CheckoutResult.class
+SHA-256-Digest: f1qBnKwxGF/ZskZ+qreP3QrfGk7TnbJUo9mvMgWiPDQ=
+
+Name: org/eclipse/jgit/api/errors/UnmergedPathsException.class
+SHA-256-Digest: 7wiqINkDIBY3x9BTAN6P+nyFCqGpzsUefbl/It1bjdM=
+
+Name: org/eclipse/jgit/revwalk/BlockObjQueue.class
+SHA-256-Digest: YYtAt4u1+IMWJqDRhXAq7+fVckHbeqXwgCFK27u8C/s=
+
+Name: org/eclipse/jgit/transport/PushCertificateParser$PacketLineReader.
+ class
+SHA-256-Digest: JKcPD1vUCr22cKtAj+I8NONkGOoUuc0ywtwSRXKB2jo=
+
+Name: org/eclipse/jgit/merge/MergeStrategy.class
+SHA-256-Digest: IBl2bsPe1XYdV/AnnuTiG0sJXDM4Qc88oi2/q6kBQ6Q=
+
+Name: org/eclipse/jgit/lib/ConfigSnapshot$CaseFoldingSet$1.class
+SHA-256-Digest: D3TxxxCa0gHVItYIBndsVcZ8Pp7br0GpwEsEtXC5fjU=
+
+Name: org/eclipse/jgit/dircache/DirCacheEditor$PathEdit.class
+SHA-256-Digest: 1NkFtONAYoCMf3pGh21Fk/1vYpPK5slE4X/txXyLGrU=
+
+Name: org/eclipse/jgit/internal/storage/reftable/MergedReftable$Filterin
+ gMergedRefCursor.class
+SHA-256-Digest: 0niBke1fmeRWNTRhVayNSlaibPA4+iRLYq7b9YN403s=
+
+Name: org/eclipse/jgit/transport/GitProtocolConstants.class
+SHA-256-Digest: fr5F8qTtDnzdZa8VIvHWvs2cRMgszYZyK2UiLkcnICY=
+
+Name: org/eclipse/jgit/treewalk/filter/PathFilterGroup$Single.class
+SHA-256-Digest: oFqMTaqiWMOH+z61z96L6NqmUeAXvW+dV0CP3udwyKw=
+
+Name: org/eclipse/jgit/lib/RebaseTodoLine$Action.class
+SHA-256-Digest: SyGs/ndkxlvQnDiMKdZJcuurxOl22qcqcdwW9sfD3NE=
+
+Name: org/eclipse/jgit/transport/PackParser$DeltaChain.class
+SHA-256-Digest: C8f4z8dszPuV1YBhfhAge7XYgY8IatO9YoEV7RJE4j8=
+
+Name: org/eclipse/jgit/errors/LargeObjectException.class
+SHA-256-Digest: 2GuE2ZOibzJaaQgh8uC0YVBbTwVLMYJFMWJUyVjDGFQ=
+
+Name: org/eclipse/jgit/internal/storage/reftable/ReftableBatchRefUpdate.
+ class
+SHA-256-Digest: m1+mtrp3nDNtoG9BcihaaQz/A/XDYVorrew8ZxfNodI=
+
+Name: org/eclipse/jgit/events/WorkingTreeModifiedListener.class
+SHA-256-Digest: HLR6KS+/C3zrV62wJoyLiqiHQK2zICSjTJpMkEmz3XU=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV2.class
+SHA-256-Digest: ztiwirm8vu4I99Irk7YDX179/7HLP1SQ95Bx/Z2p1oI=
+
+Name: plugin.properties
+SHA-256-Digest: aT/FspPpdoqALlJ1HhH6SgmCmMQ/Wd2D8zUnXMkyrmc=
+
+Name: org/eclipse/jgit/internal/storage/file/PackInserter$Reader$StreamL
+ oader$1.class
+SHA-256-Digest: RCcEjCVHD5CTC92LUhpWQpzQ7B9IL435L0ljA0ksbmQ=
+
+Name: org/eclipse/jgit/lib/GpgSignatureVerifier.class
+SHA-256-Digest: TsG6TzTDSI5up5lYfTbBWDrzbt7YBmMyptA1+fY5cOE=
+
+Name: org/eclipse/jgit/lib/ObjectLoader.class
+SHA-256-Digest: JWitpVm0E3CNTF/r/jOuRS9PvGiqIhjVFgp+IkFfDfs=
+
+Name: org/eclipse/jgit/errors/CancelledException.class
+SHA-256-Digest: koVl6NLvgMSfTGgWO1xnWW616SQKyDFcRNkAdmqSAWs=
+
+Name: org/eclipse/jgit/internal/storage/file/PackDirectory$PackList.clas
+ s
+SHA-256-Digest: 6SN5aOs5zXLKetQnVaK+L9iYCkgI+gKWPQy4hh5wwJY=
+
+Name: org/eclipse/jgit/transport/PostReceiveHook.class
+SHA-256-Digest: K2QjFpmhXz3PofLsX5ZFu3H/etnJ8W7W80GdkJUkxT8=
+
+Name: org/eclipse/jgit/internal/storage/dfs/BlockBasedFile$LazyChannel.c
+ lass
+SHA-256-Digest: 1vPsAPzBIBYl8MieblFYd8W+medF21UDZ7ewsQH1diM=
+
+Name: org/eclipse/jgit/transport/TransportProtocol.class
+SHA-256-Digest: fP9U/beg3lOKe3OIAw+jVOkeZ9eRDPHywr97AIN5Cfg=
+
+Name: org/eclipse/jgit/errors/NoPackSignatureException.class
+SHA-256-Digest: o4zjxZvjchiWZWnYm4LrFRENmN+9aPccYd/A2K+wZV4=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DeltaBaseCache$Entry.class
+SHA-256-Digest: vgIvEwB28Opp6eDGhcx0RCMHBKE619o6g24bcj7+oDg=
+
+Name: org/eclipse/jgit/api/FetchCommand$Callback.class
+SHA-256-Digest: rKgaMOWzt6b2jQNMSwgTntlwTPY8BY4sSp9/J93iSpw=
+
+Name: org/eclipse/jgit/internal/storage/file/BitmapIndexImpl$BitmapObjec
+ tImpl.class
+SHA-256-Digest: TquCHEOyaCyi47piZGI1lpUNVv0xbMSRX4NbSUAnnTQ=
+
+Name: org/eclipse/jgit/util/io/ThrowingPrintWriter.class
+SHA-256-Digest: /zgukge1GyhV2XxnR8l685UwEcjc9sj9KEdJjv4AYko=
+
+Name: org/eclipse/jgit/transport/PushCertificate$NonceStatus.class
+SHA-256-Digest: e7SlF10QZnEnPcyR4ah1Hzzc8NSslINGABfE6f89Y4g=
+
+Name: org/eclipse/jgit/revwalk/RevTree.class
+SHA-256-Digest: Qk1v4WGMtre3Vx+o1O0F5rs5xY0ZBqfLhLtSgReoPzc=
+
+Name: org/eclipse/jgit/treewalk/filter/IndexDiffFilter.class
+SHA-256-Digest: u9rEbh2i+FwWdhv0FRjl67Ays5070f0o7D5Jla6SlQg=
+
+Name: org/eclipse/jgit/internal/revwalk/BitmappedObjectReachabilityCheck
+ er.class
+SHA-256-Digest: V72oIfmOj+vo/Fef7PQ/ti60W5KWQSBfyWuNpUUj/G4=
+
+Name: org/eclipse/jgit/api/RebaseCommand$Operation.class
+SHA-256-Digest: t4t56hHGe8bntDIhI5qOKX4NgI8tBbq/0HqdDKwgXGM=
+
+Name: org/eclipse/jgit/errors/TransportException.class
+SHA-256-Digest: JvB9DFKornW2xU//nY+GAD/2hEts8hbh4ePhYJUv3Ic=
+
+Name: org/eclipse/jgit/errors/DirCacheNameConflictException.class
+SHA-256-Digest: ONIWZ5IRERswIwNnRGWTqCep9i7bUd9SgahEAn1MwHs=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndex$MutableEntry.clas
+ s
+SHA-256-Digest: sg0tNMp3GMLkoXCez3l0g+SnbjQI3X7Oxkb87o3aoXw=
+
+Name: org/eclipse/jgit/revwalk/RevWalkUtils.class
+SHA-256-Digest: C4PQUvg33rZ8eI4TXJV59tXGAIfs5lbEVBEte7rvYZs=
+
+Name: org/eclipse/jgit/internal/storage/file/GC.class
+SHA-256-Digest: YsUxFNeOxNGVJq8gTmzV+O77Ko8tuWy20IqpR4a4m58=
+
+Name: org/eclipse/jgit/transport/TransportBundleStream.class
+SHA-256-Digest: aX3hO5hTdxajG5q+foRRAHFWOU5dUeE73oB318kUn4Y=
+
+Name: org/eclipse/jgit/treewalk/filter/TreeFilter$AllFilter.class
+SHA-256-Digest: YJ2ijLQJQk6D2dStfiReSM7PStthN4utMaMuLTieYGM=
+
+Name: org/eclipse/jgit/internal/storage/dfs/InMemoryRepository$Out.class
+SHA-256-Digest: HsAT7MsrOmgNz4z/IKoTBXBR0vv0/fe1GgGHRVhTXag=
+
+Name: org/eclipse/jgit/transport/GitProtocolConstants$MultiAck.class
+SHA-256-Digest: h6Sta11KphwXVgsX+vat1NpUi3c/jLWnmUrL9160gAU=
+
+Name: org/eclipse/jgit/dircache/InvalidPathException.class
+SHA-256-Digest: nNYz7BKho/5oraLjj319bQBM2WxwtJqubEqwS3M/Jc8=
+
+Name: org/eclipse/jgit/transport/SshConfigStore.class
+SHA-256-Digest: rBSkhFdYoWSKHVwJ14+YkcPdUxdiaiS0RBp8UAeiGVk=
+
+Name: org/eclipse/jgit/revwalk/Generator.class
+SHA-256-Digest: /xpRWvzyC/QXrVwQ6HyaV6sdBcvOHvWZpH9rictYBKo=
+
+Name: org/eclipse/jgit/revwalk/RevCommit.class
+SHA-256-Digest: ynjHYzUS99OxHkv2QFmDpRn4Ul3z9YsNPLsbKIdAiZU=
+
+Name: org/eclipse/jgit/lib/GpgObjectSigner.class
+SHA-256-Digest: xEFasMNOyGu+QN0CddgovI5Jcl2+tcyemfAe9dDvxO4=
+
+Name: org/eclipse/jgit/fnmatch/GroupHead$LowerPattern.class
+SHA-256-Digest: 0CF3nVLfGTZIpw+qK9siY3ehFmR+vO47acvF3plSrXA=
+
+Name: org/eclipse/jgit/internal/revwalk/AddToBitmapWithCacheFilter.class
+SHA-256-Digest: IhBsCRKjFpcCf7XZ19w+Ol5DuRS2PjQgRDt564tdBqs=
+
+Name: org/eclipse/jgit/transport/WalkTransport.class
+SHA-256-Digest: dS7HwM6Fk/HH18NL9n+4M17NedhXGzRTdAGCj8a22aw=
+
+Name: org/eclipse/jgit/internal/storage/file/WindowCache$CleanupQueue.cl
+ ass
+SHA-256-Digest: 1GIQdvGtPfgyALAzgpV8GyORz5flnyca5nm/uEAOM3M=
+
+Name: org/eclipse/jgit/revwalk/EndGenerator.class
+SHA-256-Digest: kj0/m2WP9wX93qtOC2NUXNmx0lo7w0Bx1fHblGoB2PQ=
+
+Name: org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Slot.class
+SHA-256-Digest: USKdv1eRnJETydLd/KC2I2/MVNtKZVqSkvmB3m2DmHY=
+
+Name: org/eclipse/jgit/notes/NoteMerger.class
+SHA-256-Digest: IfPPnzjvUHpIhSGDJDSwDrpl5eWsSQTO0wk9kdEUJIs=
+
+Name: org/eclipse/jgit/internal/submodule/SubmoduleValidator.class
+SHA-256-Digest: 293EHonUKPygK5S5mpEAROqstyxt7i6n7Rb9t9jgyyc=
+
+Name: org/eclipse/jgit/revwalk/BitmapWalker.class
+SHA-256-Digest: YPpNKA39IC325gbmrGH/IR78FGYt/78wqKwP/rFF4ZM=
+
+Name: org/eclipse/jgit/transport/WalkFetchConnection.class
+SHA-256-Digest: itibB+yxOXSunh1UTopt/YFZo2fB65bPrPAK6J6Nb1E=
+
+Name: org/eclipse/jgit/transport/InternalFetchConnection.class
+SHA-256-Digest: L6nSXdsFTBJ9Vl2Hs/PdgeKre6rJQcDJ15H3lAkJYZ0=
+
+Name: org/eclipse/jgit/merge/RecursiveMerger.class
+SHA-256-Digest: l6ECbAK9WtnlynU1Gjhx1ruijIFyyz6jb0Qpa6bZlQA=
+
+Name: org/eclipse/jgit/errors/TooLargeObjectInPackException.class
+SHA-256-Digest: jxvwASnOniCPSL6ten4C20XMX0aLlpET6n3nwrC8nug=
+
+Name: org/eclipse/jgit/lib/ObjectLoader$Filter.class
+SHA-256-Digest: KsW2y5Vc/gac6T/mo2DoDNMMzYwyTkObCaMmpoCyLzo=
+
+Name: org/eclipse/jgit/internal/storage/pack/DeltaIndex.class
+SHA-256-Digest: NMqf+lz9qNoqGp1hLMbLURq/a77iD7i12veOErUtNgg=
+
+Name: org/eclipse/jgit/util/io/DisabledOutputStream.class
+SHA-256-Digest: zDUSwbo9QuVNwYVmBSJicEUBYG4SEg5/pjOuRWERFS4=
+
+Name: org/eclipse/jgit/api/GarbageCollectCommand.class
+SHA-256-Digest: AsKVbWmqfM0weQ7SPGuog2Gwst0by3kDiXkv6PZiFDU=
+
+Name: org/eclipse/jgit/ignore/internal/Strings.class
+SHA-256-Digest: yxQYs0F75+OUFEj62GXpXclMA0MixnDrDqaxEn7BRS8=
+
+Name: org/eclipse/jgit/gitrepo/internal/RepoText.class
+SHA-256-Digest: UhKAe5N1yld+TpHQ2ZL0JiClj5Q/UofcSkyo6aNVnDE=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsReaderIoStats.class
+SHA-256-Digest: SX2A5tMswf+HRNczvDl//kXSnxEIbyf9GN1lOGDMuc0=
+
+Name: org/eclipse/jgit/lib/ObjectInserter.class
+SHA-256-Digest: u0sBH23F/ZRdSyBOkDLeW2mIsCRJ65UK8B3UlEZ+/W8=
+
+Name: org/eclipse/jgit/util/QuotedString$BourneUserPathStyle.class
+SHA-256-Digest: YUlxfBZU6l40jGia6cdDknlMt/3iVLa8wxr+2vhb1lM=
+
+Name: org/eclipse/jgit/transport/ProtocolV2Hook.class
+SHA-256-Digest: crMIa/Dcfioo2yg7J/dB2DgX8QEXeOqKoIADxeRsstU=
+
+Name: org/eclipse/jgit/api/RebaseCommand$RebaseState.class
+SHA-256-Digest: TQwQbE3kmh0TNxcmlqdHdUFB8eURx4tyMJmGWx+WlRM=
+
+Name: org/eclipse/jgit/transport/WriteAbortedException.class
+SHA-256-Digest: kd6EA6N1bwkn7/2PH9XSRDHIMDZH5J/nAD0UiqXtYoE=
+
+Name: org/eclipse/jgit/lib/ObjectIdSet.class
+SHA-256-Digest: gHE/2CayX8cFqvyU7f/s9UX11XyLGKsRWSI760l2YiI=
+
+Name: org/eclipse/jgit/internal/storage/dfs/DfsBundleWriter.class
+SHA-256-Digest: 6VbQY0o5R+2AcOTO15lN+DuN75njLjbhcOih0hE1E38=
+
+Name: org/eclipse/jgit/api/CherryPickResult.class
+SHA-256-Digest: VJ5PYNU+zRgUQvnY/X9aGqfpQ9lBmmc1o0OU9J9Ko3Y=
+
+Name: org/eclipse/jgit/transport/RefSpec$WildcardMode.class
+SHA-256-Digest: 46ljCL7QURql0U8STXmZzD+C6zhFS95HuXUK55gs70Q=
+
+Name: about.html
+SHA-256-Digest: AlMZFBs6rvv0XZ+LyuiOKiQR3dVCATkdF2ZfFl6CqFI=
+
+Name: org/eclipse/jgit/diff/RawTextComparator.class
+SHA-256-Digest: XFw6c0bKXTBDkADKlnmsofXqUXLxRG6CHn1vRzK4AC4=
+
+Name: org/eclipse/jgit/transport/TransportAmazonS3.class
+SHA-256-Digest: in+ph3wcwItyrvFVSM7xhXGfUpAlvE/hUumcf4m3lNA=
+
+Name: org/eclipse/jgit/revwalk/filter/ObjectFilter.class
+SHA-256-Digest: FanXj4tBgyUD5d5l58TZOiEKpxAzqIul33mHzUbsUA8=
+
+Name: org/eclipse/jgit/transport/SignedPushConfig.class
+SHA-256-Digest: mZEeQ2YIM5UJ7cTcbbOmUK7RoIfyFpu95vN1ALahnCE=
+
+Name: org/eclipse/jgit/transport/PacketLineIn$PacketLineInIterator$1.cla
+ ss
+SHA-256-Digest: LMkdaSw3che9MWfI4uAnLjbbo8M7L/ph3ivzfBfNy30=
+
+Name: org/eclipse/jgit/transport/PackTransport.class
+SHA-256-Digest: C+c6JAkI1O4lOu9BdJrS8bLa06hh76Okgu9MmBILbvg=
+
+Name: org/eclipse/jgit/internal/storage/file/FileReftableStack.class
+SHA-256-Digest: B//X76BuRyScV4s7ou/9d77t8j/WXObuNTjsT4uwFr0=
+
+Name: org/eclipse/jgit/internal/fsck/FsckError.class
+SHA-256-Digest: Lq4Z0dAkod2kJdA0rcP8wxcDQVRyW6sr/1BDZUcjKLc=
+
+Name: org/eclipse/jgit/transport/BasePackFetchConnection$CancelledExcept
+ ion.class
+SHA-256-Digest: tzhKNZ4JBl1FSdqBKGhjG1EHdo2iH8P7J3E5HODcing=
+
+Name: org/eclipse/jgit/diff/SubsequenceComparator.class
+SHA-256-Digest: VuhnQWT6jCC2saO+FXG7HaFS5YRJ8bt+trfkKfbfBo0=
+
+Name: org/eclipse/jgit/internal/storage/file/GC$PidLock.class
+SHA-256-Digest: 1KkMc4UfGQ8TP7JNHnJkx/EYuathgcSTqVC28gbwNtE=
+
+Name: org/eclipse/jgit/transport/TransportProtocol$URIishField.class
+SHA-256-Digest: +khLz9+KWq7xjB95DmAPrnmukM6OaFfmUnQHeW7TEQE=
+
+Name: org/eclipse/jgit/lib/ConfigSnapshot$LineComparator.class
+SHA-256-Digest: VzFvsvT+TQshK8wLoNX/OPIhSdZTV3XniwgEfuzu2UE=
+
+Name: org/eclipse/jgit/transport/NetRCCredentialsProvider.class
+SHA-256-Digest: p8XiQ/6xi8MbHi+ho3By5N6ZIqNg+DAmD7tMoYgnKWs=
+
+Name: org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIterator
+ V2.class
+SHA-256-Digest: jfU3FlknDTcf/IINMteCKKQ85q2pQ6mLNmwfb/YByWM=
+
+Name: org/eclipse/jgit/revwalk/filter/AndRevFilter$List.class
+SHA-256-Digest: WYSB32AfjWRD3gOwN3PP5Roi+4U1cVasaF9JmBeJ8ao=
+

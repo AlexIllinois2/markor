@@ -38,8 +38,10 @@ import net.gsantner.markor.BuildConfig;
 import net.gsantner.markor.R;
 import net.gsantner.markor.format.FormatRegistry;
 import net.gsantner.markor.frontend.NewFileDialog;
+import net.gsantner.markor.frontend.MarkorDialogFactory;
 import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
 import net.gsantner.markor.model.Document;
+import net.gsantner.markor.model.git.GitNotebook;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.markor.widget.TodoWidgetProvider;
 import net.gsantner.opoc.format.GsSimpleMarkdownParser;
@@ -53,11 +55,12 @@ import net.gsantner.opoc.util.GsFileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import other.writeily.widget.WrMarkorWidgetProvider;
 
-public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFragment.FilesystemFragmentOptionsListener {
+public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFragment.FilesystemFragmentOptionsListener, GitNotebook.Ui {
 
     public static boolean IS_DEBUG_ENABLED = false;
 
@@ -70,6 +73,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
     private FloatingActionButton _fab;
 
     private MarkorContextUtils _cu;
+    private boolean _gitOpenedNotified = false;
     private File _quickSwitchPrevFolder = null;
     private File _startFolder = null, _showFile = null;
 
@@ -321,6 +325,14 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        GitNotebook.attach(this);
+        GitNotebook.startTimer(this);
+        if (!_gitOpenedNotified) {
+            // 换笔记本根目录会重建 MainActivity，这个标记随之复位
+            _gitOpenedNotified = true;
+            GitNotebook.onNotebookOpened(this);
         }
     }
 
@@ -595,11 +607,26 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
     @Override
     protected void onPause() {
         super.onPause();
+        GitNotebook.detach(this);
         WrMarkorWidgetProvider.updateLauncherWidgets();
         TodoWidgetProvider.updateTodoWidgets();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED |
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+    }
+
+    //
+    // GitNotebook.Ui —— 同步结果只在这里落地，同步本身在后台线程
+    //
+    @Override
+    public void onGitMessage(final String message, final boolean isError) {
+        Toast.makeText(this, isError ? getString(R.string.git_sync_failed, message) : message,
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onGitConflict(final List<String> paths, final String stage) {
+        MarkorDialogFactory.showGitConflictDialog(this, paths, stage);
     }
 
     @Override

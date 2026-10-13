@@ -48,6 +48,8 @@ import net.gsantner.markor.frontend.MarkorDialogFactory;
 import net.gsantner.markor.frontend.filebrowser.MarkorFileBrowserFactory;
 import net.gsantner.markor.frontend.filesearch.FileSearchEngine;
 import net.gsantner.markor.model.AppSettings;
+import net.gsantner.markor.model.git.GitNotebook;
+import net.gsantner.markor.model.git.GitRepo;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog;
 import net.gsantner.opoc.frontend.base.GsFragmentBase;
@@ -281,6 +283,14 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             _fragmentMenu.findItem(R.id.action_check_all).setVisible(_filesystemViewerAdapter.areItemsSelected() && selCount < totalCount);
             _fragmentMenu.findItem(R.id.action_clear_selection).setVisible(_filesystemViewerAdapter.areItemsSelected());
 
+            // 笔记本目录本身是 git 仓库时才给 git 动作，跟 vsnote 一致
+            final boolean gitAvailable = GitRepo.isGitWorkingDirectory(_appSettings.getNotebookDirectory())
+                    && !_filesystemViewerAdapter.areItemsSelected();
+            _fragmentMenu.findItem(R.id.action_git_sync).setVisible(gitAvailable);
+            _fragmentMenu.findItem(R.id.action_git_pull).setVisible(gitAvailable);
+            _fragmentMenu.findItem(R.id.action_git_push).setVisible(gitAvailable);
+            _fragmentMenu.findItem(R.id.action_git_status).setVisible(gitAvailable);
+
             final MenuItem sortItem = _fragmentMenu.findItem(R.id.action_sort);
             if (sortItem != null) {
                 final @ColorInt int colorWhite = _cu.rcolor(getContext(), R.color.dark__primary_text);
@@ -418,6 +428,22 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                 }
                 return true;
             }
+            case R.id.action_git_sync: {
+                GitNotebook.requestSync(getActivity(), true, false);
+                return true;
+            }
+            case R.id.action_git_pull: {
+                GitNotebook.requestPull(getActivity());
+                return true;
+            }
+            case R.id.action_git_push: {
+                GitNotebook.requestPush(getActivity());
+                return true;
+            }
+            case R.id.action_git_status: {
+                MarkorDialogFactory.showGitStatusDialog(getActivity());
+                return true;
+            }
             case R.id.action_delete_selected_items: {
                 MarkorDialogFactory.showConfirmDialog(
                         getActivity(),
@@ -426,6 +452,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                         GsCollectionUtils.map(_filesystemViewerAdapter.getCurrentSelection(), File::getName),
                         () -> new Thread(() -> {
                             WrMarkorSingleton.getInstance().deleteSelectedItems(currentSelection, getContext());
+                            notifyGitOfChange(getCurrentFolder());
                             _recyclerList.post(() -> _filesystemViewerAdapter.reloadCurrentFolder());
                         }).start()
                 );
@@ -460,7 +487,10 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             case R.id.action_rename_selected_item: {
                 if (_filesystemViewerAdapter.areItemsSelected()) {
                     final File file = currentSelection.iterator().next();
-                    final WrRenameDialog renameDialog = WrRenameDialog.newInstance(file, renamedFile -> reloadCurrentFolder());
+                    final WrRenameDialog renameDialog = WrRenameDialog.newInstance(file, renamedFile -> {
+                        notifyGitOfChange(file.getParentFile());
+                        reloadCurrentFolder();
+                    });
                     renameDialog.show(getChildFragmentManager(), WrRenameDialog.FRAGMENT_TAG);
                 }
                 return true;
@@ -594,6 +624,9 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             public void onFsViewerSelected(String request, File file, Integer lineNumber) {
                 super.onFsViewerSelected(request, file, null);
                 WrMarkorSingleton.getInstance().moveOrCopySelected(files, file, getActivity(), isMove);
+                // 源目录和目标目录都可能落在笔记本里
+                notifyGitOfChange(getCurrentFolder());
+                notifyGitOfChange(file);
                 _filesystemViewerAdapter.unselectAll();
                 _filesystemViewerAdapter.reloadCurrentFolder();
             }
@@ -624,6 +657,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             @Override
             public void onFsViewerSelected(String request, File file, final Integer lineNumber) {
                 importFile(file);
+                notifyGitOfChange(getCurrentFolder());
                 reloadCurrentFolder();
             }
 
@@ -632,6 +666,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                 for (File file : files) {
                     importFile(file);
                 }
+                notifyGitOfChange(getCurrentFolder());
                 reloadCurrentFolder();
             }
 
@@ -643,6 +678,14 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                 dopt.doSelectFolder = true;
             }
         }, getChildFragmentManager(), getActivity(), null);
+    }
+
+    /** 笔记本是 git 仓库时，把「这里的内容变了」告诉同步层（防抖与串行都在 GitNotebook 里） */
+    private void notifyGitOfChange(@Nullable final File affectedDirectory) {
+        final Context context = getContext();
+        if (context != null && affectedDirectory != null) {
+            GitNotebook.onFileSystemChanged(context, affectedDirectory);
+        }
     }
 
     private void importFile(final File file) {

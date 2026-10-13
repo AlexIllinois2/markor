@@ -36,6 +36,80 @@
                 android:title="@string/todo" />
         </PreferenceCategory>
 
+        <PreferenceCategory android:title="@string/git_repository">
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_sync_black_24dp"
+                android:key="@string/pref_key__git_sync_enabled"
+                android:summary="@string/git_notebook_sync_summary"
+                android:title="@string/git_sync" />
+            <Preference
+                android:icon="@drawable/baseline_download_24"
+                android:key="@string/pref_key__git_clone"
+                android:title="@string/git_clone_repository" />
+            <Preference
+                android:icon="@drawable/ic_lightning_black_24dp"
+                android:key="@string/pref_key__git_sync_now"
+                android:title="@string/git_sync_now" />
+            <Preference
+                android:key="@string/pref_key__git_pull"
+                android:title="@string/git_pull_now" />
+            <Preference
+                android:key="@string/pref_key__git_push"
+                android:title="@string/git_push_now" />
+            <Preference
+                android:icon="@drawable/ic_info_black_24dp"
+                android:key="@string/pref_key__git_status"
+                android:title="@string/git_show_status" />
+            <ListPreference
+                android:defaultValue="5"
+                android:dialogMessage="@string/git_background_interval_notice"
+                android:dialogTitle="@string/git_auto_sync_interval"
+                android:entries="@array/pref_arrdisp__git_sync_interval"
+                android:entryValues="@array/pref_arrkeys__git_sync_interval"
+                android:key="@string/pref_key__git_sync_interval_minutes"
+                android:summary="%1$s"
+                android:title="@string/git_auto_sync_interval" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="@string/pref_key__git_commit_on_edit"
+                android:title="@string/git_commit_after_edit" />
+            <Preference
+                android:key="@string/pref_key__git_commit_message"
+                android:summary="@string/git_commit_message_summary"
+                android:title="@string/git_commit_message" />
+            <ListPreference
+                android:defaultValue="markers"
+                android:dialogTitle="@string/git_conflict_strategy"
+                android:entries="@array/pref_arrdisp__git_conflict_strategy"
+                android:entryValues="@array/pref_arrkeys__git_conflict_strategy"
+                android:key="@string/pref_key__git_conflict_strategy"
+                android:summary="%1$s"
+                android:title="@string/git_conflict_strategy" />
+
+            <PreferenceCategory android:title="@string/git_commit_author">
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_author_name"
+                    android:title="@string/git_author_name" />
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_author_email"
+                    android:title="@string/git_author_email" />
+            </PreferenceCategory>
+
+            <PreferenceCategory android:title="@string/git_credentials">
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_username"
+                    android:title="@string/git_username" />
+                <Preference
+                    android:key="@string/pref_key__git_access_token"
+                    android:summary="@string/git_access_token_summary"
+                    android:title="@string/git_access_token" />
+            </PreferenceCategory>
+        </PreferenceCategory>
+
         <PreferenceCategory android:title="@string/miscellaneous">
             <androidx.preference.EditTextPreference
                 android:defaultValue="@string/empty_string"

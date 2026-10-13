@@ -28,6 +28,7 @@ import net.gsantner.markor.BuildConfig;
 import net.gsantner.markor.R;
 import net.gsantner.markor.activity.MarkorBaseActivity;
 import net.gsantner.markor.format.FormatRegistry;
+import net.gsantner.markor.model.git.GitRepo;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.markor.util.ShortcutUtils;
 import net.gsantner.opoc.format.GsTextUtils;
@@ -103,6 +104,128 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
                 Environment.getExternalStorageDirectory(),
                 "Documents",
                 rstr(R.string.app_name).toLowerCase(Locale.ROOT));
+    }
+
+    // -----------------------------------------------------------------
+    // Git 仓库笔记本：笔记本目录本身就是一个 git 工作区，同步语义与 vsnote 一致
+    // (commit -> pull(merge) -> push；保存后防抖；定时；冲突按策略自动解决)
+    // -----------------------------------------------------------------
+
+    public boolean isGitSyncEnabled() {
+        return getBool(R.string.pref_key__git_sync_enabled, false);
+    }
+
+    public void setGitSyncEnabled(final boolean enabled) {
+        setBool(R.string.pref_key__git_sync_enabled, enabled);
+    }
+
+    /** 笔记本目录是 git 工作区时返回该目录，否则 null（是否启用同步由 isGitSyncEnabled 决定） */
+    @Nullable
+    public File getGitRepositoryDirectory() {
+        final File notebook = getNotebookDirectory();
+        return GitRepo.isGitWorkingDirectory(notebook) ? notebook : null;
+    }
+
+    /** 自动同步间隔（分钟）：0=不按定时器同步，仅靠编辑后防抖与手动同步 */
+    public int getGitSyncIntervalMinutes() {
+        return getIntOfStringPref(R.string.pref_key__git_sync_interval_minutes, 5);
+    }
+
+    /** 关闭时本地改动不自动提交，等同只用手动同步按钮 */
+    public boolean isGitCommitOnEditEnabled() {
+        return getBool(R.string.pref_key__git_commit_on_edit, true);
+    }
+
+    public void setGitCommitOnEdit(final boolean enabled) {
+        setBool(R.string.pref_key__git_commit_on_edit, enabled);
+    }
+
+    public String getGitCommitMessageTemplate() {
+        return orDefault(getString(R.string.pref_key__git_commit_message, ""),
+                rstr(R.string.git_commit_message_default));
+    }
+
+    public void setGitCommitMessageTemplate(final String template) {
+        setString(R.string.pref_key__git_commit_message, template);
+    }
+
+    public String getGitAuthorName() {
+        return orDefault(getString(R.string.pref_key__git_author_name, ""), rstr(R.string.git_author_name_default));
+    }
+
+    public String getGitAuthorEmail() {
+        return orDefault(getString(R.string.pref_key__git_author_email, ""), rstr(R.string.git_author_email_default));
+    }
+
+    /** EditTextPreference 存了空串时 getString 不会回落到默认值，提交作者不能为空 */
+    private String orDefault(final String value, final String fallback) {
+        return value == null || value.trim().isEmpty() ? fallback : value.trim();
+    }
+
+    /** markers=留冲突标记由用户改；union/ours/theirs=自动取舍；未知值按 markers 处理 */
+    public String getGitConflictStrategy() {
+        final String value = getString(R.string.pref_key__git_conflict_strategy, "markers");
+        return GitRepo.CONFLICT_STRATEGIES.contains(value) ? value : "markers";
+    }
+
+    public void setGitConflictStrategy(final String strategy) {
+        setString(R.string.pref_key__git_conflict_strategy, strategy);
+    }
+
+    public String getGitUsername() {
+        return getString(R.string.pref_key__git_username, "");
+    }
+
+    public void setGitUsername(final String username) {
+        setString(R.string.pref_key__git_username, username == null ? "" : username.trim());
+    }
+
+    /**
+     * 访问令牌存在 Android KeyStore 里（跟「加密口令」同一套机制），因此 API 23 以下无法保存。
+     * 没有令牌仍可 clone/pull 公开仓库，只是 push 会失败。
+     */
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public String getGitAccessToken() {
+        final char[] stored = new PasswordStore(getContext()).loadKey(R.string.pref_key__git_access_token);
+        return stored == null ? "" : new String(stored);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void setGitAccessToken(final String token) {
+        new PasswordStore(getContext()).storeKey(token == null ? "" : token.trim(),
+                R.string.pref_key__git_access_token);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean isGitAccessTokenSet() {
+        return getGitAccessToken().length() > 0;
+    }
+
+    /** 设置项摘要用：远端地址取自仓库配置，不另存一份，免得两边不一致 */
+    public String getGitRemoteName() {
+        return getString(R.string.pref_key__git_remote_name, "origin");
+    }
+
+    public void setGitRemoteName(final String remote) {
+        setString(R.string.pref_key__git_remote_name, remote == null || remote.trim().isEmpty() ? "origin" : remote.trim());
+    }
+
+    /** 上次同步的结果摘要，只用于在设置页显示，不同步到远端 */
+    public void setGitLastSyncInfo(final String info) {
+        setString(R.string.pref_key__git_last_sync_info, info == null ? "" : info);
+    }
+
+    public String getGitLastSyncInfo() {
+        return getString(R.string.pref_key__git_last_sync_info, "");
+    }
+
+    /** 用户放弃过一次合并：暂停自动同步，直到手动同步成功（避免每次定时都撞同一处冲突） */
+    public boolean isGitAutoSyncPaused() {
+        return getBool(R.string.pref_key__git_sync_paused, false);
+    }
+
+    public void setGitAutoSyncPaused(final boolean paused) {
+        setBool(R.string.pref_key__git_sync_paused, paused);
     }
 
     public File getQuickNoteFile() {

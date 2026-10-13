@@ -444,4 +444,26 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="csv" translatable="false">CSV</string>
     <string name="orgmode" translatable="false">OrgMode</string>
     <string name="option_select_lines" translatable="false">option_select_lines</string>
+
+    <!-- Git repository notebook: preference keys -->
+    <string name="pref_key__git_sync_enabled" translatable="false">pref_key__git_sync_enabled</string>
+    <string name="pref_key__git_sync_interval_minutes" translatable="false">pref_key__git_sync_interval_minutes</string>
+    <string name="pref_key__git_commit_on_edit" translatable="false">pref_key__git_commit_on_edit</string>
+    <string name="pref_key__git_commit_message" translatable="false">pref_key__git_commit_message</string>
+    <string name="pref_key__git_author_name" translatable="false">pref_key__git_author_name</string>
+    <string name="pref_key__git_author_email" translatable="false">pref_key__git_author_email</string>
+    <string name="pref_key__git_username" translatable="false">pref_key__git_username</string>
+    <string name="pref_key__git_access_token" translatable="false">pref_key__git_access_token</string>
+    <string name="pref_key__git_remote_name" translatable="false">pref_key__git_remote_name</string>
+    <string name="pref_key__git_conflict_strategy" translatable="false">pref_key__git_conflict_strategy</string>
+    <string name="pref_key__git_last_sync_info" translatable="false">pref_key__git_last_sync_info</string>
+    <string name="pref_key__git_sync_paused" translatable="false">pref_key__git_sync_paused</string>
+    <string name="pref_key__git_clone" translatable="false">pref_key__git_clone</string>
+    <string name="pref_key__git_sync_now" translatable="false">pref_key__git_sync_now</string>
+    <string name="pref_key__git_pull" translatable="false">pref_key__git_pull</string>
+    <string name="pref_key__git_push" translatable="false">pref_key__git_push</string>
+    <string name="pref_key__git_status" translatable="false">pref_key__git_status</string>
+    <string name="git_commit_message_default" translatable="false">markor: auto sync at {now}</string>
+    <string name="git_author_name_default" translatable="false">Markor for Android</string>
+    <string name="git_author_email_default" translatable="false">markor@localhost</string>
 </resources>

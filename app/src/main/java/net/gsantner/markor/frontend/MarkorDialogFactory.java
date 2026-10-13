@@ -62,6 +62,8 @@ import net.gsantner.markor.frontend.textview.HighlightingEditor;
 import net.gsantner.markor.frontend.textview.SyntaxHighlighterBase;
 import net.gsantner.markor.frontend.textview.TextViewUtils;
 import net.gsantner.markor.model.AppSettings;
+import net.gsantner.markor.model.git.GitNotebook;
+import net.gsantner.markor.model.git.GitSyncJob;
 import net.gsantner.opoc.format.GsTextUtils;
 import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog;
 import net.gsantner.opoc.frontend.GsSearchOrCustomTextDialog.DialogOptions;
@@ -1056,6 +1058,156 @@ public class MarkorDialogFactory {
             };
             GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
         }
+    }
+
+    //
+    // Git 仓库笔记本：克隆、状态、冲突处理
+    //
+
+    /** 克隆一个 git 仓库到笔记本所在目录旁边，并把笔记本切过去 */
+    public static void showGitCloneDialog(final Activity activity) {
+        final AppSettings as = AppSettings.get(activity);
+        final DialogOptions dopt = baseConf(activity);
+        dopt.titleText = R.string.git_clone_repository;
+        dopt.isSearchEnabled = true;
+        dopt.searchInputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI;
+        dopt.searchHintText = R.string.git_repository_url;
+        dopt.messageText = activity.getString(R.string.git_target_folder) + ": " + getGitCloneParent(as).getAbsolutePath();
+        dopt.callback = url -> startGitClone(activity, url == null ? "" : url.trim());
+        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
+    }
+
+    private static void startGitClone(final Activity activity, final String url) {
+        final AppSettings as = AppSettings.get(activity);
+        if (!url.startsWith("https://")) {
+            showGitMessage(activity, activity.getString(R.string.git_https_url_required), true);
+            return;
+        }
+        final File target = getGitCloneTargetDirectory(as, url);
+        if (target == null) {
+            showGitMessage(activity, activity.getString(R.string.git_clone_target_exists), true);
+            return;
+        }
+        showGitMessage(activity, activity.getString(R.string.git_cloning), false);
+        GitNotebook.requestClone(as, url, target, null, (directory, error) -> activity.runOnUiThread(() -> {
+            if (error != null) {
+                showGitMessage(activity, activity.getString(R.string.git_clone_failed, error), true);
+                return;
+            }
+            as.setNotebookDirectory(directory);
+            as.setGitSyncEnabled(true);
+            as.setRecreateMainRequired(true);
+            GitSyncJob.schedule(activity, as);
+            showGitMessage(activity, activity.getString(R.string.git_clone_done, directory.getAbsolutePath()), false);
+        }));
+    }
+
+    private static File getGitCloneParent(final AppSettings as) {
+        final File notebook = as.getNotebookDirectory();
+        final File parent = notebook.getParentFile();
+        return parent != null ? parent : notebook;
+    }
+
+    /** 目标目录已存在且非空时返回 null：绝不往用户已有的数据里写 */
+    private static File getGitCloneTargetDirectory(final AppSettings as, final String url) {
+        String name = url.replaceAll("[/\\\\]+$", "");
+        final int cut = Math.max(name.lastIndexOf('/'), name.lastIndexOf('\\'));
+        name = cut >= 0 ? name.substring(cut + 1) : name;
+        if (name.endsWith(".git")) {
+            name = name.substring(0, name.length() - ".git".length());
+        }
+        if (name.isEmpty()) {
+            return null;
+        }
+        final File target = new File(getGitCloneParent(as), name);
+        final String[] existing = target.list();
+        return target.isDirectory() && existing != null && existing.length > 0 ? null : target;
+    }
+
+    public static void showGitStatusDialog(final Activity activity) {
+        GitNotebook.requestStatus(activity, text -> activity.runOnUiThread(() ->
+                showConfirmDialog(activity, R.string.git_show_status, text, null, null)));
+    }
+
+    /** 冲突现场：列出文件，按策略取舍、打开自己改，或者放弃本次合并 */
+    public static void showGitConflictDialog(final Activity activity, final List<String> paths, final String stage) {
+        final AppSettings as = AppSettings.get(activity);
+        final DialogOptions dopt = baseConf(activity);
+        dopt.titleText = R.string.git_conflict_title;
+        dopt.isSearchEnabled = false;
+
+        final StringBuilder message = new StringBuilder(activity.getString(R.string.git_conflict_message));
+        if ("unresolved".equals(stage)) {
+            message.append("\n").append(activity.getString(R.string.git_conflict_previous_unresolved));
+        }
+        for (final String path : paths) {
+            message.append("\n").append(path);
+        }
+        if ("markers".equals(as.getGitConflictStrategy())) {
+            message.append("\n").append(activity.getString(R.string.git_conflict_marker_hint));
+        }
+        dopt.messageText = message;
+
+        final List<String> options = new ArrayList<>();
+        options.add(activity.getString(R.string.git_conflict_keep_union));
+        options.add(activity.getString(R.string.git_conflict_keep_ours));
+        options.add(activity.getString(R.string.git_conflict_keep_theirs));
+        options.add(activity.getString(R.string.git_conflict_open_files));
+        options.add(activity.getString(R.string.git_conflict_abort));
+        dopt.data = options;
+
+        dopt.positionCallback = positions -> {
+            switch (positions.get(0)) {
+                case 0:
+                    GitNotebook.requestResolveConflicts(activity, "union");
+                    break;
+                case 1:
+                    GitNotebook.requestResolveConflicts(activity, "ours");
+                    break;
+                case 2:
+                    GitNotebook.requestResolveConflicts(activity, "theirs");
+                    break;
+                case 3:
+                    openGitConflictFile(activity, paths);
+                    break;
+                default:
+                    GitNotebook.requestAbortMerge(activity);
+                    break;
+            }
+        };
+        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
+    }
+
+    private static void openGitConflictFile(final Activity activity, final List<String> paths) {
+        if (paths.isEmpty()) {
+            return;
+        }
+        // 改完保存即视为解决：下一次同步会把标记已消失的文件收进索引并补上合并提交
+        final File file = new File(AppSettings.get(activity).getNotebookDirectory(), paths.get(0));
+        DocumentActivity.launch(activity, file, false, null);
+    }
+
+    /** 单行文本设置项：沿用本仓库「搜索框当输入框」的对话框形态 */
+    public static void showGitTextSettingDialog(final Activity activity, final int title, final CharSequence current,
+                                                final boolean isSecret, final GsCallback.a1<String> onSaved) {
+        final DialogOptions dopt = baseConf(activity);
+        dopt.titleText = title;
+        dopt.isSearchEnabled = true;
+        dopt.searchInputType = isSecret
+                ? InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD
+                : InputType.TYPE_CLASS_TEXT;
+        dopt.searchHintText = R.string.empty_string;
+        dopt.messageText = current;
+        dopt.callback = value -> {
+            if (value != null) {
+                onSaved.callback(value.trim());
+            }
+        };
+        GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
+    }
+
+    private static void showGitMessage(final Activity activity, final String text, final boolean isError) {
+        activity.runOnUiThread(() -> Toast.makeText(activity, text, Toast.LENGTH_LONG).show());
     }
 
     public static void showInsertSnippetDialog(final Activity activity, final GsCallback.a1<String> callback) {

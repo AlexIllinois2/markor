@@ -13,7 +13,16 @@ if (enable_plugin_kotlin) {
     apply plugin: 'kotlin-kapt'
 }
 
-rootProject.ext.version_minSdk = 18
+// Release signing config, loaded from keystore.properties (git-ignored).
+// If the file is missing, release builds stay unsigned.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+// JGit 依赖 java.nio.file / java.time (desugar_jdk_libs_nio 的最低可用线是 API 21)
+rootProject.ext.version_minSdk = 21
 
 // https://github.com/vsch/flexmark-java/releases
 ext.version_library_flexmark = "0.42.14"
@@ -65,21 +74,38 @@ android {
         main.assets.srcDirs += 'thirdparty/assets'
     }
 
+    signingConfigs {
+        if (keystorePropertiesFile.exists()) {
+            release {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     packagingOptions {
         resources {
             excludes += ['META-INF/LICENSE-LGPL-2.1.txt', 'META-INF/LICENSE-LGPL-3.txt', 'META-INF/LICENSE-W3C-TEST']
+            // JGit jars ship signature files, descriptors and classpath junk that break APK packaging
+            excludes += ['META-INF/ECLIPSE_*', 'META-INF/*.version', 'META-INF/DEPENDENCIES', 'META-INF/NOTICE', 'META-INF/ABOUT.html', 'META-INF/ABOUT.md', 'module-info.class', 'META-INF/maven/**']
         }
     }
 
 
     compileOptions {
         encoding = 'UTF-8'
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -105,6 +131,8 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
     implementation 'androidx.browser:browser:1.4.0'
+    // 后台 git 同步（GitSyncJob）
+    implementation 'androidx.work:work-runtime:2.8.1'
 
     // Markdown convertor (Flexmark)
     implementation "com.vladsch.flexmark:flexmark:${version_library_flexmark}"
@@ -144,6 +172,14 @@ dependencies {
     // Tool libraries
     //noinspection AnnotationProcessorOnCompilePath
     implementation 'commons-io:commons-io:2.7'
+
+    // Git support for notebook folders (https://mvnrepository.com/artifact/org.eclipse.jgit)
+    // 5.13 is the last line compiled for Java 8; 6.x and newer need Java 11 and won't run on Android.
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.3.202401111512-r'
+    // JGit logs via slf4j and warns on every call when no binding is present
+    implementation 'org.slf4j:slf4j-nop:1.7.30'
+    // JGit uses java.nio.file / java.time / streams, which API 21..25 do not provide
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.1.5'
     if (enable_plugin_kotlin) {
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${version_plugin_kotlin}"
     }
