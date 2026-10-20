@@ -117,6 +117,28 @@ There is no dedicated view mode implemented.
 
 
 
+## 本地修改 / Local modifications
+本仓库为个人 fork，在上游 Markor v2.16.1 基础上做了以下改动：
+
+### Git 笔记同步（新增功能）
+基于 JGit 的笔记目录自动同步：
+* **保存即提交**：文件保存后立刻 commit；拉取/推送走 3 秒防抖，冷启动时自动拉取一次。
+* **设置 → Git**：同步开关、提交作者名/邮箱。未配置作者时以占位身份提交并一次性提醒，不阻断同步。
+* **静默失败修复**：无界面挂载时用 Toast 兜底提示；非自动操作在「不是 git 仓库」「上次操作还在执行」时明确报错。
+* 主要代码：[model/git/](app/src/main/java/net/gsantner/markor/model/git/)（GitNotebook、GitSyncJob），并接入 ApplicationObject、MainActivity、Document、GsFileBrowserFragment、MarkorDialogFactory、SettingsActivity；新增字符串已同步中英文。
+* 依赖：`org.eclipse.jgit:5.13.3` + `com.github.mwiede:jsch:0.2.21`（SSH 公钥认证）。
+
+### Release 签名
+* [app/build.gradle](app/build.gradle) 增加 `signingConfigs.release`，从 `keystore.properties` 读取；该文件缺失时保持原有不签名行为。`markor-release.jks` 与 `keystore.properties` 均已加入 `.gitignore`。
+
+### 构建与打包修复
+* 根 [build.gradle](build.gradle)：`maven.google.com` 在部分网络下 TCP 挂死，替换为官方现行地址 `dl.google.com/dl/android/maven2/`。
+* `packagingOptions` 排除 `plugin.properties`（jgit 与 jgit.ssh.jsch 各带一份 OSGi 元数据，内容冲突）。
+* [proguard-rules.pro](app/proguard-rules.pro)：整包 keep `com.jcraft.jsch.**` 与 `com.jcraft.jzlib.**`——JSch 的算法按类名反射加载，R8 裁剪后 SSH 连接即报 `ClassNotFoundException`。
+
+### 编辑器「从文末开始」开关修复
+* 上游该开关无任何实际作用。现语义为「记忆优先」：优先恢复上次编辑位置，仅对没有编辑记忆的文件按开关决定文末/开头；默认值统一为 false（未勾选 = 从开头开始）。
+
 ## Contribute
 * **Programming**  
   The project is always open for contributions and welcomes merge requests. Take a look at our [issue tracker](https://github.com/gsantner/markor/issues) for open issues, especially "[good first issues](https://github.com/gsantner/markor/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)".
