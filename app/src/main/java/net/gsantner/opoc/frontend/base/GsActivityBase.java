@@ -147,9 +147,29 @@ public abstract class GsActivityBase<AS extends GsSharedPreferencesPropertyBacke
         return null;
     }
 
+    // The toolbar title is opt-out: some screens only want the action icons on the bar
+    protected boolean _toolbarTitleEnabled = true;
+
+    /**
+     * Show/hide the toolbar title. Hiding also clears whatever title was set before,
+     * because {@link #setTitle(CharSequence)} writes straight into the Toolbar.
+     */
+    public void setToolbarTitleEnabled(final boolean enabled) {
+        _toolbarTitleEnabled = enabled;
+        if (!enabled) {
+            final Toolbar t = getToolbar();
+            if (t != null) {
+                t.setTitle("");
+            }
+        }
+    }
+
     @Override
     public void setTitle(CharSequence title) {
         super.setTitle(title);
+        if (!_toolbarTitleEnabled) {
+            return;
+        }
         try {
             final Toolbar t = findViewById(GsContextUtils.instance.getResId(this, GsContextUtils.ResType.ID, "toolbar"));
             if (t != null) {

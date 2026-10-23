@@ -410,8 +410,13 @@ public abstract class ActionButtonBase {
                 return false;
             });
         }
-        final int sidePadding = _buttonHorizontalMargin + btn.getPaddingLeft(); // Left and right are symmetrical
-        btn.setPadding(sidePadding, btn.getPaddingTop(), sidePadding, btn.getPaddingBottom());
+        // inflate(..., null) 不带父布局，XML 里写的宽高会被丢掉：图标按各自尺寸撑开，
+        // 一排按钮的间距参差不齐，还容易溢出屏幕。这里统一成 42dp 等宽方格 + 居中 24dp 图标，
+        // 42dp x 8 正好铺满 360dp 屏的可用宽度，第 9 个动作才需要横向滑动。
+        final float density = barLayout.getResources().getDisplayMetrics().density;
+        final int iconInset = Math.round(9 * density);
+        btn.setPadding(iconInset, iconInset, iconInset, iconInset);
+        btn.setLayoutParams(new ViewGroup.LayoutParams(Math.round(42 * density), ViewGroup.LayoutParams.MATCH_PARENT));
         barLayout.addView(btn);
     }
 

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*#######################################################
+ *
+ *   Maintained 2017-2025 by Gregor Santner <gsantner AT mailbox DOT org>
+ *   License of this file: Apache 2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+#########################################################*/
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:icon="@drawable/ic_file_white_24dp"
+    android:summary="@string/files_and_folders"
+    android:title="@string/general">
+
+        <PreferenceCategory android:title="@string/save_location">
+            <Preference
+                android:icon="@drawable/ic_save_black_24dp"
+                android:key="@string/pref_key__notebook_directory"
+                android:title="@string/notebook" />
+            <!-- QuickNote / To-Do 已经并入"编辑工作区"的标签页，不再有单独的保存位置 -->
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/git_repository">
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_sync_black_24dp"
+                android:key="@string/pref_key__git_sync_enabled"
+                android:summary="@string/git_notebook_sync_summary"
+                android:title="@string/git_sync" />
+            <Preference
+                android:icon="@drawable/baseline_download_24"
+                android:key="@string/pref_key__git_clone"
+                android:title="@string/git_clone_repository" />
+            <Preference
+                android:icon="@drawable/ic_lightning_black_24dp"
+                android:key="@string/pref_key__git_sync_now"
+                android:title="@string/git_sync_now" />
+            <Preference
+                android:key="@string/pref_key__git_pull"
+                android:title="@string/git_pull_now" />
+            <Preference
+                android:key="@string/pref_key__git_push"
+                android:title="@string/git_push_now" />
+            <Preference
+                android:icon="@drawable/ic_info_black_24dp"
+                android:key="@string/pref_key__git_status"
+                android:title="@string/git_show_status" />
+            <ListPreference
+                android:defaultValue="5"
+                android:dialogMessage="@string/git_background_interval_notice"
+                android:dialogTitle="@string/git_auto_sync_interval"
+                android:entries="@array/pref_arrdisp__git_sync_interval"
+                android:entryValues="@array/pref_arrkeys__git_sync_interval"
+                android:key="@string/pref_key__git_sync_interval_minutes"
+                android:summary="%1$s"
+                android:title="@string/git_auto_sync_interval" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="@string/pref_key__git_commit_on_edit"
+                android:title="@string/git_commit_after_edit" />
+            <Preference
+                android:key="@string/pref_key__git_commit_message"
+                android:summary="@string/git_commit_message_summary"
+                android:title="@string/git_commit_message" />
+            <ListPreference
+                android:defaultValue="markers"
+                android:dialogTitle="@string/git_conflict_strategy"
+                android:entries="@array/pref_arrdisp__git_conflict_strategy"
+                android:entryValues="@array/pref_arrkeys__git_conflict_strategy"
+                android:key="@string/pref_key__git_conflict_strategy"
+                android:summary="%1$s"
+                android:title="@string/git_conflict_strategy" />
+
+            <PreferenceCategory android:title="@string/git_commit_author">
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_author_name"
+                    android:title="@string/git_author_name" />
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_author_email"
+                    android:title="@string/git_author_email" />
+            </PreferenceCategory>
+
+            <PreferenceCategory android:title="@string/git_credentials">
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="@string/empty_string"
+                    android:key="@string/pref_key__git_username"
+                    android:title="@string/git_username" />
+                <Preference
+                    android:key="@string/pref_key__git_access_token"
+                    android:summary="@string/git_access_token_summary"
+                    android:title="@string/git_access_token" />
+                <Preference
+                    android:key="@string/pref_key__git_ssh_key_path"
+                    android:summary="@string/git_ssh_key_summary"
+                    android:title="@string/git_ssh_key_path" />
+                <Preference
+                    android:key="@string/pref_key__git_ssh_passphrase"
+                    android:summary="@string/git_ssh_passphrase_summary"
+                    android:title="@string/git_ssh_passphrase" />
+            </PreferenceCategory>
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/miscellaneous">
+            <androidx.preference.EditTextPreference
+                android:defaultValue="@string/empty_string"
+                android:dialogMessage="@string/always_open_files_with_this_app_when_list_contains_file_extension"
+                android:icon="@drawable/ic_open_in_browser_black_24dp"
+                android:key="@string/pref_key__exts_to_always_open_in_this_app"
+                android:title="@string/always_open_with_this_app" />
+
+            <ListPreference
+                android:defaultValue="0"
+                android:dialogTitle="@string/app_start_tab"
+                android:entries="@array/pref_arrdisp__bottomnav"
+                android:entryValues="@array/pref_arrkeys__zero_to_two"
+                android:icon="@drawable/ic_file_gray_24dp"
+                android:key="@string/pref_key__app_start_tab_v2"
+                android:summary="%1$s"
+                android:title="@string/app_start_tab" />
+
+            <!-- 文件页已经锁死在笔记本目录里，起始文件夹没有意义了，这一项删掉 -->
+            <Preference
+                android:icon="@drawable/ic_lock_outline_black_24dp"
+                android:key="@string/pref_key__set_encryption_password"
+                android:title="@string/file_encryption_password" />
+        </PreferenceCategory>
+
+
+        <PreferenceCategory android:title="@string/search">
+            <ListPreference
+                android:defaultValue="0"
+                android:dialogTitle="@string/max_search_depth"
+                android:entries="@array/pref_arrdisp__search_depth"
+                android:entryValues="@array/pref_arrkeys__search_depth"
+                android:icon="@drawable/ic_baseline_account_tree_24"
+                android:key="@string/pref_key__max_search_depth"
+                android:summary="%1$s"
+                android:title="@string/max_search_depth" />
+            <androidx.preference.EditTextPreference
+                android:defaultValue=""
+                android:dialogMessage="@string/do_not_search_specified_files_and_folders"
+                android:icon="@drawable/ic_baseline_rule_folder_24"
+                android:key="@string/pref_key__filesearch_ignorelist"
+                android:title="@string/ignore_list" />
+        </PreferenceCategory>
+
+
+        <PreferenceCategory android:title="@string/features">
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_widgets_black_24dp"
+                android:key="@string/pref_key__is_launcher_for_special_files_enabled"
+                android:title="@string/special_documents" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_border_outer_black_24dp"
+                android:key="@string/pref_key__is_multi_window_enabled"
+                android:summary="@string/open_new_documents_always_in_new_window"
+                android:title="@string/multiple_windows" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_bug_report_black_24dp"
+                android:key="@string/pref_key__is_enable_experimental_features"
+                android:title="@string/experimental_features" />
+        </PreferenceCategory>
+
+    </PreferenceScreen>

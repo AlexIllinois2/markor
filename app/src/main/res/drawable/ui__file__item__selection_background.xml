@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- File list rows are rounded cards: pressed / selected / rest -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/card_alt" />
+            <corners android:radius="@dimen/card_corner_radius" />
+        </shape>
+    </item>
     <item android:state_checked="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/primary" />
+            <solid android:color="@color/accent_wash" />
+            <corners android:radius="@dimen/card_corner_radius" />
+            <stroke
+                android:width="1.5dp"
+                android:color="@color/accent_stroke" />
         </shape>
     </item>
     <item android:state_activated="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/primary" />
+            <solid android:color="@color/accent_wash" />
+            <corners android:radius="@dimen/card_corner_radius" />
+            <stroke
+                android:width="1.5dp"
+                android:color="@color/accent_stroke" />
         </shape>
     </item>
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/primary" />
+            <solid android:color="@color/accent_wash" />
+            <corners android:radius="@dimen/card_corner_radius" />
+            <stroke
+                android:width="1.5dp"
+                android:color="@color/accent_stroke" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/transparent" />
+            <solid android:color="@color/card" />
+            <corners android:radius="@dimen/card_corner_radius" />
         </shape>
     </item>
 </selector>

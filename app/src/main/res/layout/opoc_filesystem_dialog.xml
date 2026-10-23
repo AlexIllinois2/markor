@@ -22,8 +22,11 @@
         android:id="@+id/ui__filesystem_dialog__title_bar"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingBottom="6dp"
+        android:background="@drawable/bg_header_rounded"
+        android:elevation="0dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
     </androidx.appcompat.widget.Toolbar>
@@ -61,9 +64,12 @@
         app:layout_constraintBottom_toTopOf="@id/ui__filesystem_dialog__new_dir"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        android:alpha="0.75"
+        android:alpha="1"
         tools:ignore="ContentDescription"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"/>
+        app:backgroundTint="@color/card"
+        app:elevation="4dp"
+        app:shapeAppearanceOverlay="@style/MarkorFabShape"
+        app:tint="@color/primary_text"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ui__filesystem_dialog__new_dir"
@@ -75,9 +81,12 @@
         app:layout_constraintBottom_toTopOf="@id/ui__filesystem_dialog__home"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        android:alpha="0.75"
+        android:alpha="1"
         tools:ignore="ContentDescription"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"/>
+        app:backgroundTint="@color/card"
+        app:elevation="4dp"
+        app:shapeAppearanceOverlay="@style/MarkorFabShape"
+        app:tint="@color/primary_text"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ui__filesystem_dialog__home"
@@ -89,9 +98,12 @@
         app:layout_constraintBottom_toTopOf="@id/ui__filesystem_dialog__buttons"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        android:alpha="0.75"
+        android:alpha="1"
         tools:ignore="ContentDescription"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"/>
+        app:backgroundTint="@color/card"
+        app:elevation="4dp"
+        app:shapeAppearanceOverlay="@style/MarkorFabShape"
+        app:tint="@color/primary_text"/>
 
     <LinearLayout
         android:id="@+id/ui__filesystem_dialog__buttons"

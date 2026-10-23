@@ -91,7 +91,6 @@ import java.util.Set;
 @SuppressWarnings({"WeakerAccess", "unused", "UnusedReturnValue"})
 public abstract class GsPreferenceFragmentBase<AS extends GsSharedPreferencesPropertyBackend> extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener, PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
-    private static final int DEFAULT_ICON_TINT_DELAY = 200;
     protected boolean _isDividerVisible = false;
 
     //
@@ -162,11 +161,23 @@ public abstract class GsPreferenceFragmentBase<AS extends GsSharedPreferencesPro
         if (activity != null && activity.getTheme() != null) {
             TypedArray array = activity.getTheme().obtainStyledAttributes(new int[]{android.R.attr.colorBackground});
             int bgcolor = array.getColor(0, 0xFFFFFF);
-            _defaultIconTintColor = _cu.shouldColorOnTopBeLight(bgcolor) ? Color.WHITE : Color.BLACK;
+            // Prefer an app supplied "pref_icon" color: pure black icons read far too heavy
+            // on the light card surface, a muted slate matches the file browser icons.
+            final int iconColorRes = _cu.getResId(activity, GsContextUtils.ResType.COLOR, "pref_icon");
+            _defaultIconTintColor = iconColorRes != 0
+                    ? activity.getResources().getColor(iconColorRes)
+                    : (_cu.shouldColorOnTopBeLight(bgcolor) ? Color.WHITE : Color.BLACK);
         }
 
         // on bottom
         afterOnCreate(savedInstanceState, activity);
+
+        // 图标在这一步就上色，第一帧画出来就是最终样子。
+        // 以前是等视图出来后再分 5 次（200ms/2s/10s/20s/100s）重新着色，
+        // 既会闪一下黑图标，又反复让列表重绘 —— 设置页"慢"的体感有一半来自这里
+        if (_defaultIconTintColor != 0) {
+            tintAllPrefIcons(this, _defaultIconTintColor);
+        }
     }
 
     public final GsCallback.a1<PreferenceFragmentCompat> updatePreferenceIcons = (frag) -> {
@@ -174,10 +185,8 @@ public abstract class GsPreferenceFragmentBase<AS extends GsSharedPreferencesPro
             View view = frag.getView();
             final Integer color = getIconTintColor();
             if (view != null && color != null) {
-                Runnable r = () -> tintAllPrefIcons(frag, color);
-                for (long delayFactor : new int[]{1, 10, 50, 100, 500}) {
-                    view.postDelayed(r, delayFactor * DEFAULT_ICON_TINT_DELAY);
-                }
+                // 兜底一次即可（动态追加的条目）；重复上色没有意义
+                view.post(() -> tintAllPrefIcons(frag, color));
             }
         } catch (Exception ignored) {
         }
@@ -233,6 +242,22 @@ public abstract class GsPreferenceFragmentBase<AS extends GsSharedPreferencesPro
         super.onViewCreated(view, savedInstanceState);
         updatePreferenceIcons.callback(this);
 
+        // 让外层容器的圆角"卡片/纸张"背景透出来，而不是铺一层方角底色
+        final RecyclerView preferenceList = getListView();
+        if (preferenceList != null) {
+            preferenceList.setBackgroundColor(android.graphics.Color.TRANSPARENT);
+            // 滚动条会贴着圆角纸张的右边缘画出来，像一道多余的黑线；底部也要留白，
+            // 否则最后一项会被纸张的圆角切掉
+            preferenceList.setVerticalScrollBarEnabled(false);
+            final int bottomSpace = Math.round(12 * getResources().getDisplayMetrics().density);
+            preferenceList.setClipToPadding(false);
+            preferenceList.setPadding(
+                    preferenceList.getPaddingLeft(),
+                    preferenceList.getPaddingTop(),
+                    preferenceList.getPaddingRight(),
+                    preferenceList.getPaddingBottom() + bottomSpace);
+        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             view.postDelayed(() -> {
                 ViewGroup.LayoutParams lpg = view.getLayoutParams();
@@ -274,7 +299,8 @@ public abstract class GsPreferenceFragmentBase<AS extends GsSharedPreferencesPro
         _appSettings = getAppSettings(getActivity());
         _cu = GsContextUtils.instance;
         updatePreferenceChangedListeners(true);
-        doUpdatePreferences(); // Invoked later
+        // onPreferenceScreenChangedPriv 里已经会调一次 doUpdatePreferences，
+        // 这里再来一次就是同一份刷新做两遍（每遍几十次 findPreference），没必要
         onPreferenceScreenChangedPriv(this, getPreferenceScreen());
     }
 

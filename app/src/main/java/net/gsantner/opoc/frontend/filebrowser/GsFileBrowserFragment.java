@@ -121,9 +121,11 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
         }
         setDialogOptions(((FilesystemFragmentOptionsListener) activity).getFilesystemFragmentOptions(_dopt));
 
-        addDivider(activity, _recyclerList);
+        // 列表改为圆角卡片样式，不再使用分隔线（addDivider 仍保留给对话框使用）
 
         _filesystemViewerAdapter = new GsFileBrowserListAdapter(_dopt, activity);
+        // 条目动画会在列表里留下不响应点击的"残影行"，卡片样式本身也不需要动画
+        _recyclerList.setItemAnimator(null);
         _recyclerList.setAdapter(_filesystemViewerAdapter);
         setReloadRequiredOnResume(false); // setAdapter will trigger a load
         getChildFragmentManager().setFragmentResultListener(
@@ -230,7 +232,8 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
         }
 
         updateMenuItems();
-        _emptyHint.setVisibility(adapter.isCurrentFolderEmpty() ? View.VISIBLE : View.GONE);
+        _emptyHint.setVisibility(adapter.isCurrentFolderEmpty() || adapter.isFilteredEmpty()
+                ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -243,59 +246,30 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
     private void updateMenuItems() {
         final Set<File> selFiles = _filesystemViewerAdapter.getCurrentSelection();
         final int selCount = selFiles.size();
-        final int totalCount = _filesystemViewerAdapter.getItemCount() - 1;   // Account for ".."
+        // 笔记本根目录没有".."这一行，计数时不能固定减一
+        final int totalCount = _filesystemViewerAdapter.getItemCount()
+                - (_filesystemViewerAdapter.isCurrentFolderHome() ? 0 : 1);
         final boolean selMulti1 = _dopt.doSelectMultiple && selCount == 1;
         final boolean selMultiMore = _dopt.doSelectMultiple && selCount > 1;
         final boolean selMultiAny = selMultiMore || selMulti1;
-        final boolean selFilesOnly = _filesystemViewerAdapter.isFilesOnlySelected();
         final boolean selInVirtualDirectory = _filesystemViewerAdapter.isCurrentFolderVirtual();
 
         // Check if is a favourite
-        boolean selTextFilesOnly = true;
-        boolean selDirectoriesOnly = true;
         boolean selWritable = true;
         boolean allSelectedFav = true;
         final Collection<File> favFiles = _dopt.favouriteFiles != null ? _dopt.favouriteFiles : Collections.emptySet();
         for (final File f : selFiles) {
-            selTextFilesOnly &= FormatRegistry.isFileSupported(f, true);
             selWritable &= f.canWrite();
-            selDirectoriesOnly &= f.isDirectory();
             allSelectedFav &= favFiles.contains(f);
             selWritable &= !Arrays.asList(_appSettings.getQuickNoteFile(), _appSettings.getTodoFile(), _appSettings.getNotebookDirectory()).contains(f);
         }
 
         if (_fragmentMenu != null && _fragmentMenu.findItem(R.id.action_delete_selected_items) != null) {
-            _fragmentMenu.findItem(R.id.action_search).setVisible(selFiles.isEmpty() && !_filesystemViewerAdapter.isCurrentFolderVirtual());
             _fragmentMenu.findItem(R.id.action_delete_selected_items).setVisible((selMulti1 || selMultiMore) && selWritable);
             _fragmentMenu.findItem(R.id.action_rename_selected_item).setVisible(selMulti1 && selWritable & !selInVirtualDirectory);
             _fragmentMenu.findItem(R.id.action_info_selected_item).setVisible(selMulti1);
-            _fragmentMenu.findItem(R.id.action_move_selected_items).setVisible((selMulti1 || selMultiMore) && selWritable && !selInVirtualDirectory && !_cu.isUnderStorageAccessFolder(getContext(), getCurrentFolder(), true));
-            _fragmentMenu.findItem(R.id.action_copy_selected_items).setVisible((selMulti1 || selMultiMore) && selWritable && !_cu.isUnderStorageAccessFolder(getContext(), getCurrentFolder(), true));
-            _fragmentMenu.findItem(R.id.action_share_files).setVisible(selFilesOnly && (selMulti1 || selMultiMore) && !_cu.isUnderStorageAccessFolder(getContext(), getCurrentFolder(), true));
-            _fragmentMenu.findItem(R.id.action_go_to).setVisible(!_filesystemViewerAdapter.areItemsSelected());
-            _fragmentMenu.findItem(R.id.action_sort).setVisible(_filesystemViewerAdapter.isCurrentFolderSortable() && !_filesystemViewerAdapter.areItemsSelected());
-            _fragmentMenu.findItem(R.id.action_import).setVisible(!_filesystemViewerAdapter.areItemsSelected() && !_filesystemViewerAdapter.isCurrentFolderVirtual());
-            _fragmentMenu.findItem(R.id.action_settings).setVisible(!_filesystemViewerAdapter.areItemsSelected());
             _fragmentMenu.findItem(R.id.action_favourite).setVisible(selMultiAny && !allSelectedFav);
             _fragmentMenu.findItem(R.id.action_favourite_remove).setVisible(selMultiAny && allSelectedFav);
-            _fragmentMenu.findItem(R.id.action_fs_copy_to_clipboard).setVisible(selMulti1 && selTextFilesOnly);
-            _fragmentMenu.findItem(R.id.action_create_shortcut).setVisible(selMulti1 && (selFilesOnly || selDirectoriesOnly));
-            _fragmentMenu.findItem(R.id.action_check_all).setVisible(_filesystemViewerAdapter.areItemsSelected() && selCount < totalCount);
-            _fragmentMenu.findItem(R.id.action_clear_selection).setVisible(_filesystemViewerAdapter.areItemsSelected());
-
-            // 笔记本目录本身是 git 仓库时才给 git 动作，跟 vsnote 一致
-            final boolean gitAvailable = GitRepo.isGitWorkingDirectory(_appSettings.getNotebookDirectory())
-                    && !_filesystemViewerAdapter.areItemsSelected();
-            _fragmentMenu.findItem(R.id.action_git_sync).setVisible(gitAvailable);
-            _fragmentMenu.findItem(R.id.action_git_pull).setVisible(gitAvailable);
-            _fragmentMenu.findItem(R.id.action_git_push).setVisible(gitAvailable);
-            _fragmentMenu.findItem(R.id.action_git_status).setVisible(gitAvailable);
-
-            final MenuItem sortItem = _fragmentMenu.findItem(R.id.action_sort);
-            if (sortItem != null) {
-                final @ColorInt int colorWhite = _cu.rcolor(getContext(), R.color.dark__primary_text);
-                _cu.tintDrawable(sortItem.getIcon(), _dopt.sortOrder.isFolderLocal ? GsFileBrowserListAdapter.FAVOURITE_COLOR : colorWhite);
-            }
         }
 
         // Update subtitle with count
@@ -317,8 +291,15 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
 
     @Override
     public boolean onBackPressed() {
-        if (_filesystemViewerAdapter != null && _filesystemViewerAdapter.goBack()) {
-            return true;
+        if (_filesystemViewerAdapter != null) {
+            // 多选态下返回键应当先取消选择，否则会直接退出应用
+            if (_filesystemViewerAdapter.areItemsSelected()) {
+                _filesystemViewerAdapter.unselectAll();
+                return true;
+            }
+            if (_filesystemViewerAdapter.goBack()) {
+                return true;
+            }
         }
         return super.onBackPressed();
     }
@@ -363,7 +344,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.filesystem__menu, menu);
-        _cu.tintMenuItems(menu, true, _cu.rcolor(getContext(), R.color.dark__primary_text));
+        _cu.tintMenuItems(menu, true, _cu.rcolor(getContext(), R.color.primary_text));
         _cu.setSubMenuIconsVisibility(menu, true);
 
         List<Pair<File, String>> sdcardFolders = _cu.getAppDataPublicDirs(getContext(), false, true, true);
@@ -388,28 +369,12 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
         final Set<File> currentSelection = _filesystemViewerAdapter.getCurrentSelection();
 
         switch (_id) {
-            case R.id.action_create_shortcut: {
-                final File sel = currentSelection.iterator().next();
-                final File file = _filesystemViewerAdapter.resolveVirtualFile(sel);
-                final String title = GsFileUtils.getFilenameWithoutExtension(sel);
-                _cu.createLauncherDesktopShortcut(getContext(), file, title);
-                return true;
-            }
             case R.id.action_sort: {
                 updateSortSettings();
                 return true;
             }
-            case R.id.action_import: {
-                showImportDialog();
-                return true;
-            }
             case R.id.action_search: {
                 executeSearchAction();
-                return true;
-            }
-            case R.id.action_go_to: {
-                final File folder = new File("/storage");
-                _filesystemViewerAdapter.setCurrentFolder(folder);
                 return true;
             }
             case R.id.action_favourite: {
@@ -428,22 +393,6 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                 }
                 return true;
             }
-            case R.id.action_git_sync: {
-                GitNotebook.requestSync(getActivity(), true, false);
-                return true;
-            }
-            case R.id.action_git_pull: {
-                GitNotebook.requestPull(getActivity());
-                return true;
-            }
-            case R.id.action_git_push: {
-                GitNotebook.requestPush(getActivity());
-                return true;
-            }
-            case R.id.action_git_status: {
-                MarkorDialogFactory.showGitStatusDialog(getActivity());
-                return true;
-            }
             case R.id.action_delete_selected_items: {
                 MarkorDialogFactory.showConfirmDialog(
                         getActivity(),
@@ -456,25 +405,6 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                             _recyclerList.post(() -> _filesystemViewerAdapter.reloadCurrentFolder());
                         }).start()
                 );
-                return true;
-            }
-            case R.id.action_move_selected_items:
-            case R.id.action_copy_selected_items: {
-                askForMoveOrCopy(_id == R.id.action_move_selected_items);
-                return true;
-            }
-            case R.id.action_check_all: {
-                _filesystemViewerAdapter.selectAll();
-                return true;
-            }
-            case R.id.action_clear_selection: {
-                _filesystemViewerAdapter.unselectAll();
-                return true;
-            }
-            case R.id.action_share_files: {
-                MarkorContextUtils s = new MarkorContextUtils(getContext());
-                s.shareStreamMultiple(getContext(), currentSelection, "*/*");
-                _filesystemViewerAdapter.reloadCurrentFolder();
                 return true;
             }
             case R.id.action_info_selected_item: {
@@ -495,19 +425,18 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                 }
                 return true;
             }
-            case R.id.action_fs_copy_to_clipboard: {
-                if (_filesystemViewerAdapter.areItemsSelected()) {
-                    final File file = new ArrayList<>(currentSelection).get(0);
-                    if (FormatRegistry.isFileSupported(file, true)) {
-                        _cu.setClipboard(getContext(), GsFileUtils.readTextFileFast(file).first);
-                        Toast.makeText(getContext(), R.string.clipboard, Toast.LENGTH_SHORT).show();
-                    }
-                }
-                return true;
-            }
         }
 
         return false;
+    }
+
+    /**
+     * Exposes the file list RecyclerView, e.g. so the hosting activity can attach a scroll
+     * listener for chrome (bottom navigation) auto hide.
+     */
+    @Nullable
+    public RecyclerView getRecyclerView() {
+        return _recyclerList;
     }
 
     private boolean onFileBrowserKeyDown(int keyCode, KeyEvent event) {
@@ -526,7 +455,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
 
         if (event.isCtrlPressed()) {
             if (keyCode == KeyEvent.KEYCODE_A) { // Select all files
-                onOptionsItemSelected(getFragmentMenu().findItem(R.id.action_check_all));
+                _filesystemViewerAdapter.selectAll();
                 return true;
             }
         } else if (keyCode == KeyEvent.KEYCODE_MOVE_HOME) { // Scroll to start

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<net.gsantner.markor.web.DraggableScrollbarWebView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/document__fragment_view_webview"
+<!-- The paper (colour + rounded corners) is painted on this container by
+     DocumentEditAndViewFragment; the WebView itself stays transparent so that the
+     rounded shape is not covered by the WebView's own opaque base colour. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/document__fragment_view_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:visibility="invisible" />
+    android:background="@android:color/transparent"
+    android:visibility="invisible">
+
+    <net.gsantner.markor.web.DraggableScrollbarWebView
+        android:id="@+id/document__fragment_view_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
+
+</FrameLayout>

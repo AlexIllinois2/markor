@@ -15,30 +15,59 @@
     <color name="secondary_text">@color/light__secondary_text</color>
     <color name="file">@color/light__file</color>
     <color name="folder">@color/light__folder</color>
+    <color name="pref_icon">@color/light__pref_icon</color>
+    <!-- Chrome stays achromatic: the nav pill is a neutral step, the FAB is ink -->
+    <color name="nav_pill">@color/light__nav_pill</color>
+    <!-- FAB 用应用唯一的高亮色（和桌面小组件的圆形按钮一致），不再是一块近黑 -->
+    <color name="fab_bg">@color/accent</color>
+    <color name="fab_ink">@color/white</color>
+    <color name="fab_ripple">#40FFFFFF</color>
     <color name="background">@color/light__background</color>
+    <color name="card">@color/light__card</color>
+    <color name="card_alt">@color/light__card_alt</color>
 
     <!-- Named colors differing common to day and night -->
     <color name="colorAccent">@color/accent</color>
 
     <!-- Color values -->
-    <color name="primary">#1E2135</color>
-    <color name="accent">#F04B4B</color>
-    <color name="divider">#808080</color>
+    <color name="primary">#1B2032</color>
+    <!-- 高亮只有一种：墨色本身，只是降了对比度、压低亮度，不再另起一个红色 -->
+    <color name="accent">#8B93A5</color>
+    <color name="divider">#1A000000</color>
 
     <color name="accent_light">#FF9800</color>
     <color name="default_link_color">#388E3C</color>
 
-    <color name="light__background">#EEEEEE</color>
-    <color name="light__primary_text">#DE000000</color>
-    <color name="light__secondary_text">#99000000</color>
-    <color name="light__file">#757575</color>
-    <color name="light__folder">#757575</color>
+    <!-- Soft accent used for selected chips / active navigation indicator -->
+    <color name="accent_soft">#1F8B93A5</color>
+    <color name="accent_stroke">#338B93A5</color>
+    <!-- 文件卡片被选中时的底色，比导航胶囊略重一点才看得出 -->
+    <color name="accent_wash">#1A8B93A5</color>
 
-    <color name="dark__background">@color/dark_grey</color>
-    <color name="dark__primary_text">#DDFFFFFF</color>
-    <color name="dark__secondary_text">#9E9E9E</color>
-    <color name="dark__file">#9E9E9E</color>
-    <color name="dark__folder">#9E9E9E</color>
+    <!-- Light (day) surfaces -->
+    <color name="light__background">#F2F3F8</color>    <color name="light__card">#FFFFFFFF</color>
+    <color name="light__card_alt">#F4F5FA</color>
+    <color name="light__editor_bg">#FFFFFFFF</color>
+    <color name="light__primary_text">#DE16192A</color>
+    <color name="light__secondary_text">#667088</color>
+    <color name="light__file">#6F7A90</color>
+    <color name="light__folder">#6F7A90</color>
+    <!-- 设置/更多页的条目图标：比纯黑轻得多，和文件列表的图标同一族 -->
+    <color name="light__pref_icon">#77829A</color>
+    <!-- 选中态导航胶囊：比卡片深一档的中性色，不带色相 -->
+    <color name="light__nav_pill">#EDEFF5</color>
+
+    <!-- Dark (night) surfaces -->
+    <color name="dark__background">#0F1116</color>
+    <color name="dark__card">#1A1D25</color>
+    <color name="dark__card_alt">#242833</color>
+    <color name="dark__editor_bg">#171A21</color>
+    <color name="dark__primary_text">#DDEBEDF3</color>
+    <color name="dark__secondary_text">#A0A8B8</color>
+    <color name="dark__file">#9AA4B7</color>
+    <color name="dark__folder">#9AA4B7</color>
+    <color name="dark__pref_icon">#99A3B8</color>
+    <color name="dark__nav_pill">#2C3140</color>
 
     <color name="ic_launcher_background">#636363</color>
     <color name="white">#FFFFFFFF</color>
@@ -69,4 +98,37 @@
     <color name="link">#FF1EA3FD</color>;
     <color name="transparent">#00FFFFFF</color>
     <color name="light_border">@color/lighter_grey</color>
+
+    <!-- ============ M3 颜色角色（浅色） ============
+         整屏仍然是"墨色 + 中性灰"，这里只是把同一套颜色按 Material 3 的语义
+         重新命名一遍，组件才能自动取到合适的底色/前景色。
+         深色覆盖见 values-night/colors.xml。 -->
+    <color name="m3_primary">#1B2032</color>
+    <color name="m3_on_primary">#FFFFFF</color>
+    <color name="m3_primary_container">#E3E7F0</color>
+    <color name="m3_on_primary_container">#16192A</color>
+    <color name="m3_secondary">#767E90</color>
+    <color name="m3_on_secondary">#FFFFFF</color>
+    <color name="m3_secondary_container">#E6E9F2</color>
+    <color name="m3_on_secondary_container">#1B2032</color>
+    <color name="m3_tertiary">#6F7A90</color>
+    <color name="m3_on_tertiary">#FFFFFF</color>
+    <color name="m3_tertiary_container">#EDEFF5</color>
+    <color name="m3_on_tertiary_container">#1B2032</color>
+    <color name="m3_surface">#FFFFFF</color>
+    <color name="m3_on_surface">#16192A</color>
+    <color name="m3_surface_variant">#F4F5FA</color>
+    <color name="m3_on_surface_variant">#667088</color>
+    <color name="m3_surface_container_lowest">#FFFFFF</color>
+    <color name="m3_surface_container_low">#FAFBFD</color>
+    <color name="m3_surface_container">#F4F5FA</color>
+    <color name="m3_surface_container_high">#EDEFF5</color>
+    <color name="m3_surface_container_highest">#E6E9F2</color>
+    <color name="m3_outline">#C3C8D4</color>
+    <color name="m3_outline_variant">#E3E6EE</color>
+    <color name="m3_error">#B3261E</color>
+    <color name="m3_on_error">#FFFFFF</color>
+    <color name="m3_inverse_surface">#1B2032</color>
+    <color name="m3_inverse_on_surface">#F4F5FA</color>
+    <color name="m3_inverse_primary">#C9CFDC</color>
 </resources>

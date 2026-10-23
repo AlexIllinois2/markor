@@ -78,8 +78,8 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
         _isDeviceGoodHardware = _cu.isDeviceGoodHardware(context);
 
         if (getInt(R.string.pref_key__basic_color_scheme__bg_light, -999) == -999) {
-            setEditorBasicColor(true, R.color.white, R.color.dark_grey);
-            setEditorBasicColor(false, R.color.dark_grey, R.color.light__background);
+            setEditorBasicColor(true, R.color.dark__primary_text, R.color.dark__editor_bg);
+            setEditorBasicColor(false, R.color.light__primary_text, R.color.light__editor_bg);
         }
     }
 
@@ -886,7 +886,8 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
 
     public @ColorInt int getEditorBackgroundColor() {
         final boolean night = GsContextUtils.instance.isDarkModeEnabled(_context);
-        int c = getInt(night ? R.string.pref_key__basic_color_scheme__bg_dark : R.string.pref_key__basic_color_scheme__bg_light, rcolor(R.color.background));
+        int c = getInt(night ? R.string.pref_key__basic_color_scheme__bg_dark : R.string.pref_key__basic_color_scheme__bg_light,
+                rcolor(night ? R.color.dark__editor_bg : R.color.light__editor_bg));
         if (getAppThemeName().contains("black")) {
             c = Color.BLACK;
         }
@@ -965,14 +966,102 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
 
     public @IdRes
     int getAppStartupTab() {
-        int i = getIntOfStringPref(R.string.pref_key__app_start_tab_v2, R.id.nav_notebook);
-        switch (i) {
-            case 1:
-                return R.id.nav_todo;
-            case 2:
-                return R.id.nav_quicknote;
+        return getEditorStartupMode() == 0 ? R.id.nav_notebook : R.id.nav_editor;
+    }
+
+    /**
+     * 启动落点：0 = 文件页，1 = 编辑页 + 固定文件里的第一个，2 = 编辑页 + 最后打开的文件
+     */
+    public int getEditorStartupMode() {
+        final int mode = getIntOfStringPref(R.string.pref_key__app_start_tab_v2, 0);
+        return mode >= 0 && mode <= 2 ? mode : 0;
+    }
+
+    // -----------------------------------------------------------------
+    // 编辑工作区：标签页（"1|/path" 表示固定，"0|/path" 表示普通）
+    // -----------------------------------------------------------------
+
+    public static final int EDITOR_RECENT_MAX = 12;
+
+    private static List<String> splitLines(final String raw) {
+        final List<String> out = new ArrayList<>();
+        if (raw != null) {
+            for (final String line : raw.split("\n")) {
+                if (!line.trim().isEmpty()) {
+                    out.add(line.trim());
+                }
+            }
         }
-        return R.id.nav_notebook;
+        return out;
+    }
+
+    private void setLines(@StringRes final int keyRes, final List<String> lines) {
+        final StringBuilder sb = new StringBuilder();
+        for (final String line : lines) {
+            if (sb.length() > 0) {
+                sb.append('\n');
+            }
+            sb.append(line);
+        }
+        setString(keyRes, sb.toString());
+    }
+
+    public List<String> getEditorOpenTabs() {
+        return splitLines(getString(R.string.pref_key__editor_tabs, ""));
+    }
+
+    public void setEditorOpenTabs(final List<String> entries) {
+        setLines(R.string.pref_key__editor_tabs, entries);
+    }
+
+    public List<String> getEditorRecentFiles() {
+        return splitLines(getString(R.string.pref_key__editor_recent, ""));
+    }
+
+    public void addEditorRecentFile(final String path) {
+        if (path == null || path.isEmpty()) {
+            return;
+        }
+        final List<String> list = new ArrayList<>(getEditorRecentFiles());
+        list.remove(path);
+        list.add(0, path);
+        while (list.size() > EDITOR_RECENT_MAX) {
+            list.remove(list.size() - 1);
+        }
+        setLines(R.string.pref_key__editor_recent, list);
+    }
+
+    public String getEditorLastFile() {
+        return getString(R.string.pref_key__editor_last_file, "");
+    }
+
+    public void setEditorLastFile(final String path) {
+        setString(R.string.pref_key__editor_last_file, path != null ? path : "");
+    }
+
+    /** 标签面板整体是否展开（收起时只剩顶部那一行标签） */
+    public boolean isEditorTabsPanelExpanded() {
+        return getBool(R.string.pref_key__editor_tabs_expanded, false);
+    }
+
+    public void setEditorTabsPanelExpanded(final boolean expanded) {
+        setBool(R.string.pref_key__editor_tabs_expanded, expanded);
+    }
+
+    /**
+     * 两个分组各自的收起状态，用一个 int 的两位来存：
+     * bit0 = 固定文件，bit1 = 最近文件。
+     */
+    public boolean isEditorTabsGroupCollapsed(final boolean pinnedGroup) {
+        final int flags = getInt(R.string.pref_key__editor_tabs_groups, 0);
+        return (flags & (pinnedGroup ? 0x1 : 0x2)) != 0;
+    }
+
+    public void setEditorTabsGroupCollapsed(final boolean pinnedGroup, final boolean collapsed) {
+        final int bit = pinnedGroup ? 0x1 : 0x2;
+        int flags = getInt(R.string.pref_key__editor_tabs_groups, 0);
+        flags = collapsed ? (flags | bit) : (flags & ~bit);
+        setInt(R.string.pref_key__editor_tabs_groups, flags);
     }
 
     public boolean isSwipeToChangeMode() {
@@ -991,10 +1080,6 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
 
     public String getNavigationBarColor() {
         return getString(R.string.pref_key__navigationbar_color, "#000000");
-    }
-
-    public String getAppStartupFolderMenuId() {
-        return getString(R.string.pref_key__app_start_folder, "notebook");
     }
 
     public File getFolderToLoadByMenuId(String itemId) {

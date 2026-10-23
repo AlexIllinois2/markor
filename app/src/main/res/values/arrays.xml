@@ -34,8 +34,8 @@
 
     <string-array name="pref_arrdisp__bottomnav" translatable="false">
         <item translatable="false">@string/notebook</item>
-        <item translatable="false">@string/todo</item>
-        <item translatable="false">@string/quicknote</item>
+        <item translatable="false">@string/editor_start_pinned</item>
+        <item translatable="false">@string/editor_start_recent</item>
     </string-array>
 
     <string-array name="pref_arrdisp__search_depth" translatable="false">

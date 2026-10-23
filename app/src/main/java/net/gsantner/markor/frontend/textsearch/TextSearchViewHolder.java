@@ -111,8 +111,9 @@ public class TextSearchViewHolder {
         }
 
         textSearchHandler = new TextSearchHandler();
-        activeColor = ContextCompat.getColor(parentFragment.requireContext(), R.color.accent);
-        inactiveColor = ContextCompat.getColor(parentFragment.requireContext(), R.color.primary_text);
+        // 当前命中项用墨色，其余命中项用次一级的灰：不要再拉一个颜色进来
+        activeColor = ContextCompat.getColor(parentFragment.requireContext(), R.color.primary_text);
+        inactiveColor = ContextCompat.getColor(parentFragment.requireContext(), R.color.secondary_text);
 
         searchEditText = textSearchView.findViewById(R.id.searchEditText);
         replaceEditText = textSearchView.findViewById(R.id.replaceEditText);

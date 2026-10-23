@@ -12,5 +12,6 @@
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <size android:width="2dp" />
-    <solid android:color="@color/accent" />
+    <!-- 光标跟高亮同一支墨色，但取主文本色，别用降过对比度的那一档 -->
+    <solid android:color="@color/primary_text" />
 </shape>

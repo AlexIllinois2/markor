@@ -20,15 +20,20 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.Light.AppBarOverlay">
+        android:background="@drawable/bg_header_rounded"
+        android:elevation="0dp"
+        android:theme="@style/AppTheme.Light.AppBarOverlay"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@android:color/transparent"
             android:theme="@style/LightTextToolbarOverlay"
-            app:navigationContentDescription="@string/back" />
+            app:navigationContentDescription="@string/back"
+            app:popupTheme="@style/MarkorPopupMenu"
+            app:titleTextAppearance="@style/MarkorToolbarTitle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,7 +41,29 @@
         android:id="@+id/settings__activity__fragment_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="@dimen/bottom_nav_space"
+        android:background="@drawable/bg_sheet_top_rounded"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!-- 设置页和文件页/待办页一样留着底部导航，切标签直接回主界面对应页面 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/settings__bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_nav_height"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="@dimen/bottom_nav_margin_horizontal"
+        android:layout_marginEnd="@dimen/bottom_nav_margin_horizontal"
+        android:layout_marginBottom="@dimen/bottom_nav_margin_bottom"
+        android:background="@drawable/bg_bottom_nav"
+        android:elevation="10dp"
+        app:elevation="10dp"
+        app:itemActiveIndicatorStyle="@style/MarkorNavIndicator"
+        app:itemIconSize="23dp"
+        app:itemIconTint="@drawable/bottomnav_icon_selector"
+        app:itemTextColor="@drawable/bottomnav_text_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/main__bottom_nav" />
 
 
     <!--

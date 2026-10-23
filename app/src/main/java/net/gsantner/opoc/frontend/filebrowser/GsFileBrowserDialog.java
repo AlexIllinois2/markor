@@ -151,7 +151,7 @@ public class GsFileBrowserDialog extends DialogFragment implements GsFileBrowser
         _toolBar.setTitle(_dopt.titleText);
         _toolBar.setSubtitleTextColor(rcolor(_dopt.secondaryTextColor));
         setSubtitleApprearance(_toolBar);
-        _toolBar.setBackgroundColor(rcolor(_dopt.primaryColor != 0 ? _dopt.primaryColor : R.color.primary));
+        // 标题栏底色交给布局里的 bg_header_rounded（跟随主题的浅色/深色表面），不再写死成深色
 
         _homeButton.setImageResource(_dopt.homeButtonImage);
         _homeButton.setVisibility(_dopt.homeButtonEnable ? View.VISIBLE : View.GONE);

@@ -369,6 +369,12 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="pref_key__is_enable_experimental_features" translatable="false">pref_key__is_enable_experimental_features</string>
     <string name="pref_key__app_start_tab_v2" translatable="false">pref_key__app_start_tab_v2</string>
     <string name="pref_key__app_start_folder" translatable="false">pref_key__app_start_folder</string>
+    <!-- 编辑工作区：打开的标签（"1|路径" 每行一个）、最近文件、最后一个文件 -->
+    <string name="pref_key__editor_tabs" translatable="false">pref_key__editor_tabs</string>
+    <string name="pref_key__editor_recent" translatable="false">pref_key__editor_recent</string>
+    <string name="pref_key__editor_last_file" translatable="false">pref_key__editor_last_file</string>
+    <string name="pref_key__editor_tabs_expanded" translatable="false">pref_key__editor_tabs_expanded</string>
+    <string name="pref_key__editor_tabs_groups" translatable="false">pref_key__editor_tabs_groups</string>
     <string name="pref_key__swipe_to_change_mode" translatable="false">pref_key__swipe_to_change_mode</string>
     <string name="pref_key__filesystem_folder_first" translatable="false">pref_key__filesystem_folder_first</string>
     <string name="pref_key__show_dot_files_v2" translatable="false">pref_key__show_dot_files_v2</string>

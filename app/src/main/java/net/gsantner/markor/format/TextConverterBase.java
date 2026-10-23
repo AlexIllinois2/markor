@@ -112,6 +112,12 @@ public abstract class TextConverterBase {
             html = "Please report at project issue tracker: " + e;
         }
 
+        // 应用内预览时让 body 透明，WebView 自己绘制的那张圆角"纸"才能透出来。
+        // 导出（lightMode=true）不注入，保留不透明底色，避免打印/PDF 出现白字白底。
+        if (!lightMode) {
+            html = html.replace("</head>", "<style>html,body{background-color:transparent !important;}</style></head>");
+        }
+
         String parent = document.file.getParent();
         if (parent == null) {
             parent = as.getNotebookDirectory().getAbsolutePath();

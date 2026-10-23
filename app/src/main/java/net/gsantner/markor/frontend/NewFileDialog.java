@@ -155,7 +155,8 @@ public class NewFileDialog extends DialogFragment {
         // -----------------------------------------------------------------------------------------
         final List<File> snippets = appSettings.getSnippetFiles();
         final List<Pair<String, String>> templates = appSettings.getBuiltinTemplates();
-        final ArrayAdapter<String> templateAdapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_dropdown_item);
+        final ArrayAdapter<String> templateAdapter = new ArrayAdapter<>(activity, R.layout.dialog_spinner_item);
+        templateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         templateAdapter.add(activity.getString(R.string.empty_file));
         templateAdapter.addAll(GsCollectionUtils.map(snippets, File::getName));
         templateAdapter.addAll(GsCollectionUtils.map(templates, p -> p.first));
@@ -191,7 +192,8 @@ public class NewFileDialog extends DialogFragment {
 
         // Setup type / format spinner and action
         // -----------------------------------------------------------------------------------------
-        final ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_dropdown_item);
+        final ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(activity, R.layout.dialog_spinner_item);
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeAdapter.addAll(GsCollectionUtils.map(formats, f -> activity.getString(f.name)));
         typeSpinner.setAdapter(typeAdapter);
 

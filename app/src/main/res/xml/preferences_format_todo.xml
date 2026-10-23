@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*#######################################################
+ *
+ *   Maintained 2017-2025 by Gregor Santner <gsantner AT mailbox DOT org>
+ *   License of this file: Apache 2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+#########################################################*/
+-->
+    <PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+            android:title="@string/todo_txt">
+            <PreferenceCategory android:title="@string/actionbutton">
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:icon="@drawable/ic_date_range_black_24dp"
+                    android:key="@string/pref_key__todotxt__add_completion_date_for_todos"
+                    android:summary="@string/add_completion_date_for_todos_when_marking_them_as_done"
+                    android:title="@string/add_completion_date" />
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:icon="@drawable/ic_add_white_24dp"
+                    android:key="@string/pref_key__todotxt__append_contexts_and_projects_on_end_of_task"
+                    android:summary="@string/append_contexts_and_projects_on_end_of_task"
+                    android:title="@string/append_contexts_and_projects" />
+                <Preference
+                    android:icon="@drawable/ic_reorder_black_24dp"
+                    android:key="@string/pref_key__todotxt__reorder_actions"
+                    android:title="@string/action_order" />
+                <androidx.preference.EditTextPreference
+                    android:defaultValue="+music +video @home @shop"
+                    android:icon="@drawable/ic_favorite_black_24dp"
+                    android:key="@string/pref_key__todotxt__additional_projects_contexts"
+                    android:summary="@string/enter_space_seperated_contexts_and_projects_these_will"
+                    android:title="@string/additional_contexts_and_projects" />
+            </PreferenceCategory>
+
+            <PreferenceCategory android:title="@string/syntax_highlighting">
+                <androidx.preference.SeekBarPreference
+                    android:defaultValue="870"
+                    android:icon="@drawable/ic_highlight_black_24dp"
+                    android:key="@string/pref_key__todotxt__hl_delay"
+                    android:max="5000"
+                    android:summary="@string/highlighting_delay_lower_value_more_battery_drain_description__appspecific"
+                    android:title="@string/highlighting_delay"
+                    app:min="50"
+                    app:showSeekBarValue="true" />
+            </PreferenceCategory>
+        </PreferenceScreen>

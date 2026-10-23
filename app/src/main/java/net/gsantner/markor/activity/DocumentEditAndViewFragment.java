@@ -14,8 +14,10 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -102,6 +104,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
 
     private HighlightingEditor _hlEditor;
     private WebView _webView;
+    private View _webViewRoot;
     private ViewStub _webViewStub;
     private MarkorWebViewClient _webViewClient;
     private ViewGroup _editorHolder;
@@ -111,6 +114,10 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
     private HorizontalScrollView _horizontalScrollView;
     private LineNumbersView _lineNumbersView;
     private TextView _searchResultTextView;
+    // 阅读态：向上滑收底栏、向下滑还回来。两个阈值防止手指抖动来回切
+    private static final int CHROME_SCROLL_SLOP = 14;
+    private static final long CHROME_TOGGLE_COOLDOWN_MS = 420;
+    private long _lastChromeToggleAt = 0;
     private Document _document;
     private FormatRegistry _format;
     private MarkorContextUtils _cu;
@@ -156,6 +163,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
             _hlEditor.requestFocus();
             _cu.showSoftKeyboard(activity, true, _hlEditor);
         });
+        setupChromeAutoHide();
 
         // Using `if (_document != null)` everywhere is dangerous
         // It may cause reads or writes to _silently fail_
@@ -194,8 +202,9 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         _hlEditor.setTextSize(TypedValue.COMPLEX_UNIT_SP, _appSettings.getDocumentFontSize(_document.path));
         _hlEditor.setTypeface(GsFontPreferenceCompat.typeface(getContext(), _appSettings.getFontFamily(), Typeface.NORMAL));
         final int editorBackgroundColor = _appSettings.getEditorBackgroundColor();
-        _hlEditor.setBackgroundColor(editorBackgroundColor);
-        _editorHolder.setBackgroundColor(editorBackgroundColor);
+        // 正文放在一张大圆角"纸"上：圆角只画在容器上，编辑器自身保持透明，避免直角盖住圆角
+        _hlEditor.setBackgroundColor(Color.TRANSPARENT);
+        applyRoundedEditorBackground(_editorHolder, editorBackgroundColor);
         _hlEditor.setTextColor(_appSettings.getEditorForegroundColor());
         _hlEditor.setGravity(_appSettings.isEditorStartEditingInCenter() ? Gravity.CENTER : Gravity.NO_GRAVITY);
         _hlEditor.setHighlightingEnabled(_appSettings.getDocumentHighlightState(_document.path, _hlEditor.getText()));
@@ -351,7 +360,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.document__edit__menu, menu);
-        _cu.tintMenuItems(menu, true, _cu.rcolor(getContext(), R.color.dark__primary_text));
+        _cu.tintMenuItems(menu, true, _cu.rcolor(getContext(), R.color.primary_text));
         _cu.setSubMenuIconsVisibility(menu, true);
 
         final boolean isExperimentalFeaturesEnabled = _appSettings.isExperimentalFeaturesEnabled();
@@ -373,7 +382,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         searchMenuItem.setVisible(isText && !_isPreviewVisible);
         if (_format != null && _format.getActions().isSearchActive()) {
             searchMenuItem.setTitle(R.string.close);
-            _cu.tintDrawable(searchMenuItem.getIcon(), _cu.rcolor(getContext(), R.color.accent));
+            _cu.tintDrawable(searchMenuItem.getIcon(), _cu.rcolor(getContext(), R.color.primary_text));
         }
         menu.findItem(R.id.action_search_view).setVisible(isText && _isPreviewVisible);
         menu.findItem(R.id.submenu_format_selection).setVisible(isText && !_isPreviewVisible);
@@ -513,6 +522,23 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
                 Toast.makeText(getActivity(), "✔", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /**
+     * 丢弃未保存的修改：把编辑区内容退回磁盘上的版本。
+     * <p>
+     * 关标签时选了"不保存"就用它：编辑器在 onPause 里会自动保存，
+     * 所以必须在移除片段之前把内容恢复成磁盘版本，否则"不保存"等于白点。
+     */
+    public void discardUnsavedChanges() {
+        if (_document == null || _hlEditor == null || getContext() == null) {
+            return;
+        }
+        final String onDisk = _document.loadContent(getContext());
+        _hlEditor.setText(onDisk != null ? onDisk : "");
+        // 内容已与磁盘一致，onPause 的自动保存就什么都不会写
+        _document.resetChangeTracking();
+        updateUndoRedoIconStates();
     }
 
     /**
@@ -789,6 +815,45 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         setActionBarVisibility();
     }
 
+    /**
+     * 编辑时的"阅读态"：手指上滑（正文往上滚）就把底部导航和软键盘一起收走，
+     * 给正文腾出空间；下滑再让导航滑回来。
+     * 只在 MainActivity 里生效——独立打开的编辑器（DocumentActivity）没有底部导航。
+     */
+    private void setupChromeAutoHide() {
+        final Activity activity = getActivity();
+        if (_verticalScrollView == null || !(activity instanceof MainActivity)) {
+            return;
+        }
+        final MainActivity main = (MainActivity) activity;
+
+        _verticalScrollView.setOnScrollPositionChangedListener((scrollY, oldScrollY) -> {
+            // onScrollChanged 对程序性滚动（聚焦时把光标滚进视野、恢复上次位置）同样会回调，
+            // 只认真实手势，否则一进编辑器就会把底栏和键盘一起收掉
+            if (!_verticalScrollView.isUserTouching()) {
+                return;
+            }
+            final int delta = scrollY - oldScrollY;
+            if (Math.abs(delta) < CHROME_SCROLL_SLOP) {
+                return;
+            }
+            // 收键盘会改变可视高度，可能立刻触发一次滚动回调，加个冷却避免来回抖
+            final long now = SystemClock.elapsedRealtime();
+            if (now - _lastChromeToggleAt < CHROME_TOGGLE_COOLDOWN_MS) {
+                return;
+            }
+            _lastChromeToggleAt = now;
+            if (delta > 0) {
+                // 上滑看图：键盘和底栏一起让位
+                _cu.showSoftKeyboard(activity, false, _hlEditor);
+                main.setBottomNavAutoHidden(true);
+            } else {
+                // 下滑回顶：底栏滑回来，键盘不主动弹（弹了会挡住正文）
+                main.setBottomNavAutoHidden(false);
+            }
+        });
+    }
+
     private void setActionBarVisibility() {
         final View view = getView();
         if (view == null) {
@@ -1024,6 +1089,20 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         }
     }
 
+    /**
+     * 用大圆角矩形作为编辑器容器背景（替代方角的 setBackgroundColor）
+     */
+    private static void applyRoundedEditorBackground(final View view, final int color) {
+        if (view == null) {
+            return;
+        }
+        final GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.RECTANGLE);
+        background.setColor(color);
+        background.setCornerRadius(view.getResources().getDimension(R.dimen.corner_lg));
+        view.setBackground(background);
+    }
+
     private boolean isWrapped() {
         return _horizontalScrollView == null || _hlEditor.getParent() != _horizontalScrollView;
     }
@@ -1171,10 +1250,16 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
     @SuppressLint({"SetJavaScriptEnabled"})
     private void setupWebViewIfNeeded(final Activity activity) {
         if (_webView == null) {
-            _webView = (WebView) _webViewStub.inflate();
+            final View webViewRoot = _webViewStub.inflate();
+            _webViewRoot = webViewRoot;
+            _webView = webViewRoot.findViewById(R.id.document__fragment_view_webview);
+            // 预览也放在同一张圆角"纸"上，否则会变成满铺的方角底色，和编辑态像两个应用。
+            // 纸画在容器上、WebView 保持透明：WebView 自身的不透明底色会盖住圆角。
+            applyRoundedEditorBackground(webViewRoot, _appSettings.getEditorBackgroundColor());
+            webViewRoot.setClipToOutline(true);
+            _webView.setBackgroundColor(Color.TRANSPARENT);
             _webView.setWebChromeClient(new GsWebViewChromeClient(_webView, activity, activity.findViewById(R.id.document__fragment_fullscreen_overlay)));
             _webView.addJavascriptInterface(this, "Android");
-            _webView.setBackgroundColor(Color.TRANSPARENT);
             WebSettings webSettings = _webView.getSettings();
             webSettings.setBuiltInZoomControls(true);
             webSettings.setDisplayZoomControls(false);
@@ -1245,12 +1330,12 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
             _cu.showSoftKeyboard(activity, false, _hlEditor);
             _hlEditor.clearFocus();
             _hlEditor.postDelayed(() -> _cu.showSoftKeyboard(activity, false, _hlEditor), 300);
-            GsContextUtils.fadeInOut(_webView, _verticalScrollView, animate);
+            GsContextUtils.fadeInOut(_webViewRoot != null ? _webViewRoot : _webView, _verticalScrollView, animate);
         } else {
             if (_webView != null) {
                 _webViewClient.setRestoreScrollY(_webView.getScrollY());
             }
-            GsContextUtils.fadeInOut(_verticalScrollView, _webView, animate);
+            GsContextUtils.fadeInOut(_verticalScrollView, _webViewRoot != null ? _webViewRoot : _webView, animate);
         }
 
         _nextConvertToPrintMode = false;
@@ -1289,6 +1374,11 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
 
     @Override
     public void onDestroyView() {
+        // 离开编辑器时把底栏还原，免得"上滑收起来"的状态带到别的页面
+        final Activity activity = getActivity();
+        if (activity instanceof MainActivity) {
+            ((MainActivity) activity).setBottomNavAutoHidden(false);
+        }
         if (_webView != null) {
             try {
                 _webView.loadUrl("about:blank");

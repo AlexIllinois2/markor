@@ -12,6 +12,44 @@ import android.widget.ScrollView;
 @SuppressLint("ClickableViewAccessibility")
 public class DraggableScrollbarScrollView extends ScrollView {
 
+    /**
+     * 滚动位置变化回调（带上一帧位置，方便判断方向）。
+     * 直接挂在 onScrollChanged 上，API 21 也能用，不需要 23+ 的 View 监听器。
+     */
+    public interface OnScrollPositionChangedListener {
+        void onScrollPositionChanged(int scrollY, int oldScrollY);
+    }
+
+    private OnScrollPositionChangedListener _scrollPositionListener;
+    // 记录"手指是否真的按在屏幕上"。程序性滚动（聚焦时把光标滚进视野、恢复上次位置）
+    // 不会走触摸链路，所以用它来区分手势滚动与代码滚动
+    private boolean _userTouching = false;
+
+    public void setOnScrollPositionChangedListener(final OnScrollPositionChangedListener listener) {
+        _scrollPositionListener = listener;
+    }
+
+    public boolean isUserTouching() {
+        return _userTouching;
+    }
+
+    private void trackUserTouch(final MotionEvent ev) {
+        final int action = ev.getActionMasked();
+        if (action == MotionEvent.ACTION_DOWN) {
+            _userTouching = true;
+        } else if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
+            _userTouching = false;
+        }
+    }
+
+    @Override
+    protected void onScrollChanged(final int l, final int t, final int oldl, final int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        if (_scrollPositionListener != null) {
+            _scrollPositionListener.onScrollPositionChanged(t, oldt);
+        }
+    }
+
     private boolean _isFastScrolling = false;
     private boolean _fastScrollEnabled = true;
     private boolean _ltr = true;
@@ -36,6 +74,7 @@ public class DraggableScrollbarScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        trackUserTouch(ev);
         if (!_fastScrollEnabled) {
             return super.onInterceptTouchEvent(ev);
         }
@@ -58,6 +97,7 @@ public class DraggableScrollbarScrollView extends ScrollView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        trackUserTouch(ev);
         int action = ev.getActionMasked();
         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
             _isFastScrolling = false;

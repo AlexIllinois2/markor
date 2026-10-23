@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 编辑标签里"未保存"圆点的 id：标签是代码里拼出来的，需要一个稳定 id 方便查找 -->
+    <item name="editor__tab_dot" type="id" />
+    <!-- 挂在文件列表上的标记，避免重复 addOnScrollListener -->
+    <item name="tag_chrome_scroll" type="id" />
+    <!-- 标签面板行/卡片里复用的控件 id -->
+    <item name="editor__row_dot" type="id" />
+    <item name="editor__row_title" type="id" />
+    <item name="editor__row_pin" type="id" />
+    <item name="editor__row_close" type="id" />
+    <item name="editor__header_chevron" type="id" />
+    <item name="editor__header_title" type="id" />
+    <item name="editor__header_count" type="id" />
+</resources>

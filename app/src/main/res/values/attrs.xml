@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 高度随内容走、有上限的 RecyclerView（标签面板用） -->
+    <declare-styleable name="MaxHeightRecyclerView">
+        <attr name="android:maxHeight" />
+    </declare-styleable>
+</resources>

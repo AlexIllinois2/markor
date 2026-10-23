@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 文件页顶部那一行的搜索框：卡片上的一个填充圆角块，不放边框 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/card_alt" />
+    <corners android:radius="20dp" />
+</shape>

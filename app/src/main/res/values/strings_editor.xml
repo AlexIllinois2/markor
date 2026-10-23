@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 编辑工作区（底部导航第二个入口） -->
+    <string name="editor_workspace">编辑</string>
+    <string name="editor_start_pinned">编辑 · 固定文件</string>
+    <string name="editor_start_recent">编辑 · 最后打开文件</string>
+    <string name="tabs_page">最近</string>
+    <string name="editor_no_open_file">还没有打开的文件</string>
+    <string name="editor_no_open_file_hint">在「文件」页点一个文件，就会出现在这里</string>
+    <string name="editor_open_file">打开文件</string>
+    <string name="editor_open_hint">从笔记本里选一个文件</string>
+    <string name="editor_pinned_files">固定文件</string>
+    <string name="editor_recent_files">最近文件</string>
+    <string name="editor_pin">固定</string>
+    <string name="editor_unpin">取消固定</string>
+    <string name="editor_close_tab">关闭</string>
+    <string name="editor_unsaved_title">有未保存的修改</string>
+    <string name="editor_unsaved_message">“%1$s”还有未保存的修改，关闭前要保存吗？</string>
+    <string name="editor_discard">不保存</string>
+    <string name="editor_tab_limit_reached">最多同时打开 %1$d 个文件</string>
+    <string name="editor_tabs_panel">标签列表</string>
+    <string name="editor_tab_count">%1$d</string>
+    <string name="editor_drag_to_reorder">按住拖动排序</string>
+</resources>

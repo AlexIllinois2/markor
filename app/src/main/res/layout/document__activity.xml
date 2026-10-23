@@ -21,14 +21,19 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppTheme.Light.AppBarOverlay">
+        android:background="@drawable/bg_header_rounded"
+        android:elevation="0dp"
+        android:theme="@style/AppTheme.Light.AppBarOverlay"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary"
-            android:theme="@style/LightTextToolbarOverlay">
+            android:background="@android:color/transparent"
+            android:theme="@style/LightTextToolbarOverlay"
+            app:popupTheme="@style/MarkorPopupMenu"
+            app:titleTextAppearance="@style/MarkorToolbarTitle">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -38,6 +43,7 @@
         android:id="@+id/document__placeholder_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

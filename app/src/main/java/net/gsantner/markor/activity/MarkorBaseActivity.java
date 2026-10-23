@@ -33,7 +33,9 @@ public abstract class MarkorBaseActivity extends GsActivityBase<AppSettings, Mar
     }
 
     protected boolean onReceiveKeyPress(GsFragmentBase fragment, int keyCode, KeyEvent event) {
-        return fragment.onReceiveKeyPress(keyCode, event);
+        // 只有文件页是 GsFragmentBase（自己处理返回键）；其余页没有对应片段，
+        // 按键直接走 Activity 默认流程（比如设置页的二级返回）
+        return fragment != null && fragment.onReceiveKeyPress(keyCode, event);
     }
 
     @Override

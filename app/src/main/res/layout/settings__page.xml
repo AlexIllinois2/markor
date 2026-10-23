@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主界面里的设置页：一张上圆角的纸，里面装设置项（和独立设置页长得一样） -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="6dp"
+    android:background="@drawable/bg_sheet_top_rounded">
+
+    <FrameLayout
+        android:id="@+id/settings__page_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

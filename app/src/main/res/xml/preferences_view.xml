@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*#######################################################
+ *
+ *   Maintained 2017-2025 by Gregor Santner <gsantner AT mailbox DOT org>
+ *   License of this file: Apache 2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+#########################################################*/
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:icon="@drawable/ic_visibility_black_24dp"
+    android:summary="@string/display_converted_markup"
+    android:title="@string/view_mode">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_visibility_black_24dp"
+            android:key="@string/pref_key__is_preview_first"
+            android:summary="@string/open_existing_files_in_view_mode"
+            android:title="@string/prefer_view" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_arrow_back_white_24dp"
+            android:key="@string/pref_key__swipe_to_change_mode"
+            android:summary="@string/swipe_to_change_to_edit_or_view_mode"
+            android:title="@string/swipe_to_change_mode" />
+
+        <PreferenceCategory android:title="@string/inject">
+            <androidx.preference.EditTextPreference
+                android:defaultValue="@string/inject_to_head_default"
+                android:icon="@drawable/ic_add_white_24dp"
+                android:key="@string/pref_key__inject_to_head"
+                android:summary="@string/js_css"
+                android:title="@string/inject_to_head" />
+            <androidx.preference.EditTextPreference
+                android:defaultValue="@string/empty_string"
+                android:icon="@drawable/ic_add_white_24dp"
+                android:key="@string/pref_key__inject_to_body"
+                android:title="@string/inject_to_body" />
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/text">
+            <com.rarepebble.colorpicker.ColorPreference
+                android:defaultValue="@color/default_link_color"
+                android:icon="@drawable/ic_format_underlined_black_24dp"
+                android:key="@string/pref_key__view_mode_link_color"
+                android:title="@string/link_color" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:icon="@drawable/ic_format_textdirection_r_to_l_black_24dp"
+                android:key="@string/pref_key__is_render_rtl"
+                android:summary="@string/render_rtl_language"
+                android:title="@string/rtl_rendering" />
+            <androidx.preference.SeekBarPreference
+                android:defaultValue="-1"
+                android:icon="@drawable/ic_format_size_black_24dp"
+                android:key="@string/pref_key__view_font_size"
+                android:max="36"
+                android:summary="-1 => Editor"
+                android:title="@string/font_size"
+                app:min="-1"
+                app:showSeekBarValue="true" />
+        </PreferenceCategory>
+    </PreferenceScreen>

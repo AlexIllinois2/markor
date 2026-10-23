@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    折叠态的下拉项：字号/内边距与同一对话框里的 EditText 对齐，
+    避免系统 simple_spinner_dropdown_item 的 22sp 大字号把两栏撑得比输入框还高
+-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:gravity="start|center_vertical"
+    android:minHeight="44dp"
+    android:paddingStart="12dp"
+    android:paddingLeft="12dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="40dp"
+    android:paddingRight="40dp"
+    android:paddingBottom="10dp"
+    android:singleLine="true"
+    android:textColor="@color/primary_text"
+    android:textSize="15sp" />

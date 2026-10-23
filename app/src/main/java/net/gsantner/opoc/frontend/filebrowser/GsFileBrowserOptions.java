@@ -66,6 +66,12 @@ public class GsFileBrowserOptions {
 
         public boolean descModtimeInsteadOfParent = false;
 
+        /**
+         * 锁在 rootFolder 里：到了 rootFolder 就不再提供".."，也就跳不出去。
+         * 只有主界面的文件页会打开它，选择器一类的对话框保持原来的自由浏览。
+         */
+        public boolean restrictToRootFolder = false;
+
         public int itemSidePadding = 16; // dp
 
         // Visibility of elements

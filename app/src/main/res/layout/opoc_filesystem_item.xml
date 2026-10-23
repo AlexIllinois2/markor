@@ -14,47 +14,64 @@
     android:id="@+id/opoc_filesystem_item__root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/card_margin_horizontal"
+    android:layout_marginTop="@dimen/card_margin_vertical"
+    android:layout_marginRight="@dimen/card_margin_horizontal"
+    android:layout_marginBottom="@dimen/card_margin_vertical"
+    android:background="@drawable/bg_file_item_card"
     android:clickable="true"
     android:focusable="true"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingBottom="8dp">
+    android:paddingLeft="16dp"
+    android:paddingTop="12dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="12dp">
 
+    <!-- No tray behind the icon: a plain glyph in one fixed slot, as a working list does it -->
     <ImageView
         android:id="@+id/opoc_filesystem_item__image"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_gravity="center_vertical|start"
-        android:layout_marginRight="16dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
         android:importantForAccessibility="no"
-        tools:ignore="ContentDescription,RtlHardcoded"
+        tools:ignore="ContentDescription"
         tools:src="@android:drawable/btn_radio" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="2dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/opoc_filesystem_item__title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
             android:importantForAccessibility="no"
+            android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="19sp"
+            android:textColor="@color/primary_text"
+            android:textSize="17sp"
             tools:text="how to write a readme.md" />
 
         <TextView
             android:id="@+id/opoc_filesystem_item__description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
             android:ellipsize="start"
+            android:fontFamily="sans-serif"
             android:importantForAccessibility="no"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textSize="15sp"
+            android:textColor="@color/secondary_text"
+            android:textSize="13sp"
             tools:text="/sdcard/Documents/somewhere" />
     </LinearLayout>
 </LinearLayout>

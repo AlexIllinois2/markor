@@ -4,6 +4,25 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="editor_bottom_margin">32dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
-    <dimen name="text_actions_bar_height">46dp</dimen>
-    <dimen name="dialog_corner_radius">16dp</dimen>
+    <dimen name="text_actions_bar_height">52dp</dimen>
+
+    <!-- Rounded corner scale (large radii are part of the visual identity) -->
+    <dimen name="corner_sm">12dp</dimen>
+    <dimen name="corner_md">16dp</dimen>
+    <dimen name="corner_lg">22dp</dimen>
+    <dimen name="corner_xl">28dp</dimen>
+    <dimen name="dialog_corner_radius">28dp</dimen>
+    <dimen name="appbar_corner_radius">24dp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
+
+    <!-- Floating card list / navigation metrics -->
+    <dimen name="card_margin_horizontal">12dp</dimen>
+    <dimen name="card_margin_vertical">5dp</dimen>
+    <dimen name="card_padding">14dp</dimen>
+    <dimen name="bottom_nav_height">84dp</dimen>
+    <dimen name="bottom_nav_margin_horizontal">12dp</dimen>
+    <dimen name="bottom_nav_margin_bottom">10dp</dimen>
+    <!-- Space the content has to leave free for the floating bottom navigation -->
+    <dimen name="bottom_nav_space">104dp</dimen>
+    <dimen name="list_bottom_space">100dp</dimen>
 </resources>

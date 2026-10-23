@@ -40,20 +40,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:orientation="horizontal"
-            android:weightSum="100">
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/new_file_dialog__name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="75"
+                android:layout_weight="72"
+                android:background="@drawable/bg_dialog_input"
                 android:hint="@string/title"
                 android:importantForAutofill="no"
+                android:maxLines="1"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="10dp"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textSize="15sp"
                 tools:ignore="HardcodedText,TextFields" />
 
@@ -62,15 +68,21 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_weight="25"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="28"
+                android:background="@drawable/bg_dialog_input"
                 android:gravity="start"
                 android:hint=".md ..."
                 android:importantForAutofill="no"
                 android:inputType="text|textNoSuggestions"
                 android:lines="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="10dp"
                 android:textSize="15sp"
                 tools:ignore="HardcodedText"
                 tools:text=".md" />
@@ -89,37 +101,40 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="horizontal"
-            android:weightSum="100">
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/new_file_dialog__name_format"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_dialog_input"
                 android:hint="{{title}}"
                 android:importantForAutofill="no"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="56dp"
+                android:paddingRight="56dp"
+                android:paddingBottom="10dp"
                 android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textSize="15sp"
                 tools:ignore="HardcodedText,TextFields" />
 
             <TextView
                 android:id="@+id/new_file_dialog__name_format_spinner"
-                style="@style/Base.Widget.AppCompat.Spinner"
-                android:layout_width="60dp"
+                android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="-16dp"
-                android:layout_marginRight="-16dp"
+                android:background="@null"
+                android:clickable="true"
                 android:contentDescription="@string/choose_format"
-                android:inputType="none" />
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:drawableRight="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:gravity="center" />
 
         </RelativeLayout>
 
@@ -134,12 +149,31 @@
             android:text="@string/type"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
-        <view
-            android:id="@+id/new_file_dialog__type"
-            class="net.gsantner.markor.frontend.NewFileDialog$ReselectSpinner"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawSelectorOnTop="true" />
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_dialog_input">
+
+            <view
+                android:id="@+id/new_file_dialog__type"
+                class="net.gsantner.markor.frontend.NewFileDialog$ReselectSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawSelectorOnTop="true" />
+
+            <!-- 与"格式"栏同一个箭头形状，不跟系统 Spinner 的实心三角混着用 -->
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -151,12 +185,30 @@
             android:text="@string/template"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
-        <view
-            android:id="@+id/new_file_dialog__template"
-            class="net.gsantner.markor.frontend.NewFileDialog$ReselectSpinner"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawSelectorOnTop="true" />
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_dialog_input">
+
+            <view
+                android:id="@+id/new_file_dialog__template"
+                class="net.gsantner.markor.frontend.NewFileDialog$ReselectSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawSelectorOnTop="true" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+        </FrameLayout>
 
         <CheckBox
             android:id="@+id/new_file_dialog__encrypt"

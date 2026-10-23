@@ -7,6 +7,9 @@
  *
 #########################################################*/
 -->
+<!-- 文件页工具栏只保留"选中条目之后才有意义"的动作。
+     常驻入口是顶部那一行里的搜索框和排序按钮，所以 go-to / import / git / 全选
+     以及 ⋮ 里的那些条目整包去掉了；排序与搜索保留成隐藏条目，只给自定义控件转发用。 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,12 +28,6 @@
         android:visible="false"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_fs_copy_to_clipboard"
-        android:icon="@drawable/ic_content_copy_black_24dp"
-        android:title="@string/clipboard"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_rename_selected_item"
         android:icon="@drawable/ic_gs_rename_black_24dp"
         android:title="@string/rename"
@@ -48,85 +45,20 @@
         android:title="@string/delete"
         android:visible="false"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/action_move_selected_items"
-        android:icon="@drawable/ic_gs_file_move_black_24dp"
-        android:title="@string/move"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_copy_selected_items"
-        android:icon="@drawable/ic_baseline_file_copy_24"
-        android:title="@string/copy"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_create_shortcut"
-        android:icon="@drawable/ic_widgets_black_24dp"
-        android:title="@string/create_shortcut"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_share_files"
-        android:icon="@drawable/ic_share_black_24dp"
-        android:title="@string/share"
-        android:visible="false"
-        app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_go_to"
-        android:layout_width="match_parent"
-        android:icon="@drawable/ic_folder_white_24dp"
-        android:title="@string/go_to"
-        app:showAsAction="always" />
-
+    <!-- 由顶部搜索框右侧的排序按钮转发到这里 -->
     <item
         android:id="@+id/action_sort"
-        android:layout_width="match_parent"
         android:icon="@drawable/ic_sort_black_24dp"
         android:title="@string/sort_by"
-        app:showAsAction="always" />
-
+        android:visible="false"
+        app:showAsAction="never" />
+    <!-- 搜索框已经是常驻控件，这个条目只用于"回车走全局搜索"的转发 -->
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/search"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_import"
-        android:icon="@drawable/ic_file_white_24dp"
-        android:title="@string/import_from_device"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_git_sync"
-        android:icon="@drawable/ic_sync_black_24dp"
-        android:title="@string/git_sync"
         android:visible="false"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_git_pull"
-        android:title="@string/git_pull_now"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_git_push"
-        android:title="@string/git_push_now"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_git_status"
-        android:icon="@drawable/ic_info_black_24dp"
-        android:title="@string/git_show_status"
-        android:visible="false"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_check_all"
-        android:icon="@drawable/ic_check_circle_24dp"
-        android:title="@string/select_all"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_clear_selection"
-        android:icon="@drawable/ic_baseline_clear_24"
-        android:title="@string/clear_selection"
-        app:showAsAction="never" />
+
 </menu>

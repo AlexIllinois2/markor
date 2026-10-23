@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分组标题行：折叠箭头 + 组名 + 数量 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp">
+
+    <ImageView
+        android:id="@+id/editor__header_chevron"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:src="@drawable/baseline_chevron_right_24"
+        android:tint="@color/secondary_text" />
+
+    <TextView
+        android:id="@+id/editor__header_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textColor="@color/secondary_text"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/editor__header_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secondary_text"
+        android:textSize="12sp" />
+</LinearLayout>

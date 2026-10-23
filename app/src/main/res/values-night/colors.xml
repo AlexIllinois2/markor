@@ -7,8 +7,54 @@
     <color name="secondary_text">@color/dark__secondary_text</color>
     <color name="file">@color/dark__file</color>
     <color name="folder">@color/dark__folder</color>
+    <color name="pref_icon">@color/dark__pref_icon</color>
+    <color name="nav_pill">@color/dark__nav_pill</color>
+    <!-- 深色下高亮色本身就是浅灰，FAB 跟着它走，图标用深墨 -->
+    <color name="fab_bg">@color/accent</color>
+    <color name="fab_ink">#12151D</color>
+    <color name="fab_ripple">#33000000</color>
     <color name="background">@color/dark__background</color>
+    <color name="card">@color/dark__card</color>
+    <color name="card_alt">@color/dark__card_alt</color>
+    <!-- 深色下的高亮同样是"墨色降对比"：把墨色提亮到浅灰，
+         不用红色，也不要和浅色版走两种调子 -->
+    <color name="accent">#A9B2C2</color>
+    <color name="accent_soft">#24A9B2C2</color>
+    <color name="accent_stroke">#3DA9B2C2</color>
+    <color name="accent_wash">#26A9B2C2</color>
     <color name="light_border">@color/grey</color>
+
+    <!-- ============ M3 颜色角色（深色） ============
+         深色下"主色"不再是最深的墨，而是提亮后的浅墨——M3 的 primary 在深色方案里
+         本来就是"高对比前景色"。容器色用中间那几档灰蓝，保持零色相。 -->
+    <color name="m3_primary">#E8EAF0</color>
+    <color name="m3_on_primary">#12151D</color>
+    <color name="m3_primary_container">#2C3140</color>
+    <color name="m3_on_primary_container">#E8EAF0</color>
+    <color name="m3_secondary">#A9B2C2</color>
+    <color name="m3_on_secondary">#12151D</color>
+    <color name="m3_secondary_container">#262A35</color>
+    <color name="m3_on_secondary_container">#E8EAF0</color>
+    <color name="m3_tertiary">#9AA4B7</color>
+    <color name="m3_on_tertiary">#12151D</color>
+    <color name="m3_tertiary_container">#22262F</color>
+    <color name="m3_on_tertiary_container">#E8EAF0</color>
+    <color name="m3_surface">#1A1D25</color>
+    <color name="m3_on_surface">#EBEDF3</color>
+    <color name="m3_surface_variant">#242833</color>
+    <color name="m3_on_surface_variant">#A0A8B8</color>
+    <color name="m3_surface_container_lowest">#14161C</color>
+    <color name="m3_surface_container_low">#1A1D25</color>
+    <color name="m3_surface_container">#1F222B</color>
+    <color name="m3_surface_container_high">#242833</color>
+    <color name="m3_surface_container_highest">#2C3140</color>
+    <color name="m3_outline">#3E4453</color>
+    <color name="m3_outline_variant">#262A35</color>
+    <color name="m3_error">#F2B8B5</color>
+    <color name="m3_on_error">#601410</color>
+    <color name="m3_inverse_surface">#EBEDF3</color>
+    <color name="m3_inverse_on_surface">#1A1D25</color>
+    <color name="m3_inverse_primary">#3A4152</color>
 
     <!-- All values specified only in base colors.xml  -->
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App bar surface: light card in day, dark card at night (large bottom corners) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/card" />
+    <corners
+        android:bottomLeftRadius="@dimen/appbar_corner_radius"
+        android:bottomRightRadius="@dimen/appbar_corner_radius" />
+</shape>

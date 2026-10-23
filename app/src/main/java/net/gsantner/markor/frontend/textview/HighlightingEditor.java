@@ -771,7 +771,7 @@ public class HighlightingEditor extends AppCompatEditText {
     public void setStaticCursorEnabled(boolean staticCursorEnabled) {
         if (staticCursorEnabled) {
             if (_staticCursorDrawer == null) {
-                _staticCursorDrawer = new StaticCursorDrawer(this, ContextCompat.getColor(getContext(), R.color.accent));
+                _staticCursorDrawer = new StaticCursorDrawer(this, ContextCompat.getColor(getContext(), R.color.primary_text));
                 setCursorVisible(false);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     setTextCursorDrawable(R.drawable.cursor_transparent); // Ensure that the default cursor is invisible

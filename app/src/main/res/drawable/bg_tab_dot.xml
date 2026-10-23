@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 未保存标识：标签标题前的一个小圆点 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/accent" />
+    <size
+        android:width="6dp"
+        android:height="6dp" />
+</shape>

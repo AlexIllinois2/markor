@@ -73,6 +73,9 @@ public class FileSearchDialog {
         searchEditText.setMaxLines(1);
         searchEditText.setTextColor(textColor);
         searchEditText.setHintTextColor((textColor & 0x00FFFFFF) | 0x99000000);
+        // 换成圆角填充输入框，跟应用其它地方的纸/卡片语言一致（原来的下划线太"系统默认"）
+        searchEditText.setBackgroundResource(R.drawable.bg_dialog_input);
+        searchEditText.setPadding(dp4px * 3, dp4px * 3, dp4px * 3, dp4px * 3);
         dialogLayout.addView(searchEditText, margins);
 
         // Spinner: History

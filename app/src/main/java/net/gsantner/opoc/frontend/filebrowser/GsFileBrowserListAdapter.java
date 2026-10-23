@@ -10,6 +10,10 @@
 package net.gsantner.opoc.frontend.filebrowser;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileObserver;
@@ -191,6 +195,11 @@ public class GsFileBrowserListAdapter extends RecyclerView.Adapter<GsFileBrowser
         return _adapterData.size() < 2;
     }
 
+    /** 搜索框过滤之后一条都不剩：列表空着得给个说法，不能什么都不显示 */
+    public boolean isFilteredEmpty() {
+        return _filter != null && !_filter._lastFilter.isEmpty() && _adapterDataFiltered.isEmpty();
+    }
+
     public boolean isFileWriteable(File file, boolean isGoUp) {
         return file != null && (canWrite(file) || isGoUp || _virtualMapping.containsKey(file));
     }
@@ -239,6 +248,11 @@ public class GsFileBrowserListAdapter extends RecyclerView.Adapter<GsFileBrowser
         }
         holder.description.setTextColor(ContextCompat.getColor(_context, _dopt.secondaryTextColor));
 
+        // Selection is tracked by this adapter instead of the RecyclerView itself, so the row
+        // background is painted here as well: a state-list drawable would leave the row to
+        // resolve a state on its own and some rows ended up with no background at all.
+        applyRowBackground(holder.itemRoot, isSelected);
+
         // Set icon
         if (isSelected) {
             holder.image.setImageResource(_dopt.selectedItemImage);
@@ -274,6 +288,37 @@ public class GsFileBrowserListAdapter extends RecyclerView.Adapter<GsFileBrowser
         holder.itemRoot.setTag(new TagContainer(displayFile, position));
         holder.itemRoot.setOnClickListener(this);
         holder.itemRoot.setOnLongClickListener(this);
+    }
+
+    /**
+     * Paint the rounded card behind a row: white at rest, a soft accent wash plus a thin
+     * outline when selected. Drawn from code so every row always gets a background.
+     */
+    private void applyRowBackground(final View view, final boolean selected) {
+        if (view == null) {
+            return;
+        }
+        final float radius = view.getResources().getDimension(R.dimen.card_corner_radius);
+        final GradientDrawable card = new GradientDrawable();
+        card.setShape(GradientDrawable.RECTANGLE);
+        card.setCornerRadius(radius);
+        card.setColor(ContextCompat.getColor(_context, selected ? R.color.accent_wash : R.color.card));
+        if (selected) {
+            final float density = view.getResources().getDisplayMetrics().density;
+            card.setStroke(Math.round(1.5f * density), ContextCompat.getColor(_context, R.color.accent_stroke));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // Keep a press feedback on top of the card, clipped to its rounded shape
+            final GradientDrawable mask = new GradientDrawable();
+            mask.setShape(GradientDrawable.RECTANGLE);
+            mask.setCornerRadius(radius);
+            mask.setColor(android.graphics.Color.WHITE);
+            view.setBackground(new RippleDrawable(
+                    ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.accent_stroke)), card, mask));
+        } else {
+            view.setBackground(card);
+        }
     }
 
     @Override
@@ -570,6 +615,11 @@ public class GsFileBrowserListAdapter extends RecyclerView.Adapter<GsFileBrowser
     private @Nullable File getCurrentParent() {
         if (_currentFolder == null || _currentFolder.getParentFile() == null
                 || VIRTUAL_STORAGE_ROOT.equals(_currentFolder)) {
+            return null;
+        }
+
+        // 文件页要求停在笔记本里：到了根目录就不再给".."，从列表 navigate 不上去
+        if (_dopt.restrictToRootFolder && isCurrentFolderHome()) {
             return null;
         }
 
@@ -910,6 +960,10 @@ public class GsFileBrowserListAdapter extends RecyclerView.Adapter<GsFileBrowser
             _adapter._adapterDataFiltered.clear();
             _adapter._adapterDataFiltered.addAll((ArrayList<File>) results.values);
             _adapter.notifyDataSetChanged();
+            // 列表空成什么样也要让宿主知道，"没有匹配"的空提示靠这个回调刷新
+            if (_adapter._dopt != null && _adapter._dopt.listener != null) {
+                _adapter._dopt.listener.onFsViewerDoUiUpdate(_adapter);
+            }
         }
     }
 

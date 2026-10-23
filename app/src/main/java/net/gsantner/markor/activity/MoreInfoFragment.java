@@ -50,7 +50,8 @@ public class MoreInfoFragment extends GsPreferenceFragmentBase<AppSettings> {
 
     @Override
     public boolean isDividerVisible() {
-        return true;
+        // The whole page is a single rounded sheet now, hairlines would cut it into strips
+        return false;
     }
 
     @Override

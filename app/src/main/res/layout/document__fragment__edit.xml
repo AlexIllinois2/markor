@@ -40,12 +40,16 @@
                 android:background="@android:color/transparent"
                 android:fillViewport="true">
 
+                <!-- Editor "paper": rounded card, the rounded background is applied in code -->
                 <LinearLayout
                     android:id="@+id/document__fragment__edit__editor_holder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="10dp"
                     android:baselineAligned="false"
-                    android:background="@color/background"
                     android:clickable="true"
                     android:orientation="horizontal">
 
@@ -60,7 +64,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:alpha="0"
-                        android:background="@color/background"
                         android:gravity="top"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textMultiLine|textCapSentences"
@@ -68,9 +71,9 @@
                         android:minHeight="1dp"
                         android:nestedScrollingEnabled="false"
                         android:overScrollMode="never"
-                        android:paddingLeft="@dimen/activity_horizontal_margin"
-                        android:paddingTop="@dimen/activity_vertical_margin"
-                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="16dp"
+                        android:paddingRight="@dimen/activity_vertical_margin"
                         android:paddingBottom="@dimen/editor_bottom_margin"
                         android:scrollbars="none"
                         android:scrollHorizontally="false"
@@ -82,6 +85,10 @@
                 android:id="@+id/document__fragment_webview_stub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="10dp"
                 android:layout="@layout/document__fragment_view" />
         </FrameLayout>
 
@@ -89,17 +96,19 @@
             android:id="@+id/document__fragment__edit__text_actions_bar__scrolling_parent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/text_actions_bar_height"
-            android:background="@color/background"
-            android:elevation="4dp"
-            android:paddingTop="4dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_action_bar_rounded"
+            android:elevation="0dp"
             android:scrollbars="none"
-            android:translationZ="4dp">
+            android:translationZ="0dp">
 
             <LinearLayout
                 android:id="@+id/document__fragment__edit__text_actions_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/background"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" />
         </net.gsantner.opoc.frontend.GsHorizontalScrollView>
     </LinearLayout>

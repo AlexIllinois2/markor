@@ -127,8 +127,9 @@ dependencies {
 
     // Android standard libs
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    // M3 Expressive 需要 1.13+；1.14.0 提供 expressive 形状/动效/组件
+    implementation 'com.google.android.material:material:1.13.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.preference:preference:1.2.0'

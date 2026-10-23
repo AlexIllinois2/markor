@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*#######################################################
+ *
+ *   License of this file: Apache 2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+#########################################################*/
+-->
+<!-- Static rest state for a file list row. Selection / press states are painted by
+     GsFileBrowserListAdapter so that a row can never end up with no background at all. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/card" />
+    <corners android:radius="@dimen/card_corner_radius" />
+</shape>
