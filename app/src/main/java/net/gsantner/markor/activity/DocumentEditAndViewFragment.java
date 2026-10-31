@@ -47,6 +47,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.gsantner.markor.ApplicationObject;
@@ -64,6 +65,7 @@ import net.gsantner.markor.frontend.textview.LineNumbersView;
 import net.gsantner.markor.frontend.textview.TextViewUtils;
 import net.gsantner.markor.model.AppSettings;
 import net.gsantner.markor.model.Document;
+import net.gsantner.markor.model.git.GitNotebook;
 import net.gsantner.markor.util.MarkorContextUtils;
 import net.gsantner.markor.web.DraggableScrollbarWebView;
 import net.gsantner.markor.web.MarkorWebViewClient;
@@ -125,6 +127,14 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
     private MenuItem _saveMenuItem, _undoMenuItem, _redoMenuItem;
     private boolean _isPreviewVisible;
     private boolean _nextConvertToPrintMode = false;
+
+    /** 远端更新提示：常驻，只能点「刷新」消失 */
+    private Snackbar _remoteUpdateBar;
+    private final GitNotebook.RemoteUpdateListener _remoteUpdateListener = () -> {
+        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
+            showRemoteUpdateBar();
+        }
+    };
 
     public DocumentEditAndViewFragment() {
         super();
@@ -328,11 +338,17 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         if (_editTextUndoRedoHelper != null && _editTextUndoRedoHelper.getTextView() != _hlEditor) {
             _editTextUndoRedoHelper.setTextView(_hlEditor);
         }
+        GitNotebook.attachRemoteUpdateListener(_remoteUpdateListener);
+        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
+            showRemoteUpdateBar();
+        }
         super.onResume();
     }
 
     @Override
     public void onPause() {
+        GitNotebook.detachRemoteUpdateListener(_remoteUpdateListener);
+        hideRemoteUpdateBar(); // 换标签/进后台时收走，回来时按远端更新状态重新挂上
         saveDocument(false);
         if (_webView != null) {
             _webView.onPause();
@@ -522,6 +538,73 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
                 Toast.makeText(getActivity(), "✔", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /** 远端把这个文件改了：悬浮提示常驻，不自动消失、不能滑动关掉，只有「刷新」能关 */
+    private void showRemoteUpdateBar() {
+        final View view = getView();
+        if (getActivity() == null || view == null || _remoteUpdateBar != null) {
+            return;
+        }
+        final Snackbar bar = Snackbar.make(view, R.string.git_remote_update_available, Snackbar.LENGTH_INDEFINITE);
+        bar.setAction(R.string.git_remote_update_refresh, v -> refreshFromRemote());
+        bar.setBehavior(new PersistentSnackbarBehavior());
+        bar.addCallback(new Snackbar.Callback() {
+            @Override
+            public void onDismissed(final Snackbar snackbar, final int event) {
+                if (_remoteUpdateBar != snackbar) {
+                    return;
+                }
+                _remoteUpdateBar = null;
+                // 不是点「刷新」导致的消失（比如被别的 Snackbar 顶掉）：提示留着，重新挂上去
+                if (event != Snackbar.Callback.DISMISS_EVENT_ACTION && _document != null
+                        && GitNotebook.hasRemoteUpdate(_document.file)) {
+                    showRemoteUpdateBar();
+                }
+            }
+        });
+        _remoteUpdateBar = bar;
+        bar.show();
+    }
+
+    private void hideRemoteUpdateBar() {
+        final Snackbar bar = _remoteUpdateBar;
+        _remoteUpdateBar = null;
+        if (bar != null) {
+            bar.dismiss();
+        }
+    }
+
+    /** 本地改过的 Snackbar Behavior：禁掉侧滑关闭，让它只能靠「刷新」按钮退场 */
+    private static final class PersistentSnackbarBehavior extends BaseTransientBottomBar.Behavior {
+        @Override
+        public boolean canSwipeDismissView(final View child) {
+            return false;
+        }
+    }
+
+    /**
+     * 点「刷新」：有未保存修改就先保存（提交），再拉取合并，最后从磁盘重新载入。
+     * 顺序很重要——先保存才不会让编辑缓冲区盖掉刚合并进来的远端内容。
+     */
+    private void refreshFromRemote() {
+        final File file = _document == null ? null : _document.file;
+        if (file == null || getContext() == null) {
+            return;
+        }
+        if (!_document.isContentSame(_hlEditor.getText()) && !saveDocument(false)) {
+            // 保存失败（比如 SD 卡只读）：提示留着，等用户处理完再刷新
+            showRemoteUpdateBar();
+            return;
+        }
+        GitNotebook.requestRefresh(getContext(), () -> {
+            GitNotebook.clearRemoteUpdate(file);
+            if (_document != null) {
+                _document.resetChangeTracking();
+                loadDocument();
+            }
+            hideRemoteUpdateBar();
+        });
     }
 
     /**

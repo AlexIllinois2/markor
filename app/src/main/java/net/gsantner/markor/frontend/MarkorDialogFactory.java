@@ -1064,22 +1064,23 @@ public class MarkorDialogFactory {
     // Git 仓库笔记本：克隆、状态、冲突处理
     //
 
-    /** 克隆一个 git 仓库到笔记本所在目录旁边，并把笔记本切过去 */
+    /** 克隆一个 GitHub 仓库到笔记本所在目录旁边，并把笔记本切过去 */
     public static void showGitCloneDialog(final Activity activity) {
         final AppSettings as = AppSettings.get(activity);
         final DialogOptions dopt = baseConf(activity);
         dopt.titleText = R.string.git_clone_repository;
         dopt.isSearchEnabled = true;
-        dopt.searchInputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI;
+        dopt.searchInputType = InputType.TYPE_CLASS_TEXT;
         dopt.searchHintText = R.string.git_repository_url;
         dopt.messageText = activity.getString(R.string.git_target_folder) + ": " + getGitCloneParent(as).getAbsolutePath();
         dopt.callback = url -> startGitClone(activity, url == null ? "" : url.trim());
         GsSearchOrCustomTextDialog.showMultiChoiceDialogWithSearchFilterUI(activity, dopt);
     }
 
-    private static void startGitClone(final Activity activity, final String url) {
+    private static void startGitClone(final Activity activity, final String input) {
         final AppSettings as = AppSettings.get(activity);
-        if (!isSupportedGitUrl(url)) {
+        final String url = resolveGitCloneUrl(input);
+        if (url == null) {
             showGitMessage(activity, activity.getString(R.string.git_https_url_required), true);
             return;
         }
@@ -1107,6 +1108,35 @@ public class MarkorDialogFactory {
         final File parent = notebook.getParentFile();
         return parent != null ? parent : notebook;
     }
+
+    /**
+     * 只填 user/repo 时按 GitHub 惯例拼成 ssh://git@ssh.github.com:443/user/repo.git，
+     * 22 端口被墙也能克隆；完整的 https://、ssh:// 和 git@host:path 地址原样使用。
+     */
+    @Nullable
+    private static String resolveGitCloneUrl(final String input) {
+        final String raw = input == null ? "" : input.trim();
+        if (raw.isEmpty()) {
+            return null;
+        }
+        if (isSupportedGitUrl(raw)) {
+            return raw;
+        }
+        String shorthand = raw;
+        while (shorthand.startsWith("/")) {
+            shorthand = shorthand.substring(1);
+        }
+        shorthand = shorthand.replaceAll("[/\\\\]+$", "");
+        if (shorthand.endsWith(".git")) {
+            shorthand = shorthand.substring(0, shorthand.length() - ".git".length());
+        }
+        if (!GITHUB_OWNER_REPO.matcher(shorthand).matches()) {
+            return null;
+        }
+        return "ssh://git@ssh.github.com:443/" + shorthand + ".git";
+    }
+
+    private static final Pattern GITHUB_OWNER_REPO = Pattern.compile("[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+");
 
     /** https、ssh（含 GitHub 走 443 的 ssh://git@ssh.github.com:443/...）和 scp 形式的 git@host:path */
     private static boolean isSupportedGitUrl(final String url) {

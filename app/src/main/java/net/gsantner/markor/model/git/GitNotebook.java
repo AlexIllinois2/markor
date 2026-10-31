@@ -23,9 +23,13 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -41,6 +45,11 @@ public final class GitNotebook {
 
     public interface Ui {
         void onGitMessage(String message, boolean isError);
+    }
+
+    /** 合并把远端改动带进了工作区，编辑页据此显示常驻的刷新提示 */
+    public interface RemoteUpdateListener {
+        void onRemoteUpdate();
     }
 
     private interface Task {
@@ -65,6 +74,13 @@ public final class GitNotebook {
     private static Runnable _debounce = null;
     @Nullable
     private static Runnable _timer = null;
+
+    /** 远端更新过的文件（仓库相对路径），只有用户点「刷新」后才清除 */
+    @Nullable
+    private static volatile File _remoteUpdateRoot = null;
+    private static volatile Set<String> _remoteUpdatePaths = Collections.emptySet();
+    private static final List<WeakReference<RemoteUpdateListener>> REMOTE_UPDATE_LISTENERS =
+            new CopyOnWriteArrayList<>();
 
     /**
      * 提示的兜底出口。界面（MainActivity）一暂停就 detach，而同步按钮在设置页和文件浏览器里也能按，
@@ -100,6 +116,130 @@ public final class GitNotebook {
             _uiRef = null;
         }
         stopTimer();
+    }
+
+    public static void attachRemoteUpdateListener(final RemoteUpdateListener listener) {
+        for (WeakReference<RemoteUpdateListener> ref : REMOTE_UPDATE_LISTENERS) {
+            if (ref.get() == listener) {
+                return;
+            }
+        }
+        REMOTE_UPDATE_LISTENERS.add(new WeakReference<>(listener));
+    }
+
+    public static void detachRemoteUpdateListener(final RemoteUpdateListener listener) {
+        for (WeakReference<RemoteUpdateListener> ref : REMOTE_UPDATE_LISTENERS) {
+            final RemoteUpdateListener registered = ref.get();
+            if (registered == null || registered == listener) {
+                REMOTE_UPDATE_LISTENERS.remove(ref);
+            }
+        }
+    }
+
+    /** 当前文件是否被远端改动过；状态会一直保留到用户点「刷新」 */
+    public static boolean hasRemoteUpdate(@Nullable final File file) {
+        final File root = _remoteUpdateRoot;
+        final Set<String> paths = _remoteUpdatePaths;
+        if (root == null || file == null || paths.isEmpty()) {
+            return false;
+        }
+        final String relative = relativePath(root, file);
+        return relative != null && paths.contains(relative);
+    }
+
+    /** 用户刷新完某个文件后清掉它的标记；只影响这一个文件 */
+    public static void clearRemoteUpdate(@Nullable final File file) {
+        final File root = _remoteUpdateRoot;
+        if (root == null || file == null) {
+            return;
+        }
+        final String relative = relativePath(root, file);
+        if (relative == null) {
+            return;
+        }
+        final Set<String> remaining = new HashSet<>(_remoteUpdatePaths);
+        remaining.remove(relative);
+        _remoteUpdatePaths = remaining.isEmpty() ? Collections.emptySet() : remaining;
+    }
+
+    /**
+     * 保存当前编辑内容 → 提交 → 再拉取合并，最后回主线程让编辑页重新载入文件。
+     * 和普通同步分开排队：等正在跑的同步先结束，避免两个任务同时碰 index.lock。
+     */
+    public static void requestRefresh(final Context context, @Nullable final Runnable onDone) {
+        final AppSettings settings = AppSettings.get(context);
+        remember(context);
+        if (settings.getGitRepositoryDirectory() == null) {
+            if (onDone != null) {
+                MAIN.post(onDone);
+            }
+            return;
+        }
+        BACKGROUND.execute(() -> {
+            // RequestSync 的任务也在同一队列里；在别的线程跑的同步（WorkManager）则要等它放开 BUSY
+            while (!BUSY.compareAndSet(false, true)) {
+                try {
+                    Thread.sleep(100L);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+            try {
+                final GitRepo repo = openRepo(settings);
+                if (repo != null) {
+                    repo.commitNow();
+                    final GitRepo.SyncResult result = repo.pullOnly();
+                    settings.setGitLastSyncInfo(summarize(settings, result));
+                    notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
+                }
+            } catch (Exception e) {
+                settings.setGitLastSyncInfo(shortText(e));
+            } finally {
+                BUSY.set(false);
+                if (onDone != null) {
+                    MAIN.post(onDone);
+                }
+            }
+        });
+    }
+
+    private static void notifyRemoteUpdates(@Nullable final File root, final List<String> paths) {
+        if (root == null || paths.isEmpty()) {
+            return;
+        }
+        rememberRemoteUpdates(root, paths);
+        MAIN.post(() -> {
+            for (WeakReference<RemoteUpdateListener> ref : REMOTE_UPDATE_LISTENERS) {
+                final RemoteUpdateListener listener = ref.get();
+                if (listener == null) {
+                    REMOTE_UPDATE_LISTENERS.remove(ref);
+                } else {
+                    listener.onRemoteUpdate();
+                }
+            }
+        });
+    }
+
+    private static void rememberRemoteUpdates(final File root, final List<String> paths) {
+        final String canonicalRoot = canonical(root);
+        final boolean sameRoot = _remoteUpdateRoot != null && canonical(_remoteUpdateRoot).equals(canonicalRoot);
+        final Set<String> merged = sameRoot ? new HashSet<>(_remoteUpdatePaths) : new HashSet<>();
+        merged.addAll(paths);
+        _remoteUpdateRoot = root;
+        _remoteUpdatePaths = merged;
+    }
+
+    /** 仓库根目录下的相对路径（git 用 '/' 分隔），不在仓库内返回 null */
+    @Nullable
+    private static String relativePath(final File root, final File file) {
+        final String canonicalRoot = canonical(root);
+        final String canonicalFile = canonical(file);
+        final String prefix = canonicalRoot + File.separator;
+        if (!canonicalFile.startsWith(prefix)) {
+            return null;
+        }
+        return canonicalFile.substring(prefix.length()).replace(File.separatorChar, '/');
     }
 
     /** 前台定时器只在界面还在时运行，后台那条路交给 WorkManager */
@@ -181,6 +321,7 @@ public final class GitNotebook {
         run(settings, (repo, appSettings) -> {
             final GitRepo.SyncResult result = repo.pullOnly();
             appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
             if (result.pulled) {
                 postMessage(context.getString(R.string.git_pulled), false);
             }
@@ -198,8 +339,11 @@ public final class GitNotebook {
             return;
         }
         startTimer(context);
-        run(settings, (repo, appSettings) -> appSettings.setGitLastSyncInfo(
-                summarize(appSettings, repo.pullOnly())), null);
+        run(settings, (repo, appSettings) -> {
+            final GitRepo.SyncResult result = repo.pullOnly();
+            appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
+        }, null);
     }
 
     public static void requestSync(final Context context, final boolean manual, final boolean silent) {
@@ -213,6 +357,7 @@ public final class GitNotebook {
             // 冲突不在这里处理：sync 内部原样保留冲突内容后继续 commit+push
             final GitRepo.SyncResult result = repo.sync();
             appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
             if (!silent) {
                 postMessage(summarize(appSettings, result), false);
             }
@@ -225,6 +370,7 @@ public final class GitNotebook {
         run(settings, (repo, appSettings) -> {
             final GitRepo.SyncResult result = repo.pullOnly();
             appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
             postMessage(context.getString(result.pulled ? R.string.git_pulled : R.string.git_nothing_to_sync), false);
         }, errorPoster());
     }
@@ -342,6 +488,7 @@ public final class GitNotebook {
             }
             final GitRepo.SyncResult result = repo.sync();
             settings.setGitLastSyncInfo(summarize(settings, result));
+            notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
             return true;
         } finally {
             BUSY.set(false);

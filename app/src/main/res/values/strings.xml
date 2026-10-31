@@ -522,13 +522,13 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_repository">Git repository</string>
     <string name="git_sync">Git sync</string>
     <string name="git_notebook_sync_summary">Commit, pull and push the notebook\'s Git repository automatically</string>
-    <string name="git_clone_repository">Clone a Git repository</string>
+    <string name="git_clone_repository">Clone a GitHub repository</string>
     <string name="git_clone_as_notebook">Clone as notebook</string>
-    <string name="git_repository_url">Repository URL</string>
+    <string name="git_repository_url">GitHub user/repo</string>
     <string name="git_target_folder">Target folder</string>
     <string name="git_cloning">Cloning…</string>
     <string name="git_clone_failed">Clone failed: %1$s</string>
-    <string name="git_https_url_required">Only https:// or ssh:// URLs are supported, e.g. https://github.com/user/notes.git or ssh://git@ssh.github.com:443/user/notes.git</string>
+    <string name="git_https_url_required">Enter the GitHub repository as user/repo (cloned via SSH port 443), or a full https:// or ssh:// URL. Example: gsantner/markor</string>
     <string name="git_clone_target_exists">The target folder already exists and is not empty. Remove it or rename the repository first.</string>
     <string name="git_clone_done">Repository cloned, notebook set to %1$s</string>
     <string name="git_not_a_repository">The notebook folder is not a Git repository</string>
@@ -543,6 +543,8 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_pushed">Local commits pushed</string>
     <string name="git_committed">Local changes committed</string>
     <string name="git_nothing_to_sync">Nothing to sync</string>
+    <string name="git_remote_update_available">This file has a remote update</string>
+    <string name="git_remote_update_refresh">Refresh</string>
     <string name="git_sync_failed">Git sync failed: %1$s</string>
     <string name="git_sync_busy">Another Git operation is still running. Try again in a moment.</string>
     <string name="git_author_missing">Commit author is not set. Git does not fail on this, but your commits are recorded with a placeholder identity. Open Settings → Git → Commit author and enter your name and e-mail.</string>

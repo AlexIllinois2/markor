@@ -444,13 +444,13 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_repository">Git 倉庫</string>
     <string name="git_sync">Git 同步</string>
     <string name="git_notebook_sync_summary">自動提交、拉取並推送筆記本的 Git 倉庫</string>
-    <string name="git_clone_repository">克隆 Git 倉庫</string>
+    <string name="git_clone_repository">克隆 GitHub 倉庫</string>
     <string name="git_clone_as_notebook">克隆為筆記本</string>
-    <string name="git_repository_url">倉庫網址</string>
+    <string name="git_repository_url">GitHub 使用者/倉庫</string>
     <string name="git_target_folder">目標資料夾</string>
     <string name="git_cloning">正在克隆…</string>
     <string name="git_clone_failed">克隆失敗：%1$s</string>
-    <string name="git_https_url_required">僅支援 https:// 網址，例如 https://github.com/user/notes.git</string>
+    <string name="git_https_url_required">請以 user/repo 輸入 GitHub 倉庫（預設走 SSH 443 連接埠），也可填寫完整 https:// 或 ssh:// 網址，例如 gsantner/markor</string>
     <string name="git_clone_target_exists">目標資料夾已存在且非空白，請先刪除或改用其他倉庫名稱</string>
     <string name="git_clone_done">倉庫已克隆，筆記本已切至 %1$s</string>
     <string name="git_not_a_repository">筆記本資料夾不是 Git 倉庫</string>
@@ -465,6 +465,8 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_pushed">已推送本地提交</string>
     <string name="git_committed">已提交本地變更</string>
     <string name="git_nothing_to_sync">沒有需要同步的內容</string>
+    <string name="git_remote_update_available">此檔案有遠端更新</string>
+    <string name="git_remote_update_refresh">重新整理</string>
     <string name="git_sync_failed">Git 同步失敗：%1$s</string>
     <string name="git_auto_sync_interval">自動同步間隔</string>
     <string name="git_interval_off">關閉</string>

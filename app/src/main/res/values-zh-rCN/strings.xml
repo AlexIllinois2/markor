@@ -501,13 +501,13 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_repository">Git 仓库</string>
     <string name="git_sync">Git 同步</string>
     <string name="git_notebook_sync_summary">自动提交、拉取并推送笔记本的 Git 仓库</string>
-    <string name="git_clone_repository">克隆 Git 仓库</string>
+    <string name="git_clone_repository">克隆 GitHub 仓库</string>
     <string name="git_clone_as_notebook">克隆为笔记本</string>
-    <string name="git_repository_url">仓库地址</string>
+    <string name="git_repository_url">GitHub 用户/仓库</string>
     <string name="git_target_folder">目标文件夹</string>
     <string name="git_cloning">正在克隆…</string>
     <string name="git_clone_failed">克隆失败：%1$s</string>
-    <string name="git_https_url_required">只支持 https:// 或 ssh:// 地址，例如 https://github.com/user/notes.git 或 ssh://git@ssh.github.com:443/user/notes.git</string>
+    <string name="git_https_url_required">请按 user/repo 输入 GitHub 仓库（默认走 SSH 443 端口），也可填写完整 https:// 或 ssh:// 地址，例如 gsantner/markor</string>
     <string name="git_clone_target_exists">目标文件夹已存在且不为空，请先删除或换个仓库名</string>
     <string name="git_clone_done">仓库已克隆，笔记本已切到 %1$s</string>
     <string name="git_not_a_repository">笔记本文件夹不是 Git 仓库</string>
@@ -522,6 +522,8 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_pushed">已推送本地提交</string>
     <string name="git_committed">已提交本地改动</string>
     <string name="git_nothing_to_sync">没有需要同步的内容</string>
+    <string name="git_remote_update_available">此文件有远端更新</string>
+    <string name="git_remote_update_refresh">刷新</string>
     <string name="git_sync_failed">Git 同步失败：%1$s</string>
     <string name="git_auto_sync_interval">自动同步间隔</string>
     <string name="git_interval_off">关闭</string>

@@ -20,9 +20,12 @@ import org.eclipse.jgit.api.MergeResult;
 import org.eclipse.jgit.api.PushCommand;
 import org.eclipse.jgit.api.errors.EmptyCommitException;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.lib.BranchConfig;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryState;
 import org.eclipse.jgit.lib.StoredConfig;
@@ -33,6 +36,9 @@ import org.eclipse.jgit.transport.PushResult;
 import org.eclipse.jgit.transport.RefSpec;
 import org.eclipse.jgit.transport.RemoteRefUpdate;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
+import org.eclipse.jgit.treewalk.EmptyTreeIterator;
+import org.eclipse.jgit.util.io.DisabledOutputStream;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -86,6 +92,8 @@ public class GitRepo {
         public boolean noRemote = false;
         /** 本次合并遇到、并已原样提交的冲突文件 */
         public final List<String> conflicts = new ArrayList<>();
+        /** 本次从远端合并进来、工作区里被改动的文件（仓库相对路径，含冲突文件） */
+        public final List<String> remoteUpdatedFiles = new ArrayList<>();
     }
 
     private static class MergeOutcome {
@@ -254,6 +262,7 @@ public class GitRepo {
         }
 
         for (int attempt = 0; attempt < MAX_PUSH_ATTEMPTS; attempt++) {
+            final ObjectId headBeforeMerge = resolveHead();
             // ❷ fetch 必须先做；拿不到远端就中止，不在过期状态上合并/推送
             fetch(remote);
 
@@ -270,6 +279,7 @@ public class GitRepo {
                 // 冲突文件也一起 add+commit：标记内容原样进入提交，远端内容不会被覆盖
                 result.committed = commitAllChanges(mergeMessage(remote)) || result.committed;
             }
+            collectRemoteChanges(headBeforeMerge, result.remoteUpdatedFiles);
 
             // ❹ push；被拒绝说明远端又前进了，回到 fetch/merge 再来一轮
             try {
@@ -305,6 +315,7 @@ public class GitRepo {
             return result;
         }
 
+        final ObjectId headBeforeMerge = resolveHead();
         fetch(remote);
         final MergeOutcome merge = mergeUpstream(remote);
         if (!merge.conflicts.isEmpty()) {
@@ -314,8 +325,53 @@ public class GitRepo {
         if (merge.needsCommit) {
             result.committed = commitAllChanges(mergeMessage(remote)) || result.committed;
         }
+        collectRemoteChanges(headBeforeMerge, result.remoteUpdatedFiles);
         result.pulled = merge.updated;
         return result;
+    }
+
+    @Nullable
+    private ObjectId resolveHead() throws IOException {
+        return _git.getRepository().resolve(Constants.HEAD);
+    }
+
+    /**
+     * 合并前后 HEAD 的差异就是「远端带进来的改动」。冲突合并也是先原样提交再到这里，
+     * 所以冲突文件同样会出现在列表里 —— 编辑页据此提示用户刷新，而不是替用户做取舍。
+     */
+    private void collectRemoteChanges(@Nullable final ObjectId fromHead, final List<String> out) throws IOException {
+        final Repository repository = _git.getRepository();
+        final ObjectId toHead = repository.resolve(Constants.HEAD);
+        if (toHead == null || (fromHead != null && toHead.equals(fromHead))) {
+            return;
+        }
+        try (ObjectReader reader = repository.newObjectReader();
+             RevWalk walk = new RevWalk(repository);
+             DiffFormatter formatter = new DiffFormatter(DisabledOutputStream.INSTANCE)) {
+            formatter.setRepository(repository);
+            final List<DiffEntry> entries;
+            if (fromHead == null) {
+                final CanonicalTreeParser newTree = new CanonicalTreeParser();
+                newTree.reset(reader, walk.parseCommit(toHead).getTree());
+                entries = formatter.scan(new EmptyTreeIterator(), newTree);
+            } else {
+                final CanonicalTreeParser oldTree = new CanonicalTreeParser();
+                oldTree.reset(reader, walk.parseCommit(fromHead).getTree());
+                final CanonicalTreeParser newTree = new CanonicalTreeParser();
+                newTree.reset(reader, walk.parseCommit(toHead).getTree());
+                entries = formatter.scan(oldTree, newTree);
+            }
+            for (DiffEntry entry : entries) {
+                addPath(out, entry.getNewPath());
+                addPath(out, entry.getOldPath());
+            }
+        }
+    }
+
+    private static void addPath(final List<String> out, @Nullable final String path) {
+        if (path != null && !DiffEntry.DEV_NULL.equals(path) && !out.contains(path)) {
+            out.add(path);
+        }
     }
 
     public boolean commitNow() throws IOException {
