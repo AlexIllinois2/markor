@@ -171,16 +171,6 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
         return value == null || value.trim().isEmpty() ? fallback : value.trim();
     }
 
-    /** markers=留冲突标记由用户改；union/ours/theirs=自动取舍；未知值按 markers 处理 */
-    public String getGitConflictStrategy() {
-        final String value = getString(R.string.pref_key__git_conflict_strategy, "markers");
-        return GitRepo.CONFLICT_STRATEGIES.contains(value) ? value : "markers";
-    }
-
-    public void setGitConflictStrategy(final String strategy) {
-        setString(R.string.pref_key__git_conflict_strategy, strategy);
-    }
-
     public String getGitUsername() {
         return getString(R.string.pref_key__git_username, "");
     }
@@ -253,15 +243,6 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
 
     public String getGitLastSyncInfo() {
         return getString(R.string.pref_key__git_last_sync_info, "");
-    }
-
-    /** 用户放弃过一次合并：暂停自动同步，直到手动同步成功（避免每次定时都撞同一处冲突） */
-    public boolean isGitAutoSyncPaused() {
-        return getBool(R.string.pref_key__git_sync_paused, false);
-    }
-
-    public void setGitAutoSyncPaused(final boolean paused) {
-        setBool(R.string.pref_key__git_sync_paused, paused);
     }
 
     public File getQuickNoteFile() {

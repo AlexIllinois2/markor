@@ -168,16 +168,4 @@
         <item translatable="false">10</item>
         <item translatable="false">30</item>
     </string-array>
-    <string-array name="pref_arrdisp__git_conflict_strategy" translatable="false">
-        <item translatable="false">@string/git_conflict_strategy_markers</item>
-        <item translatable="false">@string/git_conflict_strategy_union</item>
-        <item translatable="false">@string/git_conflict_strategy_ours</item>
-        <item translatable="false">@string/git_conflict_strategy_theirs</item>
-    </string-array>
-    <string-array name="pref_arrkeys__git_conflict_strategy" translatable="false">
-        <item translatable="false">markers</item>
-        <item translatable="false">union</item>
-        <item translatable="false">ours</item>
-        <item translatable="false">theirs</item>
-    </string-array>
 </resources>

@@ -64,14 +64,6 @@
                 android:key="@string/pref_key__git_commit_message"
                 android:summary="@string/git_commit_message_summary"
                 android:title="@string/git_commit_message" />
-            <ListPreference
-                android:defaultValue="markers"
-                android:dialogTitle="@string/git_conflict_strategy"
-                android:entries="@array/pref_arrdisp__git_conflict_strategy"
-                android:entryValues="@array/pref_arrkeys__git_conflict_strategy"
-                android:key="@string/pref_key__git_conflict_strategy"
-                android:summary="%1$s"
-                android:title="@string/git_conflict_strategy" />
 
             <PreferenceCategory android:title="@string/git_commit_author">
                 <androidx.preference.EditTextPreference

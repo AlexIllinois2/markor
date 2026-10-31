@@ -544,7 +544,6 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_committed">Local changes committed</string>
     <string name="git_nothing_to_sync">Nothing to sync</string>
     <string name="git_sync_failed">Git sync failed: %1$s</string>
-    <string name="git_sync_paused">Auto-sync paused after the merge was discarded. Sync once manually to resume.</string>
     <string name="git_sync_busy">Another Git operation is still running. Try again in a moment.</string>
     <string name="git_author_missing">Commit author is not set. Git does not fail on this, but your commits are recorded with a placeholder identity. Open Settings → Git → Commit author and enter your name and e-mail.</string>
     <string name="git_author_not_set">Not set — a placeholder identity is used</string>
@@ -571,20 +570,5 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_ssh_key_summary">Select an OpenSSH private key for public key authentication. When port 22 is blocked, use ssh://git@ssh.github.com:443/user/repo.git as the GitHub clone URL.</string>
     <string name="git_ssh_passphrase">SSH key passphrase</string>
     <string name="git_ssh_passphrase_summary">Leave empty if the key has no passphrase. Stored in the Android keystore.</string>
-    <string name="git_conflict_strategy">Conflict handling</string>
-    <string name="git_conflict_strategy_markers">Keep conflict markers (resolve myself)</string>
-    <string name="git_conflict_strategy_union">Keep both sides</string>
-    <string name="git_conflict_strategy_ours">Keep my version</string>
-    <string name="git_conflict_strategy_theirs">Keep remote version</string>
-    <string name="git_conflict_title">Merge conflicts</string>
-    <string name="git_conflict_message">Git could not merge these files:</string>
-    <string name="git_conflict_previous_unresolved">Unresolved conflicts from an earlier session.</string>
-    <string name="git_conflict_marker_hint">Standard conflict markers were written into the files. Open a file, edit it and save to resolve.</string>
-    <string name="git_conflict_keep_union">Keep both</string>
-    <string name="git_conflict_keep_ours">Keep mine</string>
-    <string name="git_conflict_keep_theirs">Keep remote</string>
-    <string name="git_conflict_open_files">Open conflict files</string>
-    <string name="git_conflict_abort">Discard this merge</string>
-    <string name="git_conflict_resolved">Conflicts resolved</string>
-    <string name="git_aborted_merge">Merge discarded</string>
+    <string name="git_conflicts_preserved">Merge conflicts kept as-is</string>
 </resources>

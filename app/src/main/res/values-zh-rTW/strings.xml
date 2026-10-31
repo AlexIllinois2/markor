@@ -466,7 +466,6 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_committed">已提交本地變更</string>
     <string name="git_nothing_to_sync">沒有需要同步的內容</string>
     <string name="git_sync_failed">Git 同步失敗：%1$s</string>
-    <string name="git_sync_paused">已放棄本次合併，自動同步暫停；手動同步一次後恢復</string>
     <string name="git_auto_sync_interval">自動同步間隔</string>
     <string name="git_interval_off">關閉</string>
     <string name="git_interval_1m">1 分鐘</string>
@@ -486,20 +485,5 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_access_token">存取權杖</string>
     <string name="git_access_token_summary">存放在 Android Keystore 中。推送需要它；公開倉庫不填也能克隆和拉取</string>
     <string name="git_secure_storage_unavailable">儲存存取權杖需要 Android 6.0 及以上</string>
-    <string name="git_conflict_strategy">衝突處理</string>
-    <string name="git_conflict_strategy_markers">保留衝突標記（自行修改）</string>
-    <string name="git_conflict_strategy_union">雙方都保留</string>
-    <string name="git_conflict_strategy_ours">保留本地版本</string>
-    <string name="git_conflict_strategy_theirs">保留遠端版本</string>
-    <string name="git_conflict_title">合併衝突</string>
-    <string name="git_conflict_message">Git 無法合併這些檔案：</string>
-    <string name="git_conflict_previous_unresolved">上次遺留的未解決衝突。</string>
-    <string name="git_conflict_marker_hint">檔案內已寫入標準衝突標記，開啟編輯並儲存即可解決</string>
-    <string name="git_conflict_keep_union">保留雙方</string>
-    <string name="git_conflict_keep_ours">保留我的</string>
-    <string name="git_conflict_keep_theirs">保留遠端</string>
-    <string name="git_conflict_open_files">開啟衝突檔案</string>
-    <string name="git_conflict_abort">放棄本次合併</string>
-    <string name="git_conflict_resolved">衝突已解決</string>
-    <string name="git_aborted_merge">已放棄本次合併</string>
+    <string name="git_conflicts_preserved">衝突內容原樣保留</string>
 </resources>

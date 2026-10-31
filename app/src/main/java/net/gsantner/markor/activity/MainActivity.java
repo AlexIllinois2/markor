@@ -66,7 +66,6 @@ import net.gsantner.opoc.util.GsFileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import other.writeily.widget.WrMarkorWidgetProvider;
@@ -1117,11 +1116,6 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
     public void onGitMessage(final String message, final boolean isError) {
         Toast.makeText(this, isError ? getString(R.string.git_sync_failed, message) : message,
                 Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onGitConflict(final List<String> paths, final String stage) {
-        MarkorDialogFactory.showGitConflictDialog(this, paths, stage);
     }
 
     @Override

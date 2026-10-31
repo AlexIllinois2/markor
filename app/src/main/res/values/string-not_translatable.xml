@@ -463,9 +463,7 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="pref_key__git_ssh_key_path" translatable="false">pref_key__git_ssh_key_path</string>
     <string name="pref_key__git_ssh_passphrase" translatable="false">pref_key__git_ssh_passphrase</string>
     <string name="pref_key__git_remote_name" translatable="false">pref_key__git_remote_name</string>
-    <string name="pref_key__git_conflict_strategy" translatable="false">pref_key__git_conflict_strategy</string>
     <string name="pref_key__git_last_sync_info" translatable="false">pref_key__git_last_sync_info</string>
-    <string name="pref_key__git_sync_paused" translatable="false">pref_key__git_sync_paused</string>
     <string name="pref_key__git_clone" translatable="false">pref_key__git_clone</string>
     <string name="pref_key__git_sync_now" translatable="false">pref_key__git_sync_now</string>
     <string name="pref_key__git_pull" translatable="false">pref_key__git_pull</string>

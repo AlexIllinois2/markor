@@ -523,7 +523,6 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_committed">已提交本地改动</string>
     <string name="git_nothing_to_sync">没有需要同步的内容</string>
     <string name="git_sync_failed">Git 同步失败：%1$s</string>
-    <string name="git_sync_paused">已放弃本次合并，自动同步暂停；手动同步一次后恢复</string>
     <string name="git_auto_sync_interval">自动同步间隔</string>
     <string name="git_interval_off">关闭</string>
     <string name="git_interval_1m">1 分钟</string>
@@ -550,20 +549,5 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="git_ssh_key_summary">选择 OpenSSH 私钥文件，用公钥认证。22 端口不通时，GitHub 仓库地址用 ssh://git@ssh.github.com:443/user/repo.git</string>
     <string name="git_ssh_passphrase">SSH 私钥口令</string>
     <string name="git_ssh_passphrase_summary">私钥没设口令就留空。存放在 Android Keystore 中</string>
-    <string name="git_conflict_strategy">冲突处理</string>
-    <string name="git_conflict_strategy_markers">保留冲突标记（自己改）</string>
-    <string name="git_conflict_strategy_union">双方都保留</string>
-    <string name="git_conflict_strategy_ours">保留本地版本</string>
-    <string name="git_conflict_strategy_theirs">保留远端版本</string>
-    <string name="git_conflict_title">合并冲突</string>
-    <string name="git_conflict_message">Git 无法合并这些文件：</string>
-    <string name="git_conflict_previous_unresolved">上次遗留的未解决冲突。</string>
-    <string name="git_conflict_marker_hint">文件里已写入标准冲突标记，打开编辑并保存即可解决</string>
-    <string name="git_conflict_keep_union">保留双方</string>
-    <string name="git_conflict_keep_ours">保留我的</string>
-    <string name="git_conflict_keep_theirs">保留远端</string>
-    <string name="git_conflict_open_files">打开冲突文件</string>
-    <string name="git_conflict_abort">放弃本次合并</string>
-    <string name="git_conflict_resolved">冲突已解决</string>
-    <string name="git_aborted_merge">已放弃本次合并</string>
+    <string name="git_conflicts_preserved">冲突内容原样保留</string>
 </resources>

@@ -41,8 +41,6 @@ public final class GitNotebook {
 
     public interface Ui {
         void onGitMessage(String message, boolean isError);
-
-        void onGitConflict(List<String> paths, String stage);
     }
 
     private interface Task {
@@ -169,8 +167,8 @@ public final class GitNotebook {
     }
 
     /**
-     * 打开笔记本时：遗留冲突先报给界面，没有冲突才拉一次远端。
-     * 离线或没有凭据时这里静默失败，不打断读笔记。
+     * 打开笔记本时拉一次远端。冲突按同步规则原样保留并提交，不弹提示、不打断读笔记。
+     * 离线或没有凭据时这里静默失败。
      */
     public static void onNotebookOpened(final Context context) {
         final AppSettings settings = AppSettings.get(context);
@@ -181,16 +179,9 @@ public final class GitNotebook {
         startTimer(context);
         // 走 requestSync 同一条串行路径，免得和编辑后防抖的同步撞 index.lock
         run(settings, (repo, appSettings) -> {
-            final GitRepo.Info info = repo.status();
-            if (!info.conflicts.isEmpty()) {
-                postConflict(info.conflicts, "unresolved");
-                return;
-            }
             final GitRepo.SyncResult result = repo.pullOnly();
-            if (result.conflict) {
-                postConflict(result.conflicts, result.stage);
-            } else if (result.pulled) {
-                appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            appSettings.setGitLastSyncInfo(summarize(appSettings, result));
+            if (result.pulled) {
                 postMessage(context.getString(R.string.git_pulled), false);
             }
         }, null);
@@ -198,7 +189,7 @@ public final class GitNotebook {
 
     /**
      * 冷启动时立刻拉一次远端，不等界面出现（从编辑器 / 通知 / 小组件进来时 MainActivity 可能一直不在前台）。
-     * 成败只写进「最近同步」；冲突留给 onNotebookOpened，界面在时再弹对话框。
+     * 成败只写进「最近同步」；冲突按同步规则原样保留并提交，不弹提示。
      */
     public static void onAppStarted(final Context context) {
         final AppSettings settings = AppSettings.get(context);
@@ -217,20 +208,10 @@ public final class GitNotebook {
         if (!manual && !settings.isGitSyncEnabled()) {
             return;
         }
-        // 用户放弃过一次合并：自动触发不再撞同一处冲突，手动一次才解除
-        if (settings.isGitAutoSyncPaused() && !manual) {
-            return;
-        }
         warnIfAuthorMissing(settings);
         run(settings, (repo, appSettings) -> {
+            // 冲突不在这里处理：sync 内部原样保留冲突内容后继续 commit+push
             final GitRepo.SyncResult result = repo.sync();
-            if (result.conflict) {
-                postConflict(result.conflicts, result.stage);
-                return;
-            }
-            if (manual) {
-                appSettings.setGitAutoSyncPaused(false);
-            }
             appSettings.setGitLastSyncInfo(summarize(appSettings, result));
             if (!silent) {
                 postMessage(summarize(appSettings, result), false);
@@ -243,19 +224,14 @@ public final class GitNotebook {
         remember(context);
         run(settings, (repo, appSettings) -> {
             final GitRepo.SyncResult result = repo.pullOnly();
-            if (result.conflict) {
-                postConflict(result.conflicts, result.stage);
-                return;
-            }
+            appSettings.setGitLastSyncInfo(summarize(appSettings, result));
             postMessage(context.getString(result.pulled ? R.string.git_pulled : R.string.git_nothing_to_sync), false);
         }, errorPoster());
     }
 
+    /** 手动推送同样走安全顺序：commit 本地 → fetch → merge → push */
     public static void requestPush(final Context context) {
-        final AppSettings settings = AppSettings.get(context);
-        remember(context);
-        run(settings, (repo, appSettings) -> postMessage(context.getString(
-                repo.pushCurrent() ? R.string.git_pushed : R.string.git_nothing_to_sync), false), errorPoster());
+        requestSync(context, true, false);
     }
 
     public static void requestCommit(final Context context) {
@@ -281,29 +257,6 @@ public final class GitNotebook {
             callback.callback(context.getString(R.string.git_status_info, branch, info.ahead,
                     info.behind, info.uncommitted, info.conflicts.size())
                     + (remote.isEmpty() ? "" : "\n" + remote));
-        }, errorPoster());
-    }
-
-    public static void requestAbortMerge(final Context context) {
-        run(AppSettings.get(context), (repo, settings) -> {
-            repo.abortMerge();
-            // 放弃合并后暂停自动同步，否则每次定时都会撞回同一处冲突
-            settings.setGitAutoSyncPaused(true);
-            postMessage(context.getString(R.string.git_aborted_merge) + "\n"
-                    + context.getString(R.string.git_sync_paused), true);
-        }, errorPoster());
-    }
-
-    public static void requestResolveConflicts(final Context context, final String strategy) {
-        run(AppSettings.get(context), (repo, settings) -> {
-            final List<String> conflicts = new ArrayList<>(repo.status().conflicts);
-            repo.resolveConflicts(strategy, conflicts);
-            if (repo.completeMergeIfResolved()) {
-                repo.pushCurrent();
-                postMessage(context.getString(R.string.git_conflict_resolved), false);
-            } else {
-                postMessage(context.getString(R.string.git_conflict_message), true);
-            }
         }, errorPoster());
     }
 
@@ -389,9 +342,6 @@ public final class GitNotebook {
             }
             final GitRepo.SyncResult result = repo.sync();
             settings.setGitLastSyncInfo(summarize(settings, result));
-            if (result.conflict) {
-                postConflict(result.conflicts, result.stage);
-            }
             return true;
         } finally {
             BUSY.set(false);
@@ -434,8 +384,8 @@ public final class GitNotebook {
         if (result.pulled) {
             parts.add(settings.getContext().getString(R.string.git_pulled));
         }
-        if (result.resolved) {
-            parts.add(settings.getContext().getString(R.string.git_conflict_resolved));
+        if (result.conflict) {
+            parts.add(settings.getContext().getString(R.string.git_conflicts_preserved));
         }
         if (result.pushed) {
             parts.add(settings.getContext().getString(R.string.git_pushed));
@@ -468,22 +418,6 @@ public final class GitNotebook {
             if (context != null) {
                 Toast.makeText(context, isError ? context.getString(R.string.git_sync_failed, text) : text,
                         Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private static void postConflict(final List<String> paths, @Nullable final String stage) {
-        final List<String> copy = new ArrayList<>(paths);
-        MAIN.post(() -> {
-            final Ui ui = _uiRef == null ? null : _uiRef.get();
-            if (ui != null) {
-                ui.onGitConflict(copy, stage == null ? "merge" : stage);
-                return;
-            }
-            final Context context = _appContext;
-            if (context != null) {
-                Toast.makeText(context, context.getString(R.string.git_conflict_message) + "\n"
-                        + TextUtils.join("\n", copy), Toast.LENGTH_LONG).show();
             }
         });
     }
