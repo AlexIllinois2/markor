@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.Window;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -130,11 +131,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
 
     /** 远端更新提示：常驻，只能点「刷新」消失 */
     private Snackbar _remoteUpdateBar;
-    private final GitNotebook.RemoteUpdateListener _remoteUpdateListener = () -> {
-        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
-            showRemoteUpdateBar();
-        }
-    };
+    private final GitNotebook.RemoteUpdateListener _remoteUpdateListener = this::handleRemoteUpdate;
 
     public DocumentEditAndViewFragment() {
         super();
@@ -339,9 +336,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
             _editTextUndoRedoHelper.setTextView(_hlEditor);
         }
         GitNotebook.attachRemoteUpdateListener(_remoteUpdateListener);
-        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
-            showRemoteUpdateBar();
-        }
+        handleRemoteUpdate();
         super.onResume();
     }
 
@@ -538,6 +533,37 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
                 Toast.makeText(getActivity(), "✔", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /** 远端更新了当前文件：用户没在编辑（输入法没弹出）就静默重载，正在编辑才弹刷新提示，免得打断输入 */
+    private void handleRemoteUpdate() {
+        if (_document == null || _hlEditor == null || !GitNotebook.hasRemoteUpdate(_document.file)) {
+            return;
+        }
+        if (!isUserEditing()) {
+            hideRemoteUpdateBar();
+            GitNotebook.clearRemoteUpdate(_document.file);
+            _document.resetChangeTracking();
+            loadDocument();
+            return;
+        }
+        showRemoteUpdateBar();
+    }
+
+    /** 用户是否正处在编辑状态：以输入法是否弹出为准 */
+    private boolean isUserEditing() {
+        final Boolean imeOpen = TextViewUtils.isImeOpen(_hlEditor);
+        if (imeOpen != null) {
+            return imeOpen;
+        }
+        // Android 11 以下拿不到 IME 可见性：底部 inset 明显超过导航栏高度时视为键盘已弹出
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            final WindowInsets insets = _hlEditor.getRootWindowInsets();
+            if (insets != null) {
+                return insets.getSystemWindowInsetBottom() > 100 * getResources().getDisplayMetrics().density;
+            }
+        }
+        return false;
     }
 
     /** 远端把这个文件改了：悬浮提示常驻，不自动消失、不能滑动关掉，只有「刷新」能关 */
