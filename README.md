@@ -123,13 +123,17 @@ There is no dedicated view mode implemented.
 ### Git 笔记同步（新增功能）
 基于 JGit 的笔记目录自动同步：
 * **保存即提交**：文件保存后立刻 commit；拉取/推送走 3 秒防抖，冷启动时自动拉取一次。
-* **设置 → Git**：同步开关、提交作者名/邮箱。未配置作者时以占位身份提交并一次性提醒，不阻断同步。
+* **设置 → Git**：同步开关、提交作者名/邮箱、自动同步间隔、提交信息模板，以及 HTTPS 访问令牌 / SSH 私钥认证。未配置作者时以占位身份提交并一次性提醒，不阻断同步。
+* **克隆简化**：克隆时只填 `user/repo`，自动拼成 `ssh://git@ssh.github.com:443/user/repo.git`（22 端口被墙也能用）；也接受完整的 `https://`、`ssh://` 和 `git@host:path` 地址。
+* **冲突不覆盖远端**：合并遇到冲突时把冲突标记内容原样提交，不做 ours/theirs 选边，也不会用本地覆盖远端；冲突状态在同步完成后明确提示。
+* **远端更新刷新提示**：拉取/合并带进工作区的文件会被记住，编辑页显示常驻刷新提示（只有点「刷新」才消失）。用户没在编辑（输入法未弹出）时改为静默重载，不打断阅读或输入；Android 11 以下以底部 inset 判断键盘是否弹出。
 * **静默失败修复**：无界面挂载时用 Toast 兜底提示；非自动操作在「不是 git 仓库」「上次操作还在执行」时明确报错。
-* 主要代码：[model/git/](app/src/main/java/net/gsantner/markor/model/git/)（GitNotebook、GitSyncJob），并接入 ApplicationObject、MainActivity、Document、GsFileBrowserFragment、MarkorDialogFactory、SettingsActivity；新增字符串已同步中英文。
+* 主要代码：[model/git/](app/src/main/java/net/gsantner/markor/model/git/)（GitNotebook、GitRepo、GitSyncJob），并接入 ApplicationObject、MainActivity、Document、GsFileBrowserFragment、MarkorDialogFactory、SettingsActivity；新增字符串已同步中英文。
 * 依赖：`org.eclipse.jgit:5.13.3` + `com.github.mwiede:jsch:0.2.21`（SSH 公钥认证）。
 
-### Release 签名
+### Release 签名与 CI
 * [app/build.gradle](app/build.gradle) 增加 `signingConfigs.release`，从 `keystore.properties` 读取；该文件缺失时保持原有不签名行为。`markor-release.jks` 与 `keystore.properties` 均已加入 `.gitignore`。
+* [release.yml](.github/workflows/release.yml)：推送 `v*` 标签时由 CI 用标准 Android debug key 生成 `keystore.properties` 完成签名，构建后通过 `apksigner verify` 校验，产物可直接安装覆盖升级。
 
 ### 构建与打包修复
 * 根 [build.gradle](build.gradle)：`maven.google.com` 在部分网络下 TCP 挂死，替换为官方现行地址 `dl.google.com/dl/android/maven2/`。
