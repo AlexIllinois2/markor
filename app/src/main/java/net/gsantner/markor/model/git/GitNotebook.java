@@ -163,10 +163,10 @@ public final class GitNotebook {
     }
 
     /**
-     * 保存当前编辑内容 → 提交 → 再拉取合并，最后回主线程让编辑页重新载入文件。
-     * 和普通同步分开排队：等正在跑的同步先结束，避免两个任务同时碰 index.lock。
+     * 刷新前只做本地提交，不联网：远端更新早已在触发通知的那次拉取里合并进工作区，
+     * 直接重载磁盘内容即可，省掉一次 fetch 的往返。和普通同步分开排队：等正在跑的同步先结束，避免两个任务同时碰 index.lock。
      */
-    public static void requestRefresh(final Context context, @Nullable final Runnable onDone) {
+    public static void requestCommitOnly(final Context context, @Nullable final Runnable onDone) {
         final AppSettings settings = AppSettings.get(context);
         remember(context);
         if (settings.getGitRepositoryDirectory() == null) {
@@ -189,9 +189,6 @@ public final class GitNotebook {
                 final GitRepo repo = openRepo(settings);
                 if (repo != null) {
                     repo.commitNow();
-                    final GitRepo.SyncResult result = repo.pullOnly();
-                    settings.setGitLastSyncInfo(summarize(settings, result));
-                    notifyRemoteUpdates(repo.getWorkTree(), result.remoteUpdatedFiles);
                 }
             } catch (Exception e) {
                 settings.setGitLastSyncInfo(shortText(e));

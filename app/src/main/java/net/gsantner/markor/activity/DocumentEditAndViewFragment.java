@@ -31,7 +31,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.Window;
-import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -131,7 +130,11 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
 
     /** 远端更新提示：常驻，只能点「刷新」消失 */
     private Snackbar _remoteUpdateBar;
-    private final GitNotebook.RemoteUpdateListener _remoteUpdateListener = this::handleRemoteUpdate;
+    private final GitNotebook.RemoteUpdateListener _remoteUpdateListener = () -> {
+        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
+            showRemoteUpdateBar();
+        }
+    };
 
     public DocumentEditAndViewFragment() {
         super();
@@ -336,7 +339,9 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
             _editTextUndoRedoHelper.setTextView(_hlEditor);
         }
         GitNotebook.attachRemoteUpdateListener(_remoteUpdateListener);
-        handleRemoteUpdate();
+        if (_document != null && GitNotebook.hasRemoteUpdate(_document.file)) {
+            showRemoteUpdateBar();
+        }
         super.onResume();
     }
 
@@ -535,37 +540,6 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
         }
     }
 
-    /** 远端更新了当前文件：用户没在编辑（输入法没弹出）就静默重载，正在编辑才弹刷新提示，免得打断输入 */
-    private void handleRemoteUpdate() {
-        if (_document == null || _hlEditor == null || !GitNotebook.hasRemoteUpdate(_document.file)) {
-            return;
-        }
-        if (!isUserEditing()) {
-            hideRemoteUpdateBar();
-            GitNotebook.clearRemoteUpdate(_document.file);
-            _document.resetChangeTracking();
-            loadDocument();
-            return;
-        }
-        showRemoteUpdateBar();
-    }
-
-    /** 用户是否正处在编辑状态：以输入法是否弹出为准 */
-    private boolean isUserEditing() {
-        final Boolean imeOpen = TextViewUtils.isImeOpen(_hlEditor);
-        if (imeOpen != null) {
-            return imeOpen;
-        }
-        // Android 11 以下拿不到 IME 可见性：底部 inset 明显超过导航栏高度时视为键盘已弹出
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            final WindowInsets insets = _hlEditor.getRootWindowInsets();
-            if (insets != null) {
-                return insets.getSystemWindowInsetBottom() > 100 * getResources().getDisplayMetrics().density;
-            }
-        }
-        return false;
-    }
-
     /** 远端把这个文件改了：悬浮提示常驻，不自动消失、不能滑动关掉，只有「刷新」能关 */
     private void showRemoteUpdateBar() {
         final View view = getView();
@@ -610,8 +584,8 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
     }
 
     /**
-     * 点「刷新」：有未保存修改就先保存（提交），再拉取合并，最后从磁盘重新载入。
-     * 顺序很重要——先保存才不会让编辑缓冲区盖掉刚合并进来的远端内容。
+     * 点「刷新」：有未保存修改就先保存并本地提交（不联网），然后直接从磁盘重载。
+     * 远端内容在触发通知的那次拉取里已合并进工作区，这里不再二次 fetch，避免几秒的网络等待。
      */
     private void refreshFromRemote() {
         final File file = _document == null ? null : _document.file;
@@ -623,7 +597,7 @@ public class DocumentEditAndViewFragment extends MarkorBaseFragment implements F
             showRemoteUpdateBar();
             return;
         }
-        GitNotebook.requestRefresh(getContext(), () -> {
+        GitNotebook.requestCommitOnly(getContext(), () -> {
             GitNotebook.clearRemoteUpdate(file);
             if (_document != null) {
                 _document.resetChangeTracking();
