@@ -1,5 +1,5 @@
 ##############################################################################################################################
-# Release: build an unsigned release APK and attach it to a GitHub Release
+# Release: build a debug-signed release APK and attach it to a GitHub Release
 # Triggered by pushing a tag starting with "v" (e.g. v1.2.3)
 ##############################################################################################################################
 
@@ -33,8 +33,15 @@ jobs:
     - name: "Setup: Gradle"
       uses: gradle/actions/setup-gradle@v5
 
-    - name: "Build: Unsigned Release Apk"
-      # No keystore.properties on CI -> signingConfig is not applied, so the APK stays unsigned
+    - name: "Setup: Debug Signing"
+      # .github/keystore/debug.keystore.b64 是标准 Android debug key（口令 android、别名 androiddebugkey），非机密；
+      # 生成 keystore.properties 后 app/build.gradle 的 release signingConfig 生效，产物直接是 debug 签名
+      run: |
+        base64 -d .github/keystore/debug.keystore.b64 > "$RUNNER_TEMP/debug.keystore"
+        printf 'storeFile=%s\nstorePassword=android\nkeyAlias=androiddebugkey\nkeyPassword=android\n' \
+          "$RUNNER_TEMP/debug.keystore" > keystore.properties
+
+    - name: "Build: Release Apk"
       # flavorDefault = 正式应用变体（flavorAtest 是测试变体，applicationId 带 _test 后缀）
       run: |
         chmod +x gradlew
@@ -44,6 +51,11 @@ jobs:
       run: |
         mkdir -p apk
         find app/build/outputs/apk -type f -name '*.apk' -exec cp -f {} apk/ \;
+
+    - name: "Verify: APK Signing"
+      run: |
+        APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)
+        for f in apk/*.apk; do "$APKSIGNER" verify --print-certs "$f"; done
 
     - name: "Artifacts: Android APK"
       uses: actions/upload-artifact@v4
