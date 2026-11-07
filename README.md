@@ -4,6 +4,7 @@
 [![Community Discussion](https://img.shields.io/badge/chat-community-blue.svg)](https://github.com/gsantner/markor/discussions)
 [![GitHub CI](https://github.com/gsantner/markor/workflows/CI/badge.svg)](https://github.com/gsantner/markor/actions)
 
+**English | [简体中文](README.zh-CN.md)**
 
 # Markor
 <img src="/app/src/main/ic_launcher-web.png" align="left" width="128" hspace="10" vspace="10">
@@ -18,6 +19,9 @@ Markor utilizes simple markup formats like Markdown and todo.txt for note-taking
 It is versatile at working with text; it can also be used for keeping bookmarks, copying to clipboard, fast opening a link from text and lots more.
 Created files are interoperable with any other plaintext software on any platform.
 Markor is openly developed free software that accepts community contributions.
+
+> **This repository is a personal fork** based on upstream Markor v2.16.1, adding built-in Git notebook synchronization, release signing and build fixes.
+> See [Local modifications](#本地修改--local-modifications) for details, and [README.zh-CN.md](README.zh-CN.md) for the Chinese version.
 
 ![Screenshots](https://raw.githubusercontent.com/gsantner/markor/master/metadata/en-US/phoneScreenshots/99-123.jpg)  
 ![Screenshots](https://raw.githubusercontent.com/gsantner/markor/master/metadata/en-US/phoneScreenshots/99-456.jpg)  
