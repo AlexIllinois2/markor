@@ -48,6 +48,24 @@ jobs:
           .gradle
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.*') }}
 
+    - name: "Setup: Gradle Wrapper (retry on transient download failure)"
+      # services.gradle.org 会 302 到 github.com/gradle/gradle-distributions，
+      # 偶发 504 会让 ./gradlew 在下载分发包这一步直接失败；先预热并重试几次
+      shell: bash
+      run: |
+        chmod +x gradlew
+        for attempt in 1 2 3 4 5; do
+          if ./gradlew --version > /dev/null 2>&1; then
+            echo "Gradle wrapper ready (attempt $attempt)"
+            exit 0
+          fi
+          delay=$((attempt * 10))
+          echo "::warning::Gradle wrapper bootstrap failed on attempt $attempt, retrying in ${delay}s"
+          sleep "$delay"
+        done
+        echo "::error::Gradle wrapper bootstrap failed after 5 attempts"
+        exit 1
+
     - name: "Build: Project with make"
       run: make clean all
 
