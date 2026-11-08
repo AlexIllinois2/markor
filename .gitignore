@@ -73,6 +73,7 @@ hs_err_pid*
 # Built application files
 *.apk
 *.ap_
+*.apk.idsig
 
 # Files for the Dalvik VM
 *.dex

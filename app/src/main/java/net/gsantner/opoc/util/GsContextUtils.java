@@ -2568,7 +2568,8 @@ public class GsContextUtils {
                 focus.requestFocus();
                 ctrl.show(WindowInsetsCompat.Type.ime());
             } else {
-                focus.clearFocus();
+                // 只收键盘，不清焦点：clearFocus 会让编辑器结束选区 ActionMode，
+                // 表现为键盘一收选区就没了、悬浮工具栏也一起消失
                 ctrl.hide(WindowInsetsCompat.Type.ime());
             }
         }

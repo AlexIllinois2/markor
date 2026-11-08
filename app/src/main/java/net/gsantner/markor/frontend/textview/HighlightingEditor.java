@@ -82,6 +82,8 @@ public class HighlightingEditor extends AppCompatEditText {
     private GsCallback.r0<int[]> _getScrollCallback;
     private GsCallback.a2<Integer, Integer> _applyScrollCallback;
     private int[] _savedScrollPosition;
+    // 当前选区的 ActionMode（悬浮工具栏），滚动/布局变化时要让它重新跟随选区
+    private ActionMode _selectionActionMode;
 
     public HighlightingEditor(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -120,8 +122,14 @@ public class HighlightingEditor extends AppCompatEditText {
 
         // Listen to and update highlighting
         final ViewTreeObserver observer = getViewTreeObserver();
-        observer.addOnScrollChangedListener(this::updateHighlighting);
-        observer.addOnGlobalLayoutListener(this::updateHighlighting);
+        observer.addOnScrollChangedListener(() -> {
+            updateHighlighting();
+            invalidateSelectionActionMode();
+        });
+        observer.addOnGlobalLayoutListener(() -> {
+            updateHighlighting();
+            invalidateSelectionActionMode();
+        });
 
         // Fix for Android 12 perf issues - https://github.com/gsantner/markor/discussions/1794
         setEmojiCompatEnabled(false);
@@ -642,6 +650,7 @@ public class HighlightingEditor extends AppCompatEditText {
         setCustomSelectionActionModeCallback(new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                _selectionActionMode = mode;
                 // Add custom items programmatically
                 menu.add(0, R.string.option_select_lines, 0, "☰");
                 return true;
@@ -664,9 +673,22 @@ public class HighlightingEditor extends AppCompatEditText {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                // Cleanup if needed
+                if (_selectionActionMode == mode) {
+                    _selectionActionMode = null;
+                }
             }
         });
+    }
+
+    /**
+     * 选区在滚动、键盘弹收导致窗口尺寸变化后，让悬浮工具栏重新计算锚点，
+     * 否则工具栏会停在旧位置，甚至被系统判定为离开选区而消失。
+     */
+    private void invalidateSelectionActionMode() {
+        final ActionMode mode = _selectionActionMode;
+        if (mode != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mode.invalidateContentRect();
+        }
     }
 
     /**
