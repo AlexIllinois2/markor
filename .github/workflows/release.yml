@@ -19,19 +19,19 @@ jobs:
     steps:
 
     - name: "Checkout: Code"
-      uses: actions/checkout@v5
+      uses: actions/checkout@v7
       with:
         # root build.gradle reads git hash / last commit message at configuration time
         fetch-depth: 0
 
     - name: "Setup: Java"
-      uses: actions/setup-java@v5
+      uses: actions/setup-java@v6
       with:
         java-version: 21
         distribution: "temurin"
 
     - name: "Setup: Gradle"
-      uses: gradle/actions/setup-gradle@v5
+      uses: gradle/actions/setup-gradle@v6
 
     - name: "Setup: Gradle Wrapper (retry on transient download failure)"
       # services.gradle.org 会 302 到 github.com/gradle/gradle-distributions，
@@ -76,13 +76,13 @@ jobs:
         for f in apk/*.apk; do "$APKSIGNER" verify --print-certs "$f"; done
 
     - name: "Artifacts: Android APK"
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: "apk"
         path: apk/*.apk
 
     - name: "Release: Publish"
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         tag_name: ${{ github.ref_name }}
         name: ${{ github.ref_name }}
